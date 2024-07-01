@@ -50,6 +50,7 @@
             this.checkBox9 = new System.Windows.Forms.CheckBox();
             this.Vip5 = new Guna.UI2.WinForms.Guna2Button();
             this.checkBox10 = new System.Windows.Forms.CheckBox();
+            this.checkBox11 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // guna2BorderlessForm1
@@ -298,11 +299,22 @@
             this.checkBox10.Text = "checkBox1";
             this.checkBox10.UseVisualStyleBackColor = true;
             // 
+            // checkBox11
+            // 
+            this.checkBox11.AutoSize = true;
+            this.checkBox11.Location = new System.Drawing.Point(709, 453);
+            this.checkBox11.Name = "checkBox11";
+            this.checkBox11.Size = new System.Drawing.Size(95, 20);
+            this.checkBox11.TabIndex = 1;
+            this.checkBox11.Text = "checkBox1";
+            this.checkBox11.UseVisualStyleBackColor = true;
+            // 
             // QuanLyDatPhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1100, 550);
+            this.Controls.Add(this.checkBox11);
             this.Controls.Add(this.checkBox10);
             this.Controls.Add(this.checkBox9);
             this.Controls.Add(this.checkBox8);
@@ -354,5 +366,6 @@
         private Guna.UI2.WinForms.Guna2Button Thuong4;
         private Guna.UI2.WinForms.Guna2Button Thuong3;
         private Guna.UI2.WinForms.Guna2Button Thuong2;
+        private System.Windows.Forms.CheckBox checkBox11;
     }
 }
