@@ -118,17 +118,17 @@
     <Compile Include="ChucNang\SoLuong.Designer.cs">
       <DependentUpon>SoLuong.cs</DependentUpon>
     </Compile>
-    <Compile Include="ChucNang\ThongTinKH.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ChucNang\ThongTinKH.Designer.cs">
-      <DependentUpon>ThongTinKH.cs</DependentUpon>
-    </Compile>
     <Compile Include="ChucNang\ThanhToan.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ChucNang\ThanhToan.Designer.cs">
       <DependentUpon>ThanhToan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChucNang\ThongTinKH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChucNang\ThongTinKH.Designer.cs">
+      <DependentUpon>ThongTinKH.cs</DependentUpon>
     </Compile>
     <Compile Include="ChucNang\Voucher.cs">
       <SubType>Form</SubType>

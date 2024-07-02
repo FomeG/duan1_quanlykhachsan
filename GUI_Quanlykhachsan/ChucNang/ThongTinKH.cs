@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GUI_Quanlykhachsan.ChucNang.Test
+namespace GUI_Quanlykhachsan.ChucNang
 {
     public partial class ThongTinKH : Form
     {

@@ -1,4 +1,4 @@
-﻿namespace GUI_Quanlykhachsan.ChucNang.Test
+﻿namespace GUI_Quanlykhachsan.ChucNang
 {
     partial class ThongTinKH
     {
