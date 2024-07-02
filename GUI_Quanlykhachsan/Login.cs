@@ -59,9 +59,19 @@ namespace GUI_Quanlykhachsan
             }
         }
 
+
         private void button1_Click(object sender, EventArgs e)
         {
             Close();
+        }
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txttk_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

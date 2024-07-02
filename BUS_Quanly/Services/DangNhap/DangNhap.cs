@@ -34,6 +34,5 @@ namespace BUS_Quanly.Services.LoginLogout
             return DTODB.db.taikhoans.Find(tk).loaitk;
         }
 
-
     }
 }

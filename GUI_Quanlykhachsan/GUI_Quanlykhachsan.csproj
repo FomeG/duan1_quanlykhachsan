@@ -51,6 +51,7 @@
     <Reference Include="System.Design" />
     <Reference Include="System.Management" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -62,6 +63,43 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChucNang\ADMIN\TaiChinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChucNang\ADMIN\TaiChinh.Designer.cs">
+      <DependentUpon>TaiChinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChucNang\HoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChucNang\HoaDon.Designer.cs">
+      <DependentUpon>HoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChucNang\dangphattrien\HoaDonTEMP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChucNang\dangphattrien\HoaDonTEMP.Designer.cs">
+      <DependentUpon>HoaDonTEMP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChucNang\KhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChucNang\KhachHang.Designer.cs">
+      <DependentUpon>KhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChucNang\Tai_Khoan\CaiDat.cs" />
+    <Compile Include="ChucNang\Tai_Khoan\Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChucNang\Tai_Khoan\Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChucNang\Test\Log.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChucNang\Test\Log.Designer.cs">
+      <DependentUpon>Log.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChucNang\Qly_NhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,11 +112,29 @@
     <Compile Include="ChucNang\QuanLyDatPhong.Designer.cs">
       <DependentUpon>QuanLyDatPhong.cs</DependentUpon>
     </Compile>
-    <Compile Include="ChucNang\UserControl1.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="ChucNang\SoLuong.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChucNang\UserControl1.Designer.cs">
-      <DependentUpon>UserControl1.cs</DependentUpon>
+    <Compile Include="ChucNang\SoLuong.Designer.cs">
+      <DependentUpon>SoLuong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChucNang\ThanhToan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChucNang\ThanhToan.Designer.cs">
+      <DependentUpon>ThanhToan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChucNang\ThongTinKH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChucNang\ThongTinKH.Designer.cs">
+      <DependentUpon>ThongTinKH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChucNang\Voucher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChucNang\Voucher.Designer.cs">
+      <DependentUpon>Voucher.cs</DependentUpon>
     </Compile>
     <Compile Include="DuLieu.cs" />
     <Compile Include="Login.cs">
@@ -95,14 +151,32 @@
     <Compile Include="TrangChu.Designer.cs">
       <DependentUpon>TrangChu.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ChucNang\ADMIN\TaiChinh.resx">
+      <DependentUpon>TaiChinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChucNang\HoaDon.resx">
+      <DependentUpon>HoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChucNang\dangphattrien\HoaDonTEMP.resx">
+      <DependentUpon>HoaDonTEMP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChucNang\KhachHang.resx">
+      <DependentUpon>KhachHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChucNang\Qly_NhanVien.resx">
       <DependentUpon>Qly_NhanVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChucNang\QuanLyDatPhong.resx">
       <DependentUpon>QuanLyDatPhong.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChucNang\UserControl1.resx">
-      <DependentUpon>UserControl1.cs</DependentUpon>
+    <EmbeddedResource Include="ChucNang\SoLuong.resx">
+      <DependentUpon>SoLuong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChucNang\ThanhToan.resx">
+      <DependentUpon>ThanhToan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChucNang\ThongTinKH.resx">
+      <DependentUpon>ThongTinKH.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
