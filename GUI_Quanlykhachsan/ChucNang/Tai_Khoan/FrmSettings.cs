@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GUI_Quanlykhachsan.ChucNang.Tai_Khoan
 {
-    public partial class Settings : Form
+    public partial class FrmSettings : Form
     {
-        public Settings()
+        public FrmSettings()
         {
             InitializeComponent();
         }

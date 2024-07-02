@@ -88,11 +88,11 @@
       <DependentUpon>KhachHang.cs</DependentUpon>
     </Compile>
     <Compile Include="ChucNang\Tai_Khoan\CaiDat.cs" />
-    <Compile Include="ChucNang\Tai_Khoan\Settings.cs">
+    <Compile Include="ChucNang\Tai_Khoan\FrmSettings.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChucNang\Tai_Khoan\Settings.Designer.cs">
-      <DependentUpon>Settings.cs</DependentUpon>
+    <Compile Include="ChucNang\Tai_Khoan\FrmSettings.Designer.cs">
+      <DependentUpon>FrmSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="ChucNang\Test\Log.cs">
       <SubType>Form</SubType>
@@ -171,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ChucNang\SoLuong.resx">
       <DependentUpon>SoLuong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChucNang\Tai_Khoan\FrmSettings.resx">
+      <DependentUpon>FrmSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChucNang\ThanhToan.resx">
       <DependentUpon>ThanhToan.cs</DependentUpon>

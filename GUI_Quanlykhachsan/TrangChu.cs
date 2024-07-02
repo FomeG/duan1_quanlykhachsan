@@ -1,4 +1,6 @@
 ﻿using GUI_Quanlykhachsan.ChucNang;
+using GUI_Quanlykhachsan.ChucNang.ADMIN;
+using GUI_Quanlykhachsan.ChucNang.Tai_Khoan;
 using GUI_Quanlykhachsan.Properties;
 using System;
 using System.Windows.Forms;
@@ -22,7 +24,7 @@ namespace GUI_Quanlykhachsan
         {
             //nếu vai trò = 1 (admin) -> in label admin và ngược lại
             if (DuLieu.vaitro == 1) label1.Text = "Đây là admin";
-            else label1.Text = "Đây là nhân viên !";
+            else label1.Text = "Đây là nhân viên !    -    Nhân viên sẽ không sử dụng được quản lý nhân viên.";
             container.Controls.Clear();
         }
 
@@ -37,10 +39,16 @@ namespace GUI_Quanlykhachsan
                 e.Cancel = true;
             }
         }
-    
+        // Nút quản lý Nhân viên, khi ấn vào thì thay container = form quản lý Nhân viên
         private void guna2ContainerControl1_Click(object sender, EventArgs e)
         {
-
+            Qly_NhanVien ls = new Qly_NhanVien();
+            ls.FormBorderStyle = FormBorderStyle.None;
+            ls.TopLevel = false;
+            container.Controls.Clear();
+            container.Controls.Add(ls);
+            ls.Show();
+            ls.Dock = DockStyle.Fill;
         }
 
         private void guna2GradientButton2_Click(object sender, EventArgs e)
@@ -79,10 +87,53 @@ namespace GUI_Quanlykhachsan
             ls.Dock = DockStyle.Fill;
         }
 
-        // Nút mở form thông tin khách hàng
         private void guna2GradientPanel1_Paint(object sender, PaintEventArgs e)
         {
             
+        }
+
+        // Nút mở form thông tin khách hàng
+        private void guna2GradientButton3_Click(object sender, EventArgs e)
+        {
+            ThongTinKH ls = new ThongTinKH();
+            ls.FormBorderStyle = FormBorderStyle.None;
+            ls.TopLevel = false;
+            container.Controls.Clear();
+            container.Controls.Add(ls);
+            ls.Show();
+            ls.Dock = DockStyle.Fill;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        // Nút mở báo cáo tài chính
+        private void guna2GradientButton6_Click(object sender, EventArgs e)
+        {
+            TaiChinh ls = new TaiChinh();
+            ls.FormBorderStyle = FormBorderStyle.None;
+            ls.TopLevel = false;
+            container.Controls.Clear();
+            container.Controls.Add(ls);
+            ls.Show();
+            ls.Dock = DockStyle.Fill;
+        }
+
+
+
+        // Nút mở cài đặt
+        private void guna2GradientButton8_Click(object sender, EventArgs e)
+        {
+            FrmSettings ls = new FrmSettings();
+            ls.FormBorderStyle = FormBorderStyle.None;
+            ls.TopLevel = false;
+            container.Controls.Clear();
+            container.Controls.Add(ls);
+            ls.Show();
+            ls.Dock = DockStyle.Fill;
         }
     }
 }

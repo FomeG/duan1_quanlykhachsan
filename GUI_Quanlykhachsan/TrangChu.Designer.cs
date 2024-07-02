@@ -45,7 +45,6 @@
             this.BtnMinimize = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2GradientButton10 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.container.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2BorderlessForm1
@@ -68,21 +67,21 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(260, 62);
+            this.label1.Location = new System.Drawing.Point(262, 22);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "label1";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // container
             // 
             this.container.BackColor = System.Drawing.Color.Transparent;
             this.container.BorderColor = System.Drawing.Color.RosyBrown;
             this.container.BorderThickness = 1;
-            this.container.Controls.Add(this.label1);
             this.container.FillColor = System.Drawing.Color.Transparent;
-            this.container.ForeColor = System.Drawing.Color.Transparent;
+            this.container.ForeColor = System.Drawing.Color.Black;
             this.container.Location = new System.Drawing.Point(200, 50);
             this.container.Margin = new System.Windows.Forms.Padding(2);
             this.container.Name = "container";
@@ -140,6 +139,7 @@
             this.guna2GradientButton3.Size = new System.Drawing.Size(180, 45);
             this.guna2GradientButton3.TabIndex = 5;
             this.guna2GradientButton3.Text = "Khách hàng";
+            this.guna2GradientButton3.Click += new System.EventHandler(this.guna2GradientButton3_Click);
             // 
             // guna2GradientButton4
             // 
@@ -188,6 +188,7 @@
             this.guna2GradientButton6.Size = new System.Drawing.Size(180, 45);
             this.guna2GradientButton6.TabIndex = 8;
             this.guna2GradientButton6.Text = "Báo cáo tài chính";
+            this.guna2GradientButton6.Click += new System.EventHandler(this.guna2GradientButton6_Click);
             // 
             // guna2GradientButton7
             // 
@@ -221,6 +222,7 @@
             this.guna2GradientButton8.Size = new System.Drawing.Size(180, 45);
             this.guna2GradientButton8.TabIndex = 10;
             this.guna2GradientButton8.Text = "Cài đặt";
+            this.guna2GradientButton8.Click += new System.EventHandler(this.guna2GradientButton8_Click);
             // 
             // guna2GradientButton9
             // 
@@ -298,6 +300,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1036, 569);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.BtnMinimize);
             this.Controls.Add(this.guna2GradientButton10);
             this.Controls.Add(this.guna2GradientButton9);
@@ -318,9 +321,8 @@
             this.Text = "TrangChu";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TrangChu_FormClosing_1);
             this.Load += new System.EventHandler(this.TrangChu_Load);
-            this.container.ResumeLayout(false);
-            this.container.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
