@@ -39,8 +39,9 @@ namespace GUI_Quanlykhachsan
                 e.Cancel = true;
             }
         }
+
         // Nút quản lý Nhân viên, khi ấn vào thì thay container = form quản lý Nhân viên
-        private void guna2ContainerControl1_Click(object sender, EventArgs e)
+        private void guna2GradientButton2_Click(object sender, EventArgs e)
         {
             Qly_NhanVien ls = new Qly_NhanVien();
             ls.FormBorderStyle = FormBorderStyle.None;
@@ -49,11 +50,6 @@ namespace GUI_Quanlykhachsan
             container.Controls.Add(ls);
             ls.Show();
             ls.Dock = DockStyle.Fill;
-        }
-
-        private void guna2GradientButton2_Click(object sender, EventArgs e)
-        {
-
         }
 
         // Nút quản lý đặt phòng, khi ấn vào thì thay container = form quản lý đặt phòng

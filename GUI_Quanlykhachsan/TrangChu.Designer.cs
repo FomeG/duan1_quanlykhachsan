@@ -88,7 +88,6 @@
             this.container.Size = new System.Drawing.Size(825, 447);
             this.container.TabIndex = 2;
             this.container.Text = "guna2ContainerControl1";
-            this.container.Click += new System.EventHandler(this.guna2ContainerControl1_Click);
             // 
             // guna2GradientButton1
             // 
@@ -318,6 +317,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "TrangChu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TrangChu";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TrangChu_FormClosing_1);
             this.Load += new System.EventHandler(this.TrangChu_Load);

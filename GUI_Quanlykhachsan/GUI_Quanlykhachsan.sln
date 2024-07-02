@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.34928.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI_Quanlykhachsan", "GUI_Quanlykhachsan.csproj", "{407EAF65-0DEF-4829-ADD0-6214FDEFFB8F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI_Quanly", "GUI_Quanly.csproj", "{407EAF65-0DEF-4829-ADD0-6214FDEFFB8F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BUS_Quanly", "..\BUS_Quanly\BUS_Quanly.csproj", "{4401BA45-2D66-4860-B94B-6CBFA6D2AA27}"
 EndProject

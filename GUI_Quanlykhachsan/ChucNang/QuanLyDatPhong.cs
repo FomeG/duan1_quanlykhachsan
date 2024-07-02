@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,7 @@ namespace GUI_Quanlykhachsan.ChucNang
         public QuanLyDatPhong()
         {
             InitializeComponent();
+            thunghiem();
         }
 
         public void formdatphong()
@@ -23,57 +25,34 @@ namespace GUI_Quanlykhachsan.ChucNang
             SoLuong form = new SoLuong();
             form.Show();
         }
-
+        public void thunghiem()
+        {
+        }
 
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked == false) Thuong1.FillColor = SystemColors.MenuHighlight;
-            else
-            {
-                formdatphong();
-                Thuong1.FillColor = SystemColors.Window;
-            }
+            
         }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox2.Checked == false) Thuong2.FillColor = SystemColors.MenuHighlight;
-            else
-            {
-                formdatphong();
-                Thuong2.FillColor = SystemColors.Window;
-            }
+           
         }
 
         private void checkBox3_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox3.Checked == false) Thuong3.FillColor = SystemColors.MenuHighlight;
-            else
-            {
-                formdatphong();
-                Thuong3.FillColor = SystemColors.Window;
-            }
+           
         }
 
         private void checkBox4_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox4.Checked == false) Thuong4.FillColor = SystemColors.MenuHighlight;
-            else
-            {
-                formdatphong();
-                Thuong4.FillColor = SystemColors.Window;
-            }
+           
         }
 
         private void checkBox5_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox5.Checked == false) Thuong5.FillColor = SystemColors.MenuHighlight;
-            else
-            {
-                formdatphong();
-                Thuong5.FillColor = SystemColors.Window;
-            }
+           
         }
 
         private void QuanLyDatPhong_Load(object sender, EventArgs e)
