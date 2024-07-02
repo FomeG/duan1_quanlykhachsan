@@ -1,4 +1,4 @@
-﻿namespace GUI_Quanlykhachsan.ChucNang
+﻿namespace GUI_Quanlykhachsan.ChucNang.Test
 {
     partial class ThongTinKH
     {
@@ -83,8 +83,8 @@
             this.guna2GradientButton4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2GradientButton4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.guna2GradientButton4.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
-            this.guna2GradientButton4.Location = new System.Drawing.Point(681, 137);
-            this.guna2GradientButton4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2GradientButton4.Location = new System.Drawing.Point(681, 136);
+            this.guna2GradientButton4.Margin = new System.Windows.Forms.Padding(2);
             this.guna2GradientButton4.Name = "guna2GradientButton4";
             this.guna2GradientButton4.PressedColor = System.Drawing.Color.IndianRed;
             this.guna2GradientButton4.Size = new System.Drawing.Size(135, 37);
@@ -108,8 +108,8 @@
             this.guna2GradientButton3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2GradientButton3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.guna2GradientButton3.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
-            this.guna2GradientButton3.Location = new System.Drawing.Point(681, 96);
-            this.guna2GradientButton3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2GradientButton3.Location = new System.Drawing.Point(681, 95);
+            this.guna2GradientButton3.Margin = new System.Windows.Forms.Padding(2);
             this.guna2GradientButton3.Name = "guna2GradientButton3";
             this.guna2GradientButton3.PressedColor = System.Drawing.Color.IndianRed;
             this.guna2GradientButton3.Size = new System.Drawing.Size(135, 37);
@@ -133,8 +133,8 @@
             this.guna2GradientButton2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2GradientButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.guna2GradientButton2.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
-            this.guna2GradientButton2.Location = new System.Drawing.Point(681, 54);
-            this.guna2GradientButton2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2GradientButton2.Location = new System.Drawing.Point(681, 53);
+            this.guna2GradientButton2.Margin = new System.Windows.Forms.Padding(2);
             this.guna2GradientButton2.Name = "guna2GradientButton2";
             this.guna2GradientButton2.PressedColor = System.Drawing.Color.IndianRed;
             this.guna2GradientButton2.Size = new System.Drawing.Size(135, 37);
@@ -158,8 +158,8 @@
             this.guna2GradientButton1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2GradientButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.guna2GradientButton1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
-            this.guna2GradientButton1.Location = new System.Drawing.Point(681, 12);
-            this.guna2GradientButton1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2GradientButton1.Location = new System.Drawing.Point(681, 11);
+            this.guna2GradientButton1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2GradientButton1.Name = "guna2GradientButton1";
             this.guna2GradientButton1.PressedColor = System.Drawing.Color.IndianRed;
             this.guna2GradientButton1.Size = new System.Drawing.Size(135, 37);
@@ -171,8 +171,8 @@
             this.guna2PictureBox1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.guna2PictureBox1.FillColor = System.Drawing.Color.LightGray;
             this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(246, 10);
-            this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2PictureBox1.Location = new System.Drawing.Point(246, 9);
+            this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
             this.guna2PictureBox1.Size = new System.Drawing.Size(129, 162);
             this.guna2PictureBox1.TabIndex = 34;
@@ -191,7 +191,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(9, 134);
+            this.label7.Location = new System.Drawing.Point(9, 133);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(55, 13);
@@ -211,7 +211,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 183);
+            this.label5.Location = new System.Drawing.Point(9, 182);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(43, 13);
@@ -221,7 +221,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 87);
+            this.label4.Location = new System.Drawing.Point(9, 86);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(50, 13);
@@ -231,8 +231,8 @@
             // rdnu
             // 
             this.rdnu.AutoSize = true;
-            this.rdnu.Location = new System.Drawing.Point(132, 84);
-            this.rdnu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdnu.Location = new System.Drawing.Point(132, 83);
+            this.rdnu.Margin = new System.Windows.Forms.Padding(2);
             this.rdnu.Name = "rdnu";
             this.rdnu.Size = new System.Drawing.Size(39, 17);
             this.rdnu.TabIndex = 28;
@@ -243,8 +243,8 @@
             // rdnam
             // 
             this.rdnam.AutoSize = true;
-            this.rdnam.Location = new System.Drawing.Point(85, 84);
-            this.rdnam.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdnam.Location = new System.Drawing.Point(85, 83);
+            this.rdnam.Margin = new System.Windows.Forms.Padding(2);
             this.rdnam.Name = "rdnam";
             this.rdnam.Size = new System.Drawing.Size(47, 17);
             this.rdnam.TabIndex = 27;
@@ -255,7 +255,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 65);
+            this.label3.Location = new System.Drawing.Point(9, 64);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(32, 13);
@@ -265,7 +265,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 41);
+            this.label2.Location = new System.Drawing.Point(9, 40);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 13);
@@ -275,7 +275,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 16);
+            this.label1.Location = new System.Drawing.Point(9, 15);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 13);
@@ -296,7 +296,7 @@
             this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Location = new System.Drawing.Point(85, 178);
+            this.guna2TextBox1.Location = new System.Drawing.Point(85, 177);
             this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.guna2TextBox1.Name = "guna2TextBox1";
             this.guna2TextBox1.PasswordChar = '\0';
@@ -319,7 +319,7 @@
             this.txtmk2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtmk2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtmk2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtmk2.Location = new System.Drawing.Point(85, 154);
+            this.txtmk2.Location = new System.Drawing.Point(85, 153);
             this.txtmk2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtmk2.Name = "txtmk2";
             this.txtmk2.PasswordChar = '\0';
@@ -342,7 +342,7 @@
             this.txtmk.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtmk.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtmk.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtmk.Location = new System.Drawing.Point(85, 129);
+            this.txtmk.Location = new System.Drawing.Point(85, 128);
             this.txtmk.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtmk.Name = "txtmk";
             this.txtmk.PasswordChar = '\0';
@@ -365,7 +365,7 @@
             this.txttk.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txttk.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txttk.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txttk.Location = new System.Drawing.Point(85, 105);
+            this.txttk.Location = new System.Drawing.Point(85, 104);
             this.txttk.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txttk.Name = "txttk";
             this.txttk.PasswordChar = '\0';
@@ -388,7 +388,7 @@
             this.txtsdt.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtsdt.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtsdt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtsdt.Location = new System.Drawing.Point(85, 60);
+            this.txtsdt.Location = new System.Drawing.Point(85, 59);
             this.txtsdt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtsdt.Name = "txtsdt";
             this.txtsdt.PasswordChar = '\0';
@@ -411,7 +411,7 @@
             this.txtemail.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtemail.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtemail.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtemail.Location = new System.Drawing.Point(85, 36);
+            this.txtemail.Location = new System.Drawing.Point(85, 35);
             this.txtemail.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtemail.Name = "txtemail";
             this.txtemail.PasswordChar = '\0';
@@ -467,8 +467,8 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.guna2DataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.guna2DataGridView1.Location = new System.Drawing.Point(9, 202);
-            this.guna2DataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2DataGridView1.Location = new System.Drawing.Point(9, 201);
+            this.guna2DataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2DataGridView1.Name = "guna2DataGridView1";
             this.guna2DataGridView1.RowHeadersVisible = false;
             this.guna2DataGridView1.RowHeadersWidth = 51;
@@ -527,9 +527,7 @@
             this.Controls.Add(this.txtten);
             this.Controls.Add(this.guna2DataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ThongTinKH";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ThongTinKH";
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
