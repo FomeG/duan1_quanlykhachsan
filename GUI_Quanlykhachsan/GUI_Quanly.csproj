@@ -69,6 +69,18 @@
     <Compile Include="ChucNang\ADMIN\TaiChinh.Designer.cs">
       <DependentUpon>TaiChinh.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChucNang\dangphattrien\DatPhongTemp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChucNang\dangphattrien\DatPhongTemp.Designer.cs">
+      <DependentUpon>DatPhongTemp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChucNang\dangphattrien\ThongTinPhongTemp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChucNang\dangphattrien\ThongTinPhongTemp.Designer.cs">
+      <DependentUpon>ThongTinPhongTemp.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChucNang\HoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,6 +172,12 @@
     <EmbeddedResource Include="ChucNang\ADMIN\TaiChinh.resx">
       <DependentUpon>TaiChinh.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ChucNang\dangphattrien\DatPhongTemp.resx">
+      <DependentUpon>DatPhongTemp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChucNang\dangphattrien\ThongTinPhongTemp.resx">
+      <DependentUpon>ThongTinPhongTemp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChucNang\HoaDon.resx">
       <DependentUpon>HoaDon.cs</DependentUpon>
     </EmbeddedResource>
@@ -228,6 +246,9 @@
       <Project>{0d60afa6-5379-4c85-b267-c34d0aeff9a9}</Project>
       <Name>DTO_Quanly</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

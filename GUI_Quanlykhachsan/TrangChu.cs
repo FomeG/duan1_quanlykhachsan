@@ -1,7 +1,6 @@
 ﻿using GUI_Quanlykhachsan.ChucNang;
 using GUI_Quanlykhachsan.ChucNang.ADMIN;
 using GUI_Quanlykhachsan.ChucNang.Tai_Khoan;
-using GUI_Quanlykhachsan.Properties;
 using System;
 using System.Windows.Forms;
 
@@ -64,7 +63,7 @@ namespace GUI_Quanlykhachsan
             ls.Dock = DockStyle.Fill;
         }
 
-        
+
         // Nút đăng xuất
         private void guna2GradientButton9_Click(object sender, EventArgs e)
         {
@@ -85,7 +84,7 @@ namespace GUI_Quanlykhachsan
 
         private void guna2GradientPanel1_Paint(object sender, PaintEventArgs e)
         {
-            
+
         }
 
         // Nút mở form thông tin khách hàng

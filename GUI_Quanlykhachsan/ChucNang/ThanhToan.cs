@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GUI_Quanlykhachsan.ChucNang
@@ -38,7 +31,7 @@ namespace GUI_Quanlykhachsan.ChucNang
             4.  Chuyển trạng thái những phòng khách hàng đã thuê về trống
 
         */
-        
+
         private void guna2GradientButton3_Click(object sender, EventArgs e)
         {
 

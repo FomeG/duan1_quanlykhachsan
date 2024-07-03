@@ -18,17 +18,15 @@ namespace DTO_Quanly.Model
         public dichvu()
         {
             this.checkin_dichvu = new HashSet<checkin_dichvu>();
-            this.hoadonchitiets = new HashSet<hoadonchitiet>();
         }
     
         public int id { get; set; }
         public string tendv { get; set; }
+        public Nullable<int> soluongton { get; set; }
         public decimal gia { get; set; }
         public string mota { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<checkin_dichvu> checkin_dichvu { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<hoadonchitiet> hoadonchitiets { get; set; }
     }
 }

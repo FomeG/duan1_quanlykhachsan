@@ -16,12 +16,8 @@ namespace DTO_Quanly.Model
     {
         public int id { get; set; }
         public int idhoadon { get; set; }
-        public Nullable<int> iddichvu { get; set; }
-        public Nullable<int> idphong { get; set; }
         public decimal thanhtien { get; set; }
     
-        public virtual dichvu dichvu { get; set; }
         public virtual hoadon hoadon { get; set; }
-        public virtual phong phong { get; set; }
     }
 }

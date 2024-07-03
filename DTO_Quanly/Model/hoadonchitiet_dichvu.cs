@@ -12,13 +12,12 @@ namespace DTO_Quanly.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class trangthaiphong
+    public partial class hoadonchitiet_dichvu
     {
-        public int id { get; set; }
-        public Nullable<int> idphong { get; set; }
-        public string trangthai { get; set; }
-        public string ghichu { get; set; }
-    
-        public virtual phong phong { get; set; }
+        public string ten { get; set; }
+        public string tendv { get; set; }
+        public string mota { get; set; }
+        public Nullable<int> soluong { get; set; }
+        public Nullable<decimal> Thành_tiền { get; set; }
     }
 }

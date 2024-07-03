@@ -17,6 +17,7 @@ namespace DTO_Quanly.Model
         public int id { get; set; }
         public int idcheckin { get; set; }
         public int iddv { get; set; }
+        public Nullable<int> soluong { get; set; }
     
         public virtual checkin checkin { get; set; }
         public virtual dichvu dichvu { get; set; }

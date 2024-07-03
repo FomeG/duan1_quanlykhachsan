@@ -22,6 +22,9 @@ namespace DTO_Quanly.Model
     
         public int idloaiphong { get; set; }
         public string loaiphong1 { get; set; }
+        public decimal giaphong { get; set; }
+        public Nullable<int> songuoi { get; set; }
+        public string mota { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<phong> phongs { get; set; }

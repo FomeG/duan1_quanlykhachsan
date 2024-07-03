@@ -10,15 +10,13 @@
 namespace DTO_Quanly.Model
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class trangthaiphong
+    public partial class sp_helpdiagrams_Result
     {
-        public int id { get; set; }
-        public Nullable<int> idphong { get; set; }
-        public string trangthai { get; set; }
-        public string ghichu { get; set; }
-    
-        public virtual phong phong { get; set; }
+        public string Database { get; set; }
+        public string Name { get; set; }
+        public int ID { get; set; }
+        public string Owner { get; set; }
+        public int OwnerID { get; set; }
     }
 }

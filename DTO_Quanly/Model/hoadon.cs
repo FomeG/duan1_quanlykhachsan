@@ -22,9 +22,10 @@ namespace DTO_Quanly.Model
     
         public int idhoadon { get; set; }
         public int idkh { get; set; }
-        public System.DateTime ngayhoadon { get; set; }
-        public decimal tongtien { get; set; }
         public int idnv { get; set; }
+        public System.DateTime ngaytao { get; set; }
+        public decimal tongtien { get; set; }
+        public Nullable<int> songuoi { get; set; }
         public string trangthai { get; set; }
     
         public virtual khachhang khachhang { get; set; }
