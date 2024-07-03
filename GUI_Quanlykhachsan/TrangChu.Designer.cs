@@ -56,7 +56,7 @@
             // 
             // btnEXIT
             // 
-            this.btnEXIT.Location = new System.Drawing.Point(949, 517);
+            this.btnEXIT.Location = new System.Drawing.Point(1113, 648);
             this.btnEXIT.Margin = new System.Windows.Forms.Padding(2);
             this.btnEXIT.Name = "btnEXIT";
             this.btnEXIT.Size = new System.Drawing.Size(76, 41);
@@ -86,7 +86,7 @@
             this.container.Location = new System.Drawing.Point(200, 50);
             this.container.Margin = new System.Windows.Forms.Padding(2);
             this.container.Name = "container";
-            this.container.Size = new System.Drawing.Size(825, 447);
+            this.container.Size = new System.Drawing.Size(990, 550);
             this.container.TabIndex = 2;
             this.container.Text = "guna2ContainerControl1";
             // 
@@ -257,7 +257,7 @@
             this.BtnMinimize.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.BtnMinimize.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnMinimize.ForeColor = System.Drawing.Color.Black;
-            this.BtnMinimize.Location = new System.Drawing.Point(957, 4);
+            this.BtnMinimize.Location = new System.Drawing.Point(1121, 4);
             this.BtnMinimize.Name = "BtnMinimize";
             this.BtnMinimize.Size = new System.Drawing.Size(33, 31);
             this.BtnMinimize.TabIndex = 12;
@@ -279,7 +279,7 @@
             this.guna2GradientButton10.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.guna2GradientButton10.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2GradientButton10.ForeColor = System.Drawing.Color.White;
-            this.guna2GradientButton10.Location = new System.Drawing.Point(992, 5);
+            this.guna2GradientButton10.Location = new System.Drawing.Point(1156, 5);
             this.guna2GradientButton10.Name = "guna2GradientButton10";
             this.guna2GradientButton10.Size = new System.Drawing.Size(33, 31);
             this.guna2GradientButton10.TabIndex = 13;
@@ -290,7 +290,7 @@
             this.guna2GradientPanel1.BackColor = System.Drawing.Color.Gray;
             this.guna2GradientPanel1.Location = new System.Drawing.Point(0, 0);
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
-            this.guna2GradientPanel1.Size = new System.Drawing.Size(221, 569);
+            this.guna2GradientPanel1.Size = new System.Drawing.Size(221, 700);
             this.guna2GradientPanel1.TabIndex = 14;
             this.guna2GradientPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2GradientPanel1_Paint);
             // 
@@ -316,7 +316,7 @@
             this.guna2GradientButton11.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.guna2GradientButton11.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.guna2GradientButton11.HoverState.ForeColor = System.Drawing.Color.White;
-            this.guna2GradientButton11.Location = new System.Drawing.Point(386, 512);
+            this.guna2GradientButton11.Location = new System.Drawing.Point(227, 648);
             this.guna2GradientButton11.Name = "guna2GradientButton11";
             this.guna2GradientButton11.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.guna2GradientButton11.Size = new System.Drawing.Size(180, 45);
@@ -328,7 +328,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1036, 569);
+            this.ClientSize = new System.Drawing.Size(1200, 700);
             this.Controls.Add(this.guna2GradientButton11);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BtnMinimize);
