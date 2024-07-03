@@ -45,6 +45,7 @@
             this.BtnMinimize = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2GradientButton10 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.guna2GradientButton11 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.SuspendLayout();
             // 
             // guna2BorderlessForm1
@@ -293,12 +294,42 @@
             this.guna2GradientPanel1.TabIndex = 14;
             this.guna2GradientPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2GradientPanel1_Paint);
             // 
+            // guna2GradientButton11
+            // 
+            this.guna2GradientButton11.Animated = true;
+            this.guna2GradientButton11.AutoRoundedCorners = true;
+            this.guna2GradientButton11.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.guna2GradientButton11.BorderRadius = 21;
+            this.guna2GradientButton11.BorderThickness = 1;
+            this.guna2GradientButton11.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.guna2GradientButton11.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2GradientButton11.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2GradientButton11.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2GradientButton11.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2GradientButton11.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2GradientButton11.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.guna2GradientButton11.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.guna2GradientButton11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2GradientButton11.ForeColor = System.Drawing.Color.Black;
+            this.guna2GradientButton11.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
+            this.guna2GradientButton11.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.guna2GradientButton11.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.guna2GradientButton11.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.guna2GradientButton11.HoverState.ForeColor = System.Drawing.Color.White;
+            this.guna2GradientButton11.Location = new System.Drawing.Point(386, 512);
+            this.guna2GradientButton11.Name = "guna2GradientButton11";
+            this.guna2GradientButton11.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.guna2GradientButton11.Size = new System.Drawing.Size(180, 45);
+            this.guna2GradientButton11.TabIndex = 15;
+            this.guna2GradientButton11.Text = "Nút test";
+            // 
             // TrangChu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1036, 569);
+            this.Controls.Add(this.guna2GradientButton11);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BtnMinimize);
             this.Controls.Add(this.guna2GradientButton10);
@@ -344,5 +375,6 @@
         private Guna.UI2.WinForms.Guna2GradientButton BtnMinimize;
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton10;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
+        private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton11;
     }
 }

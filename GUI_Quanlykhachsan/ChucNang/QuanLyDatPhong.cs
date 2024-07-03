@@ -101,5 +101,13 @@ namespace GUI_Quanlykhachsan.ChucNang
             Guna2Button button = (Guna2Button)this.Controls["Thuong1"];
             button.BackColor = SystemColors.ControlDark;
         }
+
+        // test chức năng thêm phòng
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Room phong = new Room();
+
+            SoDoPhong.Controls.Add(phong);
+        }
     }
 }

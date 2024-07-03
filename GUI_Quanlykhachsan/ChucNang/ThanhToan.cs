@@ -30,5 +30,18 @@ namespace GUI_Quanlykhachsan.ChucNang
         {
             Close();
         }
+
+        /* Nút trả phòng và thanh toán, luồng hoạt động
+            1.  Sau khi trả phòng và thanh toán thì khách hàng đang sử dụng phòng trong bảng temp sẽ không còn nữa.
+            2.  Insert checkout
+            3.  Lập hoá đơn và hoá đơn chi tiết
+            4.  Chuyển trạng thái những phòng khách hàng đã thuê về trống
+
+        */
+        
+        private void guna2GradientButton3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

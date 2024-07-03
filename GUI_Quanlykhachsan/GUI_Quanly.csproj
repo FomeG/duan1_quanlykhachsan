@@ -87,6 +87,12 @@
     <Compile Include="ChucNang\KhachHang.Designer.cs">
       <DependentUpon>KhachHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChucNang\Room.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ChucNang\Room.Designer.cs">
+      <DependentUpon>Room.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChucNang\Tai_Khoan\CaiDat.cs" />
     <Compile Include="ChucNang\Tai_Khoan\FrmSettings.cs">
       <SubType>Form</SubType>
@@ -168,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ChucNang\QuanLyDatPhong.resx">
       <DependentUpon>QuanLyDatPhong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChucNang\Room.resx">
+      <DependentUpon>Room.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChucNang\SoLuong.resx">
       <DependentUpon>SoLuong.cs</DependentUpon>
