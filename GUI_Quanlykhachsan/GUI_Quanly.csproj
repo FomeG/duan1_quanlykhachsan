@@ -106,6 +106,12 @@
       <DependentUpon>Room.cs</DependentUpon>
     </Compile>
     <Compile Include="ChucNang\Tai_Khoan\CaiDat.cs" />
+    <Compile Include="ChucNang\Tai_Khoan\DoiMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChucNang\Tai_Khoan\DoiMatKhau.Designer.cs">
+      <DependentUpon>DoiMatKhau.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChucNang\Tai_Khoan\FrmSettings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,6 +204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ChucNang\SoLuong.resx">
       <DependentUpon>SoLuong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChucNang\Tai_Khoan\DoiMatKhau.resx">
+      <DependentUpon>DoiMatKhau.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChucNang\Tai_Khoan\FrmSettings.resx">
       <DependentUpon>FrmSettings.cs</DependentUpon>
