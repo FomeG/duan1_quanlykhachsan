@@ -36,6 +36,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -124,7 +125,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(339, 324);
+            this.button1.Location = new System.Drawing.Point(205, 323);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(165, 70);
@@ -137,10 +138,19 @@
             // 
             this.guna2GradientPanel1.BackColor = System.Drawing.Color.LightSalmon;
             this.guna2GradientPanel1.Location = new System.Drawing.Point(0, -4);
-            this.guna2GradientPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2GradientPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
             this.guna2GradientPanel1.Size = new System.Drawing.Size(181, 457);
             this.guna2GradientPanel1.TabIndex = 5;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(532, 342);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "Nhanh 2";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // Login
             // 
@@ -148,6 +158,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.guna2Button1);
@@ -173,6 +184,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button1;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
+        private System.Windows.Forms.Button button2;
     }
 }
 
