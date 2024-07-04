@@ -1,5 +1,4 @@
-﻿using BUS_Quanly;
-using BUS_Quanly.Services.LoginLogout;
+﻿using BUS_Quanly.Services.LoginLogout;
 using DTO_Quanly;
 using System;
 using System.Linq;
@@ -9,7 +8,6 @@ namespace GUI_Quanlykhachsan
 {
     public partial class Login : Form
     {
-        Snhanvien snv = new Snhanvien();
         public Login()
         {
             InitializeComponent();
@@ -70,6 +68,10 @@ namespace GUI_Quanlykhachsan
         }
 
         private void txttk_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

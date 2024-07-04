@@ -7,17 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DTO_Quanly.Model
+namespace DTO_Quanly.Model.DB
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class hoadonchitiet_dichvu
+    public partial class sp_helpdiagrams_Result
     {
-        public string ten { get; set; }
-        public string tendv { get; set; }
-        public string mota { get; set; }
-        public Nullable<int> soluong { get; set; }
-        public Nullable<decimal> Thành_tiền { get; set; }
+        public string Database { get; set; }
+        public string Name { get; set; }
+        public int ID { get; set; }
+        public string Owner { get; set; }
+        public int OwnerID { get; set; }
     }
 }

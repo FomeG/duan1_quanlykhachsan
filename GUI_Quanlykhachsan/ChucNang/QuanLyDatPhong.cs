@@ -16,16 +16,11 @@ namespace GUI_Quanlykhachsan.ChucNang
             SoDoPhong.Controls.Clear();
             foreach (var item in DTODB.db.phongs.ToList())
             {
-                Room phong = new Room(item.tenphong);
+                trangthaiphong phong = new trangthaiphong(item.tenphong);
                 SoDoPhong.Controls.Add(phong);
             }
         }
 
-        public void formdatphong()
-        {
-            SoLuong form = new SoLuong();
-            form.Show();
-        }
         public void thunghiem()
         {
 
@@ -47,14 +42,14 @@ namespace GUI_Quanlykhachsan.ChucNang
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            KhachHang a = new KhachHang();
-            a.Show();
-            this.btnDatphong.Enabled = false;
-            a.FormClosed += (ggg, b) =>
-            {
-                this.Show();
-                this.btnDatphong.Enabled = true;
-            };
+            //KhachHang a = new KhachHang();
+            //a.Show();
+            //this.btnDatphong.Enabled = false;
+            //a.FormClosed += (ggg, b) =>
+            //{
+            //    this.Show();
+            //    this.btnDatphong.Enabled = true;
+            //};
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -74,9 +69,14 @@ namespace GUI_Quanlykhachsan.ChucNang
             SoDoPhong.Controls.Clear();
             foreach (var item in DTODB.db.phongs.ToList())
             {
-                Room phong = new Room(item.tenphong);
+                trangthaiphong phong = new trangthaiphong(item.tenphong);
                 SoDoPhong.Controls.Add(phong);
             }
+        }
+
+        private void SoDoPhong_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

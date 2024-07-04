@@ -7,23 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DTO_Quanly.Model
+namespace DTO_Quanly.Model.DB
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class vaitro
+    public partial class checkin_dichvu
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public vaitro()
-        {
-            this.taikhoans = new HashSet<taikhoan>();
-        }
-    
         public int id { get; set; }
-        public string vaitro1 { get; set; }
+        public int idcheckin { get; set; }
+        public int iddv { get; set; }
+        public Nullable<int> soluong { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<taikhoan> taikhoans { get; set; }
+        public virtual checkin checkin { get; set; }
+        public virtual dichvu dichvu { get; set; }
     }
 }

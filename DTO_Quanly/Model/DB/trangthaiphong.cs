@@ -7,17 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DTO_Quanly.Model
+namespace DTO_Quanly.Model.DB
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class hoadonchitiet
+    public partial class trangthaiphong
     {
         public int id { get; set; }
-        public int idhoadon { get; set; }
-        public decimal thanhtien { get; set; }
+        public Nullable<int> idphong { get; set; }
+        public string trangthai { get; set; }
+        public string ghichu { get; set; }
     
-        public virtual hoadon hoadon { get; set; }
+        public virtual phong phong { get; set; }
     }
 }

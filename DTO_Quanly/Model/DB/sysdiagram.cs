@@ -7,18 +7,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DTO_Quanly.Model
+namespace DTO_Quanly.Model.DB
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class trangthaiphong
+    public partial class sysdiagram
     {
-        public int id { get; set; }
-        public Nullable<int> idphong { get; set; }
-        public string trangthai { get; set; }
-        public string ghichu { get; set; }
-    
-        public virtual phong phong { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

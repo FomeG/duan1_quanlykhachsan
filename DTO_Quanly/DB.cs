@@ -1,10 +1,10 @@
-﻿using DTO_Quanly.Model;
+﻿using DTO_Quanly.Model.DB;
 
 namespace DTO_Quanly
 {
     // Khai báo DB tĩnh 
     public static class DTODB
     {
-        public static DuAn1 db = new DuAn1();
+        public static DuAn1_QuanLyKhachSan db = new DuAn1_QuanLyKhachSan();
     }
 }

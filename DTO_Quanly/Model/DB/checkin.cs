@@ -7,26 +7,31 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DTO_Quanly.Model
+namespace DTO_Quanly.Model.DB
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class dichvu
+    public partial class checkin
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public dichvu()
+        public checkin()
         {
             this.checkin_dichvu = new HashSet<checkin_dichvu>();
+            this.checkin_phong = new HashSet<checkin_phong>();
         }
     
         public int id { get; set; }
-        public string tendv { get; set; }
-        public Nullable<int> soluongton { get; set; }
-        public decimal gia { get; set; }
-        public string mota { get; set; }
+        public int idkh { get; set; }
+        public Nullable<int> idnv { get; set; }
+        public System.DateTime ngaycheckin { get; set; }
+        public string trangthai { get; set; }
     
+        public virtual khachhang khachhang { get; set; }
+        public virtual nhanvien nhanvien { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<checkin_dichvu> checkin_dichvu { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<checkin_phong> checkin_phong { get; set; }
     }
 }

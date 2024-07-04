@@ -32,8 +32,8 @@
             this.btnDatphong = new Guna.UI2.WinForms.Guna2Button();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.SoDoPhong = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.SoDoPhong = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2GroupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,7 +46,7 @@
             this.btnDatphong.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnDatphong.ForeColor = System.Drawing.Color.White;
             this.btnDatphong.Location = new System.Drawing.Point(13, 503);
-            this.btnDatphong.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDatphong.Margin = new System.Windows.Forms.Padding(2);
             this.btnDatphong.Name = "btnDatphong";
             this.btnDatphong.Size = new System.Drawing.Size(135, 37);
             this.btnDatphong.TabIndex = 4;
@@ -79,14 +79,6 @@
             this.guna2GroupBox1.Text = "Quản lý phòng";
             this.guna2GroupBox1.Click += new System.EventHandler(this.guna2GroupBox1_Click);
             // 
-            // SoDoPhong
-            // 
-            this.SoDoPhong.AutoScroll = true;
-            this.SoDoPhong.Location = new System.Drawing.Point(8, 43);
-            this.SoDoPhong.Name = "SoDoPhong";
-            this.SoDoPhong.Size = new System.Drawing.Size(805, 455);
-            this.SoDoPhong.TabIndex = 0;
-            // 
             // guna2GradientButton1
             // 
             this.guna2GradientButton1.Animated = true;
@@ -109,6 +101,15 @@
             this.guna2GradientButton1.Text = "Tải lại";
             this.guna2GradientButton1.Click += new System.EventHandler(this.guna2GradientButton1_Click);
             // 
+            // SoDoPhong
+            // 
+            this.SoDoPhong.AutoScroll = true;
+            this.SoDoPhong.Location = new System.Drawing.Point(8, 43);
+            this.SoDoPhong.Name = "SoDoPhong";
+            this.SoDoPhong.Size = new System.Drawing.Size(805, 455);
+            this.SoDoPhong.TabIndex = 0;
+            this.SoDoPhong.Paint += new System.Windows.Forms.PaintEventHandler(this.SoDoPhong_Paint);
+            // 
             // QuanLyDatPhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -117,7 +118,7 @@
             this.ClientSize = new System.Drawing.Size(990, 550);
             this.Controls.Add(this.guna2GroupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "QuanLyDatPhong";
             this.Text = "QuanLyDatPhong";
             this.Load += new System.EventHandler(this.QuanLyDatPhong_Load);

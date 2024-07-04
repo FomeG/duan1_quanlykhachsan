@@ -7,26 +7,30 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DTO_Quanly.Model
+namespace DTO_Quanly.Model.DB
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class loaiphong
+    public partial class hoadon
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public loaiphong()
+        public hoadon()
         {
-            this.phongs = new HashSet<phong>();
+            this.hoadonchitiets = new HashSet<hoadonchitiet>();
         }
     
-        public int idloaiphong { get; set; }
-        public string loaiphong1 { get; set; }
-        public decimal giaphong { get; set; }
+        public int idhoadon { get; set; }
+        public int idkh { get; set; }
+        public int idnv { get; set; }
+        public System.DateTime ngaytao { get; set; }
+        public decimal tongtien { get; set; }
         public Nullable<int> songuoi { get; set; }
-        public string mota { get; set; }
+        public string trangthai { get; set; }
     
+        public virtual khachhang khachhang { get; set; }
+        public virtual nhanvien nhanvien { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<phong> phongs { get; set; }
+        public virtual ICollection<hoadonchitiet> hoadonchitiets { get; set; }
     }
 }

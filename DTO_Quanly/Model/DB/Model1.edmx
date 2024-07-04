@@ -958,7 +958,7 @@ error 6004: The table 'duan1.dbo.tempkhachhang' is referenced by a relationship,
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DuAn1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DuAn1_QuanLyKhachSan" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="checkins" EntityType="Self.checkin" />
           <EntitySet Name="checkin_dichvu" EntityType="Self.checkin_dichvu" />
           <EntitySet Name="checkin_phong" EntityType="Self.checkin_phong" />
@@ -1088,7 +1088,7 @@ error 6004: The table 'duan1.dbo.tempkhachhang' is referenced by a relationship,
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="duan1ModelStoreContainer" CdmEntityContainer="DuAn1">
+        <EntityContainerMapping StorageEntityContainer="duan1ModelStoreContainer" CdmEntityContainer="DuAn1_QuanLyKhachSan">
           <EntitySetMapping Name="checkins">
             <EntityTypeMapping TypeName="duan1Model.checkin">
               <MappingFragment StoreEntitySet="checkin">

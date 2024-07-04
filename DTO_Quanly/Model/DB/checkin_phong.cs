@@ -7,19 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DTO_Quanly.Model
+namespace DTO_Quanly.Model.DB
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class checkin_dichvu
+    public partial class checkin_phong
     {
         public int id { get; set; }
         public int idcheckin { get; set; }
-        public int iddv { get; set; }
-        public Nullable<int> soluong { get; set; }
+        public int idphong { get; set; }
     
         public virtual checkin checkin { get; set; }
-        public virtual dichvu dichvu { get; set; }
+        public virtual phong phong { get; set; }
     }
 }

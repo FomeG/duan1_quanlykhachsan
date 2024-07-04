@@ -7,32 +7,29 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DTO_Quanly.Model
+namespace DTO_Quanly.Model.DB
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class khachhang
+    public partial class phong
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public khachhang()
+        public phong()
         {
-            this.checkins = new HashSet<checkin>();
-            this.hoadons = new HashSet<hoadon>();
+            this.checkin_phong = new HashSet<checkin_phong>();
+            this.trangthaiphongs = new HashSet<trangthaiphong>();
         }
     
-        public int id { get; set; }
-        public string ten { get; set; }
-        public string email { get; set; }
-        public string sdt { get; set; }
-        public string gioitinh { get; set; }
-        public string diachi { get; set; }
-        public Nullable<System.DateTime> ngaysinh { get; set; }
+        public int idphong { get; set; }
+        public Nullable<int> loaiphong { get; set; }
+        public string khuvuc { get; set; }
+        public string tenphong { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<checkin> checkins { get; set; }
-        public virtual checkout checkout { get; set; }
+        public virtual ICollection<checkin_phong> checkin_phong { get; set; }
+        public virtual loaiphong loaiphong1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<hoadon> hoadons { get; set; }
+        public virtual ICollection<trangthaiphong> trangthaiphongs { get; set; }
     }
 }

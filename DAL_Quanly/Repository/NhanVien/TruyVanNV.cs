@@ -1,6 +1,6 @@
 ﻿using DAL_Quanly.IRepository;
 using DTO_Quanly;
-using DTO_Quanly.Model;
+using DTO_Quanly.Model.DB;
 using System;
 using System.Collections.Generic;
 using System.Linq;

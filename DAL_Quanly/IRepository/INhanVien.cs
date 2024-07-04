@@ -1,4 +1,4 @@
-﻿using DTO_Quanly.Model;
+﻿using DTO_Quanly.Model.DB;
 using System.Collections.Generic;
 
 namespace DAL_Quanly.IRepository
@@ -7,6 +7,7 @@ namespace DAL_Quanly.IRepository
     {
         List<nhanvien> getlist();
         List<nhanvien> getlistbyid(int id);
+
         void them(nhanvien nhanvien);
 
         void sua(int id, nhanvien nhanvien);

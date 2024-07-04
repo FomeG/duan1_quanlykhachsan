@@ -1,5 +1,5 @@
 ﻿using DAL_Quanly.Repository.NhanVien;
-using DTO_Quanly.Model;
+using DTO_Quanly.Model.DB;
 using System.Collections.Generic;
 
 

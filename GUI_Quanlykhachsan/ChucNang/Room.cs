@@ -5,11 +5,11 @@ using System.Windows.Forms;
 
 namespace GUI_Quanlykhachsan.ChucNang
 {
-    public partial class Room : UserControl
+    public partial class trangthaiphong : UserControl
     {
 
         private int _borderRadius = 20; // Bán kính góc bo
-        public Room(string tenphong)
+        public trangthaiphong(string tenphong)
         {
             InitializeComponent();
             this.SetRoundedRegion();
@@ -24,8 +24,7 @@ namespace GUI_Quanlykhachsan.ChucNang
         }
         private void Room_Click(object sender, EventArgs e)
         {
-            SoLuong form = new SoLuong();
-            form.Show();
+           
         }
 
 
@@ -55,9 +54,38 @@ namespace GUI_Quanlykhachsan.ChucNang
         #endregion
 
 
+
+
+
+
         // Nút test
+        int a = 0;
         private void guna2GradientButton1_Click(object sender, EventArgs e)
         {
+            a++;
+            if (a == 1)
+            {
+                btnDat.Text = "Nhận Phòng";
+                label2.Text = "Phòng được đặt trước";
+                this.BackColor = Color.Yellow;
+                KhachHang a = new KhachHang();
+                a.Show();
+            }
+            else if (a == 2)
+            {
+                btnDat.Text = "Trả phòng";
+                label2.Text = "Phòng đang được sử dụng";
+                this.BackColor = Color.Red;
+            }
+            else
+            {
+                btnDat.Text = "Đặt phòng";
+                label2.Text = "phòng trống";
+                this.BackColor = Color.Green;
+                a = 0;
+                ThanhToan traphongthanhtoan = new ThanhToan();
+                traphongthanhtoan.Show();
+            }
 
         }
     }

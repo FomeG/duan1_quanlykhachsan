@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DTO_Quanly.Model
+namespace DTO_Quanly.Model.DB
 {
     using System;
     using System.Data.Entity;
@@ -15,10 +15,10 @@ namespace DTO_Quanly.Model
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class DuAn1 : DbContext
+    public partial class DuAn1_QuanLyKhachSan : DbContext
     {
-        public DuAn1()
-            : base("name=DuAn1")
+        public DuAn1_QuanLyKhachSan()
+            : base("name=DuAn1_QuanLyKhachSan")
         {
         }
     

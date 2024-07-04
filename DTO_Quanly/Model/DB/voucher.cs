@@ -7,16 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DTO_Quanly.Model
+namespace DTO_Quanly.Model.DB
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class sp_helpdiagrams_Result
+    public partial class voucher
     {
-        public string Database { get; set; }
-        public string Name { get; set; }
-        public int ID { get; set; }
-        public string Owner { get; set; }
-        public int OwnerID { get; set; }
+        public string MaVoucher { get; set; }
+        public Nullable<int> idnv { get; set; }
+        public Nullable<int> soluong { get; set; }
+        public System.DateTime ngaylap { get; set; }
+        public System.DateTime ngayhethan { get; set; }
+        public string trangthai { get; set; }
+    
+        public virtual nhanvien nhanvien { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace GUI_Quanlykhachsan.ChucNang
 {
-    partial class Room
+    partial class trangthaiphong
     {
         /// <summary> 
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             this.roomname = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.btnDat = new Guna.UI2.WinForms.Guna2GradientButton();
             this.SuspendLayout();
             // 
             // roomname
@@ -55,35 +55,35 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "{tenkh}";
             // 
-            // guna2GradientButton1
+            // btnDat
             // 
-            this.guna2GradientButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2GradientButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2GradientButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2GradientButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2GradientButton1.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2GradientButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2GradientButton1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.guna2GradientButton1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.guna2GradientButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2GradientButton1.ForeColor = System.Drawing.Color.White;
-            this.guna2GradientButton1.Location = new System.Drawing.Point(0, 57);
-            this.guna2GradientButton1.Name = "guna2GradientButton1";
-            this.guna2GradientButton1.Size = new System.Drawing.Size(78, 27);
-            this.guna2GradientButton1.TabIndex = 2;
-            this.guna2GradientButton1.Text = "Nút này để thử";
-            this.guna2GradientButton1.Click += new System.EventHandler(this.guna2GradientButton1_Click);
+            this.btnDat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDat.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDat.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDat.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDat.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDat.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDat.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnDat.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnDat.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnDat.ForeColor = System.Drawing.Color.White;
+            this.btnDat.Location = new System.Drawing.Point(0, 57);
+            this.btnDat.Name = "btnDat";
+            this.btnDat.Size = new System.Drawing.Size(78, 27);
+            this.btnDat.TabIndex = 2;
+            this.btnDat.Text = "Đặt phòng";
+            this.btnDat.Click += new System.EventHandler(this.guna2GradientButton1_Click);
             // 
-            // Room
+            // trangthaiphong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.Controls.Add(this.guna2GradientButton1);
+            this.Controls.Add(this.btnDat);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.roomname);
             this.MaximumSize = new System.Drawing.Size(78, 84);
-            this.Name = "Room";
+            this.Name = "trangthaiphong";
             this.Size = new System.Drawing.Size(78, 84);
             this.Load += new System.EventHandler(this.Room_Load);
             this.Click += new System.EventHandler(this.Room_Click);
@@ -96,6 +96,6 @@
 
         private System.Windows.Forms.Label roomname;
         private System.Windows.Forms.Label label2;
-        private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton1;
+        private Guna.UI2.WinForms.Guna2GradientButton btnDat;
     }
 }
