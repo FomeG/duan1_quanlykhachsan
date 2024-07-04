@@ -24,7 +24,7 @@ namespace GUI_Quanlykhachsan.ChucNang
         }
         private void Room_Click(object sender, EventArgs e)
         {
-           
+
         }
 
 

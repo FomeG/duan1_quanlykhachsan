@@ -45,16 +45,16 @@
             this.BtnMinimize = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2GradientButton10 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.guna2GradientButton11 = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
+            this.btntest1 = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.btntest2 = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.btntest3 = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.btntest4 = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.labeltest2 = new System.Windows.Forms.Label();
+            this.labeltest3 = new System.Windows.Forms.Label();
+            this.labeltest4 = new System.Windows.Forms.Label();
+            this.labeltest5 = new System.Windows.Forms.Label();
+            this.HoaDonCho = new System.Windows.Forms.FlowLayoutPanel();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // guna2BorderlessForm1
@@ -77,7 +77,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(226, 9);
+            this.label1.Location = new System.Drawing.Point(226, 4);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
@@ -303,115 +303,183 @@
             this.guna2GradientPanel1.TabIndex = 14;
             this.guna2GradientPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2GradientPanel1_Paint);
             // 
-            // guna2GradientButton11
+            // btntest1
             // 
-            this.guna2GradientButton11.Animated = true;
-            this.guna2GradientButton11.AutoRoundedCorners = true;
-            this.guna2GradientButton11.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.guna2GradientButton11.BorderRadius = 21;
-            this.guna2GradientButton11.BorderThickness = 1;
-            this.guna2GradientButton11.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2GradientButton11.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2GradientButton11.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2GradientButton11.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2GradientButton11.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2GradientButton11.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2GradientButton11.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.guna2GradientButton11.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.guna2GradientButton11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2GradientButton11.ForeColor = System.Drawing.Color.Black;
-            this.guna2GradientButton11.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
-            this.guna2GradientButton11.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.guna2GradientButton11.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.guna2GradientButton11.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.guna2GradientButton11.HoverState.ForeColor = System.Drawing.Color.White;
-            this.guna2GradientButton11.Location = new System.Drawing.Point(227, 648);
-            this.guna2GradientButton11.Name = "guna2GradientButton11";
-            this.guna2GradientButton11.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.guna2GradientButton11.Size = new System.Drawing.Size(180, 45);
-            this.guna2GradientButton11.TabIndex = 15;
-            this.guna2GradientButton11.Text = "Nút test";
+            this.btntest1.Animated = true;
+            this.btntest1.AutoRoundedCorners = true;
+            this.btntest1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btntest1.BorderRadius = 21;
+            this.btntest1.BorderThickness = 1;
+            this.btntest1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btntest1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btntest1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btntest1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btntest1.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btntest1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btntest1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btntest1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btntest1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btntest1.ForeColor = System.Drawing.Color.Black;
+            this.btntest1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
+            this.btntest1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btntest1.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btntest1.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btntest1.HoverState.ForeColor = System.Drawing.Color.White;
+            this.btntest1.Location = new System.Drawing.Point(227, 605);
+            this.btntest1.Name = "btntest1";
+            this.btntest1.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btntest1.Size = new System.Drawing.Size(180, 45);
+            this.btntest1.TabIndex = 15;
+            this.btntest1.Text = "Mở formtest";
+            this.btntest1.Click += new System.EventHandler(this.guna2GradientButton11_Click);
             // 
-            // button1
+            // btntest2
             // 
-            this.button1.Location = new System.Drawing.Point(229, 25);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btntest2.Animated = true;
+            this.btntest2.AutoRoundedCorners = true;
+            this.btntest2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btntest2.BorderRadius = 21;
+            this.btntest2.BorderThickness = 1;
+            this.btntest2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btntest2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btntest2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btntest2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btntest2.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btntest2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btntest2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btntest2.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btntest2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btntest2.ForeColor = System.Drawing.Color.Black;
+            this.btntest2.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
+            this.btntest2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btntest2.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btntest2.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btntest2.HoverState.ForeColor = System.Drawing.Color.White;
+            this.btntest2.Location = new System.Drawing.Point(413, 605);
+            this.btntest2.Name = "btntest2";
+            this.btntest2.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btntest2.Size = new System.Drawing.Size(180, 45);
+            this.btntest2.TabIndex = 15;
+            this.btntest2.Text = "Nút test 2";
+            this.btntest2.Click += new System.EventHandler(this.btntest2_Click);
             // 
-            // button2
+            // btntest3
             // 
-            this.button2.Location = new System.Drawing.Point(310, 25);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "button1";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btntest3.Animated = true;
+            this.btntest3.AutoRoundedCorners = true;
+            this.btntest3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btntest3.BorderRadius = 21;
+            this.btntest3.BorderThickness = 1;
+            this.btntest3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btntest3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btntest3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btntest3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btntest3.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btntest3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btntest3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btntest3.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btntest3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btntest3.ForeColor = System.Drawing.Color.Black;
+            this.btntest3.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
+            this.btntest3.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btntest3.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btntest3.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btntest3.HoverState.ForeColor = System.Drawing.Color.White;
+            this.btntest3.Location = new System.Drawing.Point(599, 605);
+            this.btntest3.Name = "btntest3";
+            this.btntest3.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btntest3.Size = new System.Drawing.Size(180, 45);
+            this.btntest3.TabIndex = 15;
+            this.btntest3.Text = "Nút test 3";
+            this.btntest3.Click += new System.EventHandler(this.btntest3_Click_1);
             // 
-            // button3
+            // btntest4
             // 
-            this.button3.Location = new System.Drawing.Point(391, 25);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 16;
-            this.button3.Text = "button1";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btntest4.Animated = true;
+            this.btntest4.AutoRoundedCorners = true;
+            this.btntest4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btntest4.BorderRadius = 21;
+            this.btntest4.BorderThickness = 1;
+            this.btntest4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btntest4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btntest4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btntest4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btntest4.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btntest4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btntest4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btntest4.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btntest4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btntest4.ForeColor = System.Drawing.Color.Black;
+            this.btntest4.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
+            this.btntest4.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btntest4.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btntest4.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btntest4.HoverState.ForeColor = System.Drawing.Color.White;
+            this.btntest4.Location = new System.Drawing.Point(785, 605);
+            this.btntest4.Name = "btntest4";
+            this.btntest4.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btntest4.Size = new System.Drawing.Size(180, 45);
+            this.btntest4.TabIndex = 15;
+            this.btntest4.Text = "Nút test 4";
+            this.btntest4.Click += new System.EventHandler(this.btntest4_Click);
             // 
-            // button4
+            // labeltest2
             // 
-            this.button4.Location = new System.Drawing.Point(472, 25);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 16;
-            this.button4.Text = "button1";
-            this.button4.UseVisualStyleBackColor = true;
+            this.labeltest2.AutoSize = true;
+            this.labeltest2.Location = new System.Drawing.Point(227, 662);
+            this.labeltest2.Name = "labeltest2";
+            this.labeltest2.Size = new System.Drawing.Size(50, 13);
+            this.labeltest2.TabIndex = 17;
+            this.labeltest2.Text = "Labeltest";
             // 
-            // button5
+            // labeltest3
             // 
-            this.button5.Location = new System.Drawing.Point(553, 25);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 16;
-            this.button5.Text = "button1";
-            this.button5.UseVisualStyleBackColor = true;
+            this.labeltest3.AutoSize = true;
+            this.labeltest3.Location = new System.Drawing.Point(410, 662);
+            this.labeltest3.Name = "labeltest3";
+            this.labeltest3.Size = new System.Drawing.Size(50, 13);
+            this.labeltest3.TabIndex = 17;
+            this.labeltest3.Text = "Labeltest";
             // 
-            // button6
+            // labeltest4
             // 
-            this.button6.Location = new System.Drawing.Point(634, 25);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 16;
-            this.button6.Text = "button1";
-            this.button6.UseVisualStyleBackColor = true;
+            this.labeltest4.AutoSize = true;
+            this.labeltest4.Location = new System.Drawing.Point(596, 662);
+            this.labeltest4.Name = "labeltest4";
+            this.labeltest4.Size = new System.Drawing.Size(50, 13);
+            this.labeltest4.TabIndex = 17;
+            this.labeltest4.Text = "Labeltest";
             // 
-            // button7
+            // labeltest5
             // 
-            this.button7.Location = new System.Drawing.Point(715, 25);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
-            this.button7.TabIndex = 16;
-            this.button7.Text = "button1";
-            this.button7.UseVisualStyleBackColor = true;
+            this.labeltest5.AutoSize = true;
+            this.labeltest5.Location = new System.Drawing.Point(782, 662);
+            this.labeltest5.Name = "labeltest5";
+            this.labeltest5.Size = new System.Drawing.Size(50, 13);
+            this.labeltest5.TabIndex = 17;
+            this.labeltest5.Text = "Labeltest";
             // 
-            // button8
+            // HoaDonCho
             // 
-            this.button8.Location = new System.Drawing.Point(796, 25);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
-            this.button8.TabIndex = 16;
-            this.button8.Text = "button1";
-            this.button8.UseVisualStyleBackColor = true;
+            this.HoaDonCho.Location = new System.Drawing.Point(227, 18);
+            this.HoaDonCho.Name = "HoaDonCho";
+            this.HoaDonCho.Size = new System.Drawing.Size(888, 27);
+            this.HoaDonCho.TabIndex = 0;
             // 
-            // button9
+            // guna2Button1
             // 
-            this.button9.Location = new System.Drawing.Point(877, 25);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(75, 23);
-            this.button9.TabIndex = 16;
-            this.button9.Text = "button1";
-            this.button9.UseVisualStyleBackColor = true;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Location = new System.Drawing.Point(971, 605);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(76, 45);
+            this.guna2Button1.TabIndex = 18;
+            this.guna2Button1.Text = "count";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // TrangChu
             // 
@@ -419,16 +487,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1200, 700);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.guna2GradientButton11);
+            this.Controls.Add(this.guna2Button1);
+            this.Controls.Add(this.HoaDonCho);
+            this.Controls.Add(this.labeltest5);
+            this.Controls.Add(this.labeltest4);
+            this.Controls.Add(this.labeltest3);
+            this.Controls.Add(this.labeltest2);
+            this.Controls.Add(this.btntest4);
+            this.Controls.Add(this.btntest3);
+            this.Controls.Add(this.btntest2);
+            this.Controls.Add(this.btntest1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BtnMinimize);
             this.Controls.Add(this.guna2GradientButton10);
@@ -474,15 +542,15 @@
         private Guna.UI2.WinForms.Guna2GradientButton BtnMinimize;
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton10;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
-        private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton11;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        public Guna.UI2.WinForms.Guna2GradientButton btntest1;
+        public Guna.UI2.WinForms.Guna2GradientButton btntest2;
+        public Guna.UI2.WinForms.Guna2GradientButton btntest3;
+        public Guna.UI2.WinForms.Guna2GradientButton btntest4;
+        public System.Windows.Forms.Label labeltest2;
+        public System.Windows.Forms.Label labeltest5;
+        public System.Windows.Forms.Label labeltest4;
+        public System.Windows.Forms.Label labeltest3;
+        private System.Windows.Forms.FlowLayoutPanel HoaDonCho;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }

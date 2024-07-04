@@ -52,12 +52,6 @@ namespace GUI_Quanlykhachsan.ChucNang
             //};
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Guna2Button button = (Guna2Button)this.Controls["Thuong1"];
-            button.BackColor = SystemColors.ControlDark;
-        }
-
         private void guna2GroupBox1_Click(object sender, EventArgs e)
         {
 
