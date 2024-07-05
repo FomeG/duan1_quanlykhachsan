@@ -12,12 +12,13 @@ namespace DTO_Quanly.Model.DB
     using System;
     using System.Collections.Generic;
     
-    public partial class hoadonchitiet_dichvu
+    public partial class tempkhachhang
     {
-        public string ten { get; set; }
-        public string tendv { get; set; }
-        public string mota { get; set; }
-        public Nullable<int> soluong { get; set; }
-        public Nullable<decimal> Thành_tiền { get; set; }
+        public int idkh { get; set; }
+        public int idcheckin { get; set; }
+        public Nullable<decimal> tienkhachtra { get; set; }
+    
+        public virtual checkin checkin { get; set; }
+        public virtual khachhang khachhang { get; set; }
     }
 }

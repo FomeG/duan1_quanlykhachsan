@@ -17,7 +17,8 @@ namespace DTO_Quanly.Model.DB
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public hoadon()
         {
-            this.hoadonchitiets = new HashSet<hoadonchitiet>();
+            this.checkin_dichvu = new HashSet<checkin_dichvu>();
+            this.checkin_phong = new HashSet<checkin_phong>();
         }
     
         public int idhoadon { get; set; }
@@ -31,6 +32,8 @@ namespace DTO_Quanly.Model.DB
         public virtual khachhang khachhang { get; set; }
         public virtual nhanvien nhanvien { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<hoadonchitiet> hoadonchitiets { get; set; }
+        public virtual ICollection<checkin_dichvu> checkin_dichvu { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<checkin_phong> checkin_phong { get; set; }
     }
 }

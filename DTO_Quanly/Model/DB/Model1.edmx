@@ -51,12 +51,14 @@
           <Property Name="gia" Type="decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="mota" Type="nvarchar(max)" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'duan1.dbo.dv_trunggian' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
         <EntityType Name="dv_trunggian">
-          <Property Name="iddv" Type="int" />
-          <Property Name="idhdct" Type="int" />
-        </EntityType>-->
+          <Key>
+            <PropertyRef Name="iddv" />
+            <PropertyRef Name="idhd" />
+          </Key>
+          <Property Name="iddv" Type="int" Nullable="false" />
+          <Property Name="idhd" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="hoadon">
           <Key>
             <PropertyRef Name="idhoadon" />
@@ -69,14 +71,6 @@ warning 6013: The table/view 'duan1.dbo.dv_trunggian' does not have a primary ke
           <Property Name="songuoi" Type="int" />
           <Property Name="trangthai" Type="nvarchar" MaxLength="20" />
         </EntityType>
-        <EntityType Name="hoadonchitiet">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="idhoadon" Type="int" Nullable="false" />
-          <Property Name="thanhtien" Type="decimal" Precision="10" Scale="2" Nullable="false" />
-        </EntityType>
         <EntityType Name="khachhang">
           <Key>
             <PropertyRef Name="id" />
@@ -87,6 +81,7 @@ warning 6013: The table/view 'duan1.dbo.dv_trunggian' does not have a primary ke
           <Property Name="sdt" Type="varchar" MaxLength="13" />
           <Property Name="gioitinh" Type="nvarchar" MaxLength="4" />
           <Property Name="diachi" Type="nvarchar(max)" />
+          <Property Name="anh" Type="varchar(max)" />
           <Property Name="ngaysinh" Type="date" />
         </EntityType>
         <EntityType Name="loaiphong">
@@ -110,7 +105,6 @@ warning 6013: The table/view 'duan1.dbo.dv_trunggian' does not have a primary ke
           <Property Name="gioitinh" Type="nvarchar" MaxLength="4" Nullable="false" />
           <Property Name="diachi" Type="nvarchar(max)" />
           <Property Name="ngaysinh" Type="date" />
-          <Property Name="anh" Type="varchar(max)" />
           <Property Name="taikhoan" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="phong">
@@ -122,21 +116,13 @@ warning 6013: The table/view 'duan1.dbo.dv_trunggian' does not have a primary ke
           <Property Name="khuvuc" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="tenphong" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'duan1.dbo.phong_trunggian' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
         <EntityType Name="phong_trunggian">
-          <Property Name="idp" Type="int" />
-          <Property Name="idhdct" Type="int" />
-        </EntityType>-->
-        <EntityType Name="sysdiagrams">
           <Key>
-            <PropertyRef Name="diagram_id" />
+            <PropertyRef Name="idp" />
+            <PropertyRef Name="idhd" />
           </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
+          <Property Name="idp" Type="int" Nullable="false" />
+          <Property Name="idhd" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="taikhoan">
           <Key>
@@ -146,13 +132,15 @@ warning 6013: The table/view 'duan1.dbo.phong_trunggian' does not have a primary
           <Property Name="matkhau" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="loaitk" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'duan1.dbo.tempkhachhang' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
         <EntityType Name="tempkhachhang">
-          <Property Name="idkh" Type="int" />
-          <Property Name="idcheckin" Type="int" />
+          <Key>
+            <PropertyRef Name="idkh" />
+            <PropertyRef Name="idcheckin" />
+          </Key>
+          <Property Name="idkh" Type="int" Nullable="false" />
+          <Property Name="idcheckin" Type="int" Nullable="false" />
           <Property Name="tienkhachtra" Type="decimal" Precision="10" Scale="2" />
-        </EntityType>-->
+        </EntityType>
         <EntityType Name="trangthaiphong">
           <Key>
             <PropertyRef Name="id" />
@@ -181,32 +169,40 @@ warning 6013: The table/view 'duan1.dbo.tempkhachhang' does not have a primary k
           <Property Name="trangthai" Type="varchar" MaxLength="10" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'duan1.dbo.hoadonchitiet_dichvu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="hoadonchitiet_dichvu">
+warning 6002: The table/view 'duan1.dbo.hoadon_dichvu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="hoadon_dichvu">
           <Key>
-            <PropertyRef Name="ten" />
-            <PropertyRef Name="tendv" />
+            <PropertyRef Name="idhoadon" />
+            <PropertyRef Name="Tên nhân viên" />
+            <PropertyRef Name="Tên khách hàng" />
+            <PropertyRef Name="Tên dịch vụ" />
+            <PropertyRef Name="Ngày tạo" />
           </Key>
-          <Property Name="ten" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="tendv" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="mota" Type="nvarchar(max)" />
-          <Property Name="soluong" Type="int" />
-          <Property Name="Thành tiền" Type="decimal" Precision="21" Scale="2" />
+          <Property Name="idhoadon" Type="int" Nullable="false" />
+          <Property Name="Tên nhân viên" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Tên khách hàng" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Tên dịch vụ" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Số lượng" Type="int" />
+          <Property Name="Giá tiền" Type="decimal" Precision="21" Scale="2" />
+          <Property Name="Ngày tạo" Type="datetime" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'duan1.dbo.hoadonchitiet_phong' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="hoadonchitiet_phong">
+warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="hoadon_phong">
           <Key>
-            <PropertyRef Name="ten" />
-            <PropertyRef Name="khuvuc" />
-            <PropertyRef Name="tenphong" />
-            <PropertyRef Name="giaphong" />
+            <PropertyRef Name="idhoadon" />
+            <PropertyRef Name="Tên nhân viên" />
+            <PropertyRef Name="Tên khách hàng" />
+            <PropertyRef Name="Tên phòng" />
+            <PropertyRef Name="Giá phòng" />
+            <PropertyRef Name="Ngày tạo" />
           </Key>
-          <Property Name="ten" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="khuvuc" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="tenphong" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="mota" Type="nvarchar(max)" />
-          <Property Name="giaphong" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="idhoadon" Type="int" Nullable="false" />
+          <Property Name="Tên nhân viên" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Tên khách hàng" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Tên phòng" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Giá phòng" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Ngày tạo" Type="datetime" Nullable="false" />
         </EntityType>
         <Association Name="FK__checkin__idkh__49C3F6B7">
           <End Role="khachhang" Type="Self.khachhang" Multiplicity="1" />
@@ -304,12 +300,30 @@ warning 6002: The table/view 'duan1.dbo.hoadonchitiet_phong' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <!--Errors Found During Generation:
-error 6004: The table 'duan1.dbo.dv_trunggian' is referenced by a relationship, but cannot be found.
-        <Association Name="FK__dv_trungg__idhdc__656C112C" />-->
-        <!--Errors Found During Generation:
-error 6004: The table 'duan1.dbo.dv_trunggian' is referenced by a relationship, but cannot be found.
-        <Association Name="FK__dv_trunggi__iddv__6477ECF3" />-->
+        <Association Name="FK__dv_trunggi__iddv__6383C8BA">
+          <End Role="checkin_dichvu" Type="Self.checkin_dichvu" Multiplicity="1" />
+          <End Role="dv_trunggian" Type="Self.dv_trunggian" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="checkin_dichvu">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="dv_trunggian">
+              <PropertyRef Name="iddv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__dv_trunggi__idhd__6477ECF3">
+          <End Role="hoadon" Type="Self.hoadon" Multiplicity="1" />
+          <End Role="dv_trunggian" Type="Self.dv_trunggian" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hoadon">
+              <PropertyRef Name="idhoadon" />
+            </Principal>
+            <Dependent Role="dv_trunggian">
+              <PropertyRef Name="idhd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__hoadon__idkh__52593CB8">
           <End Role="khachhang" Type="Self.khachhang" Multiplicity="1" />
           <End Role="hoadon" Type="Self.hoadon" Multiplicity="*" />
@@ -331,18 +345,6 @@ error 6004: The table 'duan1.dbo.dv_trunggian' is referenced by a relationship, 
             </Principal>
             <Dependent Role="hoadon">
               <PropertyRef Name="idnv" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__hoadonchi__idhoa__5FB337D6">
-          <End Role="hoadon" Type="Self.hoadon" Multiplicity="1" />
-          <End Role="hoadonchitiet" Type="Self.hoadonchitiet" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="hoadon">
-              <PropertyRef Name="idhoadon" />
-            </Principal>
-            <Dependent Role="hoadonchitiet">
-              <PropertyRef Name="idhoadon" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -370,12 +372,30 @@ error 6004: The table 'duan1.dbo.dv_trunggian' is referenced by a relationship, 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <!--Errors Found During Generation:
-error 6004: The table 'duan1.dbo.phong_trunggian' is referenced by a relationship, but cannot be found.
-        <Association Name="FK__phong_tru__idhdc__628FA481" />-->
-        <!--Errors Found During Generation:
-error 6004: The table 'duan1.dbo.phong_trunggian' is referenced by a relationship, but cannot be found.
-        <Association Name="FK__phong_trung__idp__619B8048" />-->
+        <Association Name="FK__phong_trun__idhd__60A75C0F">
+          <End Role="hoadon" Type="Self.hoadon" Multiplicity="1" />
+          <End Role="phong_trunggian" Type="Self.phong_trunggian" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hoadon">
+              <PropertyRef Name="idhoadon" />
+            </Principal>
+            <Dependent Role="phong_trunggian">
+              <PropertyRef Name="idhd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__phong_trung__idp__5FB337D6">
+          <End Role="checkin_phong" Type="Self.checkin_phong" Multiplicity="1" />
+          <End Role="phong_trunggian" Type="Self.phong_trunggian" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="checkin_phong">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="phong_trunggian">
+              <PropertyRef Name="idp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__taikhoan__loaitk__3E52440B">
           <End Role="vaitro" Type="Self.vaitro" Multiplicity="0..1" />
           <End Role="taikhoan" Type="Self.taikhoan" Multiplicity="*" />
@@ -388,13 +408,31 @@ error 6004: The table 'duan1.dbo.phong_trunggian' is referenced by a relationshi
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <!--Errors Found During Generation:
-error 6004: The table 'duan1.dbo.tempkhachhang' is referenced by a relationship, but cannot be found.
-        <Association Name="FK__tempkhach__idche__6C190EBB" />-->
-        <!--Errors Found During Generation:
-error 6004: The table 'duan1.dbo.tempkhachhang' is referenced by a relationship, but cannot be found.
-        <Association Name="FK__tempkhachh__idkh__6B24EA82" />-->
-        <Association Name="FK__trangthai__idpho__68487DD7">
+        <Association Name="FK__tempkhach__idche__6C190EBB">
+          <End Role="checkin" Type="Self.checkin" Multiplicity="1" />
+          <End Role="tempkhachhang" Type="Self.tempkhachhang" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="checkin">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tempkhachhang">
+              <PropertyRef Name="idcheckin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tempkhachh__idkh__6B24EA82">
+          <End Role="khachhang" Type="Self.khachhang" Multiplicity="1" />
+          <End Role="tempkhachhang" Type="Self.tempkhachhang" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="khachhang">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tempkhachhang">
+              <PropertyRef Name="idkh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__trangthai__idpho__6754599E">
           <End Role="phong" Type="Self.phong" Multiplicity="0..1" />
           <End Role="trangthaiphong" Type="Self.trangthaiphong" Multiplicity="*" />
           <ReferentialConstraint>
@@ -418,71 +456,44 @@ error 6004: The table 'duan1.dbo.tempkhachhang' is referenced by a relationship,
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
-        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="version" Type="int" Mode="In" />
-          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-        </Function>
-        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="version" Type="int" Mode="In" />
-          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-        </Function>
-        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
-        </Function>
-        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="duan1ModelStoreContainer">
           <EntitySet Name="checkin" EntityType="Self.checkin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="checkin_dichvu" EntityType="Self.checkin_dichvu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="checkin_phong" EntityType="Self.checkin_phong" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="checkout" EntityType="Self.checkout" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="dichvu" EntityType="Self.dichvu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dv_trunggian" EntityType="Self.dv_trunggian" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="hoadon" EntityType="Self.hoadon" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="hoadonchitiet" EntityType="Self.hoadonchitiet" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="khachhang" EntityType="Self.khachhang" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="loaiphong" EntityType="Self.loaiphong" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="nhanvien" EntityType="Self.nhanvien" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="phong" EntityType="Self.phong" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="phong_trunggian" EntityType="Self.phong_trunggian" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="taikhoan" EntityType="Self.taikhoan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tempkhachhang" EntityType="Self.tempkhachhang" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="trangthaiphong" EntityType="Self.trangthaiphong" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="vaitro" EntityType="Self.vaitro" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="voucher" EntityType="Self.voucher" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="hoadonchitiet_dichvu" EntityType="Self.hoadonchitiet_dichvu" store:Type="Views" store:Schema="dbo">
+          <EntitySet Name="hoadon_dichvu" EntityType="Self.hoadon_dichvu" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [hoadonchitiet_dichvu].[ten] AS [ten], 
-    [hoadonchitiet_dichvu].[tendv] AS [tendv], 
-    [hoadonchitiet_dichvu].[mota] AS [mota], 
-    [hoadonchitiet_dichvu].[soluong] AS [soluong], 
-    [hoadonchitiet_dichvu].[Thành tiền] AS [Thành tiền]
-    FROM [dbo].[hoadonchitiet_dichvu] AS [hoadonchitiet_dichvu]</DefiningQuery>
+    [hoadon_dichvu].[idhoadon] AS [idhoadon], 
+    [hoadon_dichvu].[Tên nhân viên] AS [Tên nhân viên], 
+    [hoadon_dichvu].[Tên khách hàng] AS [Tên khách hàng], 
+    [hoadon_dichvu].[Tên dịch vụ] AS [Tên dịch vụ], 
+    [hoadon_dichvu].[Số lượng] AS [Số lượng], 
+    [hoadon_dichvu].[Giá tiền] AS [Giá tiền], 
+    [hoadon_dichvu].[Ngày tạo] AS [Ngày tạo]
+    FROM [dbo].[hoadon_dichvu] AS [hoadon_dichvu]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="hoadonchitiet_phong" EntityType="Self.hoadonchitiet_phong" store:Type="Views" store:Schema="dbo">
+          <EntitySet Name="hoadon_phong" EntityType="Self.hoadon_phong" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [hoadonchitiet_phong].[ten] AS [ten], 
-    [hoadonchitiet_phong].[khuvuc] AS [khuvuc], 
-    [hoadonchitiet_phong].[tenphong] AS [tenphong], 
-    [hoadonchitiet_phong].[mota] AS [mota], 
-    [hoadonchitiet_phong].[giaphong] AS [giaphong]
-    FROM [dbo].[hoadonchitiet_phong] AS [hoadonchitiet_phong]</DefiningQuery>
+    [hoadon_phong].[idhoadon] AS [idhoadon], 
+    [hoadon_phong].[Tên nhân viên] AS [Tên nhân viên], 
+    [hoadon_phong].[Tên khách hàng] AS [Tên khách hàng], 
+    [hoadon_phong].[Tên phòng] AS [Tên phòng], 
+    [hoadon_phong].[Giá phòng] AS [Giá phòng], 
+    [hoadon_phong].[Ngày tạo] AS [Ngày tạo]
+    FROM [dbo].[hoadon_phong] AS [hoadon_phong]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK__checkin__idkh__49C3F6B7" Association="Self.FK__checkin__idkh__49C3F6B7">
             <End Role="khachhang" EntitySet="khachhang" />
@@ -516,6 +527,14 @@ error 6004: The table 'duan1.dbo.tempkhachhang' is referenced by a relationship,
             <End Role="nhanvien" EntitySet="nhanvien" />
             <End Role="checkout" EntitySet="checkout" />
           </AssociationSet>
+          <AssociationSet Name="FK__dv_trunggi__iddv__6383C8BA" Association="Self.FK__dv_trunggi__iddv__6383C8BA">
+            <End Role="checkin_dichvu" EntitySet="checkin_dichvu" />
+            <End Role="dv_trunggian" EntitySet="dv_trunggian" />
+          </AssociationSet>
+          <AssociationSet Name="FK__dv_trunggi__idhd__6477ECF3" Association="Self.FK__dv_trunggi__idhd__6477ECF3">
+            <End Role="hoadon" EntitySet="hoadon" />
+            <End Role="dv_trunggian" EntitySet="dv_trunggian" />
+          </AssociationSet>
           <AssociationSet Name="FK__hoadon__idkh__52593CB8" Association="Self.FK__hoadon__idkh__52593CB8">
             <End Role="khachhang" EntitySet="khachhang" />
             <End Role="hoadon" EntitySet="hoadon" />
@@ -523,10 +542,6 @@ error 6004: The table 'duan1.dbo.tempkhachhang' is referenced by a relationship,
           <AssociationSet Name="FK__hoadon__idnv__534D60F1" Association="Self.FK__hoadon__idnv__534D60F1">
             <End Role="nhanvien" EntitySet="nhanvien" />
             <End Role="hoadon" EntitySet="hoadon" />
-          </AssociationSet>
-          <AssociationSet Name="FK__hoadonchi__idhoa__5FB337D6" Association="Self.FK__hoadonchi__idhoa__5FB337D6">
-            <End Role="hoadon" EntitySet="hoadon" />
-            <End Role="hoadonchitiet" EntitySet="hoadonchitiet" />
           </AssociationSet>
           <AssociationSet Name="FK__nhanvien__taikho__4316F928" Association="Self.FK__nhanvien__taikho__4316F928">
             <End Role="taikhoan" EntitySet="taikhoan" />
@@ -536,11 +551,27 @@ error 6004: The table 'duan1.dbo.tempkhachhang' is referenced by a relationship,
             <End Role="loaiphong" EntitySet="loaiphong" />
             <End Role="phong" EntitySet="phong" />
           </AssociationSet>
+          <AssociationSet Name="FK__phong_trun__idhd__60A75C0F" Association="Self.FK__phong_trun__idhd__60A75C0F">
+            <End Role="hoadon" EntitySet="hoadon" />
+            <End Role="phong_trunggian" EntitySet="phong_trunggian" />
+          </AssociationSet>
+          <AssociationSet Name="FK__phong_trung__idp__5FB337D6" Association="Self.FK__phong_trung__idp__5FB337D6">
+            <End Role="checkin_phong" EntitySet="checkin_phong" />
+            <End Role="phong_trunggian" EntitySet="phong_trunggian" />
+          </AssociationSet>
           <AssociationSet Name="FK__taikhoan__loaitk__3E52440B" Association="Self.FK__taikhoan__loaitk__3E52440B">
             <End Role="vaitro" EntitySet="vaitro" />
             <End Role="taikhoan" EntitySet="taikhoan" />
           </AssociationSet>
-          <AssociationSet Name="FK__trangthai__idpho__68487DD7" Association="Self.FK__trangthai__idpho__68487DD7">
+          <AssociationSet Name="FK__tempkhach__idche__6C190EBB" Association="Self.FK__tempkhach__idche__6C190EBB">
+            <End Role="checkin" EntitySet="checkin" />
+            <End Role="tempkhachhang" EntitySet="tempkhachhang" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tempkhachh__idkh__6B24EA82" Association="Self.FK__tempkhachh__idkh__6B24EA82">
+            <End Role="khachhang" EntitySet="khachhang" />
+            <End Role="tempkhachhang" EntitySet="tempkhachhang" />
+          </AssociationSet>
+          <AssociationSet Name="FK__trangthai__idpho__6754599E" Association="Self.FK__trangthai__idpho__6754599E">
             <End Role="phong" EntitySet="phong" />
             <End Role="trangthaiphong" EntitySet="trangthaiphong" />
           </AssociationSet>
@@ -567,6 +598,7 @@ error 6004: The table 'duan1.dbo.tempkhachhang' is referenced by a relationship,
           <NavigationProperty Name="nhanvien" Relationship="Self.FK__checkin__idnv__4AB81AF0" FromRole="checkin" ToRole="nhanvien" />
           <NavigationProperty Name="checkin_dichvu" Relationship="Self.FK__checkin_d__idche__5812160E" FromRole="checkin" ToRole="checkin_dichvu" />
           <NavigationProperty Name="checkin_phong" Relationship="Self.FK__checkin_p__idche__5BE2A6F2" FromRole="checkin" ToRole="checkin_phong" />
+          <NavigationProperty Name="tempkhachhangs" Relationship="Self.FK__tempkhach__idche__6C190EBB" FromRole="checkin" ToRole="tempkhachhang" />
         </EntityType>
         <EntityType Name="checkin_dichvu">
           <Key>
@@ -578,6 +610,7 @@ error 6004: The table 'duan1.dbo.tempkhachhang' is referenced by a relationship,
           <Property Name="soluong" Type="Int32" />
           <NavigationProperty Name="checkin" Relationship="Self.FK__checkin_d__idche__5812160E" FromRole="checkin_dichvu" ToRole="checkin" />
           <NavigationProperty Name="dichvu" Relationship="Self.FK__checkin_di__iddv__59063A47" FromRole="checkin_dichvu" ToRole="dichvu" />
+          <NavigationProperty Name="hoadons" Relationship="Self.dv_trunggian" FromRole="checkin_dichvu" ToRole="hoadon" />
         </EntityType>
         <EntityType Name="checkin_phong">
           <Key>
@@ -588,6 +621,7 @@ error 6004: The table 'duan1.dbo.tempkhachhang' is referenced by a relationship,
           <Property Name="idphong" Type="Int32" Nullable="false" />
           <NavigationProperty Name="checkin" Relationship="Self.FK__checkin_p__idche__5BE2A6F2" FromRole="checkin_phong" ToRole="checkin" />
           <NavigationProperty Name="phong" Relationship="Self.FK__checkin_p__idpho__5CD6CB2B" FromRole="checkin_phong" ToRole="phong" />
+          <NavigationProperty Name="hoadons" Relationship="Self.phong_trunggian" FromRole="checkin_phong" ToRole="hoadon" />
         </EntityType>
         <EntityType Name="checkout">
           <Key>
@@ -624,16 +658,8 @@ error 6004: The table 'duan1.dbo.tempkhachhang' is referenced by a relationship,
           <Property Name="trangthai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="khachhang" Relationship="Self.FK__hoadon__idkh__52593CB8" FromRole="hoadon" ToRole="khachhang" />
           <NavigationProperty Name="nhanvien" Relationship="Self.FK__hoadon__idnv__534D60F1" FromRole="hoadon" ToRole="nhanvien" />
-          <NavigationProperty Name="hoadonchitiets" Relationship="Self.FK__hoadonchi__idhoa__5FB337D6" FromRole="hoadon" ToRole="hoadonchitiet" />
-        </EntityType>
-        <EntityType Name="hoadonchitiet">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="idhoadon" Type="Int32" Nullable="false" />
-          <Property Name="thanhtien" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
-          <NavigationProperty Name="hoadon" Relationship="Self.FK__hoadonchi__idhoa__5FB337D6" FromRole="hoadonchitiet" ToRole="hoadon" />
+          <NavigationProperty Name="checkin_dichvu" Relationship="Self.dv_trunggian" FromRole="hoadon" ToRole="checkin_dichvu" />
+          <NavigationProperty Name="checkin_phong" Relationship="Self.phong_trunggian" FromRole="hoadon" ToRole="checkin_phong" />
         </EntityType>
         <EntityType Name="khachhang">
           <Key>
@@ -645,10 +671,12 @@ error 6004: The table 'duan1.dbo.tempkhachhang' is referenced by a relationship,
           <Property Name="sdt" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
           <Property Name="gioitinh" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
           <Property Name="diachi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="anh" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="ngaysinh" Type="DateTime" Precision="0" />
           <NavigationProperty Name="checkins" Relationship="Self.FK__checkin__idkh__49C3F6B7" FromRole="khachhang" ToRole="checkin" />
           <NavigationProperty Name="checkout" Relationship="Self.FK__checkout__idkh__4D94879B" FromRole="khachhang" ToRole="checkout" />
           <NavigationProperty Name="hoadons" Relationship="Self.FK__hoadon__idkh__52593CB8" FromRole="khachhang" ToRole="hoadon" />
+          <NavigationProperty Name="tempkhachhangs" Relationship="Self.FK__tempkhachh__idkh__6B24EA82" FromRole="khachhang" ToRole="tempkhachhang" />
         </EntityType>
         <EntityType Name="loaiphong">
           <Key>
@@ -672,7 +700,6 @@ error 6004: The table 'duan1.dbo.tempkhachhang' is referenced by a relationship,
           <Property Name="gioitinh" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="diachi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ngaysinh" Type="DateTime" Precision="0" />
-          <Property Name="anh" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="taikhoan" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="checkins" Relationship="Self.FK__checkin__idnv__4AB81AF0" FromRole="nhanvien" ToRole="checkin" />
           <NavigationProperty Name="checkouts" Relationship="Self.FK__checkout__idnv__4E88ABD4" FromRole="nhanvien" ToRole="checkout" />
@@ -690,17 +717,7 @@ error 6004: The table 'duan1.dbo.tempkhachhang' is referenced by a relationship,
           <Property Name="tenphong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="checkin_phong" Relationship="Self.FK__checkin_p__idpho__5CD6CB2B" FromRole="phong" ToRole="checkin_phong" />
           <NavigationProperty Name="loaiphong1" Relationship="Self.FK__phong__loaiphong__398D8EEE" FromRole="phong" ToRole="loaiphong" />
-          <NavigationProperty Name="trangthaiphongs" Relationship="Self.FK__trangthai__idpho__68487DD7" FromRole="phong" ToRole="trangthaiphong" />
-        </EntityType>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="trangthaiphongs" Relationship="Self.FK__trangthai__idpho__6754599E" FromRole="phong" ToRole="trangthaiphong" />
         </EntityType>
         <EntityType Name="taikhoan">
           <Key>
@@ -712,6 +729,17 @@ error 6004: The table 'duan1.dbo.tempkhachhang' is referenced by a relationship,
           <NavigationProperty Name="nhanviens" Relationship="Self.FK__nhanvien__taikho__4316F928" FromRole="taikhoan" ToRole="nhanvien" />
           <NavigationProperty Name="vaitro" Relationship="Self.FK__taikhoan__loaitk__3E52440B" FromRole="taikhoan" ToRole="vaitro" />
         </EntityType>
+        <EntityType Name="tempkhachhang">
+          <Key>
+            <PropertyRef Name="idkh" />
+            <PropertyRef Name="idcheckin" />
+          </Key>
+          <Property Name="idkh" Type="Int32" Nullable="false" />
+          <Property Name="idcheckin" Type="Int32" Nullable="false" />
+          <Property Name="tienkhachtra" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="checkin" Relationship="Self.FK__tempkhach__idche__6C190EBB" FromRole="tempkhachhang" ToRole="checkin" />
+          <NavigationProperty Name="khachhang" Relationship="Self.FK__tempkhachh__idkh__6B24EA82" FromRole="tempkhachhang" ToRole="khachhang" />
+        </EntityType>
         <EntityType Name="trangthaiphong">
           <Key>
             <PropertyRef Name="id" />
@@ -720,7 +748,7 @@ error 6004: The table 'duan1.dbo.tempkhachhang' is referenced by a relationship,
           <Property Name="idphong" Type="Int32" />
           <Property Name="trangthai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="ghichu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="phong" Relationship="Self.FK__trangthai__idpho__68487DD7" FromRole="trangthaiphong" ToRole="phong" />
+          <NavigationProperty Name="phong" Relationship="Self.FK__trangthai__idpho__6754599E" FromRole="trangthaiphong" ToRole="phong" />
         </EntityType>
         <EntityType Name="vaitro">
           <Key>
@@ -742,29 +770,37 @@ error 6004: The table 'duan1.dbo.tempkhachhang' is referenced by a relationship,
           <Property Name="trangthai" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="nhanvien" Relationship="Self.FK__voucher__idnv__6EF57B66" FromRole="voucher" ToRole="nhanvien" />
         </EntityType>
-        <EntityType Name="hoadonchitiet_dichvu">
+        <EntityType Name="hoadon_dichvu">
           <Key>
-            <PropertyRef Name="ten" />
-            <PropertyRef Name="tendv" />
+            <PropertyRef Name="idhoadon" />
+            <PropertyRef Name="Tên_nhân_viên" />
+            <PropertyRef Name="Tên_khách_hàng" />
+            <PropertyRef Name="Tên_dịch_vụ" />
+            <PropertyRef Name="Ngày_tạo" />
           </Key>
-          <Property Name="ten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="tendv" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="soluong" Type="Int32" />
-          <Property Name="Thành_tiền" Type="Decimal" Precision="21" Scale="2" />
+          <Property Name="idhoadon" Type="Int32" Nullable="false" />
+          <Property Name="Tên_nhân_viên" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Tên_khách_hàng" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Tên_dịch_vụ" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Số_lượng" Type="Int32" />
+          <Property Name="Giá_tiền" Type="Decimal" Precision="21" Scale="2" />
+          <Property Name="Ngày_tạo" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
-        <EntityType Name="hoadonchitiet_phong">
+        <EntityType Name="hoadon_phong">
           <Key>
-            <PropertyRef Name="ten" />
-            <PropertyRef Name="khuvuc" />
-            <PropertyRef Name="tenphong" />
-            <PropertyRef Name="giaphong" />
+            <PropertyRef Name="idhoadon" />
+            <PropertyRef Name="Tên_nhân_viên" />
+            <PropertyRef Name="Tên_khách_hàng" />
+            <PropertyRef Name="Tên_phòng" />
+            <PropertyRef Name="Giá_phòng" />
+            <PropertyRef Name="Ngày_tạo" />
           </Key>
-          <Property Name="ten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="khuvuc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="tenphong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="giaphong" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="idhoadon" Type="Int32" Nullable="false" />
+          <Property Name="Tên_nhân_viên" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Tên_khách_hàng" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Tên_phòng" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Giá_phòng" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Ngày_tạo" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <Association Name="FK__checkin__idkh__49C3F6B7">
           <End Role="khachhang" Type="Self.khachhang" Multiplicity="1" />
@@ -810,6 +846,18 @@ error 6004: The table 'duan1.dbo.tempkhachhang' is referenced by a relationship,
               <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="checkin_phong">
+              <PropertyRef Name="idcheckin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tempkhach__idche__6C190EBB">
+          <End Role="checkin" Type="Self.checkin" Multiplicity="1" />
+          <End Role="tempkhachhang" Type="Self.tempkhachhang" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="checkin">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tempkhachhang">
               <PropertyRef Name="idcheckin" />
             </Dependent>
           </ReferentialConstraint>
@@ -886,15 +934,15 @@ error 6004: The table 'duan1.dbo.tempkhachhang' is referenced by a relationship,
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__hoadonchi__idhoa__5FB337D6">
-          <End Role="hoadon" Type="Self.hoadon" Multiplicity="1" />
-          <End Role="hoadonchitiet" Type="Self.hoadonchitiet" Multiplicity="*" />
+        <Association Name="FK__tempkhachh__idkh__6B24EA82">
+          <End Role="khachhang" Type="Self.khachhang" Multiplicity="1" />
+          <End Role="tempkhachhang" Type="Self.tempkhachhang" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="hoadon">
-              <PropertyRef Name="idhoadon" />
+            <Principal Role="khachhang">
+              <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="hoadonchitiet">
-              <PropertyRef Name="idhoadon" />
+            <Dependent Role="tempkhachhang">
+              <PropertyRef Name="idkh" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -934,7 +982,7 @@ error 6004: The table 'duan1.dbo.tempkhachhang' is referenced by a relationship,
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__trangthai__idpho__68487DD7">
+        <Association Name="FK__trangthai__idpho__6754599E">
           <End Role="phong" Type="Self.phong" Multiplicity="0..1" />
           <End Role="trangthaiphong" Type="Self.trangthaiphong" Multiplicity="*" />
           <ReferentialConstraint>
@@ -958,25 +1006,32 @@ error 6004: The table 'duan1.dbo.tempkhachhang' is referenced by a relationship,
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DuAn1_QuanLyKhachSan" annotation:LazyLoadingEnabled="true">
+        <Association Name="dv_trunggian">
+          <End Role="checkin_dichvu" Type="Self.checkin_dichvu" Multiplicity="*" />
+          <End Role="hoadon" Type="Self.hoadon" Multiplicity="*" />
+        </Association>
+        <Association Name="phong_trunggian">
+          <End Role="hoadon" Type="Self.hoadon" Multiplicity="*" />
+          <End Role="checkin_phong" Type="Self.checkin_phong" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="DuAn1_QlyKS" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="checkins" EntityType="Self.checkin" />
           <EntitySet Name="checkin_dichvu" EntityType="Self.checkin_dichvu" />
           <EntitySet Name="checkin_phong" EntityType="Self.checkin_phong" />
           <EntitySet Name="checkouts" EntityType="Self.checkout" />
           <EntitySet Name="dichvus" EntityType="Self.dichvu" />
           <EntitySet Name="hoadons" EntityType="Self.hoadon" />
-          <EntitySet Name="hoadonchitiets" EntityType="Self.hoadonchitiet" />
           <EntitySet Name="khachhangs" EntityType="Self.khachhang" />
           <EntitySet Name="loaiphongs" EntityType="Self.loaiphong" />
           <EntitySet Name="nhanviens" EntityType="Self.nhanvien" />
           <EntitySet Name="phongs" EntityType="Self.phong" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="taikhoans" EntityType="Self.taikhoan" />
+          <EntitySet Name="tempkhachhangs" EntityType="Self.tempkhachhang" />
           <EntitySet Name="trangthaiphongs" EntityType="Self.trangthaiphong" />
           <EntitySet Name="vaitroes" EntityType="Self.vaitro" />
           <EntitySet Name="vouchers" EntityType="Self.voucher" />
-          <EntitySet Name="hoadonchitiet_dichvu" EntityType="Self.hoadonchitiet_dichvu" />
-          <EntitySet Name="hoadonchitiet_phong" EntityType="Self.hoadonchitiet_phong" />
+          <EntitySet Name="hoadon_dichvu" EntityType="Self.hoadon_dichvu" />
+          <EntitySet Name="hoadon_phong" EntityType="Self.hoadon_phong" />
           <AssociationSet Name="FK__checkin__idkh__49C3F6B7" Association="Self.FK__checkin__idkh__49C3F6B7">
             <End Role="khachhang" EntitySet="khachhangs" />
             <End Role="checkin" EntitySet="checkins" />
@@ -992,6 +1047,10 @@ error 6004: The table 'duan1.dbo.tempkhachhang' is referenced by a relationship,
           <AssociationSet Name="FK__checkin_p__idche__5BE2A6F2" Association="Self.FK__checkin_p__idche__5BE2A6F2">
             <End Role="checkin" EntitySet="checkins" />
             <End Role="checkin_phong" EntitySet="checkin_phong" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tempkhach__idche__6C190EBB" Association="Self.FK__tempkhach__idche__6C190EBB">
+            <End Role="checkin" EntitySet="checkins" />
+            <End Role="tempkhachhang" EntitySet="tempkhachhangs" />
           </AssociationSet>
           <AssociationSet Name="FK__checkin_di__iddv__59063A47" Association="Self.FK__checkin_di__iddv__59063A47">
             <End Role="dichvu" EntitySet="dichvus" />
@@ -1017,9 +1076,9 @@ error 6004: The table 'duan1.dbo.tempkhachhang' is referenced by a relationship,
             <End Role="nhanvien" EntitySet="nhanviens" />
             <End Role="hoadon" EntitySet="hoadons" />
           </AssociationSet>
-          <AssociationSet Name="FK__hoadonchi__idhoa__5FB337D6" Association="Self.FK__hoadonchi__idhoa__5FB337D6">
-            <End Role="hoadon" EntitySet="hoadons" />
-            <End Role="hoadonchitiet" EntitySet="hoadonchitiets" />
+          <AssociationSet Name="FK__tempkhachh__idkh__6B24EA82" Association="Self.FK__tempkhachh__idkh__6B24EA82">
+            <End Role="khachhang" EntitySet="khachhangs" />
+            <End Role="tempkhachhang" EntitySet="tempkhachhangs" />
           </AssociationSet>
           <AssociationSet Name="FK__phong__loaiphong__398D8EEE" Association="Self.FK__phong__loaiphong__398D8EEE">
             <End Role="loaiphong" EntitySet="loaiphongs" />
@@ -1033,7 +1092,7 @@ error 6004: The table 'duan1.dbo.tempkhachhang' is referenced by a relationship,
             <End Role="nhanvien" EntitySet="nhanviens" />
             <End Role="voucher" EntitySet="vouchers" />
           </AssociationSet>
-          <AssociationSet Name="FK__trangthai__idpho__68487DD7" Association="Self.FK__trangthai__idpho__68487DD7">
+          <AssociationSet Name="FK__trangthai__idpho__6754599E" Association="Self.FK__trangthai__idpho__6754599E">
             <End Role="phong" EntitySet="phongs" />
             <End Role="trangthaiphong" EntitySet="trangthaiphongs" />
           </AssociationSet>
@@ -1041,54 +1100,21 @@ error 6004: The table 'duan1.dbo.tempkhachhang' is referenced by a relationship,
             <End Role="vaitro" EntitySet="vaitroes" />
             <End Role="taikhoan" EntitySet="taikhoans" />
           </AssociationSet>
-          <FunctionImport Name="sp_alterdiagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="version" Mode="In" Type="Int32" />
-            <Parameter Name="definition" Mode="In" Type="Binary" />
-          </FunctionImport>
-          <FunctionImport Name="sp_creatediagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="version" Mode="In" Type="Int32" />
-            <Parameter Name="definition" Mode="In" Type="Binary" />
-          </FunctionImport>
-          <FunctionImport Name="sp_dropdiagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(duan1Model.sp_helpdiagramdefinition_Result)">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(duan1Model.sp_helpdiagrams_Result)">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_renamediagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="new_diagramname" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="sp_upgraddiagrams" />
+          <AssociationSet Name="dv_trunggian" Association="Self.dv_trunggian">
+            <End Role="checkin_dichvu" EntitySet="checkin_dichvu" />
+            <End Role="hoadon" EntitySet="hoadons" />
+          </AssociationSet>
+          <AssociationSet Name="phong_trunggian" Association="Self.phong_trunggian">
+            <End Role="hoadon" EntitySet="hoadons" />
+            <End Role="checkin_phong" EntitySet="checkin_phong" />
+          </AssociationSet>
         </EntityContainer>
-        <ComplexType Name="sp_helpdiagramdefinition_Result">
-          <Property Type="Int32" Name="version" Nullable="true" />
-          <Property Type="Binary" Name="definition" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="sp_helpdiagrams_Result">
-          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
-          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
-          <Property Type="Int32" Name="ID" Nullable="false" />
-          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
-          <Property Type="Int32" Name="OwnerID" Nullable="false" />
-        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="duan1ModelStoreContainer" CdmEntityContainer="DuAn1_QuanLyKhachSan">
+        <EntityContainerMapping StorageEntityContainer="duan1ModelStoreContainer" CdmEntityContainer="DuAn1_QlyKS">
           <EntitySetMapping Name="checkins">
             <EntityTypeMapping TypeName="duan1Model.checkin">
               <MappingFragment StoreEntitySet="checkin">
@@ -1153,15 +1179,6 @@ error 6004: The table 'duan1.dbo.tempkhachhang' is referenced by a relationship,
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="hoadonchitiets">
-            <EntityTypeMapping TypeName="duan1Model.hoadonchitiet">
-              <MappingFragment StoreEntitySet="hoadonchitiet">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="idhoadon" ColumnName="idhoadon" />
-                <ScalarProperty Name="thanhtien" ColumnName="thanhtien" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="khachhangs">
             <EntityTypeMapping TypeName="duan1Model.khachhang">
               <MappingFragment StoreEntitySet="khachhang">
@@ -1171,6 +1188,7 @@ error 6004: The table 'duan1.dbo.tempkhachhang' is referenced by a relationship,
                 <ScalarProperty Name="sdt" ColumnName="sdt" />
                 <ScalarProperty Name="gioitinh" ColumnName="gioitinh" />
                 <ScalarProperty Name="diachi" ColumnName="diachi" />
+                <ScalarProperty Name="anh" ColumnName="anh" />
                 <ScalarProperty Name="ngaysinh" ColumnName="ngaysinh" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1196,7 +1214,6 @@ error 6004: The table 'duan1.dbo.tempkhachhang' is referenced by a relationship,
                 <ScalarProperty Name="gioitinh" ColumnName="gioitinh" />
                 <ScalarProperty Name="diachi" ColumnName="diachi" />
                 <ScalarProperty Name="ngaysinh" ColumnName="ngaysinh" />
-                <ScalarProperty Name="anh" ColumnName="anh" />
                 <ScalarProperty Name="taikhoan" ColumnName="taikhoan" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1211,23 +1228,21 @@ error 6004: The table 'duan1.dbo.tempkhachhang' is referenced by a relationship,
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="duan1Model.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="taikhoans">
             <EntityTypeMapping TypeName="duan1Model.taikhoan">
               <MappingFragment StoreEntitySet="taikhoan">
                 <ScalarProperty Name="taikhoan1" ColumnName="taikhoan" />
                 <ScalarProperty Name="matkhau" ColumnName="matkhau" />
                 <ScalarProperty Name="loaitk" ColumnName="loaitk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tempkhachhangs">
+            <EntityTypeMapping TypeName="duan1Model.tempkhachhang">
+              <MappingFragment StoreEntitySet="tempkhachhang">
+                <ScalarProperty Name="idkh" ColumnName="idkh" />
+                <ScalarProperty Name="idcheckin" ColumnName="idcheckin" />
+                <ScalarProperty Name="tienkhachtra" ColumnName="tienkhachtra" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1261,52 +1276,47 @@ error 6004: The table 'duan1.dbo.tempkhachhang' is referenced by a relationship,
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="hoadonchitiet_dichvu">
-            <EntityTypeMapping TypeName="duan1Model.hoadonchitiet_dichvu">
-              <MappingFragment StoreEntitySet="hoadonchitiet_dichvu">
-                <ScalarProperty Name="ten" ColumnName="ten" />
-                <ScalarProperty Name="tendv" ColumnName="tendv" />
-                <ScalarProperty Name="mota" ColumnName="mota" />
-                <ScalarProperty Name="soluong" ColumnName="soluong" />
-                <ScalarProperty Name="Thành_tiền" ColumnName="Thành tiền" />
+          <EntitySetMapping Name="hoadon_dichvu">
+            <EntityTypeMapping TypeName="duan1Model.hoadon_dichvu">
+              <MappingFragment StoreEntitySet="hoadon_dichvu">
+                <ScalarProperty Name="idhoadon" ColumnName="idhoadon" />
+                <ScalarProperty Name="Tên_nhân_viên" ColumnName="Tên nhân viên" />
+                <ScalarProperty Name="Tên_khách_hàng" ColumnName="Tên khách hàng" />
+                <ScalarProperty Name="Tên_dịch_vụ" ColumnName="Tên dịch vụ" />
+                <ScalarProperty Name="Số_lượng" ColumnName="Số lượng" />
+                <ScalarProperty Name="Giá_tiền" ColumnName="Giá tiền" />
+                <ScalarProperty Name="Ngày_tạo" ColumnName="Ngày tạo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="hoadonchitiet_phong">
-            <EntityTypeMapping TypeName="duan1Model.hoadonchitiet_phong">
-              <MappingFragment StoreEntitySet="hoadonchitiet_phong">
-                <ScalarProperty Name="ten" ColumnName="ten" />
-                <ScalarProperty Name="khuvuc" ColumnName="khuvuc" />
-                <ScalarProperty Name="tenphong" ColumnName="tenphong" />
-                <ScalarProperty Name="mota" ColumnName="mota" />
-                <ScalarProperty Name="giaphong" ColumnName="giaphong" />
+          <EntitySetMapping Name="hoadon_phong">
+            <EntityTypeMapping TypeName="duan1Model.hoadon_phong">
+              <MappingFragment StoreEntitySet="hoadon_phong">
+                <ScalarProperty Name="idhoadon" ColumnName="idhoadon" />
+                <ScalarProperty Name="Tên_nhân_viên" ColumnName="Tên nhân viên" />
+                <ScalarProperty Name="Tên_khách_hàng" ColumnName="Tên khách hàng" />
+                <ScalarProperty Name="Tên_phòng" ColumnName="Tên phòng" />
+                <ScalarProperty Name="Giá_phòng" ColumnName="Giá phòng" />
+                <ScalarProperty Name="Ngày_tạo" ColumnName="Ngày tạo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="duan1Model.Store.sp_alterdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="duan1Model.Store.sp_creatediagram" />
-          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="duan1Model.Store.sp_dropdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="duan1Model.Store.sp_helpdiagramdefinition">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="duan1Model.sp_helpdiagramdefinition_Result">
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="duan1Model.Store.sp_helpdiagrams">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="duan1Model.sp_helpdiagrams_Result">
-                <ScalarProperty Name="Database" ColumnName="Database" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Owner" ColumnName="Owner" />
-                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="duan1Model.Store.sp_renamediagram" />
-          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="duan1Model.Store.sp_upgraddiagrams" />
+          <AssociationSetMapping Name="dv_trunggian" TypeName="duan1Model.dv_trunggian" StoreEntitySet="dv_trunggian">
+            <EndProperty Name="checkin_dichvu">
+              <ScalarProperty Name="id" ColumnName="iddv" />
+            </EndProperty>
+            <EndProperty Name="hoadon">
+              <ScalarProperty Name="idhoadon" ColumnName="idhd" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="phong_trunggian" TypeName="duan1Model.phong_trunggian" StoreEntitySet="phong_trunggian">
+            <EndProperty Name="hoadon">
+              <ScalarProperty Name="idhoadon" ColumnName="idhd" />
+            </EndProperty>
+            <EndProperty Name="checkin_phong">
+              <ScalarProperty Name="id" ColumnName="idp" />
+            </EndProperty>
+          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

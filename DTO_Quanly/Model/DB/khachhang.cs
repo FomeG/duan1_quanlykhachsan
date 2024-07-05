@@ -19,6 +19,7 @@ namespace DTO_Quanly.Model.DB
         {
             this.checkins = new HashSet<checkin>();
             this.hoadons = new HashSet<hoadon>();
+            this.tempkhachhangs = new HashSet<tempkhachhang>();
         }
     
         public int id { get; set; }
@@ -27,6 +28,7 @@ namespace DTO_Quanly.Model.DB
         public string sdt { get; set; }
         public string gioitinh { get; set; }
         public string diachi { get; set; }
+        public string anh { get; set; }
         public Nullable<System.DateTime> ngaysinh { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -34,5 +36,7 @@ namespace DTO_Quanly.Model.DB
         public virtual checkout checkout { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<hoadon> hoadons { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tempkhachhang> tempkhachhangs { get; set; }
     }
 }

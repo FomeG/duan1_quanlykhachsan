@@ -19,6 +19,7 @@ namespace DTO_Quanly.Model.DB
         {
             this.checkin_dichvu = new HashSet<checkin_dichvu>();
             this.checkin_phong = new HashSet<checkin_phong>();
+            this.tempkhachhangs = new HashSet<tempkhachhang>();
         }
     
         public int id { get; set; }
@@ -33,5 +34,7 @@ namespace DTO_Quanly.Model.DB
         public virtual ICollection<checkin_dichvu> checkin_dichvu { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<checkin_phong> checkin_phong { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tempkhachhang> tempkhachhangs { get; set; }
     }
 }

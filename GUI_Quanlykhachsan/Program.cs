@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GUI_Quanlykhachsan.ChucNang;
+using System;
 using System.Windows.Forms;
 
 namespace GUI_Quanlykhachsan
@@ -13,7 +14,7 @@ namespace GUI_Quanlykhachsan
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TrangChu());
+            Application.Run(new ThongTinKH());
         }
     }
 }

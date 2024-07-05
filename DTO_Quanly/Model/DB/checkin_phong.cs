@@ -14,11 +14,19 @@ namespace DTO_Quanly.Model.DB
     
     public partial class checkin_phong
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public checkin_phong()
+        {
+            this.hoadons = new HashSet<hoadon>();
+        }
+    
         public int id { get; set; }
         public int idcheckin { get; set; }
         public int idphong { get; set; }
     
         public virtual checkin checkin { get; set; }
         public virtual phong phong { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<hoadon> hoadons { get; set; }
     }
 }

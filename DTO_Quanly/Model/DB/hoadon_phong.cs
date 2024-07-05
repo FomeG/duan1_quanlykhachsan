@@ -10,13 +10,15 @@
 namespace DTO_Quanly.Model.DB
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class sp_helpdiagrams_Result
+    public partial class hoadon_phong
     {
-        public string Database { get; set; }
-        public string Name { get; set; }
-        public int ID { get; set; }
-        public string Owner { get; set; }
-        public int OwnerID { get; set; }
+        public int idhoadon { get; set; }
+        public string Tên_nhân_viên { get; set; }
+        public string Tên_khách_hàng { get; set; }
+        public string Tên_phòng { get; set; }
+        public decimal Giá_phòng { get; set; }
+        public System.DateTime Ngày_tạo { get; set; }
     }
 }

@@ -30,7 +30,6 @@ namespace DTO_Quanly.Model.DB
         public string gioitinh { get; set; }
         public string diachi { get; set; }
         public Nullable<System.DateTime> ngaysinh { get; set; }
-        public string anh { get; set; }
         public string taikhoan { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
