@@ -116,7 +116,7 @@
             this.guna2GradientButton1.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(62)))), ((int)(((byte)(51)))));
             this.guna2GradientButton1.Location = new System.Drawing.Point(0, 50);
             this.guna2GradientButton1.Name = "guna2GradientButton1";
-            this.guna2GradientButton1.Size = new System.Drawing.Size(195, 45);
+            this.guna2GradientButton1.Size = new System.Drawing.Size(200, 45);
             this.guna2GradientButton1.TabIndex = 3;
             this.guna2GradientButton1.Text = "Quản lý đặt phòng";
             this.guna2GradientButton1.Click += new System.EventHandler(this.guna2GradientButton1_Click);
@@ -138,7 +138,7 @@
             this.guna2GradientButton2.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(62)))), ((int)(((byte)(51)))));
             this.guna2GradientButton2.Location = new System.Drawing.Point(0, 101);
             this.guna2GradientButton2.Name = "guna2GradientButton2";
-            this.guna2GradientButton2.Size = new System.Drawing.Size(195, 45);
+            this.guna2GradientButton2.Size = new System.Drawing.Size(200, 45);
             this.guna2GradientButton2.TabIndex = 4;
             this.guna2GradientButton2.Text = "Quản lý nhân viên";
             this.guna2GradientButton2.Click += new System.EventHandler(this.guna2GradientButton2_Click);
@@ -160,7 +160,7 @@
             this.guna2GradientButton3.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(62)))), ((int)(((byte)(51)))));
             this.guna2GradientButton3.Location = new System.Drawing.Point(0, 152);
             this.guna2GradientButton3.Name = "guna2GradientButton3";
-            this.guna2GradientButton3.Size = new System.Drawing.Size(195, 45);
+            this.guna2GradientButton3.Size = new System.Drawing.Size(200, 45);
             this.guna2GradientButton3.TabIndex = 5;
             this.guna2GradientButton3.Text = "Khách hàng";
             this.guna2GradientButton3.Click += new System.EventHandler(this.guna2GradientButton3_Click);
@@ -182,7 +182,7 @@
             this.guna2GradientButton4.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(62)))), ((int)(((byte)(51)))));
             this.guna2GradientButton4.Location = new System.Drawing.Point(0, 203);
             this.guna2GradientButton4.Name = "guna2GradientButton4";
-            this.guna2GradientButton4.Size = new System.Drawing.Size(195, 45);
+            this.guna2GradientButton4.Size = new System.Drawing.Size(200, 45);
             this.guna2GradientButton4.TabIndex = 6;
             this.guna2GradientButton4.Text = "guna2GradientButton4";
             // 
@@ -203,7 +203,7 @@
             this.guna2GradientButton5.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(62)))), ((int)(((byte)(51)))));
             this.guna2GradientButton5.Location = new System.Drawing.Point(0, 254);
             this.guna2GradientButton5.Name = "guna2GradientButton5";
-            this.guna2GradientButton5.Size = new System.Drawing.Size(195, 45);
+            this.guna2GradientButton5.Size = new System.Drawing.Size(200, 45);
             this.guna2GradientButton5.TabIndex = 7;
             this.guna2GradientButton5.Text = "guna2GradientButton5";
             // 
@@ -224,7 +224,7 @@
             this.guna2GradientButton6.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(62)))), ((int)(((byte)(51)))));
             this.guna2GradientButton6.Location = new System.Drawing.Point(0, 305);
             this.guna2GradientButton6.Name = "guna2GradientButton6";
-            this.guna2GradientButton6.Size = new System.Drawing.Size(195, 45);
+            this.guna2GradientButton6.Size = new System.Drawing.Size(200, 45);
             this.guna2GradientButton6.TabIndex = 8;
             this.guna2GradientButton6.Text = "Báo cáo tài chính";
             this.guna2GradientButton6.Click += new System.EventHandler(this.guna2GradientButton6_Click);
@@ -246,7 +246,7 @@
             this.guna2GradientButton7.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(62)))), ((int)(((byte)(51)))));
             this.guna2GradientButton7.Location = new System.Drawing.Point(0, 356);
             this.guna2GradientButton7.Name = "guna2GradientButton7";
-            this.guna2GradientButton7.Size = new System.Drawing.Size(195, 45);
+            this.guna2GradientButton7.Size = new System.Drawing.Size(200, 45);
             this.guna2GradientButton7.TabIndex = 9;
             this.guna2GradientButton7.Text = "Thanh toán (test)";
             this.guna2GradientButton7.Click += new System.EventHandler(this.guna2GradientButton7_Click);
@@ -268,7 +268,7 @@
             this.guna2GradientButton8.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(62)))), ((int)(((byte)(51)))));
             this.guna2GradientButton8.Location = new System.Drawing.Point(0, 407);
             this.guna2GradientButton8.Name = "guna2GradientButton8";
-            this.guna2GradientButton8.Size = new System.Drawing.Size(195, 45);
+            this.guna2GradientButton8.Size = new System.Drawing.Size(200, 45);
             this.guna2GradientButton8.TabIndex = 10;
             this.guna2GradientButton8.Text = "Cài đặt";
             this.guna2GradientButton8.Click += new System.EventHandler(this.guna2GradientButton8_Click);
@@ -290,7 +290,7 @@
             this.guna2GradientButton9.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(62)))), ((int)(((byte)(51)))));
             this.guna2GradientButton9.Location = new System.Drawing.Point(0, 458);
             this.guna2GradientButton9.Name = "guna2GradientButton9";
-            this.guna2GradientButton9.Size = new System.Drawing.Size(195, 45);
+            this.guna2GradientButton9.Size = new System.Drawing.Size(200, 45);
             this.guna2GradientButton9.TabIndex = 11;
             this.guna2GradientButton9.Text = "Đăng xuất";
             this.guna2GradientButton9.Click += new System.EventHandler(this.guna2GradientButton9_Click);
@@ -338,6 +338,7 @@
             this.guna2GradientButton10.Size = new System.Drawing.Size(33, 31);
             this.guna2GradientButton10.TabIndex = 13;
             this.guna2GradientButton10.Text = "X";
+            this.guna2GradientButton10.Click += new System.EventHandler(this.guna2GradientButton10_Click);
             // 
             // btntest1
             // 
@@ -526,7 +527,7 @@
             this.guna2GradientPanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(62)))), ((int)(((byte)(51)))));
             this.guna2GradientPanel1.Location = new System.Drawing.Point(-1, -1);
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
-            this.guna2GradientPanel1.Size = new System.Drawing.Size(196, 702);
+            this.guna2GradientPanel1.Size = new System.Drawing.Size(201, 702);
             this.guna2GradientPanel1.TabIndex = 19;
             // 
             // TrangChu

@@ -43,7 +43,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.anhkh = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2DateTimePicker2 = new Guna.UI2.WinForms.Guna2DateTimePicker();
@@ -60,7 +60,8 @@
             this.label11 = new System.Windows.Forms.Label();
             this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            ((System.ComponentModel.ISupportInitialize)(this.anhkh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -243,18 +244,20 @@
             this.radioButton2.Text = "Nữ";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
-            // guna2PictureBox1
+            // anhkh
             // 
-            this.guna2PictureBox1.BackColor = System.Drawing.Color.DarkGray;
-            this.guna2PictureBox1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.InitialImage")));
-            this.guna2PictureBox1.Location = new System.Drawing.Point(388, 11);
-            this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(225, 162);
-            this.guna2PictureBox1.TabIndex = 9;
-            this.guna2PictureBox1.TabStop = false;
+            this.anhkh.BackColor = System.Drawing.Color.DarkGray;
+            this.anhkh.FillColor = System.Drawing.Color.Transparent;
+            this.anhkh.Image = ((System.Drawing.Image)(resources.GetObject("anhkh.Image")));
+            this.anhkh.ImageRotate = 0F;
+            this.anhkh.InitialImage = ((System.Drawing.Image)(resources.GetObject("anhkh.InitialImage")));
+            this.anhkh.Location = new System.Drawing.Point(388, 11);
+            this.anhkh.Margin = new System.Windows.Forms.Padding(2);
+            this.anhkh.Name = "anhkh";
+            this.anhkh.Size = new System.Drawing.Size(225, 162);
+            this.anhkh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.anhkh.TabIndex = 9;
+            this.anhkh.TabStop = false;
             // 
             // guna2Button1
             // 
@@ -270,6 +273,7 @@
             this.guna2Button1.Size = new System.Drawing.Size(135, 37);
             this.guna2Button1.TabIndex = 10;
             this.guna2Button1.Text = "Hộp thoại";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // guna2Button2
             // 
@@ -491,6 +495,10 @@
             this.dataGridView1.Size = new System.Drawing.Size(601, 196);
             this.dataGridView1.TabIndex = 15;
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // KhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -510,7 +518,7 @@
             this.Controls.Add(this.guna2Button4);
             this.Controls.Add(this.guna2Button2);
             this.Controls.Add(this.guna2Button1);
-            this.Controls.Add(this.guna2PictureBox1);
+            this.Controls.Add(this.anhkh);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.radioButton1);
@@ -531,7 +539,7 @@
             this.Name = "KhachHang";
             this.Text = "KhachHang";
             this.Load += new System.EventHandler(this.KhachHang_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.anhkh)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -554,7 +562,7 @@
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
+        private Guna.UI2.WinForms.Guna2PictureBox anhkh;
         private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker3;
         private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker2;
         private System.Windows.Forms.Label label8;
@@ -569,5 +577,6 @@
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox7;
         private Guna.UI2.WinForms.Guna2Button guna2Button4;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

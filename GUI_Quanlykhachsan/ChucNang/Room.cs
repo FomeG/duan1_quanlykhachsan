@@ -17,7 +17,7 @@ namespace GUI_Quanlykhachsan.ChucNang
 
             roomname.Text = tenphong;
 
-            traphong();
+            //traphong();
         }
 
         private void Room_Load(object sender, EventArgs e)
@@ -64,20 +64,20 @@ namespace GUI_Quanlykhachsan.ChucNang
         //int a = 0;
         private void guna2GradientButton1_Click(object sender, EventArgs e)
         {
-            if (btnDat.Text == "Đặt phòng")
-            {
-                KhachHang a = new KhachHang(nhanphong, dattruoc);
-                a.Show();
-            }
-            else if (btnDat.Text == "Trả phòng")
-            {
-                ThanhToan frmtt = new ThanhToan(traphong);
-                frmtt.Show();
-            }
-            else
-            {
-                nhanphong();
-            }
+            //if (btnDat.Text == "Đặt phòng")
+            //{
+            //    KhachHang a = new KhachHang(nhanphong, dattruoc);
+            //    a.Show();
+            //}
+            //else if (btnDat.Text == "Trả phòng")
+            //{
+            //    ThanhToan frmtt = new ThanhToan(traphong);
+            //    frmtt.Show();
+            //}
+            //else
+            //{
+            //    nhanphong();
+            //}
             //a++;
             //if (a == 1)
             //{
@@ -104,26 +104,26 @@ namespace GUI_Quanlykhachsan.ChucNang
             //}
         }
 
-        public void dattruoc()
-        {
-            btnDat.Text = "Nhận Phòng";
-            label2.Text = "Phòng được đặt trước";
-            this.BackColor = Color.Yellow;
-        }
+        //public void dattruoc()
+        //{
+        //    btnDat.Text = "Nhận Phòng";
+        //    label2.Text = "Phòng được đặt trước";
+        //    this.BackColor = Color.Yellow;
+        //}
 
-        public void nhanphong()
-        {
-            btnDat.Text = "Trả phòng";
-            label2.Text = "Phòng đang được sử dụng";
-            this.BackColor = Color.Red;
-        }
+        //public void nhanphong()
+        //{
+        //    btnDat.Text = "Trả phòng";
+        //    label2.Text = "Phòng đang được sử dụng";
+        //    this.BackColor = Color.Red;
+        //}
 
-        public void traphong()
-        {
-            btnDat.Text = "Đặt phòng";
-            label2.Text = "phòng trống";
-            this.BackColor = Color.Green;
-        }
+        //public void traphong()
+        //{
+        //    btnDat.Text = "Đặt phòng";
+        //    label2.Text = "phòng trống";
+        //    this.BackColor = Color.Green;
+        //}
 
         #endregion
     }

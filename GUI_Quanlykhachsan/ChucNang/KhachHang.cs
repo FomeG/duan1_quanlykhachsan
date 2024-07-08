@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Drawing;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 
 namespace GUI_Quanlykhachsan.ChucNang
@@ -7,7 +9,7 @@ namespace GUI_Quanlykhachsan.ChucNang
     {
         public Action dattruoc;
         public Action nhanphong;
-        public KhachHang(Action nhanphong, Action dattruoc)
+        public KhachHang(/*Action nhanphong, Action dattruoc*/)
         {
             InitializeComponent();
             this.dattruoc = dattruoc;
@@ -33,6 +35,16 @@ namespace GUI_Quanlykhachsan.ChucNang
         private void label9_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog lam = new OpenFileDialog();
+            lam.Filter = "*.png|";
+            if (lam.ShowDialog() == DialogResult.OK)
+            {
+                anhkh.Image = System.Drawing.Image.FromFile(lam.FileName);
+            }
         }
 
     }

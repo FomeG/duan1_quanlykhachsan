@@ -4,6 +4,7 @@ using GUI_Quanlykhachsan.ChucNang.Tai_Khoan;
 using GUI_Quanlykhachsan.ChucNang.Test;
 using System;
 using System.Collections.Generic;
+using System.Net.WebSockets;
 using System.Reflection;
 using System.Windows.Forms;
 
@@ -136,9 +137,6 @@ namespace GUI_Quanlykhachsan
 
 
 
-
-
-
         #region khu vực test code
         // Bắt đầu phần testcode
         // Những code dưới đây để test, không có động gì vào sql và tác động lên form
@@ -252,14 +250,23 @@ namespace GUI_Quanlykhachsan
 
 
 
+
+
+
+
+
+
         // Kết thúc phần test code
         #endregion
 
+        private void guna2GradientButton10_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
 
-
-
-
-
-
+        private void container_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
