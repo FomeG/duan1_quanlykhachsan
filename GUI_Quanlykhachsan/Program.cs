@@ -14,7 +14,7 @@ namespace GUI_Quanlykhachsan
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ThongTinKH());
+            Application.Run(new Login());
         }
     }
 }
