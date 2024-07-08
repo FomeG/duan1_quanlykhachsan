@@ -76,13 +76,13 @@ namespace GUI_Quanlykhachsan
         // Nút thanh toán để test, sau này sẽ thay đổi lại
         private void guna2GradientButton7_Click(object sender, EventArgs e)
         {
-            ThanhToan ls = new ThanhToan();
-            ls.FormBorderStyle = FormBorderStyle.None;
-            ls.TopLevel = false;
-            container.Controls.Clear();
-            container.Controls.Add(ls);
-            ls.Show();
-            ls.Dock = DockStyle.Fill;
+            //ThanhToan ls = new ThanhToan();
+            //ls.FormBorderStyle = FormBorderStyle.None;
+            //ls.TopLevel = false;
+            //container.Controls.Clear();
+            //container.Controls.Add(ls);
+            //ls.Show();
+            //ls.Dock = DockStyle.Fill;
         }
 
         private void guna2GradientPanel1_Paint(object sender, PaintEventArgs e)

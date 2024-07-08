@@ -5,9 +5,11 @@ namespace GUI_Quanlykhachsan.ChucNang
 {
     public partial class ThanhToan : Form
     {
-        public ThanhToan()
+        public Action traphong;
+        public ThanhToan(Action traphong)
         {
             InitializeComponent();
+            this.traphong = traphong;
         }
 
         // Nút thanh toán sau, vê căn bản là thoát form thanh toán và không làm gì CSDL cả.
@@ -34,7 +36,8 @@ namespace GUI_Quanlykhachsan.ChucNang
 
         private void guna2GradientButton3_Click(object sender, EventArgs e)
         {
-
+            traphong?.Invoke();
+            Close();
         }
     }
 }

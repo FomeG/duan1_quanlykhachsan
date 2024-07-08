@@ -16,6 +16,9 @@ namespace GUI_Quanlykhachsan.ChucNang
             this.Resize += new System.EventHandler(this.RoundedUserControl_Resize);
 
             roomname.Text = tenphong;
+
+
+            traphong();
         }
 
         private void Room_Load(object sender, EventArgs e)
@@ -56,37 +59,73 @@ namespace GUI_Quanlykhachsan.ChucNang
 
 
 
-
+        #region test_logic
 
         // Nút test
-        int a = 0;
+        //int a = 0;
         private void guna2GradientButton1_Click(object sender, EventArgs e)
         {
-            a++;
-            if (a == 1)
+            if (btnDat.Text == "Đặt phòng")
             {
-                btnDat.Text = "Nhận Phòng";
-                label2.Text = "Phòng được đặt trước";
-                this.BackColor = Color.Yellow;
-                KhachHang a = new KhachHang();
+                KhachHang a = new KhachHang(nhanphong, dattruoc);
                 a.Show();
             }
-            else if (a == 2)
+            else if (btnDat.Text == "Trả phòng")
             {
-                btnDat.Text = "Trả phòng";
-                label2.Text = "Phòng đang được sử dụng";
-                this.BackColor = Color.Red;
+                ThanhToan frmtt = new ThanhToan(traphong);
+                frmtt.Show();
             }
             else
             {
-                btnDat.Text = "Đặt phòng";
-                label2.Text = "phòng trống";
-                this.BackColor = Color.Green;
-                a = 0;
-                ThanhToan traphongthanhtoan = new ThanhToan();
-                traphongthanhtoan.Show();
+                nhanphong();
             }
-
+            //a++;
+            //if (a == 1)
+            //{
+            //    btnDat.Text = "Nhận Phòng";
+            //    label2.Text = "Phòng được đặt trước";
+            //    this.BackColor = Color.Yellow;
+            //    KhachHang a = new KhachHang();
+            //    a.Show();
+            //}
+            //else if (a == 2)
+            //{
+            //    btnDat.Text = "Trả phòng";
+            //    label2.Text = "Phòng đang được sử dụng";
+            //    this.BackColor = Color.Red;
+            //}
+            //else
+            //{
+            //    btnDat.Text = "Đặt phòng";
+            //    label2.Text = "phòng trống";
+            //    this.BackColor = Color.Green;
+            //    a = 0;
+            //    ThanhToan traphongthanhtoan = new ThanhToan();
+            //    traphongthanhtoan.Show();
+            //}
         }
+
+        public void dattruoc()
+        {
+            btnDat.Text = "Nhận Phòng";
+            label2.Text = "Phòng được đặt trước";
+            this.BackColor = Color.Yellow;
+        }
+
+        public void nhanphong()
+        {
+            btnDat.Text = "Trả phòng";
+            label2.Text = "Phòng đang được sử dụng";
+            this.BackColor = Color.Red;
+        }
+
+        public void traphong()
+        {
+            btnDat.Text = "Đặt phòng";
+            label2.Text = "phòng trống";
+            this.BackColor = Color.Green;
+        }
+
+        #endregion
     }
 }

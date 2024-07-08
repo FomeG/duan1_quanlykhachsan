@@ -367,7 +367,7 @@
             this.guna2Button3.Size = new System.Drawing.Size(200, 42);
             this.guna2Button3.TabIndex = 11;
             this.guna2Button3.Text = "Nhận phòng";
-            this.guna2Button3.Click += new System.EventHandler(this.guna2Button2_Click);
+            this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
             // 
             // guna2TextBox4
             // 
