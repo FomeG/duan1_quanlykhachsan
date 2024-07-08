@@ -108,7 +108,6 @@ namespace GUI_Quanlykhachsan
 
         }
 
-
         // Nút mở báo cáo tài chính
         private void guna2GradientButton6_Click(object sender, EventArgs e)
         {
@@ -120,8 +119,6 @@ namespace GUI_Quanlykhachsan
             ls.Show();
             ls.Dock = DockStyle.Fill;
         }
-
-
 
         // Nút mở cài đặt
         private void guna2GradientButton8_Click(object sender, EventArgs e)
