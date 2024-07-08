@@ -17,7 +17,6 @@ namespace GUI_Quanlykhachsan.ChucNang
 
             roomname.Text = tenphong;
 
-
             traphong();
         }
 
