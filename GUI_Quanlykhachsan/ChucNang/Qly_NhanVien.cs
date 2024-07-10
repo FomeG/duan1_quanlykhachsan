@@ -63,5 +63,7 @@ namespace GUI_Quanlykhachsan.ChucNang
 
             }
         }
+
+      
     }
 }
