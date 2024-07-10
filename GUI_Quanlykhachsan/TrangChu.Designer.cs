@@ -105,6 +105,8 @@
             // 
             this.guna2GradientButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2GradientButton1.Animated = true;
+            this.guna2GradientButton1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2GradientButton1.BorderRadius = 10;
             this.guna2GradientButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2GradientButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2GradientButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -132,6 +134,8 @@
             // 
             this.guna2GradientButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2GradientButton2.Animated = true;
+            this.guna2GradientButton2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2GradientButton2.BorderRadius = 10;
             this.guna2GradientButton2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2GradientButton2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2GradientButton2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -159,6 +163,8 @@
             // 
             this.guna2GradientButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2GradientButton3.Animated = true;
+            this.guna2GradientButton3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2GradientButton3.BorderRadius = 10;
             this.guna2GradientButton3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2GradientButton3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2GradientButton3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -186,6 +192,8 @@
             // 
             this.guna2GradientButton4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2GradientButton4.Animated = true;
+            this.guna2GradientButton4.BackColor = System.Drawing.Color.Transparent;
+            this.guna2GradientButton4.BorderRadius = 10;
             this.guna2GradientButton4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2GradientButton4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2GradientButton4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -212,6 +220,8 @@
             // 
             this.guna2GradientButton5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2GradientButton5.Animated = true;
+            this.guna2GradientButton5.BackColor = System.Drawing.Color.Transparent;
+            this.guna2GradientButton5.BorderRadius = 10;
             this.guna2GradientButton5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2GradientButton5.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2GradientButton5.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -238,6 +248,8 @@
             // 
             this.guna2GradientButton6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2GradientButton6.Animated = true;
+            this.guna2GradientButton6.BackColor = System.Drawing.Color.Transparent;
+            this.guna2GradientButton6.BorderRadius = 10;
             this.guna2GradientButton6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2GradientButton6.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2GradientButton6.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -265,6 +277,8 @@
             // 
             this.guna2GradientButton7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2GradientButton7.Animated = true;
+            this.guna2GradientButton7.BackColor = System.Drawing.Color.Transparent;
+            this.guna2GradientButton7.BorderRadius = 10;
             this.guna2GradientButton7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2GradientButton7.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2GradientButton7.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -292,6 +306,8 @@
             // 
             this.guna2GradientButton8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2GradientButton8.Animated = true;
+            this.guna2GradientButton8.BackColor = System.Drawing.Color.Transparent;
+            this.guna2GradientButton8.BorderRadius = 10;
             this.guna2GradientButton8.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2GradientButton8.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2GradientButton8.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
