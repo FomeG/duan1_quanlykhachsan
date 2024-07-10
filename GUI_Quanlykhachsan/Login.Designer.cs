@@ -213,9 +213,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(503, 71);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(16, 13);
+            this.label1.Size = new System.Drawing.Size(51, 13);
             this.label1.TabIndex = 6;
-            this.label1.Text = "at";
+            this.label1.Text = "Dat cu to";
             // 
             // Login
             // 
