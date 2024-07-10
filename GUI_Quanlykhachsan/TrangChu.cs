@@ -4,6 +4,7 @@ using GUI_Quanlykhachsan.ChucNang.Tai_Khoan;
 using GUI_Quanlykhachsan.ChucNang.Test;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Net.WebSockets;
 using System.Reflection;
 using System.Windows.Forms;
@@ -16,6 +17,18 @@ namespace GUI_Quanlykhachsan
         {
             InitializeComponent();
         }
+
+        // Màu mặc định
+        public Color MauMacDinh()
+        {
+            return Color.FromArgb(255, 255, 255);
+        }
+        // Màu khi nhấn
+        public Color MauKhiNhan()
+        {
+            return Color.FromArgb(128, 128, 255);
+        }
+
 
         // Nút thoát
         private void btnEXIT_Click(object sender, EventArgs e)
@@ -53,6 +66,23 @@ namespace GUI_Quanlykhachsan
             container.Controls.Add(ls);
             ls.Show();
             ls.Dock = DockStyle.Fill;
+
+
+            btnQLDP.FillColor = MauMacDinh();
+            btnQLDP.FillColor2 = MauMacDinh();
+
+            btnKH.FillColor = MauMacDinh();
+            btnKH.FillColor2 = MauMacDinh();
+
+            btnQLNV.FillColor = MauKhiNhan();
+            btnQLNV.FillColor2 = MauKhiNhan();
+
+            btnTC.FillColor = MauMacDinh();
+            btnTC.FillColor2 = MauMacDinh();
+
+            btnSettings.FillColor = MauMacDinh();
+            btnSettings.FillColor2 = MauMacDinh();
+
         }
 
         // Nút quản lý đặt phòng, khi ấn vào thì thay container = form quản lý đặt phòng
@@ -65,6 +95,25 @@ namespace GUI_Quanlykhachsan
             container.Controls.Add(ls);
             ls.Show();
             ls.Dock = DockStyle.Fill;
+
+
+            btnQLDP.FillColor = MauKhiNhan();
+            btnQLDP.FillColor2 = MauKhiNhan();
+
+            btnKH.FillColor = MauMacDinh();
+            btnKH.FillColor2 = MauMacDinh();
+
+            btnQLNV.FillColor = MauMacDinh();
+            btnQLNV.FillColor2 = MauMacDinh();
+
+            btnTC.FillColor = MauMacDinh();
+            btnTC.FillColor2 = MauMacDinh();
+
+            btnSettings.FillColor = MauMacDinh();
+            btnSettings.FillColor2 = MauMacDinh();
+
+
+
         }
 
 
@@ -101,6 +150,22 @@ namespace GUI_Quanlykhachsan
             container.Controls.Add(ls);
             ls.Show();
             ls.Dock = DockStyle.Fill;
+
+            btnQLDP.FillColor = MauMacDinh();
+            btnQLDP.FillColor2 = MauMacDinh();
+
+            btnKH.FillColor = MauKhiNhan();
+            btnKH.FillColor2 = MauKhiNhan();
+
+            btnQLNV.FillColor = MauMacDinh();
+            btnQLNV.FillColor2 = MauMacDinh();
+
+            btnTC.FillColor = MauMacDinh();
+            btnTC.FillColor2 = MauMacDinh();
+
+            btnSettings.FillColor = MauMacDinh();
+            btnSettings.FillColor2 = MauMacDinh();
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -118,6 +183,22 @@ namespace GUI_Quanlykhachsan
             container.Controls.Add(ls);
             ls.Show();
             ls.Dock = DockStyle.Fill;
+
+
+            btnQLDP.FillColor = MauMacDinh();
+            btnQLDP.FillColor2 = MauMacDinh();
+
+            btnKH.FillColor = MauMacDinh();
+            btnKH.FillColor2 = MauMacDinh();
+
+            btnQLNV.FillColor = MauMacDinh();
+            btnQLNV.FillColor2 = MauMacDinh();
+
+            btnTC.FillColor = MauKhiNhan();
+            btnTC.FillColor2 = MauKhiNhan();
+
+            btnSettings.FillColor = MauMacDinh();
+            btnSettings.FillColor2 = MauMacDinh();
         }
 
         // Nút mở cài đặt
@@ -130,6 +211,22 @@ namespace GUI_Quanlykhachsan
             container.Controls.Add(ls);
             ls.Show();
             ls.Dock = DockStyle.Fill;
+
+
+            btnQLDP.FillColor = MauMacDinh();
+            btnQLDP.FillColor2 = MauMacDinh();
+
+            btnKH.FillColor = MauMacDinh();
+            btnKH.FillColor2 = MauMacDinh();
+
+            btnQLNV.FillColor = MauMacDinh();
+            btnQLNV.FillColor2 = MauMacDinh();
+
+            btnTC.FillColor = MauMacDinh();
+            btnTC.FillColor2 = MauMacDinh();
+
+            btnSettings.FillColor = MauKhiNhan();
+            btnSettings.FillColor2 = MauKhiNhan();
         }
 
 
@@ -257,11 +354,6 @@ namespace GUI_Quanlykhachsan
         #endregion
 
         private void guna2GradientButton10_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void container_Click(object sender, EventArgs e)
         {
             Close();
         }
