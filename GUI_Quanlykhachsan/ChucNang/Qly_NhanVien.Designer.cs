@@ -546,7 +546,7 @@
             this.guna2TextBox1.SelectedText = "";
             this.guna2TextBox1.Size = new System.Drawing.Size(290, 84);
             this.guna2TextBox1.TabIndex = 21;
-            this.guna2TextBox1.TextChanged += new System.EventHandler(this.guna2TextBox1_TextChanged);
+            
             // 
             // Qly_NhanVien
             // 
