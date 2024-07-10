@@ -41,6 +41,7 @@
             this.guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.guna2GradientPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -228,6 +229,15 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "loi  vcl";
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(518, 44);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(172, 23);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "Test gop nhanh";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -236,6 +246,7 @@
             this.ClientSize = new System.Drawing.Size(826, 463);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.txtmk);
@@ -269,6 +280,7 @@
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button2;
     }
 }
 
