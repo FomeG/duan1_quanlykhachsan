@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Net.WebSockets;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace GUI_Quanlykhachsan
@@ -16,8 +17,30 @@ namespace GUI_Quanlykhachsan
         public TrangChu()
         {
             InitializeComponent();
+            this.MouseDown += new MouseEventHandler(Form_MouseDown);
         }
 
+        #region Kéo thả form
+        // Dùng WinAPI để di chuyển form
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+
+        [DllImport("User32.dll")]
+        public static extern bool ReleaseCapture();
+
+        [DllImport("User32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+
+        private void Form_MouseDown(object sender, MouseEventArgs e)
+        {
+            // Nếu nhấn nút chuột trái
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+        #endregion
         // Màu mặc định
         public Color MauMacDinh()
         {
