@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuanLyDatPhong));
             this.btnDatphong = new Guna.UI2.WinForms.Guna2Button();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.SoDoPhong = new System.Windows.Forms.FlowLayoutPanel();
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.guna2GroupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,7 +47,7 @@
             this.btnDatphong.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnDatphong.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnDatphong.ForeColor = System.Drawing.Color.White;
-            this.btnDatphong.Location = new System.Drawing.Point(13, 503);
+            this.btnDatphong.Location = new System.Drawing.Point(8, 503);
             this.btnDatphong.Margin = new System.Windows.Forms.Padding(2);
             this.btnDatphong.Name = "btnDatphong";
             this.btnDatphong.Size = new System.Drawing.Size(135, 37);
@@ -66,15 +68,19 @@
             // 
             // guna2GroupBox1
             // 
+            this.guna2GroupBox1.BorderColor = System.Drawing.Color.Silver;
+            this.guna2GroupBox1.BorderRadius = 12;
             this.guna2GroupBox1.Controls.Add(this.guna2GradientButton1);
             this.guna2GroupBox1.Controls.Add(this.btnDatphong);
             this.guna2GroupBox1.Controls.Add(this.guna2GradientPanel1);
             this.guna2GroupBox1.Controls.Add(this.SoDoPhong);
-            this.guna2GroupBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2GroupBox1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2GroupBox1.ForeColor = System.Drawing.Color.Black;
-            this.guna2GroupBox1.Location = new System.Drawing.Point(-2, -1);
+            this.guna2GroupBox1.Location = new System.Drawing.Point(0, 0);
+            this.guna2GroupBox1.Margin = new System.Windows.Forms.Padding(0);
             this.guna2GroupBox1.Name = "guna2GroupBox1";
-            this.guna2GroupBox1.Size = new System.Drawing.Size(992, 551);
+            this.guna2GroupBox1.Size = new System.Drawing.Size(990, 550);
             this.guna2GroupBox1.TabIndex = 6;
             this.guna2GroupBox1.Text = "Quản lý phòng";
             this.guna2GroupBox1.Click += new System.EventHandler(this.guna2GroupBox1_Click);
@@ -110,6 +116,11 @@
             this.SoDoPhong.TabIndex = 0;
             this.SoDoPhong.Paint += new System.Windows.Forms.PaintEventHandler(this.SoDoPhong_Paint);
             // 
+            // bunifuElipse1
+            // 
+            this.bunifuElipse1.ElipseRadius = 15;
+            this.bunifuElipse1.TargetControl = this;
+            // 
             // QuanLyDatPhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -133,5 +144,6 @@
         private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
         private System.Windows.Forms.FlowLayoutPanel SoDoPhong;
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton1;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
     }
 }
