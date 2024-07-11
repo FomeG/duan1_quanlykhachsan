@@ -4,6 +4,7 @@ using GUI_Quanlykhachsan.ChucNang.Tai_Khoan;
 using GUI_Quanlykhachsan.ChucNang.Test;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Mapping;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -104,7 +105,6 @@ namespace GUI_Quanlykhachsan
 
             btnSettings.FillColor = MauMacDinh();
             btnSettings.FillColor2 = MauMacDinh();
-
         }
 
         // Nút quản lý đặt phòng, khi ấn vào thì thay container = form quản lý đặt phòng
@@ -393,6 +393,26 @@ namespace GUI_Quanlykhachsan
         #endregion
 
         private void guna2Panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        // Nút đăng xuất
+        private void btnDangXuat_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            //Duy();
+        }
+
+        public string ggg()
+        {
+            return "Duy123";
+        }
+        public void Duy(Action ff)
         {
 
         }

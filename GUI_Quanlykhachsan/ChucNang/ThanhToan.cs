@@ -11,6 +11,9 @@ namespace GUI_Quanlykhachsan.ChucNang
         {
             InitializeComponent();
             this.traphong = traphong;
+
+
+
             this.MouseDown += new MouseEventHandler(Form_MouseDown);
         }
 
@@ -64,7 +67,7 @@ namespace GUI_Quanlykhachsan.ChucNang
 
         private void guna2GradientButton3_Click(object sender, EventArgs e)
         {
-            traphong?.Invoke();
+            traphong.Invoke();
             Close();
         }
 
@@ -72,5 +75,13 @@ namespace GUI_Quanlykhachsan.ChucNang
         {
 
         }
+
+
+
+
+
+
+
+
     }
 }

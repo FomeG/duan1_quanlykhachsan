@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrangChu));
-            this.btnEXIT = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.container = new Guna.UI2.WinForms.Guna2ContainerControl();
             this.BtnMinimize = new Guna.UI2.WinForms.Guna2GradientButton();
@@ -54,21 +53,12 @@
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.guna2Panel2.SuspendLayout();
+            this.guna2Panel4.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnEXIT
-            // 
-            this.btnEXIT.Location = new System.Drawing.Point(1113, 648);
-            this.btnEXIT.Margin = new System.Windows.Forms.Padding(2);
-            this.btnEXIT.Name = "btnEXIT";
-            this.btnEXIT.Size = new System.Drawing.Size(76, 41);
-            this.btnEXIT.TabIndex = 0;
-            this.btnEXIT.Text = "Thoát";
-            this.btnEXIT.UseVisualStyleBackColor = true;
-            this.btnEXIT.Click += new System.EventHandler(this.btnEXIT_Click);
             // 
             // label1
             // 
@@ -351,7 +341,7 @@
             this.guna2GradientButton4.Name = "guna2GradientButton4";
             this.guna2GradientButton4.Size = new System.Drawing.Size(192, 45);
             this.guna2GradientButton4.TabIndex = 6;
-            this.guna2GradientButton4.Text = "Chuc nang 1";
+            this.guna2GradientButton4.Text = "Quản lý phòng";
             this.guna2GradientButton4.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // guna2GradientButton5
@@ -466,7 +456,7 @@
             this.btnDangXuat.TabIndex = 10;
             this.btnDangXuat.Text = "Đăng xuất";
             this.btnDangXuat.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnDangXuat.Click += new System.EventHandler(this.guna2GradientButton8_Click);
+            this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click);
             // 
             // btnSettings
             // 
@@ -527,6 +517,7 @@
             // 
             // guna2Panel4
             // 
+            this.guna2Panel4.Controls.Add(this.guna2Button1);
             this.guna2Panel4.Location = new System.Drawing.Point(200, 619);
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.Size = new System.Drawing.Size(1000, 80);
@@ -535,6 +526,21 @@
             this.guna2Panel4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.guna2Panel4_MouseDown);
             this.guna2Panel4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.guna2Panel4_MouseMove);
             this.guna2Panel4.MouseUp += new System.Windows.Forms.MouseEventHandler(this.guna2Panel4_MouseUp);
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Location = new System.Drawing.Point(118, 5);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(180, 45);
+            this.guna2Button1.TabIndex = 0;
+            this.guna2Button1.Text = "guna2Button1";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // TrangChu
             // 
@@ -546,7 +552,6 @@
             this.Controls.Add(this.BtnMinimize);
             this.Controls.Add(this.guna2GradientButton10);
             this.Controls.Add(this.container);
-            this.Controls.Add(this.btnEXIT);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2Panel4);
@@ -562,12 +567,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
+            this.guna2Panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Button btnEXIT;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2ContainerControl container;
         private Guna.UI2.WinForms.Guna2GradientButton btnSettings;
@@ -591,5 +596,6 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }
