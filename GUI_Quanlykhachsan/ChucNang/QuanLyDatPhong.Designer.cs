@@ -30,50 +30,36 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuanLyDatPhong));
-            this.btnDatphong = new Guna.UI2.WinForms.Guna2Button();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.SoDoPhong = new System.Windows.Forms.FlowLayoutPanel();
+            this.ThongkeTEXT = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.guna2GradientPanel1.SuspendLayout();
             this.guna2GroupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnDatphong
-            // 
-            this.btnDatphong.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnDatphong.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnDatphong.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnDatphong.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnDatphong.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnDatphong.ForeColor = System.Drawing.Color.White;
-            this.btnDatphong.Location = new System.Drawing.Point(8, 503);
-            this.btnDatphong.Margin = new System.Windows.Forms.Padding(2);
-            this.btnDatphong.Name = "btnDatphong";
-            this.btnDatphong.Size = new System.Drawing.Size(135, 37);
-            this.btnDatphong.TabIndex = 4;
-            this.btnDatphong.Text = "Đặt phòng";
-            this.btnDatphong.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // guna2GradientPanel1
             // 
             this.guna2GradientPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2GradientPanel1.Controls.Add(this.ThongkeTEXT);
+            this.guna2GradientPanel1.Controls.Add(this.guna2GradientButton1);
             this.guna2GradientPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(32)))), ((int)(((byte)(65)))));
             this.guna2GradientPanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(2)))), ((int)(((byte)(6)))));
             this.guna2GradientPanel1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
             this.guna2GradientPanel1.Location = new System.Drawing.Point(819, 0);
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
-            this.guna2GradientPanel1.Size = new System.Drawing.Size(173, 551);
+            this.guna2GradientPanel1.Size = new System.Drawing.Size(171, 550);
             this.guna2GradientPanel1.TabIndex = 5;
             // 
             // guna2GroupBox1
             // 
             this.guna2GroupBox1.BorderColor = System.Drawing.Color.Silver;
             this.guna2GroupBox1.BorderRadius = 12;
-            this.guna2GroupBox1.Controls.Add(this.guna2GradientButton1);
-            this.guna2GroupBox1.Controls.Add(this.btnDatphong);
             this.guna2GroupBox1.Controls.Add(this.guna2GradientPanel1);
             this.guna2GroupBox1.Controls.Add(this.SoDoPhong);
+            this.guna2GroupBox1.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.guna2GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2GroupBox1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2GroupBox1.ForeColor = System.Drawing.Color.Black;
@@ -100,9 +86,9 @@
             this.guna2GradientButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2GradientButton1.ForeColor = System.Drawing.Color.White;
             this.guna2GradientButton1.Image = ((System.Drawing.Image)(resources.GetObject("guna2GradientButton1.Image")));
-            this.guna2GradientButton1.Location = new System.Drawing.Point(722, 504);
+            this.guna2GradientButton1.Location = new System.Drawing.Point(3, 502);
             this.guna2GradientButton1.Name = "guna2GradientButton1";
-            this.guna2GradientButton1.Size = new System.Drawing.Size(89, 36);
+            this.guna2GradientButton1.Size = new System.Drawing.Size(165, 36);
             this.guna2GradientButton1.TabIndex = 6;
             this.guna2GradientButton1.Text = "Tải lại";
             this.guna2GradientButton1.Click += new System.EventHandler(this.guna2GradientButton1_Click);
@@ -112,9 +98,23 @@
             this.SoDoPhong.AutoScroll = true;
             this.SoDoPhong.Location = new System.Drawing.Point(8, 43);
             this.SoDoPhong.Name = "SoDoPhong";
-            this.SoDoPhong.Size = new System.Drawing.Size(805, 455);
+            this.SoDoPhong.Size = new System.Drawing.Size(805, 495);
             this.SoDoPhong.TabIndex = 0;
             this.SoDoPhong.Paint += new System.Windows.Forms.PaintEventHandler(this.SoDoPhong_Paint);
+            // 
+            // ThongkeTEXT
+            // 
+            this.ThongkeTEXT.AutoEllipsis = true;
+            this.ThongkeTEXT.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ThongkeTEXT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ThongkeTEXT.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ThongkeTEXT.ForeColor = System.Drawing.Color.White;
+            this.ThongkeTEXT.Location = new System.Drawing.Point(0, 0);
+            this.ThongkeTEXT.Name = "ThongkeTEXT";
+            this.ThongkeTEXT.Size = new System.Drawing.Size(171, 40);
+            this.ThongkeTEXT.TabIndex = 7;
+            this.ThongkeTEXT.Text = "Thống kê";
+            this.ThongkeTEXT.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // bunifuElipse1
             // 
@@ -133,17 +133,18 @@
             this.Name = "QuanLyDatPhong";
             this.Text = "QuanLyDatPhong";
             this.Load += new System.EventHandler(this.QuanLyDatPhong_Load);
+            this.guna2GradientPanel1.ResumeLayout(false);
             this.guna2GroupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private Guna.UI2.WinForms.Guna2Button btnDatphong;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
         private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
         private System.Windows.Forms.FlowLayoutPanel SoDoPhong;
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton1;
+        private Bunifu.Framework.UI.BunifuCustomLabel ThongkeTEXT;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
     }
 }

@@ -249,6 +249,16 @@ namespace GUI_Quanlykhachsan
         }
 
 
+        private void guna2GradientButton10_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void BtnMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
 
         #region khu vực test code
         // Bắt đầu phần testcode
@@ -372,11 +382,6 @@ namespace GUI_Quanlykhachsan
         // Kết thúc phần test code
         #endregion
 
-        private void guna2GradientButton10_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
         #region Kéo thả form (controller)
 
         private bool dragging = false;
@@ -431,7 +436,34 @@ namespace GUI_Quanlykhachsan
         {
             dragging = false;
         }
+        private void guna2Panel4_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                dragging = true;
+                dragCursorPoint = Cursor.Position;
+                dragFormPoint = this.Location;
+            }
+
+        }
+        private void guna2Panel4_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (dragging)
+            {
+                Point diff = Point.Subtract(Cursor.Position, new Size(dragCursorPoint));
+                this.Location = Point.Add(dragFormPoint, new Size(diff));
+            }
+        }
+
+        private void guna2Panel4_MouseUp(object sender, MouseEventArgs e)
+        {
+            dragging = false;
+
+        }
+
 
         #endregion
+
+
     }
 }
