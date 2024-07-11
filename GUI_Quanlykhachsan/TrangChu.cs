@@ -139,12 +139,6 @@ namespace GUI_Quanlykhachsan
         }
 
 
-        // Nút đăng xuất
-        private void guna2GradientButton9_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
         // Nút thanh toán để test, sau này sẽ thay đổi lại
         private void guna2GradientButton7_Click(object sender, EventArgs e)
         {
@@ -155,11 +149,6 @@ namespace GUI_Quanlykhachsan
             //container.Controls.Add(ls);
             //ls.Show();
             //ls.Dock = DockStyle.Fill;
-        }
-
-        private void guna2GradientPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         // Nút mở form thông tin khách hàng
@@ -246,7 +235,6 @@ namespace GUI_Quanlykhachsan
             btnSettings.FillColor2 = MauKhiNhan();
         }
 
-
         private void guna2GradientButton10_Click(object sender, EventArgs e)
         {
             Close();
@@ -265,47 +253,6 @@ namespace GUI_Quanlykhachsan
 
 
 
-
-
-        public Form_test formtest;
-        int dem = 0;
-        public void guna2GradientButton11_Click(object sender, EventArgs e)
-        {
-            if (formtest == null || formtest.IsDisposed)
-            {
-                formtest = new Form_test(tangdang);
-                formtest.Show();
-            }
-            else if (!formtest.Visible) // formtest.hide() == true -> show lại
-            {
-                formtest.Show();
-            }
-        }
-        private void okem(object sender, FormClosedEventArgs e)
-        {
-            // Đặt formtest về null khi Form_test đã đóng
-            formtest = null;
-        }
-
-        //private bool isButtonEnabled = true;
-
-        public void tangdang()
-        {
-            labeltest5.Text = dem++.ToString();
-        }
-
-
-        private void btntest3_Click_1(object sender, EventArgs e)
-        {
-            int soluong = formtest.listBox1.Items.Count;
-            formtest.listBox1.Items.Add("Thành viên " + soluong.ToString());
-        }
-
-        private void btntest2_Click(object sender, EventArgs e)
-        {
-            int soluong = formtest.listBox1.Items.Count;
-            formtest.listBox1.Items.Add("Thành viên " + soluong.ToString());
-        }
 
         int tonghd = 0;
         private void btntest4_Click(object sender, EventArgs e)
@@ -351,25 +298,6 @@ namespace GUI_Quanlykhachsan
 
         private Dictionary<int, Button> hdButtons = new Dictionary<int, Button>();
         private List<Form_test> listform = new List<Form_test>();
-        public void hienthiform(int formcanhienthi)
-        {
-            // Ẩn tất cả các form
-            foreach (var form in listform)
-            {
-                form.Hide();
-            }
-
-            // Hiển thị form được chọn
-            listform[formcanhienthi].Show();
-        }
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show(listform.Count.ToString());
-        }
-
-
-
-
 
 
 
@@ -379,6 +307,7 @@ namespace GUI_Quanlykhachsan
 
         // Kết thúc phần test code
         #endregion
+
 
         #region Kéo thả form (controller)
 
