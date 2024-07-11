@@ -12,8 +12,8 @@ namespace GUI_Quanlykhachsan.ChucNang
         public trangthaiphong(string tenphong)
         {
             InitializeComponent();
-            this.SetRoundedRegion();
-            this.Resize += new System.EventHandler(this.RoundedUserControl_Resize);
+            //this.SetRoundedRegion();
+            //this.Resize += new System.EventHandler(this.RoundedUserControl_Resize);
 
             roomname.Text = tenphong;
 
@@ -32,24 +32,24 @@ namespace GUI_Quanlykhachsan.ChucNang
 
 
         #region Bo_Góc_Form
-        private void SetRoundedRegion()
-        {
-            using (GraphicsPath path = new GraphicsPath())
-            {
-                path.AddArc(0, 0, _borderRadius, _borderRadius, 180, 90);
-                path.AddArc(this.Width - _borderRadius, 0, _borderRadius, _borderRadius, 270, 90);
-                path.AddArc(this.Width - _borderRadius, this.Height - _borderRadius, _borderRadius, _borderRadius, 0, 90);
-                path.AddArc(0, this.Height - _borderRadius, _borderRadius, _borderRadius, 90, 90);
-                path.CloseFigure();
+        //private void SetRoundedRegion()
+        //{
+        //    using (GraphicsPath path = new GraphicsPath())
+        //    {
+        //        path.AddArc(0, 0, _borderRadius, _borderRadius, 180, 90);
+        //        path.AddArc(this.Width - _borderRadius, 0, _borderRadius, _borderRadius, 270, 90);
+        //        path.AddArc(this.Width - _borderRadius, this.Height - _borderRadius, _borderRadius, _borderRadius, 0, 90);
+        //        path.AddArc(0, this.Height - _borderRadius, _borderRadius, _borderRadius, 90, 90);
+        //        path.CloseFigure();
 
-                this.Region = new Region(path);
-            }
-        }
+        //        this.Region = new Region(path);
+        //    }
+        //}
 
-        private void RoundedUserControl_Resize(object sender, System.EventArgs e)
-        {
-            this.SetRoundedRegion();
-        }
+        //private void RoundedUserControl_Resize(object sender, System.EventArgs e)
+        //{
+        //    this.SetRoundedRegion();
+        //}
 
 
 
