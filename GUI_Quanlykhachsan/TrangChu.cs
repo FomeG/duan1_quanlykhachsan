@@ -460,8 +460,12 @@ namespace GUI_Quanlykhachsan
         }
 
 
+
         #endregion
 
+        private void guna2Panel4_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
     }
 }

@@ -62,6 +62,7 @@
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gview1)).BeginInit();
+            this.guna2GroupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtten
@@ -430,9 +431,9 @@
             this.guna2Panel1.Controls.Add(this.guna2GradientButton2);
             this.guna2Panel1.Controls.Add(this.guna2GradientButton3);
             this.guna2Panel1.Controls.Add(this.guna2GradientButton1);
-            this.guna2Panel1.Location = new System.Drawing.Point(612, 6);
+            this.guna2Panel1.Location = new System.Drawing.Point(716, 6);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(141, 168);
+            this.guna2Panel1.Size = new System.Drawing.Size(148, 207);
             this.guna2Panel1.TabIndex = 17;
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
@@ -560,6 +561,7 @@
             this.guna2GroupBox1.BackColor = System.Drawing.Color.Transparent;
             this.guna2GroupBox1.BorderColor = System.Drawing.Color.Silver;
             this.guna2GroupBox1.BorderRadius = 12;
+            this.guna2GroupBox1.Controls.Add(this.guna2Panel1);
             this.guna2GroupBox1.CustomBorderColor = System.Drawing.Color.Transparent;
             this.guna2GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2GroupBox1.FillColor = System.Drawing.Color.Transparent;
@@ -581,7 +583,6 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.guna2TextBox2);
             this.Controls.Add(this.gview1);
-            this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -606,6 +607,7 @@
             this.Load += new System.EventHandler(this.Qly_NhanVien_Load);
             this.guna2Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gview1)).EndInit();
+            this.guna2GroupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
