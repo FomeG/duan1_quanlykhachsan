@@ -40,7 +40,6 @@ namespace GUI_Quanlykhachsan.ChucNang
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             OpenFileDialog lam = new OpenFileDialog();
-            lam.Filter = "*.png|";
             if (lam.ShowDialog() == DialogResult.OK)
             {
                 anhkh.Image = System.Drawing.Image.FromFile(lam.FileName);
