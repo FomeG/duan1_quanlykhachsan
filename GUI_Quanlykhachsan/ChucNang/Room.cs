@@ -41,8 +41,6 @@ namespace GUI_Quanlykhachsan.ChucNang
             {
                 KhachHang khachHang = new KhachHang();
                 khachHang.Show();
-                btnDat.FillColor = Color.Yellow;
-                btnDat.FillColor2 = Color.Yellow;
             }
 
 
@@ -97,26 +95,26 @@ namespace GUI_Quanlykhachsan.ChucNang
             //    traphongthanhtoan.Show();
             //}
         }
-        //public void dattruoc()
-        //{
-        //    btnDat.Text = "Nhận Phòng";
-        //    label2.Text = "Phòng được đặt trước";
-        //    this.BackColor = Color.Yellow;
-        //}
+        public void dattruoc()
+        {
+            btnDat.Text = "Nhận Phòng";
+            description.Text = "Phòng được đặt trước";
+            this.BackColor = Color.Yellow;
+        }
 
-        //public void nhanphong()
-        //{
-        //    btnDat.Text = "Trả phòng";
-        //    label2.Text = "Phòng đang được sử dụng";
-        //    this.BackColor = Color.Red;
-        //}
+        public void nhanphong()
+        {
+            btnDat.Text = "Trả phòng";
+            description.Text = "Phòng đang được sử dụng";
+            this.BackColor = Color.Red;
+        }
 
-        //public void traphong()
-        //{
-        //    btnDat.Text = "Đặt phòng";
-        //    label2.Text = "phòng trống";
-        //    this.BackColor = Color.Green;
-        //}
+        public void traphong()
+        {
+            btnDat.Text = "Đặt phòng";
+            description.Text = "phòng trống";
+            this.BackColor = Color.Green;
+        }
         #endregion
     }
 }
