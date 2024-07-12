@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace GUI_Quanlykhachsan.ChucNang
@@ -36,6 +37,13 @@ namespace GUI_Quanlykhachsan.ChucNang
         //int a = 0;
         private void guna2GradientButton1_Click(object sender, EventArgs e)
         {
+            if (btnDat.Text == "Đặt phòng")
+            {
+                KhachHang khachHang = new KhachHang();
+                khachHang.Show();
+                btnDat.FillColor = Color.Yellow;
+                btnDat.FillColor2 = Color.Yellow;
+            }
 
 
 
