@@ -70,6 +70,7 @@
             this.txttk.TabIndex = 0;
             this.txttk.TextChanged += new System.EventHandler(this.txttk_TextChanged);
             this.txttk.Click += new System.EventHandler(this.txttk_Click);
+            this.txttk.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txttk_PreviewKeyDown);
             // 
             // txtmk
             // 
@@ -88,11 +89,12 @@
             this.txtmk.Location = new System.Drawing.Point(382, 216);
             this.txtmk.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtmk.Name = "txtmk";
-            this.txtmk.PasswordChar = '\0';
+            this.txtmk.PasswordChar = '●';
             this.txtmk.PlaceholderText = "Mật khẩu";
             this.txtmk.SelectedText = "";
             this.txtmk.Size = new System.Drawing.Size(172, 39);
             this.txtmk.TabIndex = 1;
+            this.txtmk.UseSystemPasswordChar = true;
             this.txtmk.Click += new System.EventHandler(this.txtmk_Click);
             // 
             // guna2BorderlessForm1

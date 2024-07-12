@@ -17,37 +17,17 @@ namespace GUI_Quanlykhachsan
         {
             InitializeComponent();
             dataGridView1.DataSource = DTODB.db.taikhoans.ToList();
-
-            location[0] = @"D:\Login Avatar animation\Login Avatar animation\animation\textbox_user_1.jpg";
-            location[1] = @"D:\Login Avatar animation\Login Avatar animation\animation\textbox_user_2.jpg";
-            location[2] = @"D:\Login Avatar animation\Login Avatar animation\animation\textbox_user_3.jpg";
-            location[3] = @"D:\Login Avatar animation\Login Avatar animation\animation\textbox_user_4.jpg";
-            location[4] = @"D:\Login Avatar animation\Login Avatar animation\animation\textbox_user_5.jpg";
-            location[5] = @"D:\Login Avatar animation\Login Avatar animation\animation\textbox_user_6.jpg";
-            location[6] = @"D:\Login Avatar animation\Login Avatar animation\animation\textbox_user_7.jpg";
-            location[7] = @"D:\Login Avatar animation\Login Avatar animation\animation\textbox_user_8.jpg";
-            location[8] = @"D:\Login Avatar animation\Login Avatar animation\animation\textbox_user_9.jpg";
-            location[9] = @"D:\Login Avatar animation\Login Avatar animation\animation\textbox_user_10.jpg";
-            location[10] = @"D:\Login Avatar animation\Login Avatar animation\animation\textbox_user_11.jpg";
-            location[11] = @"D:\Login Avatar animation\Login Avatar animation\animation\textbox_user_12.jpg";
-            location[12] = @"D:\Login Avatar animation\Login Avatar animation\animation\textbox_user_13.jpg";
-            location[13] = @"D:\Login Avatar animation\Login Avatar animation\animation\textbox_user_14.jpg";
-            location[14] = @"D:\Login Avatar animation\Login Avatar animation\animation\textbox_user_15.jpg";
-            location[15] = @"D:\Login Avatar animation\Login Avatar animation\animation\textbox_user_16.jpg";
-            location[16] = @"D:\Login Avatar animation\Login Avatar animation\animation\textbox_user_17.jpg";
-            location[17] = @"D:\Login Avatar animation\Login Avatar animation\animation\textbox_user_18.jpg";
-            location[18] = @"D:\Login Avatar animation\Login Avatar animation\animation\textbox_user_19.jpg";
-            location[19] = @"D:\Login Avatar animation\Login Avatar animation\animation\textbox_user_20.jpg";
-            location[20] = @"D:\Login Avatar animation\Login Avatar animation\animation\textbox_user_21.jpg";
-            location[21] = @"D:\Login Avatar animation\Login Avatar animation\animation\textbox_user_22.jpg";
-            location[22] = @"D:\Login Avatar animation\Login Avatar animation\animation\textbox_user_23.jpg";
-            location[23] = @"D:\Login Avatar animation\Login Avatar animation\animation\textbox_user_24.jpg";
+            for (int i = 0; i <= 23; i++)
+            {
+                location[i] = $@"D:\Login Avatar animation\Login Avatar animation\animation\textbox_user_{i + 1}.jpg";
+            }
+            location[24] = @"D:\Login Avatar animation\Login Avatar animation\animation\debut.JPG";
 
             tounage();
         }
         private void tounage()
         {
-            for (int i = 0; i < 24; i++)
+            for (int i = 0; i <= 24; i++)
             {
                 Bitmap bitmap = new Bitmap(location[i]);
                 images.Add(bitmap);
@@ -99,7 +79,7 @@ namespace GUI_Quanlykhachsan
                 }
             }
         }
-        
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -112,13 +92,15 @@ namespace GUI_Quanlykhachsan
 
         private void txttk_TextChanged(object sender, EventArgs e)
         {
-            if (txttk.Text.Length > 0 && txttk.Text.Length <= 15)
+            if (txttk.Text.Length == 0)
+            {
+                pictureBox1.Image = images[24]; ;
+            }
+            else if (txttk.Text.Length > 0 && txttk.Text.Length <= 15)
             {
                 pictureBox1.Image = images[txttk.Text.Length - 1];
                 pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
             }
-            else if (txttk.Text.Length <= 0)
-                pictureBox1.Image = Properties.Resources.debut;
             else
                 pictureBox1.Image = images[22];
         }
@@ -134,16 +116,39 @@ namespace GUI_Quanlykhachsan
 
         private void txttk_Click(object sender, EventArgs e)
         {
-            if (txttk.Text.Length > 0)
+            if (txttk.Text.Length == 0)
+            {
+                pictureBox1.Image = images[24]; ;
+            }
+            else if (txttk.Text.Length > 0 && txttk.Text.Length <= 15)
+            {
                 pictureBox1.Image = images[txttk.Text.Length - 1];
+                pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
+            }
             else
-                pictureBox1.Image = Properties.Resources.debut;
+                pictureBox1.Image = images[22];
         }
 
         private void txtmk_Click(object sender, EventArgs e)
         {
             Bitmap bmpass = new Bitmap(@"D:\Login Avatar animation\Login Avatar animation\animation\textbox_password.png");
             pictureBox1.Image = bmpass;
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            //MessageBox.Show(txttk.Text.Length.ToString());
+            pictureBox1.Image = Properties.Resources.debut;
+
+        }
+
+        private void txttk_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyCode == Keys.Tab)
+            {
+                Bitmap bmpass = new Bitmap(@"D:\Login Avatar animation\Login Avatar animation\animation\textbox_password.png");
+                pictureBox1.Image = bmpass;
+            }
         }
     }
 }
