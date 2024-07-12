@@ -41,6 +41,9 @@ namespace GUI_Quanlykhachsan
             }
         }
         #endregion
+
+
+
         // Màu mặc định
         public Color MauMacDinh()
         {
@@ -51,7 +54,6 @@ namespace GUI_Quanlykhachsan
         {
             return Color.FromArgb(128, 128, 255);
         }
-
 
         // Nút thoát
         private void btnEXIT_Click(object sender, EventArgs e)
@@ -245,14 +247,10 @@ namespace GUI_Quanlykhachsan
             this.WindowState = FormWindowState.Minimized;
         }
 
-
         #region khu vực test code
         // Bắt đầu phần testcode
         // Những code dưới đây để test, không có động gì vào sql và tác động lên form
         // Code chạy trong Trangchu();
-
-
-
 
         int tonghd = 0;
         private void btntest4_Click(object sender, EventArgs e)
@@ -298,12 +296,6 @@ namespace GUI_Quanlykhachsan
 
         private Dictionary<int, Button> hdButtons = new Dictionary<int, Button>();
         private List<Form_test> listform = new List<Form_test>();
-
-
-
-
-
-
 
         // Kết thúc phần test code
         #endregion
@@ -406,15 +398,6 @@ namespace GUI_Quanlykhachsan
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             //Duy();
-        }
-
-        public string ggg()
-        {
-            return "Duy123";
-        }
-        public void Duy(Action ff)
-        {
-
         }
     }
 }

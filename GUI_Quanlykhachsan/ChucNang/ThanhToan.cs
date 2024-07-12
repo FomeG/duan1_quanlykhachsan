@@ -76,12 +76,9 @@ namespace GUI_Quanlykhachsan.ChucNang
 
         }
 
+        private void guna2CustomCheckBox1_Click(object sender, EventArgs e)
+        {
 
-
-
-
-
-
-
+        }
     }
 }
