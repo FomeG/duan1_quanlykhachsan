@@ -7,13 +7,15 @@ namespace GUI_Quanlykhachsan.ChucNang
     {
 
         private int _borderRadius = 20; // Bán kính góc bo
-        public trangthaiphong(string tenphong)
+        public trangthaiphong(string tenphong, string btnname, string mota)
         {
             InitializeComponent();
             //this.SetRoundedRegion();
             //this.Resize += new System.EventHandler(this.RoundedUserControl_Resize);
 
             roomname.Text = tenphong;
+            btnDat.Text = btnname;
+            description.Text = mota;
 
             //traphong();
         }
@@ -34,6 +36,20 @@ namespace GUI_Quanlykhachsan.ChucNang
         //int a = 0;
         private void guna2GradientButton1_Click(object sender, EventArgs e)
         {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             //if (btnDat.Text == "Đặt phòng")
             //{
             //    KhachHang a = new KhachHang(nhanphong, dattruoc);
@@ -73,7 +89,6 @@ namespace GUI_Quanlykhachsan.ChucNang
             //    traphongthanhtoan.Show();
             //}
         }
-
         //public void dattruoc()
         //{
         //    btnDat.Text = "Nhận Phòng";
@@ -94,7 +109,6 @@ namespace GUI_Quanlykhachsan.ChucNang
         //    label2.Text = "phòng trống";
         //    this.BackColor = Color.Green;
         //}
-
         #endregion
     }
 }

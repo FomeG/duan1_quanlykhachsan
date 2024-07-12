@@ -12,9 +12,22 @@ namespace GUI_Quanlykhachsan.ChucNang
             InitializeComponent();
             thunghiem();
             SoDoPhong.Controls.Clear();
-            foreach (var item in DTODB.db.phongs.ToList())
+
+
+            SoDoPhong.Controls.Clear();
+            var listphong = from a in DTODB.db.phongs
+                            join b in DTODB.db.loaiphongs
+                            on a.loaiphong equals b.idloaiphong
+                            select new
+                            {
+                                a,
+                                b,
+                            };
+
+
+            foreach (var item in listphong)
             {
-                trangthaiphong phong = new trangthaiphong(item.tenphong);
+                trangthaiphong phong = new trangthaiphong(item.a.tenphong, "Đặt phòng", item.b.mota);
                 SoDoPhong.Controls.Add(phong);
             }
         }
@@ -59,9 +72,17 @@ namespace GUI_Quanlykhachsan.ChucNang
         private void guna2GradientButton1_Click(object sender, EventArgs e)
         {
             SoDoPhong.Controls.Clear();
-            foreach (var item in DTODB.db.phongs.ToList())
+            var listphong = from a in DTODB.db.phongs
+                            join b in DTODB.db.loaiphongs
+                            on a.loaiphong equals b.idloaiphong
+                            select new
+                            {
+                                a,
+                                b,
+                            };
+            foreach (var item in listphong)
             {
-                trangthaiphong phong = new trangthaiphong(item.tenphong);
+                trangthaiphong phong = new trangthaiphong(item.a.tenphong, "Đặt phòng", item.b.mota);
                 SoDoPhong.Controls.Add(phong);
             }
         }
