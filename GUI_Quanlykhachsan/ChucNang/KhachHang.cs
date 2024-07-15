@@ -175,6 +175,7 @@ namespace GUI_Quanlykhachsan.ChucNang
                         DTODB.db.khachhangs.Add(khmoi);
                         DTODB.db.SaveChanges();
 
+                        // Thêm checkin mới vào trong DB
                         checkin checkinmoi = new checkin()
                         {
                             idkh = DTODB.db.khachhangs.FirstOrDefault(a => a.email == txtEmail.Text).id,
@@ -186,6 +187,7 @@ namespace GUI_Quanlykhachsan.ChucNang
                         DTODB.db.checkins.Add(checkinmoi);
                         DTODB.db.SaveChanges();
 
+                        // thêm tempkhachhang mới vào db, tượng trưng cho việc khách hàng vẫn đang thuê phòng?
                         decimal.TryParse(txtKhachThanhToan.Text, out decimal tientra);
                         tempkhachhang tempkh = new tempkhachhang()
                         {
@@ -193,10 +195,17 @@ namespace GUI_Quanlykhachsan.ChucNang
                             idcheckin = (from a in DTODB.db.checkins join b in DTODB.db.khachhangs on a.idkh equals b.id where b.email == txtEmail.Text select a.id).FirstOrDefault(),
                             tienkhachtra = tientra
                         };
-                        //var idcheck = (from a in DTODB.db.checkins join b in DTODB.db.khachhangs on a.idkh equals b.id where b.email == txtEmail.Text select a.id).FirstOrDefault();
+
                         DTODB.db.tempkhachhangs.Add(tempkh);
                         DTODB.db.SaveChanges();
 
+                        checkin_phong cpmoi = new checkin_phong()
+                        {
+                            idcheckin = (from a in DTODB.db.checkins join b in DTODB.db.khachhangs on a.idkh equals b.id where b.email == txtEmail.Text select a.id).FirstOrDefault(),
+                            idphong = TDatPhong.IdPhong
+                        };
+                        DTODB.db.checkin_phong.Add(cpmoi);
+                        DTODB.db.SaveChanges();
 
                         Close();
                         MessageBox.Show("Đặt trước phòng thành công!");

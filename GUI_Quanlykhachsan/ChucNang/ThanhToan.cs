@@ -4,6 +4,7 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using BUS_Quanly.Services.QuanLyDatPhong.ThanhToan_DV;
 using DTO_Quanly;
+using DTO_Quanly.Transfer;
 
 namespace GUI_Quanlykhachsan.ChucNang
 {
@@ -16,7 +17,7 @@ namespace GUI_Quanlykhachsan.ChucNang
             InitializeComponent();
             this.traphong = traphong;
             LoadDV();
-
+            loadtt();
 
             this.MouseDown += new MouseEventHandler(Form_MouseDown);
         }
@@ -51,6 +52,32 @@ namespace GUI_Quanlykhachsan.ChucNang
             }
         }
 
+        public void loadtt()
+        {
+            var hoadontemp = (from p in DTODB.db.phongs
+                              join cp in DTODB.db.checkin_phong on p.idphong equals cp.idphong
+                              join c in DTODB.db.checkins on cp.idcheckin equals c.id
+                              join tk in DTODB.db.tempkhachhangs on c.id equals tk.idcheckin
+                              join kh in DTODB.db.khachhangs on tk.idkh equals kh.id
+                              join lp in DTODB.db.loaiphongs on p.loaiphong equals lp.idloaiphong
+                              where p.idphong == TDatPhong.IdPhong
+                              select new
+                              {
+                                  kh.ten,
+                                  kh.diachi,
+                                  tk.ngayvao,
+                                  tk.ngayra,
+                                  lp.giaphong,
+                                  tk.tienkhachtra
+                              }).FirstOrDefault();
+
+            txttenkh.Text = hoadontemp.ten;
+            txtngayvao.Text = hoadontemp.ngayvao.ToString();
+            txtngayradk.Text = hoadontemp.ngayra.ToString();
+            txtngayrathucte.Text = DateTime.Now.Date.ToString();
+            txttienphong.Text = hoadontemp.giaphong.ToString();
+            txttientratruoc.Text = hoadontemp.tienkhachtra.ToString();
+        }
 
 
         // Nút thanh toán sau, vê căn bản là thoát form thanh toán và không làm gì CSDL cả.

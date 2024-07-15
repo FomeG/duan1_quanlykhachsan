@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.BtnMinimize = new Guna.UI2.WinForms.Guna2GradientButton();
             this.BtnExit = new Guna.UI2.WinForms.Guna2GradientButton();
@@ -42,12 +42,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
+            this.txttientratruoc = new System.Windows.Forms.Label();
+            this.txttienphong = new System.Windows.Forms.Label();
+            this.txtngayrathucte = new System.Windows.Forms.Label();
+            this.txtngayradk = new System.Windows.Forms.Label();
+            this.txtngayvao = new System.Windows.Forms.Label();
+            this.txttenkh = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -196,12 +196,12 @@
             // guna2GroupBox1
             // 
             this.guna2GroupBox1.BorderRadius = 20;
-            this.guna2GroupBox1.Controls.Add(this.label21);
-            this.guna2GroupBox1.Controls.Add(this.label20);
-            this.guna2GroupBox1.Controls.Add(this.label19);
-            this.guna2GroupBox1.Controls.Add(this.label18);
-            this.guna2GroupBox1.Controls.Add(this.label17);
-            this.guna2GroupBox1.Controls.Add(this.label16);
+            this.guna2GroupBox1.Controls.Add(this.txttientratruoc);
+            this.guna2GroupBox1.Controls.Add(this.txttienphong);
+            this.guna2GroupBox1.Controls.Add(this.txtngayrathucte);
+            this.guna2GroupBox1.Controls.Add(this.txtngayradk);
+            this.guna2GroupBox1.Controls.Add(this.txtngayvao);
+            this.guna2GroupBox1.Controls.Add(this.txttenkh);
             this.guna2GroupBox1.Controls.Add(this.label12);
             this.guna2GroupBox1.Controls.Add(this.label11);
             this.guna2GroupBox1.Controls.Add(this.label10);
@@ -218,71 +218,71 @@
             this.guna2GroupBox1.TabIndex = 4;
             this.guna2GroupBox1.Text = "Thông tin khách hàng";
             // 
-            // label21
+            // txttientratruoc
             // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.Color.Black;
-            this.label21.Location = new System.Drawing.Point(110, 200);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(62, 16);
-            this.label21.TabIndex = 5;
-            this.label21.Text = "{ giá trị }";
+            this.txttientratruoc.AutoSize = true;
+            this.txttientratruoc.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txttientratruoc.ForeColor = System.Drawing.Color.Black;
+            this.txttientratruoc.Location = new System.Drawing.Point(110, 200);
+            this.txttientratruoc.Name = "txttientratruoc";
+            this.txttientratruoc.Size = new System.Drawing.Size(62, 16);
+            this.txttientratruoc.TabIndex = 5;
+            this.txttientratruoc.Text = "{ giá trị }";
             // 
-            // label20
+            // txttienphong
             // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.Color.Black;
-            this.label20.Location = new System.Drawing.Point(110, 168);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(62, 16);
-            this.label20.TabIndex = 5;
-            this.label20.Text = "{ giá trị }";
+            this.txttienphong.AutoSize = true;
+            this.txttienphong.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txttienphong.ForeColor = System.Drawing.Color.Black;
+            this.txttienphong.Location = new System.Drawing.Point(110, 168);
+            this.txttienphong.Name = "txttienphong";
+            this.txttienphong.Size = new System.Drawing.Size(62, 16);
+            this.txttienphong.TabIndex = 5;
+            this.txttienphong.Text = "{ giá trị }";
             // 
-            // label19
+            // txtngayrathucte
             // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.Black;
-            this.label19.Location = new System.Drawing.Point(110, 134);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(62, 16);
-            this.label19.TabIndex = 5;
-            this.label19.Text = "{ giá trị }";
+            this.txtngayrathucte.AutoSize = true;
+            this.txtngayrathucte.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtngayrathucte.ForeColor = System.Drawing.Color.Black;
+            this.txtngayrathucte.Location = new System.Drawing.Point(110, 134);
+            this.txtngayrathucte.Name = "txtngayrathucte";
+            this.txtngayrathucte.Size = new System.Drawing.Size(62, 16);
+            this.txtngayrathucte.TabIndex = 5;
+            this.txtngayrathucte.Text = "{ giá trị }";
             // 
-            // label18
+            // txtngayradk
             // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.Black;
-            this.label18.Location = new System.Drawing.Point(110, 101);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(62, 16);
-            this.label18.TabIndex = 5;
-            this.label18.Text = "{ giá trị }";
+            this.txtngayradk.AutoSize = true;
+            this.txtngayradk.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtngayradk.ForeColor = System.Drawing.Color.Black;
+            this.txtngayradk.Location = new System.Drawing.Point(110, 101);
+            this.txtngayradk.Name = "txtngayradk";
+            this.txtngayradk.Size = new System.Drawing.Size(62, 16);
+            this.txtngayradk.TabIndex = 5;
+            this.txtngayradk.Text = "{ giá trị }";
             // 
-            // label17
+            // txtngayvao
             // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.Black;
-            this.label17.Location = new System.Drawing.Point(110, 70);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(62, 16);
-            this.label17.TabIndex = 5;
-            this.label17.Text = "{ giá trị }";
+            this.txtngayvao.AutoSize = true;
+            this.txtngayvao.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtngayvao.ForeColor = System.Drawing.Color.Black;
+            this.txtngayvao.Location = new System.Drawing.Point(110, 70);
+            this.txtngayvao.Name = "txtngayvao";
+            this.txtngayvao.Size = new System.Drawing.Size(62, 16);
+            this.txtngayvao.TabIndex = 5;
+            this.txtngayvao.Text = "{ giá trị }";
             // 
-            // label16
+            // txttenkh
             // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(110, 40);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(62, 16);
-            this.label16.TabIndex = 5;
-            this.label16.Text = "{ giá trị }";
+            this.txttenkh.AutoSize = true;
+            this.txttenkh.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txttenkh.ForeColor = System.Drawing.Color.Black;
+            this.txttenkh.Location = new System.Drawing.Point(110, 40);
+            this.txttenkh.Name = "txttenkh";
+            this.txttenkh.Size = new System.Drawing.Size(62, 16);
+            this.txttenkh.TabIndex = 5;
+            this.txttenkh.Text = "{ giá trị }";
             // 
             // label12
             // 
@@ -396,43 +396,43 @@
             // gview1
             // 
             this.gview1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.gview1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.gview1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.gview1.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gview1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gview1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.gview1.ColumnHeadersHeight = 22;
             this.gview1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gview1.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gview1.DefaultCellStyle = dataGridViewCellStyle3;
             this.gview1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.gview1.Location = new System.Drawing.Point(13, 82);
             this.gview1.Name = "gview1";
             this.gview1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gview1.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gview1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.gview1.RowHeadersVisible = false;
             this.gview1.RowHeadersWidth = 51;
             this.gview1.Size = new System.Drawing.Size(382, 154);
@@ -745,12 +745,12 @@
         private Guna.UI2.WinForms.Guna2TextBox txtVoucher;
         private Guna.UI2.WinForms.Guna2CustomCheckBox guna2CustomCheckBox1;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label txttientratruoc;
+        private System.Windows.Forms.Label txttienphong;
+        private System.Windows.Forms.Label txtngayrathucte;
+        private System.Windows.Forms.Label txtngayradk;
+        private System.Windows.Forms.Label txtngayvao;
+        private System.Windows.Forms.Label txttenkh;
         private Guna.UI2.WinForms.Guna2NumericUpDown SlgDV;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;

@@ -10,7 +10,9 @@ namespace GUI_Quanlykhachsan.ChucNang
     public partial class trangthaiphong : UserControl
     {
 
-        private int _borderRadius = 20; // Bán kính góc bo
+        private int _borderRadius = 20; // Bán kính góc bo form
+
+
         private string motaphong;
         private readonly int IdPhong; //Id của phòng phục vụ cho việc chuyển trạng thái
         public trangthaiphong(string tenphong, string mota, int trangthaip, int idphong)
@@ -66,10 +68,12 @@ namespace GUI_Quanlykhachsan.ChucNang
             }
             else if (btnDat.Text == "Nhận Phòng")
             {
+                TDatPhong.IdPhong = IdPhong;
                 nhanphong();
             }
             else
             {
+                TDatPhong.IdPhong = IdPhong;
                 ThanhToan traphongthanhtoan = new ThanhToan(traphong);
                 traphongthanhtoan.Show();
             }
