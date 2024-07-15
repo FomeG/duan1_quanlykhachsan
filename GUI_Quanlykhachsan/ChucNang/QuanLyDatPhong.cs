@@ -72,17 +72,22 @@ namespace GUI_Quanlykhachsan.ChucNang
         private void guna2GradientButton1_Click(object sender, EventArgs e)
         {
             SoDoPhong.Controls.Clear();
-            var listphong = from a in DTODB.db.phongs
-                            join b in DTODB.db.loaiphongs
-                            on a.loaiphong equals b.idloaiphong
+            var listphong = from a in DTODB.db.trangthaiphongs
+                            join b in DTODB.db.phongs
+                            on a.idphong equals b.idphong
+                            join c in DTODB.db.loaiphongs
+                            on b.loaiphong equals c.idloaiphong
                             select new
                             {
                                 a,
                                 b,
+                                c
                             };
+
+
             foreach (var item in listphong)
             {
-                trangthaiphong phong = new trangthaiphong(item.a.tenphong, "Đặt phòng", item.b.mota);
+                trangthaiphong phong = new trangthaiphong(item.b.tenphong, "Đặt phòng", item.c.mota, item.a.id);
                 SoDoPhong.Controls.Add(phong);
             }
         }

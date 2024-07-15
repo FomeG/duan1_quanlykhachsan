@@ -144,11 +144,11 @@
     <Compile Include="ChucNang\KhachHang.Designer.cs">
       <DependentUpon>KhachHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="ChucNang\Room.cs">
+    <Compile Include="ChucNang\trangthaiphong.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ChucNang\Room.Designer.cs">
-      <DependentUpon>Room.cs</DependentUpon>
+    <Compile Include="ChucNang\trangthaiphong.Designer.cs">
+      <DependentUpon>trangthaiphong.cs</DependentUpon>
     </Compile>
     <Compile Include="ChucNang\Tai_Khoan\CaiDat.cs" />
     <Compile Include="ChucNang\Tai_Khoan\DoiMatKhau.cs">
@@ -244,8 +244,8 @@
     <EmbeddedResource Include="ChucNang\QuanLyDatPhong.resx">
       <DependentUpon>QuanLyDatPhong.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChucNang\Room.resx">
-      <DependentUpon>Room.cs</DependentUpon>
+    <EmbeddedResource Include="ChucNang\trangthaiphong.resx">
+      <DependentUpon>trangthaiphong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChucNang\Tai_Khoan\DoiMatKhau.resx">
       <DependentUpon>DoiMatKhau.cs</DependentUpon>
