@@ -57,6 +57,7 @@
     <Compile Include="IRepository\INhanVien.cs" />
     <Compile Include="Repository\Login\Dangnhap.cs" />
     <Compile Include="Repository\NhanVien\TruyVanNV.cs" />
+    <Compile Include="Repository\QuanLyDatPhong\DatPhong.cs" />
     <Compile Include="Repository\TruyVan.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

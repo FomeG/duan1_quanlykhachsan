@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DTO_Quanly;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -9,12 +10,14 @@ namespace GUI_Quanlykhachsan.ChucNang
 
         private int _borderRadius = 20; // Bán kính góc bo
         private string motaphong;
-        public trangthaiphong(string tenphong, string mota, int trangthaip)
+        private readonly int IdPhong; //Id của phòng phục vụ cho việc chuyển trạng thái
+        public trangthaiphong(string tenphong, string mota, int trangthaip, int idphong)
         {
             InitializeComponent();
             roomname.Text = tenphong;
             description.Text = mota;
             motaphong = mota;
+            IdPhong = idphong;
 
             if (trangthaip == 1) // Nếu phòng trống
             {
@@ -53,7 +56,7 @@ namespace GUI_Quanlykhachsan.ChucNang
         {
             if (btnDat.Text == "Đặt Phòng")
             {
-                KhachHang khachHang = new KhachHang(nhanphong, dattruoc);
+                KhachHang khachHang = new KhachHang(nhanphong, dattruoc, IdPhong);
                 khachHang.Show();
             }
             else if (btnDat.Text == "Nhận Phòng")
@@ -71,6 +74,9 @@ namespace GUI_Quanlykhachsan.ChucNang
             btnDat.Text = "Nhận Phòng";
             description.Text = "Phòng được đặt trước";
             this.BackColor = Color.Yellow;
+
+            DTODB.db.phongs.Find(IdPhong).trangthai = 2;
+            DTODB.db.SaveChanges();
         }
 
         public void nhanphong()
@@ -78,6 +84,9 @@ namespace GUI_Quanlykhachsan.ChucNang
             btnDat.Text = "Trả phòng";
             description.Text = "Phòng đang được sử dụng";
             this.BackColor = Color.Red;
+
+            DTODB.db.phongs.Find(IdPhong).trangthai = 3;
+            DTODB.db.SaveChanges();
         }
 
         public void traphong()
@@ -85,6 +94,9 @@ namespace GUI_Quanlykhachsan.ChucNang
             btnDat.Text = "Đặt phòng";
             description.Text = motaphong;
             this.BackColor = Color.FromArgb(128, 255, 128);
+
+            DTODB.db.phongs.Find(IdPhong).trangthai = 1;
+            DTODB.db.SaveChanges();
         }
         #endregion
     }

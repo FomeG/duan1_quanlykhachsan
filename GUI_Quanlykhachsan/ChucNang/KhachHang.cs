@@ -1,7 +1,11 @@
 ﻿using System;
+using System.Data.Entity.Infrastructure;
 using System.Drawing;
+using System.Linq;
 using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace GUI_Quanlykhachsan.ChucNang
 {
@@ -9,17 +13,16 @@ namespace GUI_Quanlykhachsan.ChucNang
     {
         public Action dattruoc;
         public Action nhanphong;
-        public KhachHang(Action nhanphong, Action dattruoc)
+        private readonly int IdPhong;
+        public KhachHang(Action nhanphong, Action dattruoc, int IdPhong)
         {
             InitializeComponent();
             this.dattruoc = dattruoc;
             this.nhanphong = nhanphong;
-
-
+            this.IdPhong = IdPhong;
 
 
             this.MouseDown += new MouseEventHandler(Form_MouseDown);
-
         }
 
         #region Kéo thả form
@@ -43,42 +46,6 @@ namespace GUI_Quanlykhachsan.ChucNang
             }
         }
         #endregion
-
-        private void KhachHang_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2Button2_Click(object sender, EventArgs e)
-        {
-            dattruoc?.Invoke();
-            Close();
-        }
-
-        private void guna2Button3_Click(object sender, EventArgs e)
-        {
-            nhanphong?.Invoke();
-            Close();
-        }
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog lam = new OpenFileDialog();
-            if (lam.ShowDialog() == DialogResult.OK)
-            {
-                anhkh.Image = System.Drawing.Image.FromFile(lam.FileName);
-            }
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
         #region Kéo thả form (controller)
 
         private bool dragging = false;
@@ -109,5 +76,102 @@ namespace GUI_Quanlykhachsan.ChucNang
 
         }
         #endregion
+
+        // Hàm validate form
+        public bool checkthanhtoan()
+        {
+            if (txtTen.Text.Trim() == "" || txtEmail.Text.Trim() == "")
+            {
+                MessageBox.Show("Không được để trống dữ liệu.", "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else if (IsValidEmail(txtEmail.Text) == false)
+            {
+                MessageBox.Show("Email không hợp lệ!", "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else if (txtSDT.Text != "" && !txtSDT.Text.All(char.IsDigit))
+            {
+                MessageBox.Show("Số điện thoại không hợp lệ!", "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else if (!rdNam.Checked && !rdNu.Checked)
+            {
+                MessageBox.Show("Vui lòng chọn giới tính!", "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else if (SoLuongNguoi.Value <= 0)
+            {
+                MessageBox.Show("Số lượng người phải lớn hơn 0!", "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else if (NgayDen.Value.Date < DateTime.Now.Date)
+            {
+                MessageBox.Show("Ngày đến không được nhỏ hơn ngày hiện tại!", "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else if (NgayDi.Value.Date <= NgayDen.Value.Date)
+            {
+                MessageBox.Show("Ngày đi không được nhỏ hơn ngày đến!", "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        // Hàm kiểm tra email bằng regex
+        public static bool IsValidEmail(string email)
+        {
+            try
+            {
+                // Biểu thức chính quy để kiểm tra email
+                string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+                Regex regex = new Regex(pattern, RegexOptions.IgnoreCase);
+                return regex.IsMatch(email);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            if (checkthanhtoan())
+            {
+                dattruoc?.Invoke();
+                Close();
+                MessageBox.Show("Đặt trước phòng thành công!");
+            }
+        }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            nhanphong?.Invoke();
+            Close();
+        }
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog lam = new OpenFileDialog();
+            if (lam.ShowDialog() == DialogResult.OK)
+            {
+                anhkh.Image = System.Drawing.Image.FromFile(lam.FileName);
+            }
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

@@ -30,7 +30,7 @@ namespace GUI_Quanlykhachsan.ChucNang
                             };
             foreach (var item in listphong)
             {
-                trangthaiphong phong = new trangthaiphong(item.b.tenphong, item.c.mota, item.a.id);
+                trangthaiphong phong = new trangthaiphong(item.b.tenphong, item.c.mota, item.a.id, item.b.idphong);
                 SoDoPhong.Controls.Add(phong);
             }
         }
@@ -54,7 +54,7 @@ namespace GUI_Quanlykhachsan.ChucNang
 
             foreach (var item in listphong)
             {
-                trangthaiphong phong = new trangthaiphong(item.b.tenphong, item.c.mota, item.a.id);
+                trangthaiphong phong = new trangthaiphong(item.b.tenphong, item.c.mota, item.a.id, item.b.idphong);
                 SoDoPhong.Controls.Add(phong);
             }
         }
