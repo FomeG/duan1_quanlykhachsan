@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL_Quanly.Repository.QuanLyDatPhong
+namespace DAL_Quanly.IRepository.QuanLyDatPhong
 {
-    public class DatPhong
+    public interface IQlyDatPhong
     {
-
     }
 }

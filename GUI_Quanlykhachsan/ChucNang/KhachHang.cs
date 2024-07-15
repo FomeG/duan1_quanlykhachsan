@@ -1,4 +1,6 @@
-﻿using DTO_Quanly.Transfer;
+﻿using DTO_Quanly;
+using DTO_Quanly.Model.DB;
+using DTO_Quanly.Transfer;
 using System;
 using System.Data.Entity.Infrastructure;
 using System.Drawing;
@@ -6,6 +8,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace GUI_Quanlykhachsan.ChucNang
@@ -139,34 +142,95 @@ namespace GUI_Quanlykhachsan.ChucNang
             }
         }
 
-
-
         private void guna2Button2_Click(object sender, EventArgs e)
         {
+
             if (checkthanhtoan())
             {
-                dattruoc?.Invoke();
-                Close();
-                MessageBox.Show("Đặt trước phòng thành công!");
+                if (MessageBox.Show("Xác nhận đặt trước?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    int soluongnguoitoida = (int)(from a in DTODB.db.phongs
+                                                  join b in DTODB.db.loaiphongs on a.loaiphong equals b.idloaiphong
+                                                  where a.idphong == TDatPhong.IdPhong
+                                                  select b.songuoi).FirstOrDefault();
+                    if (SoLuongNguoi.Value > soluongnguoitoida)
+                    {
+                        MessageBox.Show("Số lượng người vượt quá tối đa!");
+                    }
+                    else
+                    {
+                        dattruoc?.Invoke();
+
+                        // thêm khách hàng mới này vào trong DB
+                        khachhang khmoi = new khachhang()
+                        {
+                            ten = txtTen.Text,
+                            email = txtEmail.Text,
+                            sdt = txtSDT.Text,
+                            gioitinh = rdNam.Checked ? "Nam" : "Nữ",
+                            diachi = txtDiaChi.Text,
+                            ngaysinh = NgaySinh.Value.Date,
+                            anh = duongdananh
+                        };
+                        DTODB.db.khachhangs.Add(khmoi);
+                        DTODB.db.SaveChanges();
+
+                        checkin checkinmoi = new checkin()
+                        {
+                            idkh = DTODB.db.khachhangs.FirstOrDefault(a => a.email == txtEmail.Text).id,
+                            idnv = 1,
+                            ngaycheckin = DateTime.Now.Date,
+                            trangthai = "Đặt trước"
+                        };
+
+                        DTODB.db.checkins.Add(checkinmoi);
+                        DTODB.db.SaveChanges();
+
+                        decimal.TryParse(txtKhachThanhToan.Text, out decimal tientra);
+                        tempkhachhang tempkh = new tempkhachhang()
+                        {
+                            idkh = DTODB.db.khachhangs.FirstOrDefault(a => a.email == txtEmail.Text).id,
+                            idcheckin = (from a in DTODB.db.checkins join b in DTODB.db.khachhangs on a.idkh equals b.id where b.email == txtEmail.Text select a.id).FirstOrDefault(),
+                            tienkhachtra = tientra
+                        };
+                        //var idcheck = (from a in DTODB.db.checkins join b in DTODB.db.khachhangs on a.idkh equals b.id where b.email == txtEmail.Text select a.id).FirstOrDefault();
+                        DTODB.db.tempkhachhangs.Add(tempkh);
+                        DTODB.db.SaveChanges();
+
+
+                        Close();
+                        MessageBox.Show("Đặt trước phòng thành công!");
+                    }
+                }
             }
         }
 
         private void guna2Button3_Click(object sender, EventArgs e)
         {
-            nhanphong?.Invoke();
-            Close();
+
+            if (checkthanhtoan())
+            {
+                if (MessageBox.Show("Xác nhận đặt phòng?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    nhanphong?.Invoke();
+                    Close();
+                    MessageBox.Show("Đặt phòng thành công!");
+                }
+            }
         }
         private void label9_Click(object sender, EventArgs e)
         {
 
         }
 
+        public string duongdananh;
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             OpenFileDialog lam = new OpenFileDialog();
             if (lam.ShowDialog() == DialogResult.OK)
             {
                 anhkh.Image = System.Drawing.Image.FromFile(lam.FileName);
+                duongdananh = lam.FileName;
             }
         }
 
@@ -175,5 +239,31 @@ namespace GUI_Quanlykhachsan.ChucNang
 
         }
 
+        private void txtKhachThanhToan_TextChanged(object sender, EventArgs e)
+        {
+            if (txtKhachThanhToan.Text.Trim() == "")
+            {
+
+            }
+            else
+            {
+                if (!decimal.TryParse(txtKhachThanhToan.Text.Trim(), out decimal Khachtra))
+                {
+
+                    MessageBox.Show("Tiền không được chứa ký tự!", "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    if (Khachtra < TDatPhong.TienPhong)
+                    {
+                        txttientralai.Text = "0";
+                    }
+                    else
+                    {
+                        txttientralai.Text = (Khachtra - TDatPhong.TienPhong).ToString();
+                    }
+                }
+            }
+        }
     }
 }

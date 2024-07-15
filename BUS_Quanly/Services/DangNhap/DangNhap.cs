@@ -7,6 +7,7 @@ namespace BUS_Quanly.Services.LoginLogout
     //Lớp xử lý nghiệp vụ đăng nhập
     public static class DangNhap
     {
+        // Kiểm tra kết quả đăng nhập dựa vào tài khoản và mật khẩu
         public static bool KetQua(string tk, string mk)
         {
             if (DTODB.db.taikhoans.Find(tk) != null)

@@ -1,4 +1,6 @@
-﻿using GUI_Quanlykhachsan.ChucNang;
+﻿using BUS_Quanly.Services.QuanLyDatPhong.ThanhToan_DV;
+using DTO_Quanly;
+using GUI_Quanlykhachsan.ChucNang;
 using GUI_Quanlykhachsan.ChucNang.ADMIN;
 using GUI_Quanlykhachsan.ChucNang.Tai_Khoan;
 using GUI_Quanlykhachsan.ChucNang.Test;
@@ -6,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity.Core.Mapping;
 using System.Drawing;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -395,9 +398,10 @@ namespace GUI_Quanlykhachsan
             Close();
         }
 
+        TTDichVu nghia = new TTDichVu();
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            //Duy();
+            MessageBox.Show(nghia.hienthidv().Count.ToString());
         }
     }
 }

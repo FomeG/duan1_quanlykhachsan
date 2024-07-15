@@ -56,13 +56,13 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.guna2GroupBox2 = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.guna2NumericUpDown1 = new Guna.UI2.WinForms.Guna2NumericUpDown();
+            this.SlgDV = new Guna.UI2.WinForms.Guna2NumericUpDown();
             this.gview1 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2GradientButton2 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.label23 = new System.Windows.Forms.Label();
             this.guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.label22 = new System.Windows.Forms.Label();
-            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.LsDichVu = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2GradientButton3 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2GradientButton4 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.label13 = new System.Windows.Forms.Label();
@@ -74,7 +74,7 @@
             this.guna2GradientPanel1.SuspendLayout();
             this.guna2GroupBox1.SuspendLayout();
             this.guna2GroupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2NumericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SlgDV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gview1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -364,13 +364,13 @@
             // 
             this.guna2GroupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2GroupBox2.BorderRadius = 20;
-            this.guna2GroupBox2.Controls.Add(this.guna2NumericUpDown1);
+            this.guna2GroupBox2.Controls.Add(this.SlgDV);
             this.guna2GroupBox2.Controls.Add(this.gview1);
             this.guna2GroupBox2.Controls.Add(this.guna2GradientButton2);
             this.guna2GroupBox2.Controls.Add(this.label23);
             this.guna2GroupBox2.Controls.Add(this.guna2GradientButton1);
             this.guna2GroupBox2.Controls.Add(this.label22);
-            this.guna2GroupBox2.Controls.Add(this.guna2ComboBox1);
+            this.guna2GroupBox2.Controls.Add(this.LsDichVu);
             this.guna2GroupBox2.CustomBorderColor = System.Drawing.Color.Transparent;
             this.guna2GroupBox2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2GroupBox2.ForeColor = System.Drawing.Color.Black;
@@ -380,18 +380,18 @@
             this.guna2GroupBox2.TabIndex = 4;
             this.guna2GroupBox2.Text = "Dịch vụ đã sử dụng";
             // 
-            // guna2NumericUpDown1
+            // SlgDV
             // 
-            this.guna2NumericUpDown1.AutoRoundedCorners = true;
-            this.guna2NumericUpDown1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2NumericUpDown1.BorderRadius = 17;
-            this.guna2NumericUpDown1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2NumericUpDown1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2NumericUpDown1.Location = new System.Drawing.Point(166, 40);
-            this.guna2NumericUpDown1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.guna2NumericUpDown1.Name = "guna2NumericUpDown1";
-            this.guna2NumericUpDown1.Size = new System.Drawing.Size(79, 36);
-            this.guna2NumericUpDown1.TabIndex = 6;
+            this.SlgDV.AutoRoundedCorners = true;
+            this.SlgDV.BackColor = System.Drawing.Color.Transparent;
+            this.SlgDV.BorderRadius = 17;
+            this.SlgDV.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.SlgDV.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.SlgDV.Location = new System.Drawing.Point(166, 40);
+            this.SlgDV.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.SlgDV.Name = "SlgDV";
+            this.SlgDV.Size = new System.Drawing.Size(79, 36);
+            this.SlgDV.TabIndex = 6;
             // 
             // gview1
             // 
@@ -526,23 +526,24 @@
             this.label22.TabIndex = 7;
             this.label22.Text = "Tiền dịch vụ:";
             // 
-            // guna2ComboBox1
+            // LsDichVu
             // 
-            this.guna2ComboBox1.AllowDrop = true;
-            this.guna2ComboBox1.AutoRoundedCorners = true;
-            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox1.BorderRadius = 17;
-            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.guna2ComboBox1.ItemHeight = 30;
-            this.guna2ComboBox1.Location = new System.Drawing.Point(13, 40);
-            this.guna2ComboBox1.Name = "guna2ComboBox1";
-            this.guna2ComboBox1.Size = new System.Drawing.Size(146, 36);
-            this.guna2ComboBox1.TabIndex = 0;
+            this.LsDichVu.AllowDrop = true;
+            this.LsDichVu.AutoRoundedCorners = true;
+            this.LsDichVu.BackColor = System.Drawing.Color.Transparent;
+            this.LsDichVu.BorderRadius = 17;
+            this.LsDichVu.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.LsDichVu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.LsDichVu.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.LsDichVu.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.LsDichVu.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.LsDichVu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.LsDichVu.ItemHeight = 30;
+            this.LsDichVu.Location = new System.Drawing.Point(13, 40);
+            this.LsDichVu.Name = "LsDichVu";
+            this.LsDichVu.Size = new System.Drawing.Size(146, 36);
+            this.LsDichVu.TabIndex = 0;
+            this.LsDichVu.SelectedIndexChanged += new System.EventHandler(this.LsDichVu_SelectedIndexChanged);
             // 
             // guna2GradientButton3
             // 
@@ -707,7 +708,7 @@
             this.guna2GroupBox1.PerformLayout();
             this.guna2GroupBox2.ResumeLayout(false);
             this.guna2GroupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2NumericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SlgDV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gview1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -726,7 +727,7 @@
         private System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
         private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox2;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
+        private Guna.UI2.WinForms.Guna2ComboBox LsDichVu;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
@@ -750,7 +751,7 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
-        private Guna.UI2.WinForms.Guna2NumericUpDown guna2NumericUpDown1;
+        private Guna.UI2.WinForms.Guna2NumericUpDown SlgDV;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;

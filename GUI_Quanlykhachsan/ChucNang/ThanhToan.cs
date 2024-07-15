@@ -1,17 +1,21 @@
 ﻿using System;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using BUS_Quanly.Services.QuanLyDatPhong.ThanhToan_DV;
+using DTO_Quanly;
 
 namespace GUI_Quanlykhachsan.ChucNang
 {
     public partial class ThanhToan : Form
     {
         public Action traphong;
+        private TTDichVu _truyvan;
         public ThanhToan(Action traphong)
         {
             InitializeComponent();
             this.traphong = traphong;
-
+            LoadDV();
 
 
             this.MouseDown += new MouseEventHandler(Form_MouseDown);
@@ -39,6 +43,16 @@ namespace GUI_Quanlykhachsan.ChucNang
         }
         #endregion
 
+        public void LoadDV()
+        {
+            foreach (var item in DTODB.db.dichvus.ToList())
+            {
+                LsDichVu.Items.Add(item.tendv);
+            }
+        }
+
+
+
         // Nút thanh toán sau, vê căn bản là thoát form thanh toán và không làm gì CSDL cả.
         private void guna2GradientButton4_Click(object sender, EventArgs e)
         {
@@ -62,13 +76,13 @@ namespace GUI_Quanlykhachsan.ChucNang
             4.  Chuyển trạng thái những phòng khách hàng đã thuê về trống
 
         */
-
-
-
         private void guna2GradientButton3_Click(object sender, EventArgs e)
         {
-            traphong.Invoke();
-            Close();
+            if (MessageBox.Show("Bạn chắc chắn muốn thực hiện hành động này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                traphong.Invoke();
+                Close();
+            }
         }
 
         private void ThanhToan_Load(object sender, EventArgs e)
@@ -77,6 +91,11 @@ namespace GUI_Quanlykhachsan.ChucNang
         }
 
         private void guna2CustomCheckBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LsDichVu_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
