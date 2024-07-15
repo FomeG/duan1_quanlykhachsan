@@ -14,5 +14,6 @@ namespace DTO_Quanly.Transfer
         public static int IDKH;
         public static int IDNV;
         public static int IDCHECKOUT;
+        public static int IDCHECKIN;
     }
 }

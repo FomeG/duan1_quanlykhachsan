@@ -242,12 +242,10 @@ namespace GUI_Quanlykhachsan.ChucNang
                 duongdananh = lam.FileName;
             }
         }
-
         private void label4_Click(object sender, EventArgs e)
         {
 
         }
-
         private void txtKhachThanhToan_TextChanged(object sender, EventArgs e)
         {
             if (txtKhachThanhToan.Text.Trim() == "")

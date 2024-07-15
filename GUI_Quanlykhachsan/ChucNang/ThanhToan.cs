@@ -12,12 +12,15 @@ namespace GUI_Quanlykhachsan.ChucNang
     {
         public Action traphong;
         private TTDichVu _truyvan;
-        public ThanhToan(Action traphong)
+        private readonly int IDCin;
+        public ThanhToan(Action traphong, int idcheckin)
         {
             InitializeComponent();
             this.traphong = traphong;
+            this.IDCin = idcheckin;
             LoadDV();
             loadtt();
+            loaddvgview();
 
             this.MouseDown += new MouseEventHandler(Form_MouseDown);
         }
@@ -79,7 +82,34 @@ namespace GUI_Quanlykhachsan.ChucNang
             txttientratruoc.Text = hoadontemp.tienkhachtra.ToString();
         }
 
+        public void loaddvgview()
+        {
+            gview1.Columns.Clear();
+            var list = from cd in DTODB.db.checkin_dichvu
+                       join dv in DTODB.db.dichvus on cd.iddv equals dv.id
+                       where cd.idcheckin == IDCin
+                       select new
+                       {
+                           dv.tendv,
+                           cd.soluong,
+                           dv.mota
+                       };
+            var listtinhtien = from cd in DTODB.db.checkin_dichvu
+                               join dv in DTODB.db.dichvus on cd.iddv equals dv.id
+                               where cd.idcheckin == IDCin
+                               select new
+                               {
+                                   GiaTien = dv.gia * cd.soluong
+                               };
+            gview1.DataSource = list.ToList();
 
+            decimal tien = 0;
+            foreach (var item in listtinhtien)
+            {
+                tien += (decimal)item.GiaTien;
+            }
+            txttiendv.Text = tien.ToString();
+        }
         // Nút thanh toán sau, vê căn bản là thoát form thanh toán và không làm gì CSDL cả.
         private void guna2GradientButton4_Click(object sender, EventArgs e)
         {

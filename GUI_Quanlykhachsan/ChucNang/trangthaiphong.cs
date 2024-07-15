@@ -3,6 +3,7 @@ using DTO_Quanly.Transfer;
 using System;
 using System.Drawing;
 using System.Linq;
+using System.Web.Hosting;
 using System.Windows.Forms;
 
 namespace GUI_Quanlykhachsan.ChucNang
@@ -22,6 +23,8 @@ namespace GUI_Quanlykhachsan.ChucNang
             description.Text = mota;
             motaphong = mota;
             IdPhong = idphong;
+            TDatPhong.IdPhong = IdPhong;
+
 
             if (trangthaip == 1) // Nếu phòng trống
             {
@@ -74,7 +77,20 @@ namespace GUI_Quanlykhachsan.ChucNang
             else
             {
                 TDatPhong.IdPhong = IdPhong;
-                ThanhToan traphongthanhtoan = new ThanhToan(traphong);
+
+                // Tìm ra idcheckin để phục vụ cho việc thêm dịch vụ trong form thanh toán
+                int idcin = (from p in DTODB.db.phongs
+                             join cp in DTODB.db.checkin_phong on p.idphong equals cp.idphong
+                             join c in DTODB.db.checkins on cp.idcheckin equals c.id
+                             join tk in DTODB.db.tempkhachhangs on c.id equals tk.idcheckin
+                             join kh in DTODB.db.khachhangs on tk.idkh equals kh.id
+                             join lp in DTODB.db.loaiphongs on p.loaiphong equals lp.idloaiphong
+                             where p.idphong == TDatPhong.IdPhong
+                             select c.id).FirstOrDefault();
+
+                TDatPhong.IDCHECKIN = idcin;
+
+                ThanhToan traphongthanhtoan = new ThanhToan(traphong, idcin);
                 traphongthanhtoan.Show();
             }
         }

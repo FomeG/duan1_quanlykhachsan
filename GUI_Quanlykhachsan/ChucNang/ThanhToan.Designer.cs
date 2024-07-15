@@ -59,7 +59,7 @@
             this.SlgDV = new Guna.UI2.WinForms.Guna2NumericUpDown();
             this.gview1 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2GradientButton2 = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.label23 = new System.Windows.Forms.Label();
+            this.txttiendv = new System.Windows.Forms.Label();
             this.guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.label22 = new System.Windows.Forms.Label();
             this.LsDichVu = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -367,7 +367,7 @@
             this.guna2GroupBox2.Controls.Add(this.SlgDV);
             this.guna2GroupBox2.Controls.Add(this.gview1);
             this.guna2GroupBox2.Controls.Add(this.guna2GradientButton2);
-            this.guna2GroupBox2.Controls.Add(this.label23);
+            this.guna2GroupBox2.Controls.Add(this.txttiendv);
             this.guna2GroupBox2.Controls.Add(this.guna2GradientButton1);
             this.guna2GroupBox2.Controls.Add(this.label22);
             this.guna2GroupBox2.Controls.Add(this.LsDichVu);
@@ -482,16 +482,16 @@
             this.guna2GradientButton2.TabIndex = 3;
             this.guna2GradientButton2.Text = "Xoá";
             // 
-            // label23
+            // txttiendv
             // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label23.Location = new System.Drawing.Point(119, 237);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(71, 21);
-            this.label23.TabIndex = 8;
-            this.label23.Text = "{Số tiền}";
+            this.txttiendv.AutoSize = true;
+            this.txttiendv.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txttiendv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.txttiendv.Location = new System.Drawing.Point(119, 237);
+            this.txttiendv.Name = "txttiendv";
+            this.txttiendv.Size = new System.Drawing.Size(71, 21);
+            this.txttiendv.TabIndex = 8;
+            this.txttiendv.Text = "{Số tiền}";
             // 
             // guna2GradientButton1
             // 
@@ -752,7 +752,7 @@
         private System.Windows.Forms.Label txtngayvao;
         private System.Windows.Forms.Label txttenkh;
         private Guna.UI2.WinForms.Guna2NumericUpDown SlgDV;
-        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label txttiendv;
         private System.Windows.Forms.Label label22;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
     }
