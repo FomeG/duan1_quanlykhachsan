@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DTO_Quanly.Transfer;
+using System;
 using System.Data.Entity.Infrastructure;
 using System.Drawing;
 using System.Linq;
@@ -13,13 +14,14 @@ namespace GUI_Quanlykhachsan.ChucNang
     {
         public Action dattruoc;
         public Action nhanphong;
-        private readonly int IdPhong;
-        public KhachHang(Action nhanphong, Action dattruoc, int IdPhong)
+        public KhachHang(Action nhanphong, Action dattruoc)
         {
             InitializeComponent();
             this.dattruoc = dattruoc;
             this.nhanphong = nhanphong;
-            this.IdPhong = IdPhong;
+
+            tiencantra.Text = TDatPhong.TienPhong.ToString();
+
 
 
             this.MouseDown += new MouseEventHandler(Form_MouseDown);

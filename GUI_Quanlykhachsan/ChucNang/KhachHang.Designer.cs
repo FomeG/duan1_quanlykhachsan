@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KhachHang));
             this.txtTen = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtEmail = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtSDT = new Guna.UI2.WinForms.Guna2TextBox();
@@ -43,7 +42,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.rdNam = new System.Windows.Forms.RadioButton();
             this.rdNu = new System.Windows.Forms.RadioButton();
-            this.anhkh = new Guna.UI2.WinForms.Guna2PictureBox();
             this.BtnThemAnh = new Guna.UI2.WinForms.Guna2Button();
             this.BtnDatTruoc = new Guna.UI2.WinForms.Guna2Button();
             this.NgayDi = new Guna.UI2.WinForms.Guna2DateTimePicker();
@@ -66,10 +64,12 @@
             this.label13 = new System.Windows.Forms.Label();
             this.tiencantra = new System.Windows.Forms.Label();
             this.SoLuongNguoi = new Guna.UI2.WinForms.Guna2NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)(this.anhkh)).BeginInit();
+            this.button1 = new System.Windows.Forms.Button();
+            this.anhkh = new Guna.UI2.WinForms.Guna2PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.DsPhongDaDat)).BeginInit();
             this.guna2GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SoLuongNguoi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.anhkh)).BeginInit();
             this.SuspendLayout();
             // 
             // txtTen
@@ -275,22 +275,6 @@
             this.rdNu.Text = "Nữ";
             this.rdNu.UseVisualStyleBackColor = true;
             // 
-            // anhkh
-            // 
-            this.anhkh.BackColor = System.Drawing.Color.Transparent;
-            this.anhkh.BorderRadius = 20;
-            this.anhkh.FillColor = System.Drawing.Color.Transparent;
-            this.anhkh.Image = ((System.Drawing.Image)(resources.GetObject("anhkh.Image")));
-            this.anhkh.ImageRotate = 0F;
-            this.anhkh.InitialImage = ((System.Drawing.Image)(resources.GetObject("anhkh.InitialImage")));
-            this.anhkh.Location = new System.Drawing.Point(636, 11);
-            this.anhkh.Margin = new System.Windows.Forms.Padding(2);
-            this.anhkh.Name = "anhkh";
-            this.anhkh.Size = new System.Drawing.Size(256, 193);
-            this.anhkh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.anhkh.TabIndex = 9;
-            this.anhkh.TabStop = false;
-            // 
             // BtnThemAnh
             // 
             this.BtnThemAnh.Animated = true;
@@ -490,9 +474,9 @@
             // DsPhongDaDat
             // 
             this.DsPhongDaDat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DsPhongDaDat.Location = new System.Drawing.Point(11, 301);
+            this.DsPhongDaDat.Location = new System.Drawing.Point(11, 293);
             this.DsPhongDaDat.Name = "DsPhongDaDat";
-            this.DsPhongDaDat.Size = new System.Drawing.Size(880, 115);
+            this.DsPhongDaDat.Size = new System.Drawing.Size(880, 123);
             this.DsPhongDaDat.TabIndex = 15;
             // 
             // openFileDialog1
@@ -503,6 +487,8 @@
             // 
             this.guna2GroupBox1.BorderColor = System.Drawing.Color.Silver;
             this.guna2GroupBox1.BorderRadius = 13;
+            this.guna2GroupBox1.Controls.Add(this.anhkh);
+            this.guna2GroupBox1.Controls.Add(this.button1);
             this.guna2GroupBox1.Controls.Add(this.SoLuongNguoi);
             this.guna2GroupBox1.Controls.Add(this.tiencantra);
             this.guna2GroupBox1.Controls.Add(this.txtGhiChu);
@@ -512,7 +498,6 @@
             this.guna2GroupBox1.Controls.Add(this.BtnDatThem);
             this.guna2GroupBox1.Controls.Add(this.txtDiaChi);
             this.guna2GroupBox1.Controls.Add(this.rdNu);
-            this.guna2GroupBox1.Controls.Add(this.anhkh);
             this.guna2GroupBox1.Controls.Add(this.rdNam);
             this.guna2GroupBox1.Controls.Add(this.label13);
             this.guna2GroupBox1.Controls.Add(this.label10);
@@ -610,7 +595,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.label13.Location = new System.Drawing.Point(633, 517);
+            this.label13.Location = new System.Drawing.Point(634, 517);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(91, 17);
             this.label13.TabIndex = 14;
@@ -638,6 +623,28 @@
             this.SoLuongNguoi.Size = new System.Drawing.Size(168, 39);
             this.SoLuongNguoi.TabIndex = 19;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(11, 43);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(49, 78);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // anhkh
+            // 
+            this.anhkh.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.anhkh.BorderRadius = 20;
+            this.anhkh.FillColor = System.Drawing.Color.Transparent;
+            this.anhkh.ImageRotate = 0F;
+            this.anhkh.Location = new System.Drawing.Point(634, 12);
+            this.anhkh.Name = "anhkh";
+            this.anhkh.Size = new System.Drawing.Size(258, 195);
+            this.anhkh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.anhkh.TabIndex = 21;
+            this.anhkh.TabStop = false;
+            // 
             // KhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -652,11 +659,11 @@
             this.Name = "KhachHang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "KhachHang";
-            ((System.ComponentModel.ISupportInitialize)(this.anhkh)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DsPhongDaDat)).EndInit();
             this.guna2GroupBox1.ResumeLayout(false);
             this.guna2GroupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SoLuongNguoi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.anhkh)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -677,7 +684,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txtTen;
         private Guna.UI2.WinForms.Guna2Button BtnDatTruoc;
         private Guna.UI2.WinForms.Guna2Button BtnThemAnh;
-        private Guna.UI2.WinForms.Guna2PictureBox anhkh;
         private Guna.UI2.WinForms.Guna2DateTimePicker NgayDen;
         private Guna.UI2.WinForms.Guna2DateTimePicker NgayDi;
         private System.Windows.Forms.Label label8;
@@ -696,7 +702,9 @@
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label tiencantra;
         private Guna.UI2.WinForms.Guna2NumericUpDown SoLuongNguoi;
+        private System.Windows.Forms.Button button1;
+        private Guna.UI2.WinForms.Guna2PictureBox anhkh;
+        private System.Windows.Forms.Label tiencantra;
     }
 }

@@ -1,6 +1,8 @@
 ﻿using DTO_Quanly;
+using DTO_Quanly.Transfer;
 using System;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace GUI_Quanlykhachsan.ChucNang
@@ -56,7 +58,10 @@ namespace GUI_Quanlykhachsan.ChucNang
         {
             if (btnDat.Text == "Đặt Phòng")
             {
-                KhachHang khachHang = new KhachHang(nhanphong, dattruoc, IdPhong);
+                TDatPhong.IdPhong = IdPhong;
+                TDatPhong.TienPhong = (from a in DTODB.db.phongs join b in DTODB.db.loaiphongs on a.loaiphong equals b.idloaiphong where a.idphong == IdPhong select b.giaphong).FirstOrDefault();
+
+                KhachHang khachHang = new KhachHang(nhanphong, dattruoc);
                 khachHang.Show();
             }
             else if (btnDat.Text == "Nhận Phòng")
