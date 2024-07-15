@@ -84,6 +84,13 @@
           <Property Name="anh" Type="varchar(max)" />
           <Property Name="ngaysinh" Type="date" />
         </EntityType>
+        <EntityType Name="khuvuc">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tenkhuvuc" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
         <EntityType Name="loaiphong">
           <Key>
             <PropertyRef Name="idloaiphong" />
@@ -112,9 +119,10 @@
             <PropertyRef Name="idphong" />
           </Key>
           <Property Name="idphong" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="loaiphong" Type="int" />
-          <Property Name="khuvuc" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="loaiphong" Type="int" Nullable="false" />
+          <Property Name="khuvuc" Type="int" Nullable="false" />
           <Property Name="tenphong" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="trangthai" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="phong_trunggian">
           <Key>
@@ -146,7 +154,6 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="idphong" Type="int" />
           <Property Name="trangthai" Type="nvarchar" MaxLength="20" />
           <Property Name="ghichu" Type="nvarchar(max)" />
         </EntityType>
@@ -204,7 +211,7 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
           <Property Name="Giá phòng" Type="decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="Ngày tạo" Type="datetime" Nullable="false" />
         </EntityType>
-        <Association Name="FK__checkin__idkh__49C3F6B7">
+        <Association Name="FK__checkin__idkh__5070F446">
           <End Role="khachhang" Type="Self.khachhang" Multiplicity="1" />
           <End Role="checkin" Type="Self.checkin" Multiplicity="*" />
           <ReferentialConstraint>
@@ -216,7 +223,7 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__checkin__idnv__4AB81AF0">
+        <Association Name="FK__checkin__idnv__5165187F">
           <End Role="nhanvien" Type="Self.nhanvien" Multiplicity="0..1" />
           <End Role="checkin" Type="Self.checkin" Multiplicity="*" />
           <ReferentialConstraint>
@@ -228,7 +235,7 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__checkin_d__idche__5812160E">
+        <Association Name="FK__checkin_d__idche__5EBF139D">
           <End Role="checkin" Type="Self.checkin" Multiplicity="1" />
           <End Role="checkin_dichvu" Type="Self.checkin_dichvu" Multiplicity="*" />
           <ReferentialConstraint>
@@ -240,7 +247,7 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__checkin_di__iddv__59063A47">
+        <Association Name="FK__checkin_di__iddv__5FB337D6">
           <End Role="dichvu" Type="Self.dichvu" Multiplicity="1" />
           <End Role="checkin_dichvu" Type="Self.checkin_dichvu" Multiplicity="*" />
           <ReferentialConstraint>
@@ -252,7 +259,7 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__checkin_p__idche__5BE2A6F2">
+        <Association Name="FK__checkin_p__idche__628FA481">
           <End Role="checkin" Type="Self.checkin" Multiplicity="1" />
           <End Role="checkin_phong" Type="Self.checkin_phong" Multiplicity="*" />
           <ReferentialConstraint>
@@ -264,7 +271,7 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__checkin_p__idpho__5CD6CB2B">
+        <Association Name="FK__checkin_p__idpho__6383C8BA">
           <End Role="phong" Type="Self.phong" Multiplicity="1" />
           <End Role="checkin_phong" Type="Self.checkin_phong" Multiplicity="*" />
           <ReferentialConstraint>
@@ -276,7 +283,7 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__checkout__idkh__4D94879B">
+        <Association Name="FK__checkout__idkh__5441852A">
           <End Role="khachhang" Type="Self.khachhang" Multiplicity="1" />
           <End Role="checkout" Type="Self.checkout" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -288,7 +295,7 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__checkout__idnv__4E88ABD4">
+        <Association Name="FK__checkout__idnv__5535A963">
           <End Role="nhanvien" Type="Self.nhanvien" Multiplicity="0..1" />
           <End Role="checkout" Type="Self.checkout" Multiplicity="*" />
           <ReferentialConstraint>
@@ -300,7 +307,7 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dv_trunggi__iddv__6383C8BA">
+        <Association Name="FK__dv_trunggi__iddv__6A30C649">
           <End Role="checkin_dichvu" Type="Self.checkin_dichvu" Multiplicity="1" />
           <End Role="dv_trunggian" Type="Self.dv_trunggian" Multiplicity="*" />
           <ReferentialConstraint>
@@ -312,7 +319,7 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dv_trunggi__idhd__6477ECF3">
+        <Association Name="FK__dv_trunggi__idhd__6B24EA82">
           <End Role="hoadon" Type="Self.hoadon" Multiplicity="1" />
           <End Role="dv_trunggian" Type="Self.dv_trunggian" Multiplicity="*" />
           <ReferentialConstraint>
@@ -324,7 +331,7 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__hoadon__idkh__52593CB8">
+        <Association Name="FK__hoadon__idkh__59063A47">
           <End Role="khachhang" Type="Self.khachhang" Multiplicity="1" />
           <End Role="hoadon" Type="Self.hoadon" Multiplicity="*" />
           <ReferentialConstraint>
@@ -336,7 +343,7 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__hoadon__idnv__534D60F1">
+        <Association Name="FK__hoadon__idnv__59FA5E80">
           <End Role="nhanvien" Type="Self.nhanvien" Multiplicity="1" />
           <End Role="hoadon" Type="Self.hoadon" Multiplicity="*" />
           <ReferentialConstraint>
@@ -348,7 +355,7 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__nhanvien__taikho__4316F928">
+        <Association Name="FK__nhanvien__taikho__49C3F6B7">
           <End Role="taikhoan" Type="Self.taikhoan" Multiplicity="0..1" />
           <End Role="nhanvien" Type="Self.nhanvien" Multiplicity="*" />
           <ReferentialConstraint>
@@ -360,8 +367,20 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__phong__loaiphong__398D8EEE">
-          <End Role="loaiphong" Type="Self.loaiphong" Multiplicity="0..1" />
+        <Association Name="FK__phong__khuvuc__3F466844">
+          <End Role="khuvuc" Type="Self.khuvuc" Multiplicity="1" />
+          <End Role="phong" Type="Self.phong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="khuvuc">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="phong">
+              <PropertyRef Name="khuvuc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__phong__loaiphong__3E52440B">
+          <End Role="loaiphong" Type="Self.loaiphong" Multiplicity="1" />
           <End Role="phong" Type="Self.phong" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="loaiphong">
@@ -372,7 +391,19 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__phong_trun__idhd__60A75C0F">
+        <Association Name="FK__phong__trangthai__403A8C7D">
+          <End Role="trangthaiphong" Type="Self.trangthaiphong" Multiplicity="1" />
+          <End Role="phong" Type="Self.phong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="trangthaiphong">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="phong">
+              <PropertyRef Name="trangthai" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__phong_trun__idhd__6754599E">
           <End Role="hoadon" Type="Self.hoadon" Multiplicity="1" />
           <End Role="phong_trunggian" Type="Self.phong_trunggian" Multiplicity="*" />
           <ReferentialConstraint>
@@ -384,7 +415,7 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__phong_trung__idp__5FB337D6">
+        <Association Name="FK__phong_trung__idp__66603565">
           <End Role="checkin_phong" Type="Self.checkin_phong" Multiplicity="1" />
           <End Role="phong_trunggian" Type="Self.phong_trunggian" Multiplicity="*" />
           <ReferentialConstraint>
@@ -396,7 +427,7 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__taikhoan__loaitk__3E52440B">
+        <Association Name="FK__taikhoan__loaitk__44FF419A">
           <End Role="vaitro" Type="Self.vaitro" Multiplicity="0..1" />
           <End Role="taikhoan" Type="Self.taikhoan" Multiplicity="*" />
           <ReferentialConstraint>
@@ -408,7 +439,7 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tempkhach__idche__6C190EBB">
+        <Association Name="FK__tempkhach__idche__6EF57B66">
           <End Role="checkin" Type="Self.checkin" Multiplicity="1" />
           <End Role="tempkhachhang" Type="Self.tempkhachhang" Multiplicity="*" />
           <ReferentialConstraint>
@@ -420,7 +451,7 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tempkhachh__idkh__6B24EA82">
+        <Association Name="FK__tempkhachh__idkh__6E01572D">
           <End Role="khachhang" Type="Self.khachhang" Multiplicity="1" />
           <End Role="tempkhachhang" Type="Self.tempkhachhang" Multiplicity="*" />
           <ReferentialConstraint>
@@ -432,19 +463,7 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__trangthai__idpho__6754599E">
-          <End Role="phong" Type="Self.phong" Multiplicity="0..1" />
-          <End Role="trangthaiphong" Type="Self.trangthaiphong" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="phong">
-              <PropertyRef Name="idphong" />
-            </Principal>
-            <Dependent Role="trangthaiphong">
-              <PropertyRef Name="idphong" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__voucher__idnv__6EF57B66">
+        <Association Name="FK__voucher__idnv__71D1E811">
           <End Role="nhanvien" Type="Self.nhanvien" Multiplicity="0..1" />
           <End Role="voucher" Type="Self.voucher" Multiplicity="*" />
           <ReferentialConstraint>
@@ -465,6 +484,7 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
           <EntitySet Name="dv_trunggian" EntityType="Self.dv_trunggian" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="hoadon" EntityType="Self.hoadon" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="khachhang" EntityType="Self.khachhang" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="khuvuc" EntityType="Self.khuvuc" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="loaiphong" EntityType="Self.loaiphong" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="nhanvien" EntityType="Self.nhanvien" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="phong" EntityType="Self.phong" Schema="dbo" store:Type="Tables" />
@@ -495,87 +515,91 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
     [hoadon_phong].[Ngày tạo] AS [Ngày tạo]
     FROM [dbo].[hoadon_phong] AS [hoadon_phong]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK__checkin__idkh__49C3F6B7" Association="Self.FK__checkin__idkh__49C3F6B7">
+          <AssociationSet Name="FK__checkin__idkh__5070F446" Association="Self.FK__checkin__idkh__5070F446">
             <End Role="khachhang" EntitySet="khachhang" />
             <End Role="checkin" EntitySet="checkin" />
           </AssociationSet>
-          <AssociationSet Name="FK__checkin__idnv__4AB81AF0" Association="Self.FK__checkin__idnv__4AB81AF0">
+          <AssociationSet Name="FK__checkin__idnv__5165187F" Association="Self.FK__checkin__idnv__5165187F">
             <End Role="nhanvien" EntitySet="nhanvien" />
             <End Role="checkin" EntitySet="checkin" />
           </AssociationSet>
-          <AssociationSet Name="FK__checkin_d__idche__5812160E" Association="Self.FK__checkin_d__idche__5812160E">
+          <AssociationSet Name="FK__checkin_d__idche__5EBF139D" Association="Self.FK__checkin_d__idche__5EBF139D">
             <End Role="checkin" EntitySet="checkin" />
             <End Role="checkin_dichvu" EntitySet="checkin_dichvu" />
           </AssociationSet>
-          <AssociationSet Name="FK__checkin_di__iddv__59063A47" Association="Self.FK__checkin_di__iddv__59063A47">
+          <AssociationSet Name="FK__checkin_di__iddv__5FB337D6" Association="Self.FK__checkin_di__iddv__5FB337D6">
             <End Role="dichvu" EntitySet="dichvu" />
             <End Role="checkin_dichvu" EntitySet="checkin_dichvu" />
           </AssociationSet>
-          <AssociationSet Name="FK__checkin_p__idche__5BE2A6F2" Association="Self.FK__checkin_p__idche__5BE2A6F2">
+          <AssociationSet Name="FK__checkin_p__idche__628FA481" Association="Self.FK__checkin_p__idche__628FA481">
             <End Role="checkin" EntitySet="checkin" />
             <End Role="checkin_phong" EntitySet="checkin_phong" />
           </AssociationSet>
-          <AssociationSet Name="FK__checkin_p__idpho__5CD6CB2B" Association="Self.FK__checkin_p__idpho__5CD6CB2B">
+          <AssociationSet Name="FK__checkin_p__idpho__6383C8BA" Association="Self.FK__checkin_p__idpho__6383C8BA">
             <End Role="phong" EntitySet="phong" />
             <End Role="checkin_phong" EntitySet="checkin_phong" />
           </AssociationSet>
-          <AssociationSet Name="FK__checkout__idkh__4D94879B" Association="Self.FK__checkout__idkh__4D94879B">
+          <AssociationSet Name="FK__checkout__idkh__5441852A" Association="Self.FK__checkout__idkh__5441852A">
             <End Role="khachhang" EntitySet="khachhang" />
             <End Role="checkout" EntitySet="checkout" />
           </AssociationSet>
-          <AssociationSet Name="FK__checkout__idnv__4E88ABD4" Association="Self.FK__checkout__idnv__4E88ABD4">
+          <AssociationSet Name="FK__checkout__idnv__5535A963" Association="Self.FK__checkout__idnv__5535A963">
             <End Role="nhanvien" EntitySet="nhanvien" />
             <End Role="checkout" EntitySet="checkout" />
           </AssociationSet>
-          <AssociationSet Name="FK__dv_trunggi__iddv__6383C8BA" Association="Self.FK__dv_trunggi__iddv__6383C8BA">
+          <AssociationSet Name="FK__dv_trunggi__iddv__6A30C649" Association="Self.FK__dv_trunggi__iddv__6A30C649">
             <End Role="checkin_dichvu" EntitySet="checkin_dichvu" />
             <End Role="dv_trunggian" EntitySet="dv_trunggian" />
           </AssociationSet>
-          <AssociationSet Name="FK__dv_trunggi__idhd__6477ECF3" Association="Self.FK__dv_trunggi__idhd__6477ECF3">
+          <AssociationSet Name="FK__dv_trunggi__idhd__6B24EA82" Association="Self.FK__dv_trunggi__idhd__6B24EA82">
             <End Role="hoadon" EntitySet="hoadon" />
             <End Role="dv_trunggian" EntitySet="dv_trunggian" />
           </AssociationSet>
-          <AssociationSet Name="FK__hoadon__idkh__52593CB8" Association="Self.FK__hoadon__idkh__52593CB8">
+          <AssociationSet Name="FK__hoadon__idkh__59063A47" Association="Self.FK__hoadon__idkh__59063A47">
             <End Role="khachhang" EntitySet="khachhang" />
             <End Role="hoadon" EntitySet="hoadon" />
           </AssociationSet>
-          <AssociationSet Name="FK__hoadon__idnv__534D60F1" Association="Self.FK__hoadon__idnv__534D60F1">
+          <AssociationSet Name="FK__hoadon__idnv__59FA5E80" Association="Self.FK__hoadon__idnv__59FA5E80">
             <End Role="nhanvien" EntitySet="nhanvien" />
             <End Role="hoadon" EntitySet="hoadon" />
           </AssociationSet>
-          <AssociationSet Name="FK__nhanvien__taikho__4316F928" Association="Self.FK__nhanvien__taikho__4316F928">
+          <AssociationSet Name="FK__nhanvien__taikho__49C3F6B7" Association="Self.FK__nhanvien__taikho__49C3F6B7">
             <End Role="taikhoan" EntitySet="taikhoan" />
             <End Role="nhanvien" EntitySet="nhanvien" />
           </AssociationSet>
-          <AssociationSet Name="FK__phong__loaiphong__398D8EEE" Association="Self.FK__phong__loaiphong__398D8EEE">
+          <AssociationSet Name="FK__phong__khuvuc__3F466844" Association="Self.FK__phong__khuvuc__3F466844">
+            <End Role="khuvuc" EntitySet="khuvuc" />
+            <End Role="phong" EntitySet="phong" />
+          </AssociationSet>
+          <AssociationSet Name="FK__phong__loaiphong__3E52440B" Association="Self.FK__phong__loaiphong__3E52440B">
             <End Role="loaiphong" EntitySet="loaiphong" />
             <End Role="phong" EntitySet="phong" />
           </AssociationSet>
-          <AssociationSet Name="FK__phong_trun__idhd__60A75C0F" Association="Self.FK__phong_trun__idhd__60A75C0F">
+          <AssociationSet Name="FK__phong__trangthai__403A8C7D" Association="Self.FK__phong__trangthai__403A8C7D">
+            <End Role="trangthaiphong" EntitySet="trangthaiphong" />
+            <End Role="phong" EntitySet="phong" />
+          </AssociationSet>
+          <AssociationSet Name="FK__phong_trun__idhd__6754599E" Association="Self.FK__phong_trun__idhd__6754599E">
             <End Role="hoadon" EntitySet="hoadon" />
             <End Role="phong_trunggian" EntitySet="phong_trunggian" />
           </AssociationSet>
-          <AssociationSet Name="FK__phong_trung__idp__5FB337D6" Association="Self.FK__phong_trung__idp__5FB337D6">
+          <AssociationSet Name="FK__phong_trung__idp__66603565" Association="Self.FK__phong_trung__idp__66603565">
             <End Role="checkin_phong" EntitySet="checkin_phong" />
             <End Role="phong_trunggian" EntitySet="phong_trunggian" />
           </AssociationSet>
-          <AssociationSet Name="FK__taikhoan__loaitk__3E52440B" Association="Self.FK__taikhoan__loaitk__3E52440B">
+          <AssociationSet Name="FK__taikhoan__loaitk__44FF419A" Association="Self.FK__taikhoan__loaitk__44FF419A">
             <End Role="vaitro" EntitySet="vaitro" />
             <End Role="taikhoan" EntitySet="taikhoan" />
           </AssociationSet>
-          <AssociationSet Name="FK__tempkhach__idche__6C190EBB" Association="Self.FK__tempkhach__idche__6C190EBB">
+          <AssociationSet Name="FK__tempkhach__idche__6EF57B66" Association="Self.FK__tempkhach__idche__6EF57B66">
             <End Role="checkin" EntitySet="checkin" />
             <End Role="tempkhachhang" EntitySet="tempkhachhang" />
           </AssociationSet>
-          <AssociationSet Name="FK__tempkhachh__idkh__6B24EA82" Association="Self.FK__tempkhachh__idkh__6B24EA82">
+          <AssociationSet Name="FK__tempkhachh__idkh__6E01572D" Association="Self.FK__tempkhachh__idkh__6E01572D">
             <End Role="khachhang" EntitySet="khachhang" />
             <End Role="tempkhachhang" EntitySet="tempkhachhang" />
           </AssociationSet>
-          <AssociationSet Name="FK__trangthai__idpho__6754599E" Association="Self.FK__trangthai__idpho__6754599E">
-            <End Role="phong" EntitySet="phong" />
-            <End Role="trangthaiphong" EntitySet="trangthaiphong" />
-          </AssociationSet>
-          <AssociationSet Name="FK__voucher__idnv__6EF57B66" Association="Self.FK__voucher__idnv__6EF57B66">
+          <AssociationSet Name="FK__voucher__idnv__71D1E811" Association="Self.FK__voucher__idnv__71D1E811">
             <End Role="nhanvien" EntitySet="nhanvien" />
             <End Role="voucher" EntitySet="voucher" />
           </AssociationSet>
@@ -594,11 +618,11 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
           <Property Name="idnv" Type="Int32" />
           <Property Name="ngaycheckin" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="trangthai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="khachhang" Relationship="Self.FK__checkin__idkh__49C3F6B7" FromRole="checkin" ToRole="khachhang" />
-          <NavigationProperty Name="nhanvien" Relationship="Self.FK__checkin__idnv__4AB81AF0" FromRole="checkin" ToRole="nhanvien" />
-          <NavigationProperty Name="checkin_dichvu" Relationship="Self.FK__checkin_d__idche__5812160E" FromRole="checkin" ToRole="checkin_dichvu" />
-          <NavigationProperty Name="checkin_phong" Relationship="Self.FK__checkin_p__idche__5BE2A6F2" FromRole="checkin" ToRole="checkin_phong" />
-          <NavigationProperty Name="tempkhachhangs" Relationship="Self.FK__tempkhach__idche__6C190EBB" FromRole="checkin" ToRole="tempkhachhang" />
+          <NavigationProperty Name="khachhang" Relationship="Self.FK__checkin__idkh__5070F446" FromRole="checkin" ToRole="khachhang" />
+          <NavigationProperty Name="nhanvien" Relationship="Self.FK__checkin__idnv__5165187F" FromRole="checkin" ToRole="nhanvien" />
+          <NavigationProperty Name="checkin_dichvu" Relationship="Self.FK__checkin_d__idche__5EBF139D" FromRole="checkin" ToRole="checkin_dichvu" />
+          <NavigationProperty Name="checkin_phong" Relationship="Self.FK__checkin_p__idche__628FA481" FromRole="checkin" ToRole="checkin_phong" />
+          <NavigationProperty Name="tempkhachhangs" Relationship="Self.FK__tempkhach__idche__6EF57B66" FromRole="checkin" ToRole="tempkhachhang" />
         </EntityType>
         <EntityType Name="checkin_dichvu">
           <Key>
@@ -608,8 +632,8 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
           <Property Name="idcheckin" Type="Int32" Nullable="false" />
           <Property Name="iddv" Type="Int32" Nullable="false" />
           <Property Name="soluong" Type="Int32" />
-          <NavigationProperty Name="checkin" Relationship="Self.FK__checkin_d__idche__5812160E" FromRole="checkin_dichvu" ToRole="checkin" />
-          <NavigationProperty Name="dichvu" Relationship="Self.FK__checkin_di__iddv__59063A47" FromRole="checkin_dichvu" ToRole="dichvu" />
+          <NavigationProperty Name="checkin" Relationship="Self.FK__checkin_d__idche__5EBF139D" FromRole="checkin_dichvu" ToRole="checkin" />
+          <NavigationProperty Name="dichvu" Relationship="Self.FK__checkin_di__iddv__5FB337D6" FromRole="checkin_dichvu" ToRole="dichvu" />
           <NavigationProperty Name="hoadons" Relationship="Self.dv_trunggian" FromRole="checkin_dichvu" ToRole="hoadon" />
         </EntityType>
         <EntityType Name="checkin_phong">
@@ -619,8 +643,8 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="idcheckin" Type="Int32" Nullable="false" />
           <Property Name="idphong" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="checkin" Relationship="Self.FK__checkin_p__idche__5BE2A6F2" FromRole="checkin_phong" ToRole="checkin" />
-          <NavigationProperty Name="phong" Relationship="Self.FK__checkin_p__idpho__5CD6CB2B" FromRole="checkin_phong" ToRole="phong" />
+          <NavigationProperty Name="checkin" Relationship="Self.FK__checkin_p__idche__628FA481" FromRole="checkin_phong" ToRole="checkin" />
+          <NavigationProperty Name="phong" Relationship="Self.FK__checkin_p__idpho__6383C8BA" FromRole="checkin_phong" ToRole="phong" />
           <NavigationProperty Name="hoadons" Relationship="Self.phong_trunggian" FromRole="checkin_phong" ToRole="hoadon" />
         </EntityType>
         <EntityType Name="checkout">
@@ -631,8 +655,8 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
           <Property Name="idnv" Type="Int32" />
           <Property Name="ngaycheckout" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="trangthai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="khachhang" Relationship="Self.FK__checkout__idkh__4D94879B" FromRole="checkout" ToRole="khachhang" />
-          <NavigationProperty Name="nhanvien" Relationship="Self.FK__checkout__idnv__4E88ABD4" FromRole="checkout" ToRole="nhanvien" />
+          <NavigationProperty Name="khachhang" Relationship="Self.FK__checkout__idkh__5441852A" FromRole="checkout" ToRole="khachhang" />
+          <NavigationProperty Name="nhanvien" Relationship="Self.FK__checkout__idnv__5535A963" FromRole="checkout" ToRole="nhanvien" />
         </EntityType>
         <EntityType Name="dichvu">
           <Key>
@@ -643,7 +667,7 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
           <Property Name="soluongton" Type="Int32" />
           <Property Name="gia" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="checkin_dichvu" Relationship="Self.FK__checkin_di__iddv__59063A47" FromRole="dichvu" ToRole="checkin_dichvu" />
+          <NavigationProperty Name="checkin_dichvu" Relationship="Self.FK__checkin_di__iddv__5FB337D6" FromRole="dichvu" ToRole="checkin_dichvu" />
         </EntityType>
         <EntityType Name="hoadon">
           <Key>
@@ -656,8 +680,8 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
           <Property Name="tongtien" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="songuoi" Type="Int32" />
           <Property Name="trangthai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="khachhang" Relationship="Self.FK__hoadon__idkh__52593CB8" FromRole="hoadon" ToRole="khachhang" />
-          <NavigationProperty Name="nhanvien" Relationship="Self.FK__hoadon__idnv__534D60F1" FromRole="hoadon" ToRole="nhanvien" />
+          <NavigationProperty Name="khachhang" Relationship="Self.FK__hoadon__idkh__59063A47" FromRole="hoadon" ToRole="khachhang" />
+          <NavigationProperty Name="nhanvien" Relationship="Self.FK__hoadon__idnv__59FA5E80" FromRole="hoadon" ToRole="nhanvien" />
           <NavigationProperty Name="checkin_dichvu" Relationship="Self.dv_trunggian" FromRole="hoadon" ToRole="checkin_dichvu" />
           <NavigationProperty Name="checkin_phong" Relationship="Self.phong_trunggian" FromRole="hoadon" ToRole="checkin_phong" />
         </EntityType>
@@ -673,10 +697,18 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
           <Property Name="diachi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="anh" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="ngaysinh" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="checkins" Relationship="Self.FK__checkin__idkh__49C3F6B7" FromRole="khachhang" ToRole="checkin" />
-          <NavigationProperty Name="checkout" Relationship="Self.FK__checkout__idkh__4D94879B" FromRole="khachhang" ToRole="checkout" />
-          <NavigationProperty Name="hoadons" Relationship="Self.FK__hoadon__idkh__52593CB8" FromRole="khachhang" ToRole="hoadon" />
-          <NavigationProperty Name="tempkhachhangs" Relationship="Self.FK__tempkhachh__idkh__6B24EA82" FromRole="khachhang" ToRole="tempkhachhang" />
+          <NavigationProperty Name="checkins" Relationship="Self.FK__checkin__idkh__5070F446" FromRole="khachhang" ToRole="checkin" />
+          <NavigationProperty Name="checkout" Relationship="Self.FK__checkout__idkh__5441852A" FromRole="khachhang" ToRole="checkout" />
+          <NavigationProperty Name="hoadons" Relationship="Self.FK__hoadon__idkh__59063A47" FromRole="khachhang" ToRole="hoadon" />
+          <NavigationProperty Name="tempkhachhangs" Relationship="Self.FK__tempkhachh__idkh__6E01572D" FromRole="khachhang" ToRole="tempkhachhang" />
+        </EntityType>
+        <EntityType Name="khuvuc">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tenkhuvuc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="phongs" Relationship="Self.FK__phong__khuvuc__3F466844" FromRole="khuvuc" ToRole="phong" />
         </EntityType>
         <EntityType Name="loaiphong">
           <Key>
@@ -687,7 +719,7 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
           <Property Name="giaphong" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="songuoi" Type="Int32" />
           <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="phongs" Relationship="Self.FK__phong__loaiphong__398D8EEE" FromRole="loaiphong" ToRole="phong" />
+          <NavigationProperty Name="phongs" Relationship="Self.FK__phong__loaiphong__3E52440B" FromRole="loaiphong" ToRole="phong" />
         </EntityType>
         <EntityType Name="nhanvien">
           <Key>
@@ -701,23 +733,25 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
           <Property Name="diachi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ngaysinh" Type="DateTime" Precision="0" />
           <Property Name="taikhoan" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="checkins" Relationship="Self.FK__checkin__idnv__4AB81AF0" FromRole="nhanvien" ToRole="checkin" />
-          <NavigationProperty Name="checkouts" Relationship="Self.FK__checkout__idnv__4E88ABD4" FromRole="nhanvien" ToRole="checkout" />
-          <NavigationProperty Name="hoadons" Relationship="Self.FK__hoadon__idnv__534D60F1" FromRole="nhanvien" ToRole="hoadon" />
-          <NavigationProperty Name="taikhoan1" Relationship="Self.FK__nhanvien__taikho__4316F928" FromRole="nhanvien" ToRole="taikhoan" />
-          <NavigationProperty Name="vouchers" Relationship="Self.FK__voucher__idnv__6EF57B66" FromRole="nhanvien" ToRole="voucher" />
+          <NavigationProperty Name="checkins" Relationship="Self.FK__checkin__idnv__5165187F" FromRole="nhanvien" ToRole="checkin" />
+          <NavigationProperty Name="checkouts" Relationship="Self.FK__checkout__idnv__5535A963" FromRole="nhanvien" ToRole="checkout" />
+          <NavigationProperty Name="hoadons" Relationship="Self.FK__hoadon__idnv__59FA5E80" FromRole="nhanvien" ToRole="hoadon" />
+          <NavigationProperty Name="taikhoan1" Relationship="Self.FK__nhanvien__taikho__49C3F6B7" FromRole="nhanvien" ToRole="taikhoan" />
+          <NavigationProperty Name="vouchers" Relationship="Self.FK__voucher__idnv__71D1E811" FromRole="nhanvien" ToRole="voucher" />
         </EntityType>
         <EntityType Name="phong">
           <Key>
             <PropertyRef Name="idphong" />
           </Key>
           <Property Name="idphong" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="loaiphong" Type="Int32" />
-          <Property Name="khuvuc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="loaiphong" Type="Int32" Nullable="false" />
+          <Property Name="khuvuc" Type="Int32" Nullable="false" />
           <Property Name="tenphong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="checkin_phong" Relationship="Self.FK__checkin_p__idpho__5CD6CB2B" FromRole="phong" ToRole="checkin_phong" />
-          <NavigationProperty Name="loaiphong1" Relationship="Self.FK__phong__loaiphong__398D8EEE" FromRole="phong" ToRole="loaiphong" />
-          <NavigationProperty Name="trangthaiphongs" Relationship="Self.FK__trangthai__idpho__6754599E" FromRole="phong" ToRole="trangthaiphong" />
+          <Property Name="trangthai" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="checkin_phong" Relationship="Self.FK__checkin_p__idpho__6383C8BA" FromRole="phong" ToRole="checkin_phong" />
+          <NavigationProperty Name="khuvuc1" Relationship="Self.FK__phong__khuvuc__3F466844" FromRole="phong" ToRole="khuvuc" />
+          <NavigationProperty Name="loaiphong1" Relationship="Self.FK__phong__loaiphong__3E52440B" FromRole="phong" ToRole="loaiphong" />
+          <NavigationProperty Name="trangthaiphong" Relationship="Self.FK__phong__trangthai__403A8C7D" FromRole="phong" ToRole="trangthaiphong" />
         </EntityType>
         <EntityType Name="taikhoan">
           <Key>
@@ -726,8 +760,8 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
           <Property Name="taikhoan1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="matkhau" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="loaitk" Type="Int32" />
-          <NavigationProperty Name="nhanviens" Relationship="Self.FK__nhanvien__taikho__4316F928" FromRole="taikhoan" ToRole="nhanvien" />
-          <NavigationProperty Name="vaitro" Relationship="Self.FK__taikhoan__loaitk__3E52440B" FromRole="taikhoan" ToRole="vaitro" />
+          <NavigationProperty Name="nhanviens" Relationship="Self.FK__nhanvien__taikho__49C3F6B7" FromRole="taikhoan" ToRole="nhanvien" />
+          <NavigationProperty Name="vaitro" Relationship="Self.FK__taikhoan__loaitk__44FF419A" FromRole="taikhoan" ToRole="vaitro" />
         </EntityType>
         <EntityType Name="tempkhachhang">
           <Key>
@@ -737,18 +771,17 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
           <Property Name="idkh" Type="Int32" Nullable="false" />
           <Property Name="idcheckin" Type="Int32" Nullable="false" />
           <Property Name="tienkhachtra" Type="Decimal" Precision="10" Scale="2" />
-          <NavigationProperty Name="checkin" Relationship="Self.FK__tempkhach__idche__6C190EBB" FromRole="tempkhachhang" ToRole="checkin" />
-          <NavigationProperty Name="khachhang" Relationship="Self.FK__tempkhachh__idkh__6B24EA82" FromRole="tempkhachhang" ToRole="khachhang" />
+          <NavigationProperty Name="checkin" Relationship="Self.FK__tempkhach__idche__6EF57B66" FromRole="tempkhachhang" ToRole="checkin" />
+          <NavigationProperty Name="khachhang" Relationship="Self.FK__tempkhachh__idkh__6E01572D" FromRole="tempkhachhang" ToRole="khachhang" />
         </EntityType>
         <EntityType Name="trangthaiphong">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="idphong" Type="Int32" />
           <Property Name="trangthai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="ghichu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="phong" Relationship="Self.FK__trangthai__idpho__6754599E" FromRole="trangthaiphong" ToRole="phong" />
+          <NavigationProperty Name="phongs" Relationship="Self.FK__phong__trangthai__403A8C7D" FromRole="trangthaiphong" ToRole="phong" />
         </EntityType>
         <EntityType Name="vaitro">
           <Key>
@@ -756,7 +789,7 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="vaitro1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="taikhoans" Relationship="Self.FK__taikhoan__loaitk__3E52440B" FromRole="vaitro" ToRole="taikhoan" />
+          <NavigationProperty Name="taikhoans" Relationship="Self.FK__taikhoan__loaitk__44FF419A" FromRole="vaitro" ToRole="taikhoan" />
         </EntityType>
         <EntityType Name="voucher">
           <Key>
@@ -768,7 +801,7 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
           <Property Name="ngaylap" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ngayhethan" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="trangthai" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="nhanvien" Relationship="Self.FK__voucher__idnv__6EF57B66" FromRole="voucher" ToRole="nhanvien" />
+          <NavigationProperty Name="nhanvien" Relationship="Self.FK__voucher__idnv__71D1E811" FromRole="voucher" ToRole="nhanvien" />
         </EntityType>
         <EntityType Name="hoadon_dichvu">
           <Key>
@@ -802,7 +835,7 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
           <Property Name="Giá_phòng" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="Ngày_tạo" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
-        <Association Name="FK__checkin__idkh__49C3F6B7">
+        <Association Name="FK__checkin__idkh__5070F446">
           <End Role="khachhang" Type="Self.khachhang" Multiplicity="1" />
           <End Role="checkin" Type="Self.checkin" Multiplicity="*" />
           <ReferentialConstraint>
@@ -814,7 +847,7 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__checkin__idnv__4AB81AF0">
+        <Association Name="FK__checkin__idnv__5165187F">
           <End Role="nhanvien" Type="Self.nhanvien" Multiplicity="0..1" />
           <End Role="checkin" Type="Self.checkin" Multiplicity="*" />
           <ReferentialConstraint>
@@ -826,7 +859,7 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__checkin_d__idche__5812160E">
+        <Association Name="FK__checkin_d__idche__5EBF139D">
           <End Role="checkin" Type="Self.checkin" Multiplicity="1" />
           <End Role="checkin_dichvu" Type="Self.checkin_dichvu" Multiplicity="*" />
           <ReferentialConstraint>
@@ -838,7 +871,7 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__checkin_p__idche__5BE2A6F2">
+        <Association Name="FK__checkin_p__idche__628FA481">
           <End Role="checkin" Type="Self.checkin" Multiplicity="1" />
           <End Role="checkin_phong" Type="Self.checkin_phong" Multiplicity="*" />
           <ReferentialConstraint>
@@ -850,7 +883,7 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tempkhach__idche__6C190EBB">
+        <Association Name="FK__tempkhach__idche__6EF57B66">
           <End Role="checkin" Type="Self.checkin" Multiplicity="1" />
           <End Role="tempkhachhang" Type="Self.tempkhachhang" Multiplicity="*" />
           <ReferentialConstraint>
@@ -862,7 +895,7 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__checkin_di__iddv__59063A47">
+        <Association Name="FK__checkin_di__iddv__5FB337D6">
           <End Role="dichvu" Type="Self.dichvu" Multiplicity="1" />
           <End Role="checkin_dichvu" Type="Self.checkin_dichvu" Multiplicity="*" />
           <ReferentialConstraint>
@@ -874,7 +907,7 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__checkin_p__idpho__5CD6CB2B">
+        <Association Name="FK__checkin_p__idpho__6383C8BA">
           <End Role="phong" Type="Self.phong" Multiplicity="1" />
           <End Role="checkin_phong" Type="Self.checkin_phong" Multiplicity="*" />
           <ReferentialConstraint>
@@ -886,7 +919,7 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__checkout__idkh__4D94879B">
+        <Association Name="FK__checkout__idkh__5441852A">
           <End Role="khachhang" Type="Self.khachhang" Multiplicity="1" />
           <End Role="checkout" Type="Self.checkout" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -898,7 +931,7 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__checkout__idnv__4E88ABD4">
+        <Association Name="FK__checkout__idnv__5535A963">
           <End Role="nhanvien" Type="Self.nhanvien" Multiplicity="0..1" />
           <End Role="checkout" Type="Self.checkout" Multiplicity="*" />
           <ReferentialConstraint>
@@ -910,7 +943,7 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__hoadon__idkh__52593CB8">
+        <Association Name="FK__hoadon__idkh__59063A47">
           <End Role="khachhang" Type="Self.khachhang" Multiplicity="1" />
           <End Role="hoadon" Type="Self.hoadon" Multiplicity="*" />
           <ReferentialConstraint>
@@ -922,7 +955,7 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__hoadon__idnv__534D60F1">
+        <Association Name="FK__hoadon__idnv__59FA5E80">
           <End Role="nhanvien" Type="Self.nhanvien" Multiplicity="1" />
           <End Role="hoadon" Type="Self.hoadon" Multiplicity="*" />
           <ReferentialConstraint>
@@ -934,7 +967,7 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tempkhachh__idkh__6B24EA82">
+        <Association Name="FK__tempkhachh__idkh__6E01572D">
           <End Role="khachhang" Type="Self.khachhang" Multiplicity="1" />
           <End Role="tempkhachhang" Type="Self.tempkhachhang" Multiplicity="*" />
           <ReferentialConstraint>
@@ -946,8 +979,20 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__phong__loaiphong__398D8EEE">
-          <End Role="loaiphong" Type="Self.loaiphong" Multiplicity="0..1" />
+        <Association Name="FK__phong__khuvuc__3F466844">
+          <End Role="khuvuc" Type="Self.khuvuc" Multiplicity="1" />
+          <End Role="phong" Type="Self.phong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="khuvuc">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="phong">
+              <PropertyRef Name="khuvuc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__phong__loaiphong__3E52440B">
+          <End Role="loaiphong" Type="Self.loaiphong" Multiplicity="1" />
           <End Role="phong" Type="Self.phong" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="loaiphong">
@@ -958,7 +1003,7 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__nhanvien__taikho__4316F928">
+        <Association Name="FK__nhanvien__taikho__49C3F6B7">
           <End Role="taikhoan" Type="Self.taikhoan" Multiplicity="0..1" />
           <End Role="nhanvien" Type="Self.nhanvien" Multiplicity="*" />
           <ReferentialConstraint>
@@ -970,7 +1015,7 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__voucher__idnv__6EF57B66">
+        <Association Name="FK__voucher__idnv__71D1E811">
           <End Role="nhanvien" Type="Self.nhanvien" Multiplicity="0..1" />
           <End Role="voucher" Type="Self.voucher" Multiplicity="*" />
           <ReferentialConstraint>
@@ -982,19 +1027,19 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__trangthai__idpho__6754599E">
-          <End Role="phong" Type="Self.phong" Multiplicity="0..1" />
-          <End Role="trangthaiphong" Type="Self.trangthaiphong" Multiplicity="*" />
+        <Association Name="FK__phong__trangthai__403A8C7D">
+          <End Role="trangthaiphong" Type="Self.trangthaiphong" Multiplicity="1" />
+          <End Role="phong" Type="Self.phong" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="phong">
-              <PropertyRef Name="idphong" />
+            <Principal Role="trangthaiphong">
+              <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="trangthaiphong">
-              <PropertyRef Name="idphong" />
+            <Dependent Role="phong">
+              <PropertyRef Name="trangthai" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__taikhoan__loaitk__3E52440B">
+        <Association Name="FK__taikhoan__loaitk__44FF419A">
           <End Role="vaitro" Type="Self.vaitro" Multiplicity="0..1" />
           <End Role="taikhoan" Type="Self.taikhoan" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1014,7 +1059,7 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
           <End Role="hoadon" Type="Self.hoadon" Multiplicity="*" />
           <End Role="checkin_phong" Type="Self.checkin_phong" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="DuAn1_QlyKS" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DuAn1_QLKS" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="checkins" EntityType="Self.checkin" />
           <EntitySet Name="checkin_dichvu" EntityType="Self.checkin_dichvu" />
           <EntitySet Name="checkin_phong" EntityType="Self.checkin_phong" />
@@ -1022,6 +1067,7 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
           <EntitySet Name="dichvus" EntityType="Self.dichvu" />
           <EntitySet Name="hoadons" EntityType="Self.hoadon" />
           <EntitySet Name="khachhangs" EntityType="Self.khachhang" />
+          <EntitySet Name="khuvucs" EntityType="Self.khuvuc" />
           <EntitySet Name="loaiphongs" EntityType="Self.loaiphong" />
           <EntitySet Name="nhanviens" EntityType="Self.nhanvien" />
           <EntitySet Name="phongs" EntityType="Self.phong" />
@@ -1032,71 +1078,75 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
           <EntitySet Name="vouchers" EntityType="Self.voucher" />
           <EntitySet Name="hoadon_dichvu" EntityType="Self.hoadon_dichvu" />
           <EntitySet Name="hoadon_phong" EntityType="Self.hoadon_phong" />
-          <AssociationSet Name="FK__checkin__idkh__49C3F6B7" Association="Self.FK__checkin__idkh__49C3F6B7">
+          <AssociationSet Name="FK__checkin__idkh__5070F446" Association="Self.FK__checkin__idkh__5070F446">
             <End Role="khachhang" EntitySet="khachhangs" />
             <End Role="checkin" EntitySet="checkins" />
           </AssociationSet>
-          <AssociationSet Name="FK__checkin__idnv__4AB81AF0" Association="Self.FK__checkin__idnv__4AB81AF0">
+          <AssociationSet Name="FK__checkin__idnv__5165187F" Association="Self.FK__checkin__idnv__5165187F">
             <End Role="nhanvien" EntitySet="nhanviens" />
             <End Role="checkin" EntitySet="checkins" />
           </AssociationSet>
-          <AssociationSet Name="FK__checkin_d__idche__5812160E" Association="Self.FK__checkin_d__idche__5812160E">
+          <AssociationSet Name="FK__checkin_d__idche__5EBF139D" Association="Self.FK__checkin_d__idche__5EBF139D">
             <End Role="checkin" EntitySet="checkins" />
             <End Role="checkin_dichvu" EntitySet="checkin_dichvu" />
           </AssociationSet>
-          <AssociationSet Name="FK__checkin_p__idche__5BE2A6F2" Association="Self.FK__checkin_p__idche__5BE2A6F2">
+          <AssociationSet Name="FK__checkin_p__idche__628FA481" Association="Self.FK__checkin_p__idche__628FA481">
             <End Role="checkin" EntitySet="checkins" />
             <End Role="checkin_phong" EntitySet="checkin_phong" />
           </AssociationSet>
-          <AssociationSet Name="FK__tempkhach__idche__6C190EBB" Association="Self.FK__tempkhach__idche__6C190EBB">
+          <AssociationSet Name="FK__tempkhach__idche__6EF57B66" Association="Self.FK__tempkhach__idche__6EF57B66">
             <End Role="checkin" EntitySet="checkins" />
             <End Role="tempkhachhang" EntitySet="tempkhachhangs" />
           </AssociationSet>
-          <AssociationSet Name="FK__checkin_di__iddv__59063A47" Association="Self.FK__checkin_di__iddv__59063A47">
+          <AssociationSet Name="FK__checkin_di__iddv__5FB337D6" Association="Self.FK__checkin_di__iddv__5FB337D6">
             <End Role="dichvu" EntitySet="dichvus" />
             <End Role="checkin_dichvu" EntitySet="checkin_dichvu" />
           </AssociationSet>
-          <AssociationSet Name="FK__checkin_p__idpho__5CD6CB2B" Association="Self.FK__checkin_p__idpho__5CD6CB2B">
+          <AssociationSet Name="FK__checkin_p__idpho__6383C8BA" Association="Self.FK__checkin_p__idpho__6383C8BA">
             <End Role="phong" EntitySet="phongs" />
             <End Role="checkin_phong" EntitySet="checkin_phong" />
           </AssociationSet>
-          <AssociationSet Name="FK__checkout__idkh__4D94879B" Association="Self.FK__checkout__idkh__4D94879B">
+          <AssociationSet Name="FK__checkout__idkh__5441852A" Association="Self.FK__checkout__idkh__5441852A">
             <End Role="khachhang" EntitySet="khachhangs" />
             <End Role="checkout" EntitySet="checkouts" />
           </AssociationSet>
-          <AssociationSet Name="FK__checkout__idnv__4E88ABD4" Association="Self.FK__checkout__idnv__4E88ABD4">
+          <AssociationSet Name="FK__checkout__idnv__5535A963" Association="Self.FK__checkout__idnv__5535A963">
             <End Role="nhanvien" EntitySet="nhanviens" />
             <End Role="checkout" EntitySet="checkouts" />
           </AssociationSet>
-          <AssociationSet Name="FK__hoadon__idkh__52593CB8" Association="Self.FK__hoadon__idkh__52593CB8">
+          <AssociationSet Name="FK__hoadon__idkh__59063A47" Association="Self.FK__hoadon__idkh__59063A47">
             <End Role="khachhang" EntitySet="khachhangs" />
             <End Role="hoadon" EntitySet="hoadons" />
           </AssociationSet>
-          <AssociationSet Name="FK__hoadon__idnv__534D60F1" Association="Self.FK__hoadon__idnv__534D60F1">
+          <AssociationSet Name="FK__hoadon__idnv__59FA5E80" Association="Self.FK__hoadon__idnv__59FA5E80">
             <End Role="nhanvien" EntitySet="nhanviens" />
             <End Role="hoadon" EntitySet="hoadons" />
           </AssociationSet>
-          <AssociationSet Name="FK__tempkhachh__idkh__6B24EA82" Association="Self.FK__tempkhachh__idkh__6B24EA82">
+          <AssociationSet Name="FK__tempkhachh__idkh__6E01572D" Association="Self.FK__tempkhachh__idkh__6E01572D">
             <End Role="khachhang" EntitySet="khachhangs" />
             <End Role="tempkhachhang" EntitySet="tempkhachhangs" />
           </AssociationSet>
-          <AssociationSet Name="FK__phong__loaiphong__398D8EEE" Association="Self.FK__phong__loaiphong__398D8EEE">
+          <AssociationSet Name="FK__phong__khuvuc__3F466844" Association="Self.FK__phong__khuvuc__3F466844">
+            <End Role="khuvuc" EntitySet="khuvucs" />
+            <End Role="phong" EntitySet="phongs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__phong__loaiphong__3E52440B" Association="Self.FK__phong__loaiphong__3E52440B">
             <End Role="loaiphong" EntitySet="loaiphongs" />
             <End Role="phong" EntitySet="phongs" />
           </AssociationSet>
-          <AssociationSet Name="FK__nhanvien__taikho__4316F928" Association="Self.FK__nhanvien__taikho__4316F928">
+          <AssociationSet Name="FK__nhanvien__taikho__49C3F6B7" Association="Self.FK__nhanvien__taikho__49C3F6B7">
             <End Role="taikhoan" EntitySet="taikhoans" />
             <End Role="nhanvien" EntitySet="nhanviens" />
           </AssociationSet>
-          <AssociationSet Name="FK__voucher__idnv__6EF57B66" Association="Self.FK__voucher__idnv__6EF57B66">
+          <AssociationSet Name="FK__voucher__idnv__71D1E811" Association="Self.FK__voucher__idnv__71D1E811">
             <End Role="nhanvien" EntitySet="nhanviens" />
             <End Role="voucher" EntitySet="vouchers" />
           </AssociationSet>
-          <AssociationSet Name="FK__trangthai__idpho__6754599E" Association="Self.FK__trangthai__idpho__6754599E">
-            <End Role="phong" EntitySet="phongs" />
+          <AssociationSet Name="FK__phong__trangthai__403A8C7D" Association="Self.FK__phong__trangthai__403A8C7D">
             <End Role="trangthaiphong" EntitySet="trangthaiphongs" />
+            <End Role="phong" EntitySet="phongs" />
           </AssociationSet>
-          <AssociationSet Name="FK__taikhoan__loaitk__3E52440B" Association="Self.FK__taikhoan__loaitk__3E52440B">
+          <AssociationSet Name="FK__taikhoan__loaitk__44FF419A" Association="Self.FK__taikhoan__loaitk__44FF419A">
             <End Role="vaitro" EntitySet="vaitroes" />
             <End Role="taikhoan" EntitySet="taikhoans" />
           </AssociationSet>
@@ -1114,7 +1164,7 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="duan1ModelStoreContainer" CdmEntityContainer="DuAn1_QlyKS">
+        <EntityContainerMapping StorageEntityContainer="duan1ModelStoreContainer" CdmEntityContainer="DuAn1_QLKS">
           <EntitySetMapping Name="checkins">
             <EntityTypeMapping TypeName="duan1Model.checkin">
               <MappingFragment StoreEntitySet="checkin">
@@ -1193,6 +1243,14 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="khuvucs">
+            <EntityTypeMapping TypeName="duan1Model.khuvuc">
+              <MappingFragment StoreEntitySet="khuvuc">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="tenkhuvuc" ColumnName="tenkhuvuc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="loaiphongs">
             <EntityTypeMapping TypeName="duan1Model.loaiphong">
               <MappingFragment StoreEntitySet="loaiphong">
@@ -1225,6 +1283,7 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
                 <ScalarProperty Name="loaiphong" ColumnName="loaiphong" />
                 <ScalarProperty Name="khuvuc" ColumnName="khuvuc" />
                 <ScalarProperty Name="tenphong" ColumnName="tenphong" />
+                <ScalarProperty Name="trangthai" ColumnName="trangthai" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1250,7 +1309,6 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
             <EntityTypeMapping TypeName="duan1Model.trangthaiphong">
               <MappingFragment StoreEntitySet="trangthaiphong">
                 <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="idphong" ColumnName="idphong" />
                 <ScalarProperty Name="trangthai" ColumnName="trangthai" />
                 <ScalarProperty Name="ghichu" ColumnName="ghichu" />
               </MappingFragment>

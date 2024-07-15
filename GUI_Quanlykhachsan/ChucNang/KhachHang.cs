@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Drawing;
-using System.Web.UI.WebControls;
 using System.Windows.Forms;
 
 namespace GUI_Quanlykhachsan.ChucNang

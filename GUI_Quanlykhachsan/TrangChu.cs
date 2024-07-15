@@ -5,8 +5,6 @@ using GUI_Quanlykhachsan.ChucNang.Test;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Net.WebSockets;
-using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 

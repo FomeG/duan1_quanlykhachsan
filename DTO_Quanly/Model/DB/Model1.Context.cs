@@ -13,10 +13,10 @@ namespace DTO_Quanly.Model.DB
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DuAn1_QlyKS : DbContext
+    public partial class DuAn1_QLKS : DbContext
     {
-        public DuAn1_QlyKS()
-            : base("name=DuAn1_QlyKS")
+        public DuAn1_QLKS()
+            : base("name=DuAn1_QLKS")
         {
         }
     
@@ -32,6 +32,7 @@ namespace DTO_Quanly.Model.DB
         public virtual DbSet<dichvu> dichvus { get; set; }
         public virtual DbSet<hoadon> hoadons { get; set; }
         public virtual DbSet<khachhang> khachhangs { get; set; }
+        public virtual DbSet<khuvuc> khuvucs { get; set; }
         public virtual DbSet<loaiphong> loaiphongs { get; set; }
         public virtual DbSet<nhanvien> nhanviens { get; set; }
         public virtual DbSet<phong> phongs { get; set; }

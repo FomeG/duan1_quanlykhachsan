@@ -81,6 +81,9 @@
     <Compile Include="Model\DB\khachhang.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\DB\khuvuc.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\DB\loaiphong.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

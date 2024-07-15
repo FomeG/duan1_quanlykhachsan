@@ -12,17 +12,16 @@ namespace DTO_Quanly.Model.DB
     using System;
     using System.Collections.Generic;
     
-    public partial class trangthaiphong
+    public partial class khuvuc
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public trangthaiphong()
+        public khuvuc()
         {
             this.phongs = new HashSet<phong>();
         }
     
         public int id { get; set; }
-        public string trangthai { get; set; }
-        public string ghichu { get; set; }
+        public string tenkhuvuc { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<phong> phongs { get; set; }
