@@ -58,14 +58,14 @@
             this.guna2TextBox7 = new Guna.UI2.WinForms.Guna2TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DsPhongDaDat = new System.Windows.Forms.DataGridView();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.guna2TextBox8 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.anhkh)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DsPhongDaDat)).BeginInit();
             this.guna2GroupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -528,13 +528,13 @@
             this.guna2Button4.Text = "Đặt thêm phòng";
             this.guna2Button4.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
-            // dataGridView1
+            // DsPhongDaDat
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(11, 301);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(880, 154);
-            this.dataGridView1.TabIndex = 15;
+            this.DsPhongDaDat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DsPhongDaDat.Location = new System.Drawing.Point(11, 301);
+            this.DsPhongDaDat.Name = "DsPhongDaDat";
+            this.DsPhongDaDat.Size = new System.Drawing.Size(880, 154);
+            this.DsPhongDaDat.TabIndex = 15;
             // 
             // openFileDialog1
             // 
@@ -553,7 +553,7 @@
             this.guna2GroupBox1.Controls.Add(this.radioButton1);
             this.guna2GroupBox1.Controls.Add(this.label10);
             this.guna2GroupBox1.Controls.Add(this.guna2DateTimePicker1);
-            this.guna2GroupBox1.Controls.Add(this.dataGridView1);
+            this.guna2GroupBox1.Controls.Add(this.DsPhongDaDat);
             this.guna2GroupBox1.Controls.Add(this.label9);
             this.guna2GroupBox1.Controls.Add(this.guna2TextBox3);
             this.guna2GroupBox1.Controls.Add(this.guna2TextBox2);
@@ -585,16 +585,6 @@
             this.guna2GroupBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.guna2GroupBox1_MouseMove);
             this.guna2GroupBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.guna2GroupBox1_MouseUp);
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.label12.Location = new System.Drawing.Point(68, 471);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(58, 17);
-            this.label12.TabIndex = 16;
-            this.label12.Text = "Ghi chú";
-            // 
             // guna2TextBox8
             // 
             this.guna2TextBox8.Animated = true;
@@ -617,6 +607,16 @@
             this.guna2TextBox8.Size = new System.Drawing.Size(291, 96);
             this.guna2TextBox8.TabIndex = 17;
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.label12.Location = new System.Drawing.Point(57, 471);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(58, 17);
+            this.label12.TabIndex = 16;
+            this.label12.Text = "Ghi chú";
+            // 
             // bunifuElipse1
             // 
             this.bunifuElipse1.ElipseRadius = 15;
@@ -638,7 +638,7 @@
             this.Text = "KhachHang";
             this.Load += new System.EventHandler(this.KhachHang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.anhkh)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DsPhongDaDat)).EndInit();
             this.guna2GroupBox1.ResumeLayout(false);
             this.guna2GroupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -674,7 +674,7 @@
         private System.Windows.Forms.Label label11;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox7;
         private Guna.UI2.WinForms.Guna2Button guna2Button4;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView DsPhongDaDat;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox8;

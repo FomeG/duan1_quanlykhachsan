@@ -107,7 +107,6 @@
             this.guna2GroupBox1.Size = new System.Drawing.Size(990, 550);
             this.guna2GroupBox1.TabIndex = 6;
             this.guna2GroupBox1.Text = "Quản lý phòng";
-            this.guna2GroupBox1.Click += new System.EventHandler(this.guna2GroupBox1_Click);
             // 
             // SoDoPhong
             // 
@@ -116,7 +115,6 @@
             this.SoDoPhong.Name = "SoDoPhong";
             this.SoDoPhong.Size = new System.Drawing.Size(805, 495);
             this.SoDoPhong.TabIndex = 0;
-            this.SoDoPhong.Paint += new System.Windows.Forms.PaintEventHandler(this.SoDoPhong_Paint);
             // 
             // bunifuElipse1
             // 
@@ -134,7 +132,6 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "QuanLyDatPhong";
             this.Text = "QuanLyDatPhong";
-            this.Load += new System.EventHandler(this.QuanLyDatPhong_Load);
             this.guna2GradientPanel1.ResumeLayout(false);
             this.guna2GroupBox1.ResumeLayout(false);
             this.ResumeLayout(false);

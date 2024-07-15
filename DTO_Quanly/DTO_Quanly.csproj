@@ -156,6 +156,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\NoiBang\" />
+    <Folder Include="Transfer\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Model\DB\Model1.Context.tt">

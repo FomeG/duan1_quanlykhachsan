@@ -9,7 +9,7 @@ namespace GUI_Quanlykhachsan.ChucNang
     {
         public Action dattruoc;
         public Action nhanphong;
-        public KhachHang(/*Action nhanphong, Action dattruoc*/)
+        public KhachHang(Action nhanphong, Action dattruoc)
         {
             InitializeComponent();
             this.dattruoc = dattruoc;
