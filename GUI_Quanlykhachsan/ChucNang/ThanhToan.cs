@@ -124,18 +124,6 @@ namespace GUI_Quanlykhachsan.ChucNang
 
 
         #region Lấy dữ liệu để lập hoá đơn (code quan trọng)
-        public void laythongtin()
-        {
-            var listThongTin = from cd in DTODB.db.checkin_dichvu
-                               join dv in DTODB.db.dichvus on cd.iddv equals dv.id
-                               where cd.idcheckin == IDCin
-                               select new
-                               {
-                                   cd.id
-                               };
-
-            
-        }
 
 
         #endregion
@@ -220,47 +208,74 @@ namespace GUI_Quanlykhachsan.ChucNang
         {
             if (MessageBox.Show("Bạn chắc chắn muốn thực hiện hành động này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                // Cập nhật thông tin vào trong checkout
-                checkout checkoutmoi = new checkout()
+                var listThongTin = from cd in DTODB.db.checkin_dichvu
+                                   join dv in DTODB.db.dichvus on cd.iddv equals dv.id
+                                   where cd.idcheckin == IDCin
+                                   select new
+                                   {
+                                       IDdv = cd.id
+                                   };
+                using (var transaction = DTODB.db.Database.BeginTransaction())
                 {
-                    idnv = TDatPhong.IDNV,
-                    idkh = IDKh,
-                    ngaycheckout = DateTime.Now.Date,
-                    trangthai = txtGhiChu.Text
-                };
-                DTODB.db.checkouts.Add(checkoutmoi);
+                    try
+                    {
 
-                // Trả phòng xong thì sẽ xoá hết dữ liệu trong bảng temp
-                DTODB.db.tempkhachhangs.Remove(DTODB.db.tempkhachhangs.FirstOrDefault(p => p.idcheckin == IDCin && p.idkh == IDKh));
+                        // Cập nhật thông tin vào trong checkout
+                        checkout checkoutmoi = new checkout()
+                        {
+                            idnv = TDatPhong.IDNV,
+                            idkh = IDKh,
+                            ngaycheckout = DateTime.Now.Date,
+                            trangthai = txtGhiChu.Text
+                        };
+                        DTODB.db.checkouts.Add(checkoutmoi);
 
-
-                // Chốt hoá đơn, dv_trunggian và phong_trunggian (nếu có)
-                decimal.TryParse(tongTT.Text, out decimal tongtien);
-                hoadon hoadonmoi = new hoadon()
-                {
-                    idkh = IDKh,
-                    idnv = TDatPhong.IDNV,
-                    ngaytao = DateTime.Now.Date,
-                    tongtien = tongtien,
-                    songuoi = 1,
-                    trangthai = "Đã thanh toán"
-
-                };
-                DTODB.db.hoadons.Add(hoadonmoi);
+                        // Trả phòng xong thì sẽ xoá hết dữ liệu trong bảng temp
+                        DTODB.db.tempkhachhangs.Remove(DTODB.db.tempkhachhangs.FirstOrDefault(p => p.idcheckin == IDCin && p.idkh == IDKh));
 
 
-                DTODB.db.SaveChanges();
+                        // Chốt hoá đơn, dv_trunggian và phong_trunggian (nếu có)
+                        decimal.TryParse(tongTT.Text, out decimal tongtien);
+                        hoadon hoadonmoi = new hoadon()
+                        {
+                            idkh = IDKh,
+                            idnv = TDatPhong.IDNV,
+                            ngaytao = DateTime.Now.Date,
+                            tongtien = tongtien,
+                            songuoi = 1,
+                            trangthai = "Đã thanh toán"
 
-                // Chuyển trạng thái phòng về trống (dựa vào temp khách hàng đã bị xoá trước đó)
-                traphong.Invoke();
+                        };
+                        DTODB.db.hoadons.Add(hoadonmoi);
+
+                        foreach (var item in listThongTin)
+                        {
+                            dv_trunggian dvtrunggianmoi = new dv_trunggian()
+                            {
+                                iddv = item.IDdv,
+                                idhd = hoadonmoi.idhoadon
+                            };
+
+                            DTODB.db.dv_trunggian.Add(dvtrunggianmoi);
+                        };
 
 
 
 
+                        DTODB.db.SaveChanges();
+
+                        // Chuyển trạng thái phòng về trống (dựa vào temp khách hàng đã bị xoá trước đó)
+                        traphong.Invoke();
+                    }
+                    catch (Exception)
+                    {
+                        transaction.Rollback(); // Ko ổn thì rollback lại tránh việc dữ liệu xảy ra xung đột
+                        MessageBox.Show("Đã có lỗi xảy ra!");
+                    }
+                }
                 Close();
             }
         }
-
 
 
 
