@@ -336,8 +336,6 @@ namespace GUI_Quanlykhachsan.ChucNang
                         }
                     }
 
-
-
                     Close();
                     MessageBox.Show("Đặt phòng thành công!");
                 }

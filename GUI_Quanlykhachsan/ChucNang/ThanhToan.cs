@@ -202,16 +202,14 @@ namespace GUI_Quanlykhachsan.ChucNang
             if (MessageBox.Show("Bạn chắc chắn muốn thực hiện hành động này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 // Trả phòng xong thì sẽ xoá hết dữ liệu trong bảng temp => chuyển lại trạng thái phòng và chốt hoá đơn.
-
-
-
+                DTODB.db.tempkhachhangs.Remove();
+                DTODB.db.SaveChanges();
 
                 // Cập nhật thông tin vào trong checkout
 
 
 
                 // Chốt hoá đơn (tiền)
-
 
 
 
@@ -223,6 +221,8 @@ namespace GUI_Quanlykhachsan.ChucNang
                 Close();
             }
         }
+
+
 
 
         // Nút thanh toán sau, vê căn bản là thoát form thanh toán và không làm gì CSDL cả.
