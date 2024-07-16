@@ -157,7 +157,6 @@ namespace GUI_Quanlykhachsan.ChucNang
                     }
                     else
                     {
-                        dattruoc?.Invoke();
 
                         using (var transaction = DTODB.db.Database.BeginTransaction())
                         {
@@ -177,13 +176,11 @@ namespace GUI_Quanlykhachsan.ChucNang
                                 DTODB.db.khachhangs.Add(khmoi);
                                 DTODB.db.SaveChanges();
 
-                                // Lấy id của khách hàng mới thêm vào
-                                int idkhachhang = khmoi.id;
 
                                 // Thêm checkin mới vào DB
                                 checkin checkinmoi = new checkin()
                                 {
-                                    idkh = idkhachhang,
+                                    idkh = DTODB.db.khachhangs.FirstOrDefault(p => p.email == txtEmail.Text).id,
                                     idnv = TDatPhong.IDNV,
                                     ngaycheckin = DateTime.Now.Date,
                                     trangthai = "Đặt trước"
@@ -198,13 +195,15 @@ namespace GUI_Quanlykhachsan.ChucNang
                                 decimal.TryParse(txtKhachThanhToan.Text, out decimal tientra);
                                 tempkhachhang tempkh = new tempkhachhang()
                                 {
-                                    idkh = idkhachhang,
+                                    idkh = DTODB.db.khachhangs.FirstOrDefault(p => p.email == txtEmail.Text).id,
                                     idcheckin = idcheckin,
                                     tienkhachtra = tientra,
                                     ngayvao = NgayDen.Value.Date,
                                     ngayra = NgayDi.Value.Date,
                                 };
                                 DTODB.db.tempkhachhangs.Add(tempkh);
+                                DTODB.db.SaveChanges();
+
 
                                 // Thêm checkin_phong mới vào DB
                                 checkin_phong cpmoi = new checkin_phong()
@@ -213,20 +212,21 @@ namespace GUI_Quanlykhachsan.ChucNang
                                     idphong = TDatPhong.IdPhong
                                 };
                                 DTODB.db.checkin_phong.Add(cpmoi);
-
-
-
                                 DTODB.db.SaveChanges();
+
+
                                 transaction.Commit(); // Ổn thì commit 
+                                dattruoc?.Invoke();
+                                MessageBox.Show("Đặt trước phòng thành công!");
                             }
-                            catch (Exception)
+                            catch (Exception a)
                             {
                                 transaction.Rollback(); // Ko ổn thì rollback lại tránh việc dữ liệu xảy ra xung đột
+                                MessageBox.Show(a.ToString());
+                                MessageBox.Show("Đã có lỗi gì đó xảy ra");
                             }
                         }
-                       
-                        Close();
-                        MessageBox.Show("Đặt trước phòng thành công!");
+                                Close();
                     }
                 }
             }

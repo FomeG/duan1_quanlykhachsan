@@ -15,12 +15,17 @@ namespace GUI_Quanlykhachsan.ChucNang
         private TTDichVu _truyvan;
         private readonly int IDCin;
         private readonly int IDKh;
-        public ThanhToan(Action traphong, int idcheckin, int idkh)
+        private readonly int idnv;
+        private readonly int IDPhong;
+        public ThanhToan(Action traphong, int idcheckin, int idkh, int idphong)
         {
             InitializeComponent();
             this.traphong = traphong;
             this.IDCin = idcheckin;
             this.IDKh = idkh;
+            this.idnv = TDatPhong.IDNV;
+            this.IDPhong = idphong;
+
             LoadDV();
             loadtt();
             loaddvgview();
@@ -118,6 +123,9 @@ namespace GUI_Quanlykhachsan.ChucNang
                 tien += (decimal)item.GiaTien;
             }
             txttiendv.Text = tien.ToString();
+            decimal.TryParse(txttiendv.Text, out decimal tiendv);
+            decimal.TryParse(txttienphong.Text, out decimal tienphong);
+            tongTT.Text = (tiendv + tienphong).ToString();
         }
 
         #endregion
@@ -223,15 +231,17 @@ namespace GUI_Quanlykhachsan.ChucNang
                         // Cập nhật thông tin vào trong checkout
                         checkout checkoutmoi = new checkout()
                         {
-                            idnv = TDatPhong.IDNV,
                             idkh = IDKh,
+                            idnv = TDatPhong.IDNV,
                             ngaycheckout = DateTime.Now.Date,
                             trangthai = txtGhiChu.Text
                         };
                         DTODB.db.checkouts.Add(checkoutmoi);
+                        DTODB.db.SaveChanges();
 
                         // Trả phòng xong thì sẽ xoá hết dữ liệu trong bảng temp
                         DTODB.db.tempkhachhangs.Remove(DTODB.db.tempkhachhangs.FirstOrDefault(p => p.idcheckin == IDCin && p.idkh == IDKh));
+                        DTODB.db.SaveChanges();
 
 
                         // Chốt hoá đơn, dv_trunggian và phong_trunggian (nếu có)
@@ -247,6 +257,7 @@ namespace GUI_Quanlykhachsan.ChucNang
 
                         };
                         DTODB.db.hoadons.Add(hoadonmoi);
+                        DTODB.db.SaveChanges();
 
                         foreach (var item in listThongTin)
                         {
@@ -257,20 +268,28 @@ namespace GUI_Quanlykhachsan.ChucNang
                             };
 
                             DTODB.db.dv_trunggian.Add(dvtrunggianmoi);
+                            DTODB.db.SaveChanges();
                         };
 
-
-
-
+                        phong_trunggian ptrunggianmoi = new phong_trunggian()
+                        {
+                            idp = IDPhong,
+                            idhd = hoadonmoi.idhoadon
+                        };
+                        DTODB.db.phong_trunggian.Add(ptrunggianmoi);
                         DTODB.db.SaveChanges();
+
 
                         // Chuyển trạng thái phòng về trống (dựa vào temp khách hàng đã bị xoá trước đó)
                         traphong.Invoke();
+                        MessageBox.Show("Cập nhật thành công!");
+                        transaction.Commit();
                     }
-                    catch (Exception)
+                    catch (Exception a)
                     {
                         transaction.Rollback(); // Ko ổn thì rollback lại tránh việc dữ liệu xảy ra xung đột
                         MessageBox.Show("Đã có lỗi xảy ra!");
+                        MessageBox.Show(a.ToString());
                     }
                 }
                 Close();

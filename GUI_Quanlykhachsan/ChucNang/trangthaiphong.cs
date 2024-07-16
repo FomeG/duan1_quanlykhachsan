@@ -96,7 +96,7 @@ namespace GUI_Quanlykhachsan.ChucNang
                 TDatPhong.IDKH = listtt.IdKh;
                 TDatPhong.IDCHECKIN = idcin;
 
-                ThanhToan traphongthanhtoan = new ThanhToan(traphong, idcin,idkh);
+                ThanhToan traphongthanhtoan = new ThanhToan(traphong, idcin,idkh, IdPhong);
                 traphongthanhtoan.Show();
             }
         }
