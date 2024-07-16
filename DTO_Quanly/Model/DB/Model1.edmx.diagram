@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a537ceca35dd433db7fbc1845ee59d11" Name="Diagram1" ZoomLevel="71">
+      <Diagram DiagramId="a537ceca35dd433db7fbc1845ee59d11" Name="Diagram1" ZoomLevel="60">
         <EntityTypeShape EntityType="duan1Model.checkin" Width="1.5" PointX="7.5" PointY="9.375" IsExpanded="true" />
         <EntityTypeShape EntityType="duan1Model.checkin_dichvu" Width="1.5" PointX="11.75" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="duan1Model.checkin_phong" Width="1.5" PointX="9.75" PointY="12.875" IsExpanded="true" />
