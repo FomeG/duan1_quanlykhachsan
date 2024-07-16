@@ -2,14 +2,11 @@
 using DTO_Quanly.Model.DB;
 using DTO_Quanly.Transfer;
 using System;
-using System.Data.Entity.Infrastructure;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using static System.Net.Mime.MediaTypeNames;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace GUI_Quanlykhachsan.ChucNang
 {
@@ -214,6 +211,9 @@ namespace GUI_Quanlykhachsan.ChucNang
             }
         }
 
+
+
+        // Nút nhận phòng
         private void guna2Button3_Click(object sender, EventArgs e)
         {
 
@@ -222,6 +222,122 @@ namespace GUI_Quanlykhachsan.ChucNang
                 if (MessageBox.Show("Xác nhận đặt phòng?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     nhanphong?.Invoke();
+
+                    #region code
+                    //// thêm khách hàng mới này vào trong DB
+                    //khachhang khmoi = new khachhang()
+                    //{
+                    //    ten = txtTen.Text,
+                    //    email = txtEmail.Text,
+                    //    sdt = txtSDT.Text,
+                    //    gioitinh = rdNam.Checked ? "Nam" : "Nữ",
+                    //    diachi = txtDiaChi.Text,
+                    //    ngaysinh = NgaySinh.Value.Date,
+                    //    anh = duongdananh
+                    //};
+                    //DTODB.db.khachhangs.Add(khmoi);
+                    //DTODB.db.SaveChanges();
+
+                    //// Thêm checkin mới vào trong DB
+                    //checkin checkinmoi = new checkin()
+                    //{
+                    //    idkh = DTODB.db.khachhangs.FirstOrDefault(a => a.email == txtEmail.Text).id,
+                    //    idnv = 1,
+                    //    ngaycheckin = DateTime.Now.Date,
+                    //    trangthai = "Đặt trước"
+                    //};
+
+                    //DTODB.db.checkins.Add(checkinmoi);
+                    //DTODB.db.SaveChanges();
+
+                    //// thêm tempkhachhang mới vào db, tượng trưng cho việc khách hàng vẫn đang thuê phòng?
+                    //decimal.TryParse(txtKhachThanhToan.Text, out decimal tientra);
+                    //tempkhachhang tempkh = new tempkhachhang()
+                    //{
+                    //    idkh = DTODB.db.khachhangs.FirstOrDefault(a => a.email == txtEmail.Text).id,
+                    //    idcheckin = (from a in DTODB.db.checkins join b in DTODB.db.khachhangs on a.idkh equals b.id where b.email == txtEmail.Text select a.id).FirstOrDefault(),
+                    //    tienkhachtra = tientra
+                    //};
+
+                    //DTODB.db.tempkhachhangs.Add(tempkh);
+                    //DTODB.db.SaveChanges();
+
+                    //checkin_phong cpmoi = new checkin_phong()
+                    //{
+                    //    idcheckin = (from a in DTODB.db.checkins join b in DTODB.db.khachhangs on a.idkh equals b.id where b.email == txtEmail.Text select a.id).FirstOrDefault(),
+                    //    idphong = TDatPhong.IdPhong
+                    //};
+                    //DTODB.db.checkin_phong.Add(cpmoi);
+                    //DTODB.db.SaveChanges();
+                    #endregion
+
+                    using (var transaction = DTODB.db.Database.BeginTransaction())
+                    {
+                        try
+                        {
+                            // Thêm khách hàng mới vào DB
+                            khachhang khmoi = new khachhang()
+                            {
+                                ten = txtTen.Text,
+                                email = txtEmail.Text,
+                                sdt = txtSDT.Text,
+                                gioitinh = rdNam.Checked ? "Nam" : "Nữ",
+                                diachi = txtDiaChi.Text,
+                                ngaysinh = NgaySinh.Value.Date,
+                                anh = duongdananh
+                            };
+                            DTODB.db.khachhangs.Add(khmoi);
+                            DTODB.db.SaveChanges();
+
+                            // Lấy id của khách hàng mới thêm vào
+                            int idkhachhang = khmoi.id;
+
+                            // Thêm checkin mới vào DB
+                            checkin checkinmoi = new checkin()
+                            {
+                                idkh = idkhachhang,
+                                idnv = 1,
+                                ngaycheckin = DateTime.Now.Date,
+                                trangthai = "Đặt trước"
+                            };
+                            DTODB.db.checkins.Add(checkinmoi);
+                            DTODB.db.SaveChanges();
+
+                            // Lấy id của checkin mới thêm vào
+                            int idcheckin = checkinmoi.id;
+
+                            // Thêm tempkhachhang mới vào DB
+                            decimal.TryParse(txtKhachThanhToan.Text, out decimal tientra);
+                            tempkhachhang tempkh = new tempkhachhang()
+                            {
+                                idkh = idkhachhang,
+                                idcheckin = idcheckin,
+                                tienkhachtra = tientra
+                            };
+                            DTODB.db.tempkhachhangs.Add(tempkh);
+
+                            // Thêm checkin_phong mới vào DB
+                            checkin_phong cpmoi = new checkin_phong()
+                            {
+                                idcheckin = idcheckin,
+                                idphong = TDatPhong.IdPhong
+                            };
+                            DTODB.db.checkin_phong.Add(cpmoi);
+
+                            // Lưu tất cả thay đổi vào DB
+                            DTODB.db.SaveChanges();
+
+                            transaction.Commit();
+                        }
+                        catch (Exception)
+                        {
+                            transaction.Rollback();
+                            throw;
+                        }
+                    }
+
+
+
                     Close();
                     MessageBox.Show("Đặt phòng thành công!");
                 }

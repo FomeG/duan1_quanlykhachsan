@@ -1,10 +1,11 @@
-﻿using System;
+﻿using BUS_Quanly.Services.QuanLyDatPhong.ThanhToan_DV;
+using DTO_Quanly;
+using DTO_Quanly.Model.DB;
+using DTO_Quanly.Transfer;
+using System;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using BUS_Quanly.Services.QuanLyDatPhong.ThanhToan_DV;
-using DTO_Quanly;
-using DTO_Quanly.Transfer;
 
 namespace GUI_Quanlykhachsan.ChucNang
 {
@@ -46,6 +47,9 @@ namespace GUI_Quanlykhachsan.ChucNang
             }
         }
         #endregion
+
+
+        #region LOAD DỮ LIỆU TRÊN FORM, VÀ DỊCH VỤ
 
         public void LoadDV()
         {
@@ -99,6 +103,9 @@ namespace GUI_Quanlykhachsan.ChucNang
                                where cd.idcheckin == IDCin
                                select new
                                {
+                                   cd.idcheckin,
+                                   cd.soluong,
+                                   dv.tendv,
                                    GiaTien = dv.gia * cd.soluong
                                };
             gview1.DataSource = list.ToList();
@@ -110,36 +117,13 @@ namespace GUI_Quanlykhachsan.ChucNang
             }
             txttiendv.Text = tien.ToString();
         }
-        // Nút thanh toán sau, vê căn bản là thoát form thanh toán và không làm gì CSDL cả.
-        private void guna2GradientButton4_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Bạn chắc chắn muốn thực hiện hành động này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-            {
-                Close();
-            }
-        }
+
+        #endregion
+
 
         private void BtnExit_Click(object sender, EventArgs e)
         {
             Close();
-        }
-
-
-
-        /* Nút trả phòng và thanh toán, luồng hoạt động
-            1.  Sau khi trả phòng và thanh toán thì khách hàng đang sử dụng phòng trong bảng temp sẽ không còn nữa.
-            2.  Insert checkout
-            3.  Lập hoá đơn và hoá đơn chi tiết
-            4.  Chuyển trạng thái những phòng khách hàng đã thuê về trống
-
-        */
-        private void guna2GradientButton3_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Bạn chắc chắn muốn thực hiện hành động này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-            {
-                traphong.Invoke();
-                Close();
-            }
         }
 
         private void ThanhToan_Load(object sender, EventArgs e)
@@ -155,6 +139,99 @@ namespace GUI_Quanlykhachsan.ChucNang
         private void LsDichVu_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void guna2GradientButton1_Click(object sender, EventArgs e)
+        {
+            if (LsDichVu.SelectedIndex == -1)
+            {
+                MessageBox.Show("Vui lòng chọn dịch vụ cần thêm!", "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                checkin_dichvu dvmoi = new checkin_dichvu()
+                {
+                    idcheckin = IDCin,
+                    iddv = LsDichVu.SelectedIndex + 1,
+                    soluong = (int)SlgDV.Value
+                };
+                DTODB.db.checkin_dichvu.Add(dvmoi);
+                DTODB.db.SaveChanges();
+                loaddvgview();
+                MessageBox.Show("Thêm thành công!");
+            }
+        }
+
+        private void guna2GradientButton2_Click(object sender, EventArgs e)
+        {
+            if (gview1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn dịch vụ cần xoá!", "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                var listtinhtien = from cd in DTODB.db.checkin_dichvu
+                                   join dv in DTODB.db.dichvus on cd.iddv equals dv.id
+                                   where cd.idcheckin == IDCin
+                                   select new
+                                   {
+                                       cd.idcheckin,
+                                       cd.soluong,
+                                       dv.tendv,
+                                       iddichvu = dv.id,
+                                       GiaTien = dv.gia * cd.soluong
+                                   };
+                int iddichvu = listtinhtien.ToList()[gview1.CurrentCell.RowIndex].iddichvu;
+                int slgdichvu = (int)listtinhtien.ToList()[gview1.CurrentCell.RowIndex].soluong;
+                DTODB.db.checkin_dichvu.Remove(DTODB.db.checkin_dichvu.FirstOrDefault(p => p.idcheckin == IDCin && p.soluong == slgdichvu && p.iddv == iddichvu));
+                DTODB.db.SaveChanges();
+                loaddvgview();
+            }
+        }
+
+
+
+        /* Nút trả phòng và thanh toán, luồng hoạt động
+           1.  Sau khi trả phòng và thanh toán thì khách hàng đang sử dụng phòng trong bảng temp sẽ không còn nữa.
+           2.  Insert checkout
+           3.  Lập hoá đơn và hoá đơn chi tiết
+           4.  Chuyển trạng thái những phòng khách hàng đã thuê về trống
+       */
+        private void BtnTraPhong_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn chắc chắn muốn thực hiện hành động này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                // Trả phòng xong thì sẽ xoá hết dữ liệu trong bảng temp => chuyển lại trạng thái phòng và chốt hoá đơn.
+
+
+
+
+                // Cập nhật thông tin vào trong checkout
+
+
+
+                // Chốt hoá đơn (tiền)
+
+
+
+
+                // Chuyển trạng thái phòng về trống (dựa vào temp khách hàng đã bị xoá trước đó)
+
+
+
+                traphong.Invoke(); 
+                Close();
+            }
+        }
+
+
+        // Nút thanh toán sau, vê căn bản là thoát form thanh toán và không làm gì CSDL cả.
+        private void BtnThanhToanSau_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn chắc chắn muốn thực hiện hành động này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                Close();
+            }
         }
     }
 }

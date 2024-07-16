@@ -1,8 +1,6 @@
 ﻿using DTO_Quanly;
 using System;
-using System.Data;
 using System.Linq;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace GUI_Quanlykhachsan.ChucNang

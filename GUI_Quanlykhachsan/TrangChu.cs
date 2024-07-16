@@ -1,14 +1,11 @@
 ﻿using BUS_Quanly.Services.QuanLyDatPhong.ThanhToan_DV;
-using DTO_Quanly;
 using GUI_Quanlykhachsan.ChucNang;
 using GUI_Quanlykhachsan.ChucNang.ADMIN;
 using GUI_Quanlykhachsan.ChucNang.Tai_Khoan;
 using GUI_Quanlykhachsan.ChucNang.Test;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity.Core.Mapping;
 using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 

@@ -3,7 +3,6 @@ using DTO_Quanly.Transfer;
 using System;
 using System.Drawing;
 using System.Linq;
-using System.Web.Hosting;
 using System.Windows.Forms;
 
 namespace GUI_Quanlykhachsan.ChucNang
@@ -55,17 +54,16 @@ namespace GUI_Quanlykhachsan.ChucNang
         }
 
 
-        #region test_logic
-
-        // Nút test
-        //int a = 0;
         private void guna2GradientButton1_Click(object sender, EventArgs e)
         {
             if (btnDat.Text == "Đặt Phòng")
             {
                 TDatPhong.IdPhong = IdPhong;
+
+                // Hiển thị tiền phòng (của tất cả các phòng đã đặt nếu có)
                 TDatPhong.TienPhong = (from a in DTODB.db.phongs join b in DTODB.db.loaiphongs on a.loaiphong equals b.idloaiphong where a.idphong == IdPhong select b.giaphong).FirstOrDefault();
 
+                
                 KhachHang khachHang = new KhachHang(nhanphong, dattruoc);
                 khachHang.Show();
             }
@@ -79,6 +77,7 @@ namespace GUI_Quanlykhachsan.ChucNang
                 TDatPhong.IdPhong = IdPhong;
 
                 // Tìm ra idcheckin để phục vụ cho việc thêm dịch vụ trong form thanh toán
+                // Cụ thể là hiển thị ra form dịch vụ để add / xoá dịch vụ
                 int idcin = (from p in DTODB.db.phongs
                              join cp in DTODB.db.checkin_phong on p.idphong equals cp.idphong
                              join c in DTODB.db.checkins on cp.idcheckin equals c.id
@@ -94,6 +93,10 @@ namespace GUI_Quanlykhachsan.ChucNang
                 traphongthanhtoan.Show();
             }
         }
+
+
+        #region Trạng thái phòng
+
         public void dattruoc()
         {
             btnDat.Text = "Nhận Phòng";
@@ -104,6 +107,7 @@ namespace GUI_Quanlykhachsan.ChucNang
             DTODB.db.SaveChanges();
         }
 
+
         public void nhanphong()
         {
             btnDat.Text = "Trả phòng";
@@ -113,6 +117,7 @@ namespace GUI_Quanlykhachsan.ChucNang
             DTODB.db.phongs.Find(IdPhong).trangthai = 3;
             DTODB.db.SaveChanges();
         }
+
 
         public void traphong()
         {
