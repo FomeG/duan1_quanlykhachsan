@@ -2,6 +2,7 @@
 using DTO_Quanly.Model.DB;
 using DTO_Quanly.Transfer;
 using System;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -158,52 +159,72 @@ namespace GUI_Quanlykhachsan.ChucNang
                     {
                         dattruoc?.Invoke();
 
-                        // thêm khách hàng mới này vào trong DB
-                        khachhang khmoi = new khachhang()
+                        using (var transaction = DTODB.db.Database.BeginTransaction())
                         {
-                            ten = txtTen.Text,
-                            email = txtEmail.Text,
-                            sdt = txtSDT.Text,
-                            gioitinh = rdNam.Checked ? "Nam" : "Nữ",
-                            diachi = txtDiaChi.Text,
-                            ngaysinh = NgaySinh.Value.Date,
-                            anh = duongdananh
-                        };
-                        DTODB.db.khachhangs.Add(khmoi);
-                        DTODB.db.SaveChanges();
+                            try
+                            {
+                                // Thêm khách hàng mới vào DB
+                                khachhang khmoi = new khachhang()
+                                {
+                                    ten = txtTen.Text,
+                                    email = txtEmail.Text,
+                                    sdt = txtSDT.Text,
+                                    gioitinh = rdNam.Checked ? "Nam" : "Nữ",
+                                    diachi = txtDiaChi.Text,
+                                    ngaysinh = NgaySinh.Value.Date,
+                                    anh = duongdananh
+                                };
+                                DTODB.db.khachhangs.Add(khmoi);
+                                DTODB.db.SaveChanges();
 
-                        // Thêm checkin mới vào trong DB
-                        checkin checkinmoi = new checkin()
-                        {
-                            idkh = DTODB.db.khachhangs.FirstOrDefault(a => a.email == txtEmail.Text).id,
-                            idnv = 1,
-                            ngaycheckin = DateTime.Now.Date,
-                            trangthai = "Đặt trước"
-                        };
+                                // Lấy id của khách hàng mới thêm vào
+                                int idkhachhang = khmoi.id;
 
-                        DTODB.db.checkins.Add(checkinmoi);
-                        DTODB.db.SaveChanges();
+                                // Thêm checkin mới vào DB
+                                checkin checkinmoi = new checkin()
+                                {
+                                    idkh = idkhachhang,
+                                    idnv = TDatPhong.IDNV,
+                                    ngaycheckin = DateTime.Now.Date,
+                                    trangthai = "Đặt trước"
+                                };
+                                DTODB.db.checkins.Add(checkinmoi);
+                                DTODB.db.SaveChanges();
 
-                        // thêm tempkhachhang mới vào db, tượng trưng cho việc khách hàng vẫn đang thuê phòng?
-                        decimal.TryParse(txtKhachThanhToan.Text, out decimal tientra);
-                        tempkhachhang tempkh = new tempkhachhang()
-                        {
-                            idkh = DTODB.db.khachhangs.FirstOrDefault(a => a.email == txtEmail.Text).id,
-                            idcheckin = (from a in DTODB.db.checkins join b in DTODB.db.khachhangs on a.idkh equals b.id where b.email == txtEmail.Text select a.id).FirstOrDefault(),
-                            tienkhachtra = tientra
-                        };
+                                // Lấy id của checkin mới thêm vào
+                                int idcheckin = checkinmoi.id;
 
-                        DTODB.db.tempkhachhangs.Add(tempkh);
-                        DTODB.db.SaveChanges();
+                                // Thêm tempkhachhang mới vào DB
+                                decimal.TryParse(txtKhachThanhToan.Text, out decimal tientra);
+                                tempkhachhang tempkh = new tempkhachhang()
+                                {
+                                    idkh = idkhachhang,
+                                    idcheckin = idcheckin,
+                                    tienkhachtra = tientra,
+                                    ngayvao = NgayDen.Value.Date,
+                                    ngayra = NgayDi.Value.Date,
+                                };
+                                DTODB.db.tempkhachhangs.Add(tempkh);
 
-                        checkin_phong cpmoi = new checkin_phong()
-                        {
-                            idcheckin = (from a in DTODB.db.checkins join b in DTODB.db.khachhangs on a.idkh equals b.id where b.email == txtEmail.Text select a.id).FirstOrDefault(),
-                            idphong = TDatPhong.IdPhong
-                        };
-                        DTODB.db.checkin_phong.Add(cpmoi);
-                        DTODB.db.SaveChanges();
+                                // Thêm checkin_phong mới vào DB
+                                checkin_phong cpmoi = new checkin_phong()
+                                {
+                                    idcheckin = idcheckin,
+                                    idphong = TDatPhong.IdPhong
+                                };
+                                DTODB.db.checkin_phong.Add(cpmoi);
 
+
+
+                                DTODB.db.SaveChanges();
+                                transaction.Commit(); // Ổn thì commit 
+                            }
+                            catch (Exception)
+                            {
+                                transaction.Rollback(); // Ko ổn thì rollback lại tránh việc dữ liệu xảy ra xung đột
+                            }
+                        }
+                       
                         Close();
                         MessageBox.Show("Đặt trước phòng thành công!");
                     }
@@ -223,53 +244,7 @@ namespace GUI_Quanlykhachsan.ChucNang
                 {
                     nhanphong?.Invoke();
 
-                    #region code
-                    //// thêm khách hàng mới này vào trong DB
-                    //khachhang khmoi = new khachhang()
-                    //{
-                    //    ten = txtTen.Text,
-                    //    email = txtEmail.Text,
-                    //    sdt = txtSDT.Text,
-                    //    gioitinh = rdNam.Checked ? "Nam" : "Nữ",
-                    //    diachi = txtDiaChi.Text,
-                    //    ngaysinh = NgaySinh.Value.Date,
-                    //    anh = duongdananh
-                    //};
-                    //DTODB.db.khachhangs.Add(khmoi);
-                    //DTODB.db.SaveChanges();
-
-                    //// Thêm checkin mới vào trong DB
-                    //checkin checkinmoi = new checkin()
-                    //{
-                    //    idkh = DTODB.db.khachhangs.FirstOrDefault(a => a.email == txtEmail.Text).id,
-                    //    idnv = 1,
-                    //    ngaycheckin = DateTime.Now.Date,
-                    //    trangthai = "Đặt trước"
-                    //};
-
-                    //DTODB.db.checkins.Add(checkinmoi);
-                    //DTODB.db.SaveChanges();
-
-                    //// thêm tempkhachhang mới vào db, tượng trưng cho việc khách hàng vẫn đang thuê phòng?
-                    //decimal.TryParse(txtKhachThanhToan.Text, out decimal tientra);
-                    //tempkhachhang tempkh = new tempkhachhang()
-                    //{
-                    //    idkh = DTODB.db.khachhangs.FirstOrDefault(a => a.email == txtEmail.Text).id,
-                    //    idcheckin = (from a in DTODB.db.checkins join b in DTODB.db.khachhangs on a.idkh equals b.id where b.email == txtEmail.Text select a.id).FirstOrDefault(),
-                    //    tienkhachtra = tientra
-                    //};
-
-                    //DTODB.db.tempkhachhangs.Add(tempkh);
-                    //DTODB.db.SaveChanges();
-
-                    //checkin_phong cpmoi = new checkin_phong()
-                    //{
-                    //    idcheckin = (from a in DTODB.db.checkins join b in DTODB.db.khachhangs on a.idkh equals b.id where b.email == txtEmail.Text select a.id).FirstOrDefault(),
-                    //    idphong = TDatPhong.IdPhong
-                    //};
-                    //DTODB.db.checkin_phong.Add(cpmoi);
-                    //DTODB.db.SaveChanges();
-                    #endregion
+                    // Thực hiện truy vấn
 
                     using (var transaction = DTODB.db.Database.BeginTransaction())
                     {
@@ -296,7 +271,7 @@ namespace GUI_Quanlykhachsan.ChucNang
                             checkin checkinmoi = new checkin()
                             {
                                 idkh = idkhachhang,
-                                idnv = 1,
+                                idnv = TDatPhong.IDNV,
                                 ngaycheckin = DateTime.Now.Date,
                                 trangthai = "Đặt trước"
                             };
@@ -341,10 +316,14 @@ namespace GUI_Quanlykhachsan.ChucNang
                 }
             }
         }
+
+
         private void label9_Click(object sender, EventArgs e)
         {
 
         }
+
+
 
         public string duongdananh;
         private void guna2Button1_Click(object sender, EventArgs e)
@@ -360,6 +339,7 @@ namespace GUI_Quanlykhachsan.ChucNang
         {
 
         }
+
         private void txtKhachThanhToan_TextChanged(object sender, EventArgs e)
         {
             if (txtKhachThanhToan.Text.Trim() == "")
@@ -385,6 +365,11 @@ namespace GUI_Quanlykhachsan.ChucNang
                     }
                 }
             }
+        }
+
+        private void BtnDatThem_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

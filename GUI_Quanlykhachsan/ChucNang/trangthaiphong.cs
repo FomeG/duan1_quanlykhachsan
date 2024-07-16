@@ -78,18 +78,25 @@ namespace GUI_Quanlykhachsan.ChucNang
 
                 // Tìm ra idcheckin để phục vụ cho việc thêm dịch vụ trong form thanh toán
                 // Cụ thể là hiển thị ra form dịch vụ để add / xoá dịch vụ
-                int idcin = (from p in DTODB.db.phongs
-                             join cp in DTODB.db.checkin_phong on p.idphong equals cp.idphong
-                             join c in DTODB.db.checkins on cp.idcheckin equals c.id
-                             join tk in DTODB.db.tempkhachhangs on c.id equals tk.idcheckin
-                             join kh in DTODB.db.khachhangs on tk.idkh equals kh.id
-                             join lp in DTODB.db.loaiphongs on p.loaiphong equals lp.idloaiphong
-                             where p.idphong == TDatPhong.IdPhong
-                             select c.id).FirstOrDefault();
+                var listtt = (from p in DTODB.db.phongs
+                                   join cp in DTODB.db.checkin_phong on p.idphong equals cp.idphong
+                                   join c in DTODB.db.checkins on cp.idcheckin equals c.id
+                                   join tk in DTODB.db.tempkhachhangs on c.id equals tk.idcheckin
+                                   join kh in DTODB.db.khachhangs on tk.idkh equals kh.id
+                                   join lp in DTODB.db.loaiphongs on p.loaiphong equals lp.idloaiphong
+                                   where p.idphong == TDatPhong.IdPhong
+                                   select new
+                                   {
+                                       c.id,
+                                       IdKh = kh.id
+                                   }).FirstOrDefault();
+                int idcin = listtt.id;
+                int idkh = listtt.IdKh;
 
+                TDatPhong.IDKH = listtt.IdKh;
                 TDatPhong.IDCHECKIN = idcin;
 
-                ThanhToan traphongthanhtoan = new ThanhToan(traphong, idcin);
+                ThanhToan traphongthanhtoan = new ThanhToan(traphong, idcin,idkh);
                 traphongthanhtoan.Show();
             }
         }

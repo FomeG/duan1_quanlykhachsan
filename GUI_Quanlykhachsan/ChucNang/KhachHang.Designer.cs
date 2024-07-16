@@ -469,8 +469,8 @@
             this.BtnDatThem.Name = "BtnDatThem";
             this.BtnDatThem.Size = new System.Drawing.Size(166, 42);
             this.BtnDatThem.TabIndex = 11;
-            this.BtnDatThem.Text = "Đặt thêm phòng";
-            this.BtnDatThem.Click += new System.EventHandler(this.guna2Button2_Click);
+            this.BtnDatThem.Text = "Trở về";
+            this.BtnDatThem.Click += new System.EventHandler(this.BtnDatThem_Click);
             // 
             // DsPhongDaDat
             // 

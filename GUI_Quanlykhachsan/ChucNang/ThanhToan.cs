@@ -14,11 +14,13 @@ namespace GUI_Quanlykhachsan.ChucNang
         public Action traphong;
         private TTDichVu _truyvan;
         private readonly int IDCin;
-        public ThanhToan(Action traphong, int idcheckin)
+        private readonly int IDKh;
+        public ThanhToan(Action traphong, int idcheckin, int idkh)
         {
             InitializeComponent();
             this.traphong = traphong;
             this.IDCin = idcheckin;
+            this.IDKh = idkh;
             LoadDV();
             loadtt();
             loaddvgview();
@@ -121,6 +123,23 @@ namespace GUI_Quanlykhachsan.ChucNang
         #endregion
 
 
+        #region Lấy dữ liệu để lập hoá đơn (code quan trọng)
+        public void laythongtin()
+        {
+            var listThongTin = from cd in DTODB.db.checkin_dichvu
+                               join dv in DTODB.db.dichvus on cd.iddv equals dv.id
+                               where cd.idcheckin == IDCin
+                               select new
+                               {
+                                   cd.id
+                               };
+
+            
+        }
+
+
+        #endregion
+
         private void BtnExit_Click(object sender, EventArgs e)
         {
             Close();
@@ -191,7 +210,7 @@ namespace GUI_Quanlykhachsan.ChucNang
 
 
 
-        /* Nút trả phòng và thanh toán, luồng hoạt động
+        /* Nút trả phòng và thanh toán, luồng hoạt động:
            1.  Sau khi trả phòng và thanh toán thì khách hàng đang sử dụng phòng trong bảng temp sẽ không còn nữa.
            2.  Insert checkout
            3.  Lập hoá đơn và hoá đơn chi tiết
@@ -201,23 +220,43 @@ namespace GUI_Quanlykhachsan.ChucNang
         {
             if (MessageBox.Show("Bạn chắc chắn muốn thực hiện hành động này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                // Trả phòng xong thì sẽ xoá hết dữ liệu trong bảng temp => chuyển lại trạng thái phòng và chốt hoá đơn.
-                DTODB.db.tempkhachhangs.Remove();
+                // Cập nhật thông tin vào trong checkout
+                checkout checkoutmoi = new checkout()
+                {
+                    idnv = TDatPhong.IDNV,
+                    idkh = IDKh,
+                    ngaycheckout = DateTime.Now.Date,
+                    trangthai = txtGhiChu.Text
+                };
+                DTODB.db.checkouts.Add(checkoutmoi);
+
+                // Trả phòng xong thì sẽ xoá hết dữ liệu trong bảng temp
+                DTODB.db.tempkhachhangs.Remove(DTODB.db.tempkhachhangs.FirstOrDefault(p => p.idcheckin == IDCin && p.idkh == IDKh));
+
+
+                // Chốt hoá đơn, dv_trunggian và phong_trunggian (nếu có)
+                decimal.TryParse(tongTT.Text, out decimal tongtien);
+                hoadon hoadonmoi = new hoadon()
+                {
+                    idkh = IDKh,
+                    idnv = TDatPhong.IDNV,
+                    ngaytao = DateTime.Now.Date,
+                    tongtien = tongtien,
+                    songuoi = 1,
+                    trangthai = "Đã thanh toán"
+
+                };
+                DTODB.db.hoadons.Add(hoadonmoi);
+
+
                 DTODB.db.SaveChanges();
 
-                // Cập nhật thông tin vào trong checkout
-
-
-
-                // Chốt hoá đơn (tiền)
-
-
-
                 // Chuyển trạng thái phòng về trống (dựa vào temp khách hàng đã bị xoá trước đó)
+                traphong.Invoke();
 
 
 
-                traphong.Invoke(); 
+
                 Close();
             }
         }
