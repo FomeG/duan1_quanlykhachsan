@@ -10,17 +10,10 @@
 namespace DTO_Quanly.Model.DB
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class tempkhachhang
+    public partial class sp_helpdiagramdefinition_Result
     {
-        public int idkh { get; set; }
-        public int idcheckin { get; set; }
-        public Nullable<decimal> tienkhachtra { get; set; }
-        public Nullable<System.DateTime> ngayvao { get; set; }
-        public Nullable<System.DateTime> ngayra { get; set; }
-    
-        public virtual checkin checkin { get; set; }
-        public virtual khachhang khachhang { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

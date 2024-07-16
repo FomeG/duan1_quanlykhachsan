@@ -17,8 +17,8 @@ namespace DTO_Quanly.Model.DB
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public hoadon()
         {
-            this.checkin_dichvu = new HashSet<checkin_dichvu>();
-            this.checkin_phong = new HashSet<checkin_phong>();
+            this.dv_trunggian = new HashSet<dv_trunggian>();
+            this.phong_trunggian = new HashSet<phong_trunggian>();
         }
     
         public int idhoadon { get; set; }
@@ -29,11 +29,11 @@ namespace DTO_Quanly.Model.DB
         public Nullable<int> songuoi { get; set; }
         public string trangthai { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<dv_trunggian> dv_trunggian { get; set; }
         public virtual khachhang khachhang { get; set; }
         public virtual nhanvien nhanvien { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<checkin_dichvu> checkin_dichvu { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<checkin_phong> checkin_phong { get; set; }
+        public virtual ICollection<phong_trunggian> phong_trunggian { get; set; }
     }
 }

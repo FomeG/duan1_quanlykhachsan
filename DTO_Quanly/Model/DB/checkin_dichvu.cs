@@ -17,7 +17,7 @@ namespace DTO_Quanly.Model.DB
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public checkin_dichvu()
         {
-            this.hoadons = new HashSet<hoadon>();
+            this.dv_trunggian = new HashSet<dv_trunggian>();
         }
     
         public int id { get; set; }
@@ -28,6 +28,6 @@ namespace DTO_Quanly.Model.DB
         public virtual checkin checkin { get; set; }
         public virtual dichvu dichvu { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<hoadon> hoadons { get; set; }
+        public virtual ICollection<dv_trunggian> dv_trunggian { get; set; }
     }
 }
