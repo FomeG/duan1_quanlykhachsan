@@ -14,7 +14,8 @@ namespace DTO_Quanly.Model.DB
     
     public partial class checkout
     {
-        public int idkh { get; set; }
+        public int idcheckout { get; set; }
+        public Nullable<int> idkh { get; set; }
         public Nullable<int> idnv { get; set; }
         public System.DateTime ngaycheckout { get; set; }
         public string trangthai { get; set; }
