@@ -271,13 +271,13 @@ namespace GUI_Quanlykhachsan.ChucNang
                             DTODB.db.SaveChanges();
                         };
 
-                        phong_trunggian ptrunggianmoi = new phong_trunggian()
-                        {
-                            idp = IDPhong,
-                            idhd = hoadonmoi.idhoadon
-                        };
-                        DTODB.db.phong_trunggian.Add(ptrunggianmoi);
-                        DTODB.db.SaveChanges();
+                        //phong_trunggian ptrunggianmoi = new phong_trunggian()
+                        //{
+                        //    idp = IDPhong,
+                        //    idhd = hoadonmoi.idhoadon
+                        //};
+                        //DTODB.db.phong_trunggian.Add(ptrunggianmoi);
+                        //DTODB.db.SaveChanges();
 
 
                         // Chuyển trạng thái phòng về trống (dựa vào temp khách hàng đã bị xoá trước đó)
@@ -295,8 +295,6 @@ namespace GUI_Quanlykhachsan.ChucNang
                 Close();
             }
         }
-
-
 
         // Nút thanh toán sau, vê căn bản là thoát form thanh toán và không làm gì CSDL cả.
         private void BtnThanhToanSau_Click(object sender, EventArgs e)

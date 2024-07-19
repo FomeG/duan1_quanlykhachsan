@@ -370,8 +370,9 @@
             this.guna2GradientButton5.Name = "guna2GradientButton5";
             this.guna2GradientButton5.Size = new System.Drawing.Size(192, 45);
             this.guna2GradientButton5.TabIndex = 7;
-            this.guna2GradientButton5.Text = "Chuc nang 2";
+            this.guna2GradientButton5.Text = "Hoá đơn";
             this.guna2GradientButton5.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2GradientButton5.Click += new System.EventHandler(this.guna2GradientButton5_Click);
             // 
             // btnTC
             // 

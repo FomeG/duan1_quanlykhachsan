@@ -37,8 +37,6 @@ namespace GUI_Quanlykhachsan
                 // truyền qua BUS để kiểm tra xem tài khoản mật khẩu có hợp lệ không
                 if (DangNhap.KetQua(txttk.Text, txtmk.Text))
                 {
-                    // Đặt id người dùng để phục vụ cho tác vụ liên quan đến đặt phòng
-                    TDatPhong.IDNV = DTODB.db.nhanviens.FirstOrDefault(a => a.taikhoan == txttk.Text).idnv;
                     TrangChu trangChu = new TrangChu();
                     // nếu vai trò = 1 (admin) thì in label admin
                     if (DangNhap.VaiTro(txttk.Text) == 1)
@@ -49,6 +47,8 @@ namespace GUI_Quanlykhachsan
                     // nếu vai trò = 2 (nhanvien) thì in label nhanvien
                     else
                     {
+                        // Đặt id người dùng để phục vụ cho tác vụ liên quan đến đặt phòng
+                        TDatPhong.IDNV = DTODB.db.nhanviens.FirstOrDefault(a => a.taikhoan == txttk.Text).idnv;
                         DuLieu.vaitro = 2;
                         trangChu.Username.Text = DTODB.db.nhanviens.FirstOrDefault(a => a.taikhoan == txttk.Text).ten.ToString();
                     }

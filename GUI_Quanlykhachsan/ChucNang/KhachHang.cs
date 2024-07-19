@@ -140,6 +140,9 @@ namespace GUI_Quanlykhachsan.ChucNang
             }
         }
 
+
+
+
         private void guna2Button2_Click(object sender, EventArgs e)
         {
 
@@ -226,7 +229,7 @@ namespace GUI_Quanlykhachsan.ChucNang
                                 MessageBox.Show("Đã có lỗi gì đó xảy ra");
                             }
                         }
-                                Close();
+                        Close();
                     }
                 }
             }
@@ -285,11 +288,14 @@ namespace GUI_Quanlykhachsan.ChucNang
                             decimal.TryParse(txtKhachThanhToan.Text, out decimal tientra);
                             tempkhachhang tempkh = new tempkhachhang()
                             {
-                                idkh = idkhachhang,
+                                idkh = DTODB.db.khachhangs.FirstOrDefault(p => p.email == txtEmail.Text).id,
                                 idcheckin = idcheckin,
-                                tienkhachtra = tientra
+                                tienkhachtra = tientra,
+                                ngayvao = NgayDen.Value.Date,
+                                ngayra = NgayDi.Value.Date,
                             };
                             DTODB.db.tempkhachhangs.Add(tempkh);
+                            DTODB.db.SaveChanges();
 
                             // Thêm checkin_phong mới vào DB
                             checkin_phong cpmoi = new checkin_phong()
@@ -301,6 +307,8 @@ namespace GUI_Quanlykhachsan.ChucNang
 
                             // Lưu tất cả thay đổi vào DB
                             DTODB.db.SaveChanges();
+
+
 
                             transaction.Commit();
                         }

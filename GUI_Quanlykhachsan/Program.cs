@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GUI_Quanlykhachsan.ChucNang;
+using System;
 using System.Windows.Forms;
 
 namespace GUI_Quanlykhachsan

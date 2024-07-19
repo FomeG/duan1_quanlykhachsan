@@ -400,5 +400,10 @@ namespace GUI_Quanlykhachsan
         {
             MessageBox.Show(nghia.hienthidv().Count.ToString());
         }
+
+        private void guna2GradientButton5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
