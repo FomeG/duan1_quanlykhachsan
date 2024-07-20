@@ -1,5 +1,6 @@
 ﻿using BUS_Quanly.Services.LoginLogout;
 using DTO_Quanly;
+using DTO_Quanly.Transfer;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -46,6 +47,8 @@ namespace GUI_Quanlykhachsan
                     // nếu vai trò = 2 (nhanvien) thì in label nhanvien
                     else
                     {
+                        // Đặt id người dùng để phục vụ cho tác vụ liên quan đến đặt phòng
+                        TDatPhong.IDNV = DTODB.db.nhanviens.FirstOrDefault(a => a.taikhoan == txttk.Text).idnv;
                         DuLieu.vaitro = 2;
                         trangChu.Username.Text = DTODB.db.nhanviens.FirstOrDefault(a => a.taikhoan == txttk.Text).ten.ToString();
                     }
@@ -74,11 +77,6 @@ namespace GUI_Quanlykhachsan
 
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
         {
 
         }

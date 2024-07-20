@@ -1,7 +1,9 @@
-﻿using GUI_Quanlykhachsan.ChucNang;
+﻿using BUS_Quanly.Services.QuanLyDatPhong.ThanhToan_DV;
+using GUI_Quanlykhachsan.ChucNang;
 using GUI_Quanlykhachsan.ChucNang.ADMIN;
 using GUI_Quanlykhachsan.ChucNang.Tai_Khoan;
 using GUI_Quanlykhachsan.ChucNang.Test;
+using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -20,132 +22,79 @@ namespace GUI_Quanlykhachsan
         }
 
         #region Kéo thả form
-        // Dùng WinAPI để di chuyển form
-        public const int WM_NCLBUTTONDOWN = 0xA1;
-        public const int HT_CAPTION = 0x2;
-
         [DllImport("User32.dll")]
         public static extern bool ReleaseCapture();
-
         [DllImport("User32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
         private void Form_MouseDown(object sender, MouseEventArgs e)
         {
-            // Nếu nhấn nút chuột trái
             if (e.Button == MouseButtons.Left)
             {
                 ReleaseCapture();
-                SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+                SendMessage(this.Handle, 0xA1, 0x2, 0);
             }
         }
         #endregion
-        // Màu mặc định
-        public Color MauMacDinh()
-        {
-            return Color.FromArgb(255, 255, 255);
-        }
-        // Màu khi nhấn
-        public Color MauKhiNhan()
-        {
-            return Color.FromArgb(128, 128, 255);
-        }
-
-
-        // Nút thoát
-        private void btnEXIT_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
 
         private void TrangChu_Load(object sender, EventArgs e)
         {
-            //nếu vai trò = 1 (admin) -> in label admin và ngược lại
-            if (DuLieu.vaitro == 1) label1.Text = "Đây là admin";
-            else label1.Text = "Đây là nhân viên !    -    Nhân viên sẽ không sử dụng được quản lý nhân viên.";
+            label1.Text = DuLieu.vaitro == 1 ? "Đây là admin" : "Đây là nhân viên !    -    Nhân viên sẽ không sử dụng được quản lý nhân viên.";
             container.Controls.Clear();
         }
-
 
         private void TrangChu_FormClosing_1(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("Bạn có chắc chắn muốn đăng xuất không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-            }
-            else
-            {
-                e.Cancel = true;
-            }
+            e.Cancel = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes;
         }
 
-        // Nút quản lý Nhân viên, khi ấn vào thì thay container = form quản lý Nhân viên
-        private void guna2GradientButton2_Click(object sender, EventArgs e)
+
+        // Màu mặc định và màu khi nhấn vào
+        private Color MauMacDinh() => Color.FromArgb(255, 255, 255);
+        private Color MauKhiNhan() => Color.FromArgb(128, 128, 255);
+
+
+        // Nút thoát
+        private void btnEXIT_Click(object sender, EventArgs e) => Close();
+
+        #region Code rút gọn
+
+        private void LoadForm(Form form, Guna2GradientButton clickedButton)
         {
-            Qly_NhanVien ls = new Qly_NhanVien();
-            ls.FormBorderStyle = FormBorderStyle.None;
-            ls.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.TopLevel = false;
             container.Controls.Clear();
-            container.Controls.Add(ls);
-            ls.Show();
-            ls.Dock = DockStyle.Fill;
+            container.Controls.Add(form);
+            form.Show();
+            form.Dock = DockStyle.Fill;
 
-
-            btnQLDP.FillColor = MauMacDinh();
-            btnQLDP.FillColor2 = MauMacDinh();
-
-            btnKH.FillColor = MauMacDinh();
-            btnKH.FillColor2 = MauMacDinh();
-
-            btnQLNV.FillColor = MauKhiNhan();
-            btnQLNV.FillColor2 = MauKhiNhan();
-
-            btnTC.FillColor = MauMacDinh();
-            btnTC.FillColor2 = MauMacDinh();
-
-            btnSettings.FillColor = MauMacDinh();
-            btnSettings.FillColor2 = MauMacDinh();
-
+            SetButtonColor(clickedButton);
         }
-
-        // Nút quản lý đặt phòng, khi ấn vào thì thay container = form quản lý đặt phòng
-        private void guna2GradientButton1_Click(object sender, EventArgs e)
+        private Guna2GradientButton currentButton;
+        private void SetButtonColor(Guna2GradientButton clickedButton)
         {
-            QuanLyDatPhong ls = new QuanLyDatPhong();
-            ls.FormBorderStyle = FormBorderStyle.None;
-            ls.TopLevel = false;
-            container.Controls.Clear();
-            container.Controls.Add(ls);
-            ls.Show();
-            ls.Dock = DockStyle.Fill;
+            if (currentButton != null && currentButton != clickedButton)
+            {
+                currentButton.FillColor = MauMacDinh();
+                currentButton.FillColor2 = MauMacDinh();
+            }
 
-
-            btnQLDP.FillColor = MauKhiNhan();
-            btnQLDP.FillColor2 = MauKhiNhan();
-
-            btnKH.FillColor = MauMacDinh();
-            btnKH.FillColor2 = MauMacDinh();
-
-            btnQLNV.FillColor = MauMacDinh();
-            btnQLNV.FillColor2 = MauMacDinh();
-
-            btnTC.FillColor = MauMacDinh();
-            btnTC.FillColor2 = MauMacDinh();
-
-            btnSettings.FillColor = MauMacDinh();
-            btnSettings.FillColor2 = MauMacDinh();
-
-
-
+            if (clickedButton != currentButton)
+            {
+                clickedButton.FillColor = MauKhiNhan();
+                clickedButton.FillColor2 = MauKhiNhan();
+                currentButton = clickedButton;
+            }
         }
 
+        private void guna2GradientButton2_Click(object sender, EventArgs e) => LoadForm(new Qly_NhanVien(), (Guna2GradientButton)sender);
+        private void guna2GradientButton1_Click(object sender, EventArgs e) => LoadForm(new QuanLyDatPhong(), (Guna2GradientButton)sender);
+        private void guna2GradientButton3_Click(object sender, EventArgs e) => LoadForm(new ThongTinKH(), (Guna2GradientButton)sender);
+        private void guna2GradientButton6_Click(object sender, EventArgs e) => LoadForm(new TaiChinh(), (Guna2GradientButton)sender);
+        private void guna2GradientButton8_Click(object sender, EventArgs e) => LoadForm(new FrmSettings(), (Guna2GradientButton)sender);
 
-        // Nút đăng xuất
-        private void guna2GradientButton9_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
+        #endregion
 
-        // Nút thanh toán để test, sau này sẽ thay đổi lại
         private void guna2GradientButton7_Click(object sender, EventArgs e)
         {
             //ThanhToan ls = new ThanhToan();
@@ -157,96 +106,6 @@ namespace GUI_Quanlykhachsan
             //ls.Dock = DockStyle.Fill;
         }
 
-        private void guna2GradientPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        // Nút mở form thông tin khách hàng
-        private void guna2GradientButton3_Click(object sender, EventArgs e)
-        {
-            ThongTinKH ls = new ThongTinKH();
-            ls.FormBorderStyle = FormBorderStyle.None;
-            ls.TopLevel = false;
-            container.Controls.Clear();
-            container.Controls.Add(ls);
-            ls.Show();
-            ls.Dock = DockStyle.Fill;
-
-            btnQLDP.FillColor = MauMacDinh();
-            btnQLDP.FillColor2 = MauMacDinh();
-
-            btnKH.FillColor = MauKhiNhan();
-            btnKH.FillColor2 = MauKhiNhan();
-
-            btnQLNV.FillColor = MauMacDinh();
-            btnQLNV.FillColor2 = MauMacDinh();
-
-            btnTC.FillColor = MauMacDinh();
-            btnTC.FillColor2 = MauMacDinh();
-
-            btnSettings.FillColor = MauMacDinh();
-            btnSettings.FillColor2 = MauMacDinh();
-
-        }
-
-        // Nút mở báo cáo tài chính
-        private void guna2GradientButton6_Click(object sender, EventArgs e)
-        {
-            TaiChinh ls = new TaiChinh();
-            ls.FormBorderStyle = FormBorderStyle.None;
-            ls.TopLevel = false;
-            container.Controls.Clear();
-            container.Controls.Add(ls);
-            ls.Show();
-            ls.Dock = DockStyle.Fill;
-
-
-            btnQLDP.FillColor = MauMacDinh();
-            btnQLDP.FillColor2 = MauMacDinh();
-
-            btnKH.FillColor = MauMacDinh();
-            btnKH.FillColor2 = MauMacDinh();
-
-            btnQLNV.FillColor = MauMacDinh();
-            btnQLNV.FillColor2 = MauMacDinh();
-
-            btnTC.FillColor = MauKhiNhan();
-            btnTC.FillColor2 = MauKhiNhan();
-
-            btnSettings.FillColor = MauMacDinh();
-            btnSettings.FillColor2 = MauMacDinh();
-        }
-
-        // Nút mở cài đặt
-        private void guna2GradientButton8_Click(object sender, EventArgs e)
-        {
-            FrmSettings ls = new FrmSettings();
-            ls.FormBorderStyle = FormBorderStyle.None;
-            ls.TopLevel = false;
-            container.Controls.Clear();
-            container.Controls.Add(ls);
-            ls.Show();
-            ls.Dock = DockStyle.Fill;
-
-
-            btnQLDP.FillColor = MauMacDinh();
-            btnQLDP.FillColor2 = MauMacDinh();
-
-            btnKH.FillColor = MauMacDinh();
-            btnKH.FillColor2 = MauMacDinh();
-
-            btnQLNV.FillColor = MauMacDinh();
-            btnQLNV.FillColor2 = MauMacDinh();
-
-            btnTC.FillColor = MauMacDinh();
-            btnTC.FillColor2 = MauMacDinh();
-
-            btnSettings.FillColor = MauKhiNhan();
-            btnSettings.FillColor2 = MauKhiNhan();
-        }
-
-
         private void guna2GradientButton10_Click(object sender, EventArgs e)
         {
             Close();
@@ -257,55 +116,10 @@ namespace GUI_Quanlykhachsan
             this.WindowState = FormWindowState.Minimized;
         }
 
-
         #region khu vực test code
         // Bắt đầu phần testcode
         // Những code dưới đây để test, không có động gì vào sql và tác động lên form
         // Code chạy trong Trangchu();
-
-
-
-
-
-        public Form_test formtest;
-        int dem = 0;
-        public void guna2GradientButton11_Click(object sender, EventArgs e)
-        {
-            if (formtest == null || formtest.IsDisposed)
-            {
-                formtest = new Form_test(tangdang);
-                formtest.Show();
-            }
-            else if (!formtest.Visible) // formtest.hide() == true -> show lại
-            {
-                formtest.Show();
-            }
-        }
-        private void okem(object sender, FormClosedEventArgs e)
-        {
-            // Đặt formtest về null khi Form_test đã đóng
-            formtest = null;
-        }
-
-        //private bool isButtonEnabled = true;
-
-        public void tangdang()
-        {
-            labeltest5.Text = dem++.ToString();
-        }
-
-
-        private void btntest3_Click_1(object sender, EventArgs e)
-        {
-            int soluong = formtest.listBox1.Items.Count;
-            formtest.listBox1.Items.Add("Thành viên " + soluong.ToString());
-        }
-
-        private void btntest2_Click(object sender, EventArgs e)
-        {
-            int soluong = formtest.listBox1.Items.Count;
-            formtest.listBox1.Items.Add("Thành viên " + soluong.ToString());
-        }
 
         int tonghd = 0;
         private void btntest4_Click(object sender, EventArgs e)
@@ -351,34 +165,10 @@ namespace GUI_Quanlykhachsan
 
         private Dictionary<int, Button> hdButtons = new Dictionary<int, Button>();
         private List<Form_test> listform = new List<Form_test>();
-        public void hienthiform(int formcanhienthi)
-        {
-            // Ẩn tất cả các form
-            foreach (var form in listform)
-            {
-                form.Hide();
-            }
-
-            // Hiển thị form được chọn
-            listform[formcanhienthi].Show();
-        }
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show(listform.Count.ToString());
-        }
-
-
-
-
-
-
-
-
-
-
 
         // Kết thúc phần test code
         #endregion
+
 
         #region Kéo thả form (controller)
 
@@ -456,12 +246,31 @@ namespace GUI_Quanlykhachsan
         private void guna2Panel4_MouseUp(object sender, MouseEventArgs e)
         {
             dragging = false;
-
         }
 
 
         #endregion
 
+        private void guna2Panel4_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
+
+        // Nút đăng xuất
+        private void btnDangXuat_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        TTDichVu nghia = new TTDichVu();
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(nghia.hienthidv().Count.ToString());
+        }
+
+        private void guna2GradientButton5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

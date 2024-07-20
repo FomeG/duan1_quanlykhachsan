@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="duan1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="duan1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="checkin">
           <Key>
             <PropertyRef Name="id" />
@@ -480,6 +480,9 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="xoanhanvien" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idnhanvien" Type="int" Mode="In" />
+        </Function>
         <EntityContainer Name="duan1ModelStoreContainer">
           <EntitySet Name="checkin" EntityType="Self.checkin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="checkin_dichvu" EntityType="Self.checkin_dichvu" Schema="dbo" store:Type="Tables" />
@@ -609,8 +612,7 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
             <End Role="voucher" EntitySet="voucher" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="duan1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1129,7 +1131,7 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DuanKS" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DAQLKS" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="checkins" EntityType="Self.checkin" />
           <EntitySet Name="checkin_dichvu" EntityType="Self.checkin_dichvu" />
           <EntitySet Name="checkin_phong" EntityType="Self.checkin_phong" />
@@ -1238,13 +1240,16 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
             <End Role="vaitro" EntitySet="vaitroes" />
             <End Role="taikhoan" EntitySet="taikhoans" />
           </AssociationSet>
+          <FunctionImport Name="xoanhanvien">
+          <Parameter Name="idnhanvien" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="duan1ModelStoreContainer" CdmEntityContainer="DuanKS">
+        <EntityContainerMapping StorageEntityContainer="duan1ModelStoreContainer" CdmEntityContainer="DAQLKS">
           <EntitySetMapping Name="checkins">
             <EntityTypeMapping TypeName="duan1Model.checkin">
               <MappingFragment StoreEntitySet="checkin">
@@ -1460,6 +1465,7 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="xoanhanvien" FunctionName="duan1Model.Store.xoanhanvien" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

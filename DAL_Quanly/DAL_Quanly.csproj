@@ -55,8 +55,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IRepository\INhanVien.cs" />
+    <Compile Include="IRepository\QuanLyDatPhong\IQlyDatPhong.cs" />
     <Compile Include="Repository\Login\Dangnhap.cs" />
     <Compile Include="Repository\NhanVien\TruyVanNV.cs" />
+    <Compile Include="Repository\QuanLyDatPhong\KhachHang\DatTruoc_TraP.cs" />
+    <Compile Include="Repository\QuanLyDatPhong\ThanhToan\TruyVanThanhToan.cs" />
+    <Compile Include="Repository\QuanLyDatPhong\TruyVanDatPhong.cs" />
+    <Compile Include="Repository\QuanLyDatPhong\HoaDon\TruyVanHoaDon.cs" />
     <Compile Include="Repository\TruyVan.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
