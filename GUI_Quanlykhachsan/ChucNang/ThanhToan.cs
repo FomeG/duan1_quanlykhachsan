@@ -11,6 +11,7 @@ namespace GUI_Quanlykhachsan.ChucNang
 {
     public partial class ThanhToan : Form
     {
+        TTDichVu _dv = new TTDichVu();
         public Action traphong;
         private TTDichVu _truyvan;
         private readonly int IDCin;
@@ -60,7 +61,7 @@ namespace GUI_Quanlykhachsan.ChucNang
 
         public void LoadDV()
         {
-            foreach (var item in DTODB.db.dichvus.ToList())
+            foreach (var item in _dv.hienthidv().ToList())
             {
                 LsDichVu.Items.Add(item.tendv);
             }
@@ -96,36 +97,15 @@ namespace GUI_Quanlykhachsan.ChucNang
         public void loaddvgview()
         {
             gview1.Columns.Clear();
-            var list = from cd in DTODB.db.checkin_dichvu
-                       join dv in DTODB.db.dichvus on cd.iddv equals dv.id
-                       where cd.idcheckin == IDCin
-                       select new
-                       {
-                           dv.tendv,
-                           cd.soluong,
-                           dv.mota
-                       };
-            var listtinhtien = from cd in DTODB.db.checkin_dichvu
-                               join dv in DTODB.db.dichvus on cd.iddv equals dv.id
-                               where cd.idcheckin == IDCin
-                               select new
-                               {
-                                   cd.idcheckin,
-                                   cd.soluong,
-                                   dv.tendv,
-                                   GiaTien = dv.gia * cd.soluong
-                               };
-            gview1.DataSource = list.ToList();
+            var list = _dv.GetCheckinDichVuList(IDCin);
+            gview1.DataSource = list;
 
-            decimal tien = 0;
-            foreach (var item in listtinhtien)
-            {
-                tien += (decimal)item.GiaTien;
-            }
-            txttiendv.Text = tien.ToString();
-            decimal.TryParse(txttiendv.Text, out decimal tiendv);
-            decimal.TryParse(txttienphong.Text, out decimal tienphong);
-            tongTT.Text = (tiendv + tienphong).ToString();
+            decimal tienDichVu = _dv.TinhTongTienDichVu(list);
+            txttiendv.Text = tienDichVu.ToString();
+
+            decimal.TryParse(txttienphong.Text, out decimal tienPhong);
+            decimal tongThanhToan = _dv.TinhTongThanhToan(tienDichVu, tienPhong);
+            tongTT.Text = tongThanhToan.ToString();
         }
 
         #endregion

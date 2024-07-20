@@ -174,6 +174,7 @@ namespace GUI_Quanlykhachsan.ChucNang
         }
 
 
+
         // Nút nhận phòng
         private void guna2Button3_Click(object sender, EventArgs e)
         {
@@ -209,6 +210,13 @@ namespace GUI_Quanlykhachsan.ChucNang
         }
 
 
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
         public string duongdananh;
         private void guna2Button1_Click(object sender, EventArgs e)
         {
@@ -218,6 +226,10 @@ namespace GUI_Quanlykhachsan.ChucNang
                 anhkh.Image = System.Drawing.Image.FromFile(lam.FileName);
                 duongdananh = lam.FileName;
             }
+        }
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void txtKhachThanhToan_TextChanged(object sender, EventArgs e)
