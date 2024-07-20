@@ -207,7 +207,6 @@
             this.label4.Size = new System.Drawing.Size(65, 17);
             this.label4.TabIndex = 4;
             this.label4.Text = "Giới tính:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
@@ -427,7 +426,6 @@
             this.label9.Size = new System.Drawing.Size(85, 17);
             this.label9.TabIndex = 14;
             this.label9.Text = "Tiền cần trả:";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // label10
             // 

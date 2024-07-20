@@ -63,7 +63,7 @@ namespace GUI_Quanlykhachsan.ChucNang
                 // Hiển thị tiền phòng (của tất cả các phòng đã đặt nếu có)
                 TDatPhong.TienPhong = (from a in DTODB.db.phongs join b in DTODB.db.loaiphongs on a.loaiphong equals b.idloaiphong where a.idphong == IdPhong select b.giaphong).FirstOrDefault();
 
-                
+
                 KhachHang khachHang = new KhachHang(nhanphong, dattruoc);
                 khachHang.Show();
             }
@@ -79,24 +79,24 @@ namespace GUI_Quanlykhachsan.ChucNang
                 // Tìm ra idcheckin để phục vụ cho việc thêm dịch vụ trong form thanh toán
                 // Cụ thể là hiển thị ra form dịch vụ để add / xoá dịch vụ
                 var listtt = (from p in DTODB.db.phongs
-                                   join cp in DTODB.db.checkin_phong on p.idphong equals cp.idphong
-                                   join c in DTODB.db.checkins on cp.idcheckin equals c.id
-                                   join tk in DTODB.db.tempkhachhangs on c.id equals tk.idcheckin
-                                   join kh in DTODB.db.khachhangs on tk.idkh equals kh.id
-                                   join lp in DTODB.db.loaiphongs on p.loaiphong equals lp.idloaiphong
-                                   where p.idphong == TDatPhong.IdPhong
-                                   select new
-                                   {
-                                       c.id,
-                                       IdKh = kh.id
-                                   }).FirstOrDefault();
+                              join cp in DTODB.db.checkin_phong on p.idphong equals cp.idphong
+                              join c in DTODB.db.checkins on cp.idcheckin equals c.id
+                              join tk in DTODB.db.tempkhachhangs on c.id equals tk.idcheckin
+                              join kh in DTODB.db.khachhangs on tk.idkh equals kh.id
+                              join lp in DTODB.db.loaiphongs on p.loaiphong equals lp.idloaiphong
+                              where p.idphong == TDatPhong.IdPhong
+                              select new
+                              {
+                                  c.id,
+                                  IdKh = kh.id
+                              }).FirstOrDefault();
                 int idcin = listtt.id;
                 int idkh = listtt.IdKh;
 
                 TDatPhong.IDKH = listtt.IdKh;
                 TDatPhong.IDCHECKIN = idcin;
 
-                ThanhToan traphongthanhtoan = new ThanhToan(traphong, idcin,idkh, IdPhong);
+                ThanhToan traphongthanhtoan = new ThanhToan(traphong, idcin, idkh, IdPhong);
                 traphongthanhtoan.Show();
             }
         }
@@ -110,6 +110,7 @@ namespace GUI_Quanlykhachsan.ChucNang
             description.Text = "Phòng được đặt trước";
             this.BackColor = Color.Yellow;
 
+
             DTODB.db.phongs.Find(IdPhong).trangthai = 2;
             DTODB.db.SaveChanges();
         }
@@ -121,6 +122,7 @@ namespace GUI_Quanlykhachsan.ChucNang
             description.Text = "Phòng đang được sử dụng";
             this.BackColor = Color.Red;
 
+
             DTODB.db.phongs.Find(IdPhong).trangthai = 3;
             DTODB.db.SaveChanges();
         }
@@ -131,6 +133,7 @@ namespace GUI_Quanlykhachsan.ChucNang
             btnDat.Text = "Đặt phòng";
             description.Text = motaphong;
             this.BackColor = Color.FromArgb(128, 255, 128);
+
 
             DTODB.db.phongs.Find(IdPhong).trangthai = 1;
             DTODB.db.SaveChanges();
