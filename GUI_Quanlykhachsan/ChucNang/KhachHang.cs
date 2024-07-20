@@ -245,7 +245,6 @@ namespace GUI_Quanlykhachsan.ChucNang
             {
                 if (MessageBox.Show("Xác nhận đặt phòng?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    nhanphong?.Invoke();
 
                     // Thực hiện truy vấn
 
@@ -309,7 +308,8 @@ namespace GUI_Quanlykhachsan.ChucNang
                             DTODB.db.SaveChanges();
 
 
-
+                            MessageBox.Show("Đặt phòng thành công!");
+                            nhanphong?.Invoke();
                             transaction.Commit();
                         }
                         catch (Exception)
@@ -320,7 +320,6 @@ namespace GUI_Quanlykhachsan.ChucNang
                     }
 
                     Close();
-                    MessageBox.Show("Đặt phòng thành công!");
                 }
             }
         }
