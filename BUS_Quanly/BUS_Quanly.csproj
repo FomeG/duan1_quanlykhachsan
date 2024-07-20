@@ -56,6 +56,7 @@
     <Compile Include="Services\NhanVien\Snhanvien.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\QuanLyDatPhong\DatTruoc_NhanP\Tdphong.cs" />
+    <Compile Include="Services\QuanLyDatPhong\Phong\Phong.cs" />
     <Compile Include="Services\QuanLyDatPhong\ThanhToan_DV\TTDichVu.cs" />
   </ItemGroup>
   <ItemGroup>

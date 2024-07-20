@@ -4,12 +4,13 @@ using System;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using BUS_Quanly.Services.QuanLyDatPhong.Phong;
 
 namespace GUI_Quanlykhachsan.ChucNang
 {
     public partial class trangthaiphong : UserControl
     {
-
+        PhongService _phongService = new PhongService();
         private int _borderRadius = 20; // Bán kính góc bo form
 
 
@@ -111,8 +112,7 @@ namespace GUI_Quanlykhachsan.ChucNang
             this.BackColor = Color.Yellow;
 
 
-            DTODB.db.phongs.Find(IdPhong).trangthai = 2;
-            DTODB.db.SaveChanges();
+            _phongService.DatTruoc(IdPhong);
         }
 
 
@@ -123,8 +123,7 @@ namespace GUI_Quanlykhachsan.ChucNang
             this.BackColor = Color.Red;
 
 
-            DTODB.db.phongs.Find(IdPhong).trangthai = 3;
-            DTODB.db.SaveChanges();
+            _phongService.NhanPhong(IdPhong);
         }
 
 
@@ -135,8 +134,7 @@ namespace GUI_Quanlykhachsan.ChucNang
             this.BackColor = Color.FromArgb(128, 255, 128);
 
 
-            DTODB.db.phongs.Find(IdPhong).trangthai = 1;
-            DTODB.db.SaveChanges();
+            _phongService.TraPhong(IdPhong);
         }
         #endregion
     }
