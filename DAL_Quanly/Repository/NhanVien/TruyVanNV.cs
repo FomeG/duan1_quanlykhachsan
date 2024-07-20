@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
 namespace DAL_Quanly.Repository.NhanVien
@@ -12,9 +13,20 @@ namespace DAL_Quanly.Repository.NhanVien
     public class TruyVanNV
     {
 
-        public List<nhanvien> getlist()
+        public IEnumerable<dynamic> getlist()
         {
-            return DTODB.db.nhanviens.ToList();
+            var listnhanvien = from a in DTODB.db.nhanviens.ToList()
+                               select new
+                               {
+                                   Ten = a.ten,
+                                   Email = a.email,
+                                   SDT = a.sdt,
+                                   Gioitinh = a.gioitinh,
+                                   Diachi = a.diachi,
+                                   Ngaysinh = a.ngaysinh,
+                                   Taikhoan = a.taikhoan,
+                               };
+            return listnhanvien.ToList();
         }
 
         public List<nhanvien> getlistbyid(int id)
@@ -72,7 +84,8 @@ namespace DAL_Quanly.Repository.NhanVien
 
         }
 
-        public bool sua(int id, nhanvien nv, taikhoan tk)
+
+        public bool sua(int id, nhanvien nv, string mkmoi)
         {
             using (var transaction = DTODB.db.Database.BeginTransaction())
             {
@@ -80,9 +93,8 @@ namespace DAL_Quanly.Repository.NhanVien
                 {
                     var tkcantim = (from a in DTODB.db.nhanviens join b in DTODB.db.taikhoans on a.taikhoan equals b.taikhoan1 where a.idnv == id select a.taikhoan).FirstOrDefault();
 
-
                     taikhoan tkcansua = DTODB.db.taikhoans.Find(tkcantim);
-                    tkcansua.matkhau = tk.matkhau;
+                    tkcansua.matkhau = mkmoi;
                     DTODB.db.SaveChanges();
 
                     nhanvien nvcansua = DTODB.db.nhanviens.Find(id);
@@ -107,9 +119,24 @@ namespace DAL_Quanly.Repository.NhanVien
             }
         }
 
-        public void xoa(int id)
+        public bool xoa(int id)
         {
-            throw new NotImplementedException();
+            using (var transaction = DTODB.db.Database.BeginTransaction())
+            {
+                try
+                {
+                    DTODB.db.xoanhanvien(id);
+                    DTODB.db.SaveChanges();
+                    transaction.Commit();
+                    return true;
+                }
+                catch
+                {
+                    transaction.Rollback();
+                    MessageBox.Show("Đã có lỗi xảy ra");
+                    return false;
+                }
+            }
         }
     }
 }

@@ -22,7 +22,7 @@ namespace BUS_Quanly
             this._truyvan = truyVanNV;
         }
 
-        public List<nhanvien> hienthi()
+        public IEnumerable<dynamic> hienthi()
         {
             return _truyvan.getlist();
         }
@@ -68,7 +68,35 @@ namespace BUS_Quanly
             }
 
         }
-        
+
+
+        public bool suanv(int idnvcansua, string ten, string email, string sdt, string gioitinh, string diachi, DateTime nSinh, string tk, string mkmoi)
+        {
+            if (DTODB.db.nhanviens.Where(a => a.email == email) == null)
+            {
+
+                nhanvien nv = new nhanvien();
+                nv.ten = ten;
+                nv.email = email;
+                nv.sdt = sdt;
+                nv.gioitinh = gioitinh;
+                nv.diachi = diachi;
+                nv.ngaysinh = nSinh;
+                nv.taikhoan = tk;
+
+                return _truyvan.sua(idnvcansua, nv, mkmoi);
+            }
+            else
+            {
+                MessageBox.Show("Email bị trùng");
+                return false;
+            }
+        }
+
+        public bool Xoa(int idnvcanxoa)
+        {
+            return _truyvan.xoa(idnvcanxoa);
+        }
 
 
 

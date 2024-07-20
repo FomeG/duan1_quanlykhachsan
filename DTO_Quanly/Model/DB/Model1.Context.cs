@@ -12,6 +12,8 @@ namespace DTO_Quanly.Model.DB
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class DAQLKS : DbContext
     {
@@ -45,5 +47,14 @@ namespace DTO_Quanly.Model.DB
         public virtual DbSet<voucher> vouchers { get; set; }
         public virtual DbSet<hoadon_dichvu> hoadon_dichvu { get; set; }
         public virtual DbSet<hoadon_phong> hoadon_phong { get; set; }
+    
+        public virtual int xoanhanvien(Nullable<int> idnhanvien)
+        {
+            var idnhanvienParameter = idnhanvien.HasValue ?
+                new ObjectParameter("idnhanvien", idnhanvien) :
+                new ObjectParameter("idnhanvien", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("xoanhanvien", idnhanvienParameter);
+        }
     }
 }
