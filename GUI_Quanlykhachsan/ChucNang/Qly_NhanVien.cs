@@ -15,12 +15,6 @@ namespace GUI_Quanlykhachsan.ChucNang
             InitializeComponent();
             reload();
         }
-
-        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
-        {
-
-        }
-
         private void guna2Panel1_Paint(object sender, PaintEventArgs e)
         {
 

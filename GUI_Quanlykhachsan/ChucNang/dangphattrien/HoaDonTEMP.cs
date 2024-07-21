@@ -1,7 +1,6 @@
 ﻿using DTO_Quanly;
 using System;
 using System.Linq;
-using System.Runtime.Remoting.Contexts;
 using System.Windows.Forms;
 
 namespace GUI_Quanlykhachsan.ChucNang

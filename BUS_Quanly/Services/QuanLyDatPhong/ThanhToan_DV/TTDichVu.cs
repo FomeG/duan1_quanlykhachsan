@@ -1,12 +1,8 @@
 ﻿using DAL_Quanly.Repository.QuanLyDatPhong.ThanhToan;
-using DTO_Quanly;
 using DTO_Quanly.Model.DB;
 using DTO_Quanly.Model.NoiBang;
-using DTO_Quanly.Transfer;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Windows.Forms;
 
 namespace BUS_Quanly.Services.QuanLyDatPhong.ThanhToan_DV
 {

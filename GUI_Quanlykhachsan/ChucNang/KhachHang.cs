@@ -1,9 +1,7 @@
 ﻿using BUS_Quanly.Services.QuanLyDatPhong.DatTruoc_NhanP;
 using DTO_Quanly;
-using DTO_Quanly.Model.DB;
 using DTO_Quanly.Transfer;
 using System;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -21,7 +19,6 @@ namespace GUI_Quanlykhachsan.ChucNang
         private Point _dragCursorPoint;
         private Point _dragFormPoint;
         private string _duongdananh;
-
         public KhachHang(Action nhanphong, Action dattruoc)
         {
             InitializeComponent();
@@ -32,7 +29,6 @@ namespace GUI_Quanlykhachsan.ChucNang
 
             this.MouseDown += new MouseEventHandler(Form_MouseDown);
         }
-
         #region Kéo thả form
         // Dùng WinAPI để di chuyển form
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -54,7 +50,6 @@ namespace GUI_Quanlykhachsan.ChucNang
             }
         }
         #endregion
-
         #region Kéo thả form (controller)
         private void guna2GroupBox1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -65,7 +60,6 @@ namespace GUI_Quanlykhachsan.ChucNang
                 _dragFormPoint = Location;
             }
         }
-
         private void guna2GroupBox1_MouseMove(object sender, MouseEventArgs e)
         {
             if (_dragging)
@@ -74,13 +68,11 @@ namespace GUI_Quanlykhachsan.ChucNang
                 Location = Point.Add(_dragFormPoint, new Size(diff));
             }
         }
-
         private void guna2GroupBox1_MouseUp(object sender, MouseEventArgs e)
         {
             _dragging = false;
         }
         #endregion
-
         // Hàm validate form
         private bool checkthanhtoan()
         {
@@ -121,7 +113,6 @@ namespace GUI_Quanlykhachsan.ChucNang
             }
             return true;
         }
-
         // Hàm kiểm tra email bằng regex
         public static bool IsValidEmail(string email)
         {
@@ -137,7 +128,6 @@ namespace GUI_Quanlykhachsan.ChucNang
                 return false;
             }
         }
-
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             if (checkthanhtoan())
@@ -163,7 +153,6 @@ namespace GUI_Quanlykhachsan.ChucNang
                 }
             }
         }
-
         // Nút nhận phòng
         private void guna2Button3_Click(object sender, EventArgs e)
         {
@@ -191,11 +180,9 @@ namespace GUI_Quanlykhachsan.ChucNang
                 }
             }
         }
-
         private void label9_Click(object sender, EventArgs e)
         {
         }
-
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             OpenFileDialog lam = new OpenFileDialog();
@@ -205,7 +192,6 @@ namespace GUI_Quanlykhachsan.ChucNang
                 _duongdananh = lam.FileName;
             }
         }
-
         private void txtKhachThanhToan_TextChanged(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtKhachThanhToan.Text))
@@ -223,7 +209,6 @@ namespace GUI_Quanlykhachsan.ChucNang
                 }
             }
         }
-
         private void BtnDatThem_Click(object sender, EventArgs e)
         {
             Close();

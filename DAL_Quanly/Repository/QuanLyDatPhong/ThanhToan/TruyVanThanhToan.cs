@@ -1,11 +1,8 @@
 ﻿using DTO_Quanly;
 using DTO_Quanly.Model.DB;
 using DTO_Quanly.Model.NoiBang;
-using DTO_Quanly.Transfer;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Windows.Forms;
 
 namespace DAL_Quanly.Repository.QuanLyDatPhong.ThanhToan
 {
@@ -13,7 +10,7 @@ namespace DAL_Quanly.Repository.QuanLyDatPhong.ThanhToan
     {
         public TruyVanThanhToan()
         {
-                
+
         }
         public List<dichvu> truyendichvu()
         {

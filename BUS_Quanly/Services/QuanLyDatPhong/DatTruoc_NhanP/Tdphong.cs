@@ -1,12 +1,7 @@
 ﻿using DAL_Quanly.Repository.QuanLyDatPhong.KhachHang;
-using DTO_Quanly.Model.DB;
-using DTO_Quanly.Transfer;
 using DTO_Quanly;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BUS_Quanly.Services.QuanLyDatPhong.DatTruoc_NhanP

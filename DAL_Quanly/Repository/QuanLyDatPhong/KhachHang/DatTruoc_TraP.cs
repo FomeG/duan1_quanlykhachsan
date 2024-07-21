@@ -1,14 +1,9 @@
-﻿using DAL_Quanly.Repository.NhanVien;
-using DTO_Quanly;
+﻿using DTO_Quanly;
 using DTO_Quanly.Model.DB;
 using DTO_Quanly.Transfer;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace DAL_Quanly.Repository.QuanLyDatPhong.KhachHang
 {

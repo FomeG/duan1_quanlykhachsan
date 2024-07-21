@@ -1,10 +1,10 @@
-﻿using DTO_Quanly;
+﻿using BUS_Quanly.Services.QuanLyDatPhong.Phong;
+using DTO_Quanly;
 using DTO_Quanly.Transfer;
 using System;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using BUS_Quanly.Services.QuanLyDatPhong.Phong;
 
 namespace GUI_Quanlykhachsan.ChucNang
 {
