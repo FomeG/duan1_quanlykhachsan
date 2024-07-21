@@ -14,19 +14,21 @@ namespace GUI_Quanlykhachsan.ChucNang
 {
     public partial class KhachHang : Form
     {
-        Tdphong _tdp = new Tdphong();
+        private readonly Tdphong _tdp = new Tdphong();
+        private readonly Action _dattruoc;
+        private readonly Action _nhanphong;
+        private bool _dragging;
+        private Point _dragCursorPoint;
+        private Point _dragFormPoint;
+        private string _duongdananh;
 
-        public Action dattruoc;
-        public Action nhanphong;
         public KhachHang(Action nhanphong, Action dattruoc)
         {
             InitializeComponent();
-            this.dattruoc = dattruoc;
-            this.nhanphong = nhanphong;
+            _dattruoc = dattruoc;
+            _nhanphong = nhanphong;
 
             tiencantra.Text = TDatPhong.TienPhong.ToString();
-
-
 
             this.MouseDown += new MouseEventHandler(Form_MouseDown);
         }
@@ -48,83 +50,76 @@ namespace GUI_Quanlykhachsan.ChucNang
             if (e.Button == MouseButtons.Left)
             {
                 ReleaseCapture();
-                SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
         #endregion
-        #region Kéo thả form (controller)
 
-        private bool dragging = false;
-        private Point dragCursorPoint;
-        private Point dragFormPoint;
+        #region Kéo thả form (controller)
         private void guna2GroupBox1_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
-                dragging = true;
-                dragCursorPoint = Cursor.Position;
-                dragFormPoint = this.Location;
+                _dragging = true;
+                _dragCursorPoint = Cursor.Position;
+                _dragFormPoint = Location;
             }
         }
 
         private void guna2GroupBox1_MouseMove(object sender, MouseEventArgs e)
         {
-            if (dragging)
+            if (_dragging)
             {
-                Point diff = Point.Subtract(Cursor.Position, new Size(dragCursorPoint));
-                this.Location = Point.Add(dragFormPoint, new Size(diff));
+                Point diff = Point.Subtract(Cursor.Position, new Size(_dragCursorPoint));
+                Location = Point.Add(_dragFormPoint, new Size(diff));
             }
         }
 
         private void guna2GroupBox1_MouseUp(object sender, MouseEventArgs e)
         {
-            dragging = false;
-
+            _dragging = false;
         }
         #endregion
 
         // Hàm validate form
-        public bool checkthanhtoan()
+        private bool checkthanhtoan()
         {
-            if (txtTen.Text.Trim() == "" || txtEmail.Text.Trim() == "")
+            if (string.IsNullOrWhiteSpace(txtTen.Text) || string.IsNullOrWhiteSpace(txtEmail.Text))
             {
                 MessageBox.Show("Không được để trống dữ liệu.", "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            else if (IsValidEmail(txtEmail.Text) == false)
+            if (!IsValidEmail(txtEmail.Text))
             {
                 MessageBox.Show("Email không hợp lệ!", "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            else if (txtSDT.Text != "" && !txtSDT.Text.All(char.IsDigit))
+            if (!string.IsNullOrEmpty(txtSDT.Text) && !txtSDT.Text.All(char.IsDigit))
             {
                 MessageBox.Show("Số điện thoại không hợp lệ!", "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            else if (!rdNam.Checked && !rdNu.Checked)
+            if (!rdNam.Checked && !rdNu.Checked)
             {
                 MessageBox.Show("Vui lòng chọn giới tính!", "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            else if (SoLuongNguoi.Value <= 0)
+            if (SoLuongNguoi.Value <= 0)
             {
                 MessageBox.Show("Số lượng người phải lớn hơn 0!", "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            else if (NgayDen.Value.Date < DateTime.Now.Date)
+            if (NgayDen.Value.Date < DateTime.Now.Date)
             {
                 MessageBox.Show("Ngày đến không được nhỏ hơn ngày hiện tại!", "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            else if (NgayDi.Value.Date <= NgayDen.Value.Date)
+            if (NgayDi.Value.Date <= NgayDen.Value.Date)
             {
                 MessageBox.Show("Ngày đi không được nhỏ hơn ngày đến!", "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            else
-            {
-                return true;
-            }
+            return true;
         }
 
         // Hàm kiểm tra email bằng regex
@@ -143,12 +138,8 @@ namespace GUI_Quanlykhachsan.ChucNang
             }
         }
 
-
-
-
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-
             if (checkthanhtoan())
             {
                 if (MessageBox.Show("Xác nhận đặt trước?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
@@ -163,9 +154,9 @@ namespace GUI_Quanlykhachsan.ChucNang
                     }
                     else
                     {
-                        if (_tdp.DatTruoc(txtTen.Text, txtEmail.Text, txtSDT.Text, rdNam.Checked ? true : false, txtDiaChi.Text, NgaySinh.Value.Date, duongdananh, txtKhachThanhToan.Text, NgayDen.Value.Date, NgayDi.Value.Date))
+                        if (_tdp.DatTruoc(txtTen.Text, txtEmail.Text, txtSDT.Text, rdNam.Checked, txtDiaChi.Text, NgaySinh.Value.Date, _duongdananh, txtKhachThanhToan.Text, NgayDen.Value.Date, NgayDi.Value.Date))
                         {
-                            dattruoc?.Invoke();
+                            _dattruoc?.Invoke();
                             Close();
                         }
                     }
@@ -173,19 +164,14 @@ namespace GUI_Quanlykhachsan.ChucNang
             }
         }
 
-
-
         // Nút nhận phòng
         private void guna2Button3_Click(object sender, EventArgs e)
         {
-
             if (checkthanhtoan())
             {
                 if (MessageBox.Show("Xác nhận đặt phòng?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-
                     // Thực hiện truy vấn
-
                     int soluongnguoitoida = (int)(from a in DTODB.db.phongs
                                                   join b in DTODB.db.loaiphongs on a.loaiphong equals b.idloaiphong
                                                   where a.idphong == TDatPhong.IdPhong
@@ -196,65 +182,44 @@ namespace GUI_Quanlykhachsan.ChucNang
                     }
                     else
                     {
-                        if (_tdp.DatPhong(txtTen.Text, txtEmail.Text, txtSDT.Text, rdNam.Checked ? true : false, txtDiaChi.Text, NgaySinh.Value.Date, duongdananh, txtKhachThanhToan.Text, NgayDen.Value.Date, NgayDi.Value.Date))
+                        if (_tdp.DatPhong(txtTen.Text, txtEmail.Text, txtSDT.Text, rdNam.Checked, txtDiaChi.Text, NgaySinh.Value.Date, _duongdananh, txtKhachThanhToan.Text, NgayDen.Value.Date, NgayDi.Value.Date))
                         {
-                            nhanphong?.Invoke();
+                            _nhanphong?.Invoke();
                             Close();
                         }
                     }
                 }
             }
-
-
-
         }
-
 
         private void label9_Click(object sender, EventArgs e)
         {
-
         }
 
-
-
-        public string duongdananh;
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             OpenFileDialog lam = new OpenFileDialog();
             if (lam.ShowDialog() == DialogResult.OK)
             {
-                anhkh.Image = System.Drawing.Image.FromFile(lam.FileName);
-                duongdananh = lam.FileName;
+                anhkh.Image = Image.FromFile(lam.FileName);
+                _duongdananh = lam.FileName;
             }
-        }
-        private void label4_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void txtKhachThanhToan_TextChanged(object sender, EventArgs e)
         {
-            if (txtKhachThanhToan.Text.Trim() == "")
+            if (string.IsNullOrWhiteSpace(txtKhachThanhToan.Text))
             {
-
             }
             else
             {
                 if (!decimal.TryParse(txtKhachThanhToan.Text.Trim(), out decimal Khachtra))
                 {
-
                     MessageBox.Show("Tiền không được chứa ký tự!", "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    if (Khachtra < TDatPhong.TienPhong)
-                    {
-                        txttientralai.Text = "0";
-                    }
-                    else
-                    {
-                        txttientralai.Text = (Khachtra - TDatPhong.TienPhong).ToString();
-                    }
+                    txttientralai.Text = (Khachtra < TDatPhong.TienPhong) ? "0" : (Khachtra - TDatPhong.TienPhong).ToString();
                 }
             }
         }
