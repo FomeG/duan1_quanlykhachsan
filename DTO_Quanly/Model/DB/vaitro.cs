@@ -11,7 +11,7 @@ namespace DTO_Quanly.Model.DB
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class vaitro
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,10 +19,10 @@ namespace DTO_Quanly.Model.DB
         {
             this.taikhoans = new HashSet<taikhoan>();
         }
-    
+
         public int id { get; set; }
         public string vaitro1 { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<taikhoan> taikhoans { get; set; }
     }

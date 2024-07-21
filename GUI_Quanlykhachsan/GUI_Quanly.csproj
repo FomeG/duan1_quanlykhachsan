@@ -211,7 +211,6 @@
     <Compile Include="ChucNang\Voucher.Designer.cs">
       <DependentUpon>Voucher.cs</DependentUpon>
     </Compile>
-    <Compile Include="DuLieu.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>

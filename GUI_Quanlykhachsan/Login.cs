@@ -1,9 +1,11 @@
 ﻿using BUS_Quanly.Services.LoginLogout;
 using DTO_Quanly;
+using DTO_Quanly.Model.DB;
 using DTO_Quanly.Transfer;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Text;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -77,14 +79,25 @@ namespace GUI_Quanlykhachsan
                 var trangChu = new TrangChu();
                 if (DangNhap.VaiTro(txttk.Text) == 1)
                 {
-                    DuLieu.vaitro = 1;
+                    // Admin
                     trangChu.Username.Text = "ADMIN";
+                    TDatPhong.IDNV = 1;
+                    TDatPhong.VaiTro = 1;
+                }
+                else if (DangNhap.VaiTro(txttk.Text) == 2)
+                {
+                    // Quản lý
+                    var nhanVien = DTODB.db.nhanviens.FirstOrDefault(a => a.taikhoan == txttk.Text);
+                    trangChu.Username.Text = nhanVien?.ten?.ToString() ?? string.Empty;
+                    TDatPhong.IDNV = 1;
+                    TDatPhong.VaiTro = 2;
                 }
                 else
                 {
+                    // Nhân viên
                     var nhanVien = DTODB.db.nhanviens.FirstOrDefault(a => a.taikhoan == txttk.Text);
                     TDatPhong.IDNV = nhanVien?.idnv ?? 0;
-                    DuLieu.vaitro = 2;
+                    TDatPhong.VaiTro = 3;
                     trangChu.Username.Text = nhanVien?.ten?.ToString() ?? string.Empty;
                 }
                 trangChu.FormClosed += (a, b) => this.Show();

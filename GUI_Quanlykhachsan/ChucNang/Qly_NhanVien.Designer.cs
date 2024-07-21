@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtten = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtemail = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtsdt = new Guna.UI2.WinForms.Guna2TextBox();
@@ -61,6 +61,9 @@
             this.guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.NgaySinhPicker = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.labelVaiTro = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.CbVaitro = new Guna.UI2.WinForms.Guna2ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.gview1)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             this.guna2GroupBox1.SuspendLayout();
@@ -86,7 +89,7 @@
             this.txtten.PasswordChar = '\0';
             this.txtten.PlaceholderText = "";
             this.txtten.SelectedText = "";
-            this.txtten.Size = new System.Drawing.Size(157, 18);
+            this.txtten.Size = new System.Drawing.Size(233, 18);
             this.txtten.TabIndex = 1;
             // 
             // txtemail
@@ -109,7 +112,7 @@
             this.txtemail.PasswordChar = '\0';
             this.txtemail.PlaceholderText = "";
             this.txtemail.SelectedText = "";
-            this.txtemail.Size = new System.Drawing.Size(157, 18);
+            this.txtemail.Size = new System.Drawing.Size(233, 18);
             this.txtemail.TabIndex = 1;
             // 
             // txtsdt
@@ -132,7 +135,7 @@
             this.txtsdt.PasswordChar = '\0';
             this.txtsdt.PlaceholderText = "";
             this.txtsdt.SelectedText = "";
-            this.txtsdt.Size = new System.Drawing.Size(157, 18);
+            this.txtsdt.Size = new System.Drawing.Size(233, 18);
             this.txtsdt.TabIndex = 1;
             // 
             // txttk
@@ -289,7 +292,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(385, 44);
+            this.label6.Location = new System.Drawing.Point(385, 45);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(65, 17);
@@ -300,7 +303,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(386, 68);
+            this.label7.Location = new System.Drawing.Point(386, 69);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(64, 17);
@@ -337,7 +340,7 @@
             this.txttimkiem.PasswordChar = '\0';
             this.txttimkiem.PlaceholderText = "";
             this.txttimkiem.SelectedText = "";
-            this.txttimkiem.Size = new System.Drawing.Size(290, 36);
+            this.txttimkiem.Size = new System.Drawing.Size(522, 36);
             this.txttimkiem.TabIndex = 19;
             // 
             // label9
@@ -368,7 +371,7 @@
             this.txtdiachi.PasswordChar = '\0';
             this.txtdiachi.PlaceholderText = "Địa chỉ";
             this.txtdiachi.SelectedText = "";
-            this.txtdiachi.Size = new System.Drawing.Size(290, 84);
+            this.txtdiachi.Size = new System.Drawing.Size(233, 52);
             this.txtdiachi.TabIndex = 21;
             // 
             // bunifuElipse1
@@ -379,45 +382,45 @@
             // gview1
             // 
             this.gview1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.gview1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.gview1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
             this.gview1.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gview1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gview1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.gview1.ColumnHeadersHeight = 25;
             this.gview1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gview1.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gview1.DefaultCellStyle = dataGridViewCellStyle23;
             this.gview1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.gview1.Location = new System.Drawing.Point(12, 309);
             this.gview1.MultiSelect = false;
             this.gview1.Name = "gview1";
             this.gview1.ReadOnly = true;
             this.gview1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gview1.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gview1.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
             this.gview1.RowHeadersVisible = false;
             this.gview1.Size = new System.Drawing.Size(968, 229);
             this.gview1.TabIndex = 18;
@@ -450,18 +453,17 @@
             this.guna2Panel1.Controls.Add(this.guna2GradientButton2);
             this.guna2Panel1.Controls.Add(this.guna2GradientButton3);
             this.guna2Panel1.Controls.Add(this.guna2GradientButton1);
-            this.guna2Panel1.Location = new System.Drawing.Point(730, 20);
+            this.guna2Panel1.Location = new System.Drawing.Point(737, 20);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(148, 207);
+            this.guna2Panel1.Size = new System.Drawing.Size(216, 272);
             this.guna2Panel1.TabIndex = 17;
-            this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
             // guna2GradientButton4
             // 
             this.guna2GradientButton4.Animated = true;
             this.guna2GradientButton4.AutoRoundedCorners = true;
             this.guna2GradientButton4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.guna2GradientButton4.BorderRadius = 17;
+            this.guna2GradientButton4.BorderRadius = 22;
             this.guna2GradientButton4.BorderThickness = 1;
             this.guna2GradientButton4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2GradientButton4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -477,11 +479,11 @@
             this.guna2GradientButton4.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.guna2GradientButton4.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.guna2GradientButton4.HoverState.ForeColor = System.Drawing.Color.White;
-            this.guna2GradientButton4.Location = new System.Drawing.Point(2, 125);
+            this.guna2GradientButton4.Location = new System.Drawing.Point(3, 161);
             this.guna2GradientButton4.Margin = new System.Windows.Forms.Padding(2);
             this.guna2GradientButton4.Name = "guna2GradientButton4";
             this.guna2GradientButton4.PressedColor = System.Drawing.Color.IndianRed;
-            this.guna2GradientButton4.Size = new System.Drawing.Size(135, 37);
+            this.guna2GradientButton4.Size = new System.Drawing.Size(181, 46);
             this.guna2GradientButton4.TabIndex = 15;
             this.guna2GradientButton4.Text = "Tải lại";
             this.guna2GradientButton4.Click += new System.EventHandler(this.guna2GradientButton4_Click);
@@ -491,7 +493,7 @@
             this.guna2GradientButton2.Animated = true;
             this.guna2GradientButton2.AutoRoundedCorners = true;
             this.guna2GradientButton2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.guna2GradientButton2.BorderRadius = 17;
+            this.guna2GradientButton2.BorderRadius = 20;
             this.guna2GradientButton2.BorderThickness = 1;
             this.guna2GradientButton2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2GradientButton2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -507,11 +509,11 @@
             this.guna2GradientButton2.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.guna2GradientButton2.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.guna2GradientButton2.HoverState.ForeColor = System.Drawing.Color.White;
-            this.guna2GradientButton2.Location = new System.Drawing.Point(2, 43);
+            this.guna2GradientButton2.Location = new System.Drawing.Point(3, 114);
             this.guna2GradientButton2.Margin = new System.Windows.Forms.Padding(2);
             this.guna2GradientButton2.Name = "guna2GradientButton2";
             this.guna2GradientButton2.PressedColor = System.Drawing.Color.IndianRed;
-            this.guna2GradientButton2.Size = new System.Drawing.Size(135, 37);
+            this.guna2GradientButton2.Size = new System.Drawing.Size(181, 43);
             this.guna2GradientButton2.TabIndex = 13;
             this.guna2GradientButton2.Text = "Sửa";
             this.guna2GradientButton2.Click += new System.EventHandler(this.guna2GradientButton2_Click);
@@ -521,7 +523,7 @@
             this.guna2GradientButton3.Animated = true;
             this.guna2GradientButton3.AutoRoundedCorners = true;
             this.guna2GradientButton3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.guna2GradientButton3.BorderRadius = 17;
+            this.guna2GradientButton3.BorderRadius = 20;
             this.guna2GradientButton3.BorderThickness = 1;
             this.guna2GradientButton3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2GradientButton3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -537,11 +539,11 @@
             this.guna2GradientButton3.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.guna2GradientButton3.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.guna2GradientButton3.HoverState.ForeColor = System.Drawing.Color.White;
-            this.guna2GradientButton3.Location = new System.Drawing.Point(2, 84);
+            this.guna2GradientButton3.Location = new System.Drawing.Point(3, 67);
             this.guna2GradientButton3.Margin = new System.Windows.Forms.Padding(2);
             this.guna2GradientButton3.Name = "guna2GradientButton3";
             this.guna2GradientButton3.PressedColor = System.Drawing.Color.IndianRed;
-            this.guna2GradientButton3.Size = new System.Drawing.Size(135, 37);
+            this.guna2GradientButton3.Size = new System.Drawing.Size(181, 43);
             this.guna2GradientButton3.TabIndex = 14;
             this.guna2GradientButton3.Text = "Xoá";
             this.guna2GradientButton3.Click += new System.EventHandler(this.guna2GradientButton3_Click);
@@ -551,7 +553,7 @@
             this.guna2GradientButton1.Animated = true;
             this.guna2GradientButton1.AutoRoundedCorners = true;
             this.guna2GradientButton1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.guna2GradientButton1.BorderRadius = 17;
+            this.guna2GradientButton1.BorderRadius = 21;
             this.guna2GradientButton1.BorderThickness = 1;
             this.guna2GradientButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2GradientButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -567,11 +569,11 @@
             this.guna2GradientButton1.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.guna2GradientButton1.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.guna2GradientButton1.HoverState.ForeColor = System.Drawing.Color.White;
-            this.guna2GradientButton1.Location = new System.Drawing.Point(2, 2);
+            this.guna2GradientButton1.Location = new System.Drawing.Point(3, 18);
             this.guna2GradientButton1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2GradientButton1.Name = "guna2GradientButton1";
             this.guna2GradientButton1.PressedColor = System.Drawing.Color.IndianRed;
-            this.guna2GradientButton1.Size = new System.Drawing.Size(135, 37);
+            this.guna2GradientButton1.Size = new System.Drawing.Size(181, 45);
             this.guna2GradientButton1.TabIndex = 12;
             this.guna2GradientButton1.Text = "Thêm";
             this.guna2GradientButton1.Click += new System.EventHandler(this.guna2GradientButton1_Click);
@@ -580,6 +582,8 @@
             // 
             this.guna2GroupBox1.BorderColor = System.Drawing.Color.Silver;
             this.guna2GroupBox1.BorderRadius = 12;
+            this.guna2GroupBox1.Controls.Add(this.CbVaitro);
+            this.guna2GroupBox1.Controls.Add(this.labelVaiTro);
             this.guna2GroupBox1.Controls.Add(this.NgaySinhPicker);
             this.guna2GroupBox1.Controls.Add(this.txtdiachi);
             this.guna2GroupBox1.Controls.Add(this.guna2Panel1);
@@ -595,6 +599,7 @@
             this.guna2GroupBox1.Controls.Add(this.txtmk2);
             this.guna2GroupBox1.Controls.Add(this.label6);
             this.guna2GroupBox1.Controls.Add(this.label1);
+            this.guna2GroupBox1.Controls.Add(this.label11);
             this.guna2GroupBox1.Controls.Add(this.label5);
             this.guna2GroupBox1.Controls.Add(this.label2);
             this.guna2GroupBox1.Controls.Add(this.label4);
@@ -613,16 +618,58 @@
             // 
             // NgaySinhPicker
             // 
+            this.NgaySinhPicker.Animated = true;
+            this.NgaySinhPicker.AutoRoundedCorners = true;
+            this.NgaySinhPicker.BorderRadius = 12;
             this.NgaySinhPicker.Checked = true;
+            this.NgaySinhPicker.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.NgaySinhPicker.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.NgaySinhPicker.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.NgaySinhPicker.Location = new System.Drawing.Point(419, 148);
+            this.NgaySinhPicker.Location = new System.Drawing.Point(97, 201);
             this.NgaySinhPicker.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.NgaySinhPicker.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.NgaySinhPicker.Name = "NgaySinhPicker";
-            this.NgaySinhPicker.Size = new System.Drawing.Size(200, 36);
+            this.NgaySinhPicker.Size = new System.Drawing.Size(233, 26);
             this.NgaySinhPicker.TabIndex = 22;
             this.NgaySinhPicker.Value = new System.DateTime(2024, 7, 19, 13, 39, 46, 557);
+            // 
+            // labelVaiTro
+            // 
+            this.labelVaiTro.AutoSize = true;
+            this.labelVaiTro.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.labelVaiTro.Location = new System.Drawing.Point(399, 125);
+            this.labelVaiTro.Name = "labelVaiTro";
+            this.labelVaiTro.Size = new System.Drawing.Size(51, 17);
+            this.labelVaiTro.TabIndex = 23;
+            this.labelVaiTro.Text = "Vai trò:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(21, 207);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(67, 17);
+            this.label11.TabIndex = 9;
+            this.label11.Text = "Ngày sinh:";
+            // 
+            // CbVaitro
+            // 
+            this.CbVaitro.AutoRoundedCorners = true;
+            this.CbVaitro.BackColor = System.Drawing.Color.Transparent;
+            this.CbVaitro.BorderRadius = 17;
+            this.CbVaitro.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.CbVaitro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbVaitro.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.CbVaitro.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.CbVaitro.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.CbVaitro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.CbVaitro.ItemHeight = 30;
+            this.CbVaitro.Location = new System.Drawing.Point(462, 124);
+            this.CbVaitro.Name = "CbVaitro";
+            this.CbVaitro.Size = new System.Drawing.Size(157, 36);
+            this.CbVaitro.TabIndex = 24;
             // 
             // Qly_NhanVien
             // 
@@ -674,5 +721,8 @@
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton1;
         private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
         private Guna.UI2.WinForms.Guna2DateTimePicker NgaySinhPicker;
+        private System.Windows.Forms.Label labelVaiTro;
+        private System.Windows.Forms.Label label11;
+        private Guna.UI2.WinForms.Guna2ComboBox CbVaitro;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using DTO_Quanly;
 using DTO_Quanly.Model.DB;
+using DTO_Quanly.Transfer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,42 +13,68 @@ namespace DAL_Quanly.Repository.NhanVien
 
         public IEnumerable<dynamic> getlist()
         {
-            var listnhanvien = from a in DTODB.db.nhanviens.ToList()
-                               select new
-                               {
-                                   Ten = a.ten,
-                                   Email = a.email,
-                                   SDT = a.sdt,
-                                   Gioitinh = a.gioitinh,
-                                   Diachi = a.diachi,
-                                   Ngaysinh = a.ngaysinh,
-                                   Taikhoan = a.taikhoan,
-                               };
-            return listnhanvien.ToList();
+            // Nếu là quản lý thì sẽ xem được nhân viên nhưng không thể xem được admin
+            if (TDatPhong.VaiTro == 2)
+            {
+                var listnhanvien = from a in DTODB.db.nhanviens.ToList()
+                                   join b in DTODB.db.taikhoans.ToList()
+                               on a.taikhoan equals b.taikhoan1
+                                   join c in DTODB.db.vaitroes.ToList()
+                                   on b.loaitk equals c.id
+                                   where b.loaitk == 3
+                                   select new
+                                   {
+                                       Ten = a.ten,
+                                       Email = a.email,
+                                       SDT = a.sdt,
+                                       Gioitinh = a.gioitinh,
+                                       Diachi = a.diachi,
+                                       Ngaysinh = a.ngaysinh,
+                                       Taikhoan = a.taikhoan,
+                                       Vaitro = c.vaitro1
+                                   };
+                return listnhanvien.ToList();
+
+            }
+            else
+            {
+                var listnhanvien = from a in DTODB.db.nhanviens.ToList()
+                                   join b in DTODB.db.taikhoans.ToList()
+                               on a.taikhoan equals b.taikhoan1
+                                   join c in DTODB.db.vaitroes.ToList()
+                                   on b.loaitk equals c.id
+                                   where b.loaitk == 2 || b.loaitk == 3
+                                   select new
+                                   {
+                                       Ten = a.ten,
+                                       Email = a.email,
+                                       SDT = a.sdt,
+                                       Gioitinh = a.gioitinh,
+                                       Diachi = a.diachi,
+                                       Ngaysinh = a.ngaysinh,
+                                       Taikhoan = a.taikhoan,
+                                       Vaitro = c.vaitro1,
+                                   };
+                return listnhanvien.ToList();
+            }
         }
 
-        public List<nhanvien> getlistbyid(int id)
+        public List<vaitro> listvaitro()
         {
-            throw new NotImplementedException();
-        }
-
-        public void sua(int id, nhanvien nhanvien)
-        {
-            throw new NotImplementedException();
+            return DTODB.db.vaitroes.ToList();
         }
 
         public bool them(nhanvien nv, taikhoan tk)
         {
             using (var transaction = DTODB.db.Database.BeginTransaction())
             {
-
                 try
                 {
                     taikhoan tkmoi = new taikhoan()
                     {
                         taikhoan1 = tk.taikhoan1,
                         matkhau = tk.matkhau,
-                        loaitk = 2
+                        loaitk = tk.loaitk,
                     };
 
                     DTODB.db.taikhoans.Add(tkmoi);
@@ -80,8 +107,6 @@ namespace DAL_Quanly.Repository.NhanVien
             }
 
         }
-
-
         public bool sua(int id, nhanvien nv, string mkmoi)
         {
             using (var transaction = DTODB.db.Database.BeginTransaction())
@@ -115,7 +140,6 @@ namespace DAL_Quanly.Repository.NhanVien
 
             }
         }
-
         public bool xoa(int id)
         {
             using (var transaction = DTODB.db.Database.BeginTransaction())

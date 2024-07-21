@@ -1,4 +1,5 @@
 ﻿using BUS_Quanly.Services.QuanLyDatPhong.ThanhToan_DV;
+using DTO_Quanly.Transfer;
 using GUI_Quanlykhachsan.ChucNang;
 using GUI_Quanlykhachsan.ChucNang.ADMIN;
 using GUI_Quanlykhachsan.ChucNang.Tai_Khoan;
@@ -19,6 +20,7 @@ namespace GUI_Quanlykhachsan
         {
             InitializeComponent();
             this.MouseDown += new MouseEventHandler(Form_MouseDown);
+
         }
 
         #region Kéo thả form
@@ -39,8 +41,12 @@ namespace GUI_Quanlykhachsan
 
         private void TrangChu_Load(object sender, EventArgs e)
         {
-            label1.Text = DuLieu.vaitro == 1 ? "Đây là admin" : "Đây là nhân viên !    -    Nhân viên sẽ không sử dụng được quản lý nhân viên.";
+            label1.Text = TDatPhong.VaiTro == 1 ? "Đây là admin" : TDatPhong.VaiTro == 3 ? "Đây là nhân viên !    -    Nhân viên sẽ không sử dụng được quản lý nhân viên." : "Đây là quản lý !    -    Quản lý sẽ xem được danh sách nhân viên.";
             container.Controls.Clear();
+            if (TDatPhong.VaiTro == 3)
+            {
+                btnQLNV.Enabled = false;
+            }
         }
 
         private void TrangChu_FormClosing_1(object sender, FormClosingEventArgs e)

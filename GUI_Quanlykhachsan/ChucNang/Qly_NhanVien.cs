@@ -1,5 +1,6 @@
 ﻿using BUS_Quanly;
 using DTO_Quanly;
+using DTO_Quanly.Transfer;
 using System;
 using System.ComponentModel;
 using System.Linq;
@@ -14,10 +15,21 @@ namespace GUI_Quanlykhachsan.ChucNang
         {
             InitializeComponent();
             reload();
-        }
-        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
+            if (TDatPhong.VaiTro != 1)
+            {
+                CbVaitro.Enabled = false;
+                CbVaitro.SelectedIndex = -1;
+                CbVaitro.Visible = false;
+                labelVaiTro.Enabled = false;
+                labelVaiTro.Visible = false;
+            }
+            else
+            {
+                foreach (var item in bus_nhanvien.listvt())
+                {
+                    CbVaitro.Items.Add(item.vaitro1);
+                }
+            }
         }
 
         // Hàm tải lại trang
@@ -29,7 +41,6 @@ namespace GUI_Quanlykhachsan.ChucNang
         // Nút tải lại trang
         public void loadtrang()
         {
-            gview1.DataSource = bus_nhanvien.hienthi().ToList();
             txtten.Text = "";
             txtemail.Text = "";
             rdnam.Checked = false;
@@ -45,6 +56,7 @@ namespace GUI_Quanlykhachsan.ChucNang
         {
             txttk.Enabled = true;
             reload();
+            loadtrang();
         }
 
         private void Qly_NhanVien_Load(object sender, System.EventArgs e)
@@ -55,35 +67,68 @@ namespace GUI_Quanlykhachsan.ChucNang
         // validate nhân viên
         public bool checktrong()
         {
-            if (txtten.Text.Trim() == "" || txtsdt.Text.Trim() == "")
+            if (string.IsNullOrWhiteSpace(txtten.Text) || string.IsNullOrWhiteSpace(txtsdt.Text))
             {
                 MessageBox.Show("Không được để trống tên hoặc sdt");
                 return false;
             }
-            else if (!rdnam.Checked && !rdnu.Checked)
+            if (!rdnam.Checked && !rdnu.Checked)
             {
                 MessageBox.Show("Vui lòng chọn giới tính");
                 return false;
             }
-            else if (!txtsdt.Text.All(char.IsDigit))
+            if (!IsDigitsOnly(txtsdt.Text))
             {
                 MessageBox.Show("Số điện thoại không được chứa chữ!");
                 return false;
             }
-            else if (txttk.Text.Trim() == "" || txtmk.Text.Trim() == "")
+            if (string.IsNullOrWhiteSpace(txttk.Text) || string.IsNullOrWhiteSpace(txtmk.Text))
             {
                 MessageBox.Show("Không được để trống tk hoặc mật khẩu!");
                 return false;
             }
-            else if (txttk.Text.Trim() != "" && txtmk.Text.Trim() != "" && txtmk.Text != txtmk2.Text)
+            if (txtmk.Text != txtmk2.Text)
             {
                 MessageBox.Show("Mật khẩu nhập lại không trùng!");
                 return false;
             }
-            else
+            return true;
+        }
+
+        public bool checktrongSua()
+        {
+            if (string.IsNullOrWhiteSpace(txtten.Text) || string.IsNullOrWhiteSpace(txtsdt.Text))
             {
-                return true;
+                MessageBox.Show("Không được để trống tên hoặc sdt");
+                return false;
             }
+            if (!rdnam.Checked && !rdnu.Checked)
+            {
+                MessageBox.Show("Vui lòng chọn giới tính");
+                return false;
+            }
+            if (!IsDigitsOnly(txtsdt.Text))
+            {
+                MessageBox.Show("Số điện thoại không được chứa chữ!");
+                return false;
+            }
+            if (!string.IsNullOrEmpty(txtmk.Text) && txtmk.Text != txtmk2.Text)
+            {
+                MessageBox.Show("Mật khẩu nhập lại không trùng!");
+                return false;
+            }
+            return true;
+        }
+
+        // Hàm check chuỗi có phải 1 số hay không, sau này bảo trì có thể thay đổi thay vì dùng mỗi char.isdigit
+        private bool IsDigitsOnly(string str)
+        {
+            foreach (char c in str)
+            {
+                if (c < '0' || c > '9')
+                    return false;
+            }
+            return true;
         }
         private void guna2GradientButton1_Click(object sender, System.EventArgs e)
         {
@@ -95,7 +140,7 @@ namespace GUI_Quanlykhachsan.ChucNang
                     gioitinh = "Nam";
                 }
                 else gioitinh = "Nữ";
-                if (bus_nhanvien.addnv(txtten.Text, txtemail.Text, txtsdt.Text, gioitinh, txtdiachi.Text, NgaySinhPicker.Value.Date, txttk.Text, txtmk.Text))
+                if (bus_nhanvien.addnv(txtten.Text, txtemail.Text, txtsdt.Text, gioitinh, txtdiachi.Text, NgaySinhPicker.Value.Date, txttk.Text, txtmk.Text, TDatPhong.VaiTro != 1 ? 3 : (CbVaitro.SelectedIndex + 1) == 0 ? 3 : CbVaitro.SelectedIndex + 1))
                 {
                     MessageBox.Show("Thêm thành công!");
                     reload();
@@ -116,11 +161,14 @@ namespace GUI_Quanlykhachsan.ChucNang
             {
                 rdnam.Checked = true;
             }
-            else rdnu.Checked = false;
-
+            else rdnu.Checked = true;
             txtdiachi.Text = dong.Cells[4].Value.ToString();
             NgaySinhPicker.Value = (DateTime)dong.Cells[5].Value;
             txttk.Text = dong.Cells[6].Value.ToString();
+            if(TDatPhong.VaiTro == 1)
+            {
+                CbVaitro.SelectedItem = dong.Cells[7].Value.ToString();
+            }
 
 
         }
@@ -133,7 +181,7 @@ namespace GUI_Quanlykhachsan.ChucNang
             }
             else
             {
-                if (checktrong())
+                if (checktrongSua())
                 {
                     if (MessageBox.Show("Có chắc chắn muốn sửa?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
@@ -146,8 +194,6 @@ namespace GUI_Quanlykhachsan.ChucNang
                         }
                     }
                 }
-
-
 
             }
         }

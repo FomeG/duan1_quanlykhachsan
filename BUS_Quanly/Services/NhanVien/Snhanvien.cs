@@ -27,9 +27,13 @@ namespace BUS_Quanly
             return _truyvan.getlist();
         }
 
+        public List<vaitro> listvt()
+        {
+            return _truyvan.listvaitro();
+        }
 
 
-        public bool addnv(string ten, string email, string sdt, string gioitinh, string diachi, DateTime ngaysinh, string tk, string matkhau)
+        public bool addnv(string ten, string email, string sdt, string gioitinh, string diachi, DateTime ngaysinh, string tk, string matkhau, int? vaitro)
         {
             if (DTODB.db.taikhoans.FirstOrDefault(p => p.taikhoan1 == tk) == null)
             {
@@ -40,7 +44,7 @@ namespace BUS_Quanly
                     {
                         taikhoan1 = tk,
                         matkhau = matkhau,
-                        loaitk = 2
+                        loaitk = vaitro ?? 3
                     };
 
                     nhanvien nvmoi = new nhanvien()

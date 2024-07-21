@@ -9,5 +9,9 @@
         public static int IDNV;
         public static int IDCHECKOUT;
         public static int IDCHECKIN;
+
+
+
+        public static int VaiTro;
     }
 }
