@@ -43,8 +43,8 @@ namespace GUI_Quanlykhachsan.ChucNang
         private void guna2GradientButton4_Click(object sender, EventArgs e)
         {
             txttk.Enabled = true;
-            reload();
             loadtrang();
+            reload();
         }
 
         private void Qly_NhanVien_Load(object sender, EventArgs e) { }
