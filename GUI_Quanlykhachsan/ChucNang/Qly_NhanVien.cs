@@ -2,7 +2,6 @@
 using DTO_Quanly;
 using DTO_Quanly.Transfer;
 using System;
-using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -15,54 +14,40 @@ namespace GUI_Quanlykhachsan.ChucNang
         {
             InitializeComponent();
             reload();
+            SetupVaiTro();
+        }
+
+        private void SetupVaiTro()
+        {
             if (TDatPhong.VaiTro != 1)
             {
-                CbVaitro.Enabled = false;
+                CbVaitro.Enabled = CbVaitro.Visible = labelVaiTro.Enabled = labelVaiTro.Visible = false;
                 CbVaitro.SelectedIndex = -1;
-                CbVaitro.Visible = false;
-                labelVaiTro.Enabled = false;
-                labelVaiTro.Visible = false;
             }
             else
             {
-                foreach (var item in bus_nhanvien.listvt())
-                {
-                    CbVaitro.Items.Add(item.vaitro1);
-                }
+                CbVaitro.Items.AddRange(bus_nhanvien.listvt().Select(item => item.vaitro1).ToArray());
             }
         }
 
         // Hàm tải lại trang
-        public void reload()
-        {
-            gview1.DataSource = bus_nhanvien.hienthi().ToList();
-        }
+        public void reload() => gview1.DataSource = bus_nhanvien.hienthi().ToList();
 
         // Nút tải lại trang
         public void loadtrang()
         {
-            txtten.Text = "";
-            txtemail.Text = "";
-            rdnam.Checked = false;
-            rdnu.Checked = false;
-            txttk.Text = "";
-            txtmk.Text = "";
-            txtmk2.Text = "";
-            txttimkiem.Text = "";
-            txtdiachi.Text = "";
-            txtsdt.Text = "";
+            txtten.Text = txtemail.Text = txttk.Text = txtmk.Text = txtmk2.Text = txttimkiem.Text = txtdiachi.Text = txtsdt.Text = "";
+            rdnam.Checked = rdnu.Checked = false;
         }
-        private void guna2GradientButton4_Click(object sender, System.EventArgs e)
+
+        private void guna2GradientButton4_Click(object sender, EventArgs e)
         {
             txttk.Enabled = true;
             reload();
             loadtrang();
         }
 
-        private void Qly_NhanVien_Load(object sender, System.EventArgs e)
-        {
-
-        }
+        private void Qly_NhanVien_Load(object sender, EventArgs e) { }
 
         // validate nhân viên
         public bool checktrong()
@@ -120,33 +105,24 @@ namespace GUI_Quanlykhachsan.ChucNang
             return true;
         }
 
+
+
+
         // Hàm check chuỗi có phải 1 số hay không, sau này bảo trì có thể thay đổi thay vì dùng mỗi char.isdigit
-        private bool IsDigitsOnly(string str)
-        {
-            foreach (char c in str)
-            {
-                if (c < '0' || c > '9')
-                    return false;
-            }
-            return true;
-        }
-        private void guna2GradientButton1_Click(object sender, System.EventArgs e)
+        private bool IsDigitsOnly(string str) => str.All(c => c >= '0' && c <= '9');
+
+        private void guna2GradientButton1_Click(object sender, EventArgs e)
         {
             if (checktrong())
             {
-                string gioitinh;
-                if (rdnam.Checked)
-                {
-                    gioitinh = "Nam";
-                }
-                else gioitinh = "Nữ";
-                if (bus_nhanvien.addnv(txtten.Text, txtemail.Text, txtsdt.Text, gioitinh, txtdiachi.Text, NgaySinhPicker.Value.Date, txttk.Text, txtmk.Text, TDatPhong.VaiTro != 1 ? 3 : (CbVaitro.SelectedIndex + 1) == 0 ? 3 : CbVaitro.SelectedIndex + 1))
+                string gioitinh = rdnam.Checked ? "Nam" : "Nữ";
+                int vaitro = TDatPhong.VaiTro != 1 ? 3 : (CbVaitro.SelectedIndex + 1) == 0 ? 3 : CbVaitro.SelectedIndex + 1;
+                if (bus_nhanvien.addnv(txtten.Text, txtemail.Text, txtsdt.Text, gioitinh, txtdiachi.Text, NgaySinhPicker.Value.Date, txttk.Text, txtmk.Text, vaitro))
                 {
                     MessageBox.Show("Thêm thành công!");
                     reload();
                 }
             }
-
         }
 
         private void gview1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -157,20 +133,15 @@ namespace GUI_Quanlykhachsan.ChucNang
             txtten.Text = dong.Cells[0].Value.ToString();
             txtemail.Text = dong.Cells[1].Value.ToString();
             txtsdt.Text = dong.Cells[2].Value.ToString();
-            if (dong.Cells[3].Value.ToString() == "Nam")
-            {
-                rdnam.Checked = true;
-            }
-            else rdnu.Checked = true;
+            rdnam.Checked = dong.Cells[3].Value.ToString() == "Nam";
+            rdnu.Checked = !rdnam.Checked;
             txtdiachi.Text = dong.Cells[4].Value.ToString();
             NgaySinhPicker.Value = (DateTime)dong.Cells[5].Value;
             txttk.Text = dong.Cells[6].Value.ToString();
-            if(TDatPhong.VaiTro == 1)
+            if (TDatPhong.VaiTro == 1)
             {
                 CbVaitro.SelectedItem = dong.Cells[7].Value.ToString();
             }
-
-
         }
 
         private void guna2GradientButton2_Click(object sender, EventArgs e)
@@ -179,22 +150,16 @@ namespace GUI_Quanlykhachsan.ChucNang
             {
                 MessageBox.Show("Vui lòng chọn dữ liệu cần sửa!");
             }
-            else
+            else if (checktrongSua() && MessageBox.Show("Có chắc chắn muốn sửa?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (checktrongSua())
+                int idnvcantim = DTODB.db.nhanviens.First(p => p.taikhoan == txttk.Text).idnv;
+                string gender = rdnam.Checked ? "Nam" : "Nữ";
+                int vaitro = TDatPhong.VaiTro != 1 ? 3 : (CbVaitro.SelectedIndex + 1) == 0 ? 3 : CbVaitro.SelectedIndex + 1;
+                if (bus_nhanvien.suanv(idnvcantim, txtten.Text, txtemail.Text, txtsdt.Text, gender, txtdiachi.Text, NgaySinhPicker.Value.Date, txttk.Text, txtmk.Text, vaitro))
                 {
-                    if (MessageBox.Show("Có chắc chắn muốn sửa?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        int idnvcantim = DTODB.db.nhanviens.FirstOrDefault(p => p.taikhoan == txttk.Text).idnv;
-                        string gender = rdnam.Checked ? "Nam" : "Nữ";
-                        if (bus_nhanvien.suanv(idnvcantim, txtten.Text, txtemail.Text, txtsdt.Text, gender, txtdiachi.Text, NgaySinhPicker.Value.Date, txttk.Text, txtmk.Text))
-                        {
-                            MessageBox.Show("Sửa thành công!");
-                            reload();
-                        }
-                    }
+                    MessageBox.Show("Sửa thành công!");
+                    reload();
                 }
-
             }
         }
 
@@ -204,21 +169,15 @@ namespace GUI_Quanlykhachsan.ChucNang
             {
                 MessageBox.Show("Vui lòng chọn dữ liệu cần xoá!");
             }
-            else
+            else if (MessageBox.Show("Có chắc chắn muốn xoá?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (MessageBox.Show("Có chắc chắn muốn xoá?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                int idnvcantim = DTODB.db.nhanviens.First(p => p.taikhoan == txttk.Text).idnv;
+                if (bus_nhanvien.Xoa(idnvcantim))
                 {
-                    int idnvcantim = DTODB.db.nhanviens.FirstOrDefault(p => p.taikhoan == txttk.Text).idnv;
-                    string gender = rdnam.Checked ? "Nam" : "Nữ";
-                    if (bus_nhanvien.Xoa(idnvcantim))
-                    {
-                        MessageBox.Show("Xoá thành công!");
-                        reload();
-                    }
+                    MessageBox.Show("Xoá thành công!");
+                    reload();
                 }
-
             }
         }
     }
 }
-

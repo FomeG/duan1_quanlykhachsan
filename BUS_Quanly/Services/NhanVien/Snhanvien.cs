@@ -74,7 +74,7 @@ namespace BUS_Quanly
         }
 
 
-        public bool suanv(int idnvcansua, string ten, string email, string sdt, string gioitinh, string diachi, DateTime nSinh, string tk, string mkmoi)
+        public bool suanv(int idnvcansua, string ten, string email, string sdt, string gioitinh, string diachi, DateTime nSinh, string tk, string mkmoi, int? loaitk)
         {
             if (DTODB.db.nhanviens.Where(a => a.email == email) == null)
             {
@@ -88,7 +88,7 @@ namespace BUS_Quanly
                 nv.ngaysinh = nSinh;
                 nv.taikhoan = tk;
 
-                return _truyvan.sua(idnvcansua, nv, mkmoi);
+                return _truyvan.sua(idnvcansua, nv, mkmoi, loaitk ?? 3);
             }
             else
             {

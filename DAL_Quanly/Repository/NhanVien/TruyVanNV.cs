@@ -107,7 +107,7 @@ namespace DAL_Quanly.Repository.NhanVien
             }
 
         }
-        public bool sua(int id, nhanvien nv, string mkmoi)
+        public bool sua(int id, nhanvien nv, string mkmoi, int? loai)
         {
             using (var transaction = DTODB.db.Database.BeginTransaction())
             {
@@ -116,7 +116,16 @@ namespace DAL_Quanly.Repository.NhanVien
                     var tkcantim = (from a in DTODB.db.nhanviens join b in DTODB.db.taikhoans on a.taikhoan equals b.taikhoan1 where a.idnv == id select a.taikhoan).FirstOrDefault();
 
                     taikhoan tkcansua = DTODB.db.taikhoans.Find(tkcantim);
-                    tkcansua.matkhau = mkmoi;
+                    if (mkmoi == "")
+                    {
+                        tkcansua.loaitk = loai ?? 3;
+                    }
+                    else
+                    {
+                        tkcansua.matkhau = mkmoi;
+                        tkcansua.loaitk = loai ?? 3;
+                    }
+
                     DTODB.db.SaveChanges();
 
                     nhanvien nvcansua = DTODB.db.nhanviens.Find(id);
@@ -127,6 +136,8 @@ namespace DAL_Quanly.Repository.NhanVien
                     nvcansua.diachi = nv.diachi;
                     nvcansua.ngaysinh = nv.ngaysinh;
                     nvcansua.taikhoan = nv.taikhoan;
+
+
 
                     DTODB.db.SaveChanges();
                     transaction.Commit();
