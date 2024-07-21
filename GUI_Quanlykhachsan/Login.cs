@@ -19,9 +19,9 @@ namespace GUI_Quanlykhachsan
             dataGridView1.DataSource = DTODB.db.taikhoans.ToList();
             for (int i = 0; i <= 23; i++)
             {
-                location[i] = $@"D:\Login Avatar animation\Login Avatar animation\animation\textbox_user_{i + 1}.jpg";
+                location[i] = $@"animation\textbox_user_{i + 1}.jpg";
             }
-            location[24] = @"D:\Login Avatar animation\Login Avatar animation\animation\debut.JPG";
+            location[24] = @"animation\debut.JPG";
 
             tounage();
         }
@@ -131,7 +131,7 @@ namespace GUI_Quanlykhachsan
 
         private void txtmk_Click(object sender, EventArgs e)
         {
-            Bitmap bmpass = new Bitmap(@"D:\Login Avatar animation\Login Avatar animation\animation\textbox_password.png");
+            Bitmap bmpass = new Bitmap(@"animation\textbox_password.png");
             pictureBox1.Image = bmpass;
         }
 
@@ -146,7 +146,7 @@ namespace GUI_Quanlykhachsan
         {
             if (e.KeyCode == Keys.Tab)
             {
-                Bitmap bmpass = new Bitmap(@"D:\Login Avatar animation\Login Avatar animation\animation\textbox_password.png");
+                Bitmap bmpass = new Bitmap(@"animation\textbox_password.png");
                 pictureBox1.Image = bmpass;
             }
         }
