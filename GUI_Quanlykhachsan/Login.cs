@@ -6,49 +6,47 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Drawing;
 using System.Collections.Generic;
-using System.Text;
 using System.Runtime.InteropServices;
+using System.IO;
 
 namespace GUI_Quanlykhachsan
 {
     public partial class Login : Form
     {
-        List<Image> images = new List<Image>();
-        string[] location = new string[25];
+        private readonly List<Image> images = new List<Image>();
+        private readonly string[] location = new string[25];
+
         public Login()
         {
             InitializeComponent();
             dataGridView1.DataSource = DTODB.db.taikhoans.ToList();
-            for (int i = 0; i <= 23; i++)
-            {
-                location[i] = $@"_Animation\textbox_user_{i + 1}.jpg";
-            }
-            location[24] = @"_Animation\debut.JPG";
-
-            tounage();
+            InitializeImageLocations();
+            LoadImages();
+            this.MouseDown += Form_MouseDown;
         }
-        private void tounage()
+
+        private void InitializeImageLocations()
         {
-            for (int i = 0; i <= 24; i++)
+            for (int i = 0; i < 24; i++)
             {
-                Bitmap bitmap = new Bitmap(location[i]);
-                images.Add(bitmap);
+                location[i] = Path.Combine("_Animation", $"textbox_user_{i + 1}.jpg");
+            }
+            location[24] = Path.Combine("_Animation", "debut.JPG");
+        }
+
+        private void LoadImages()
+        {
+            foreach (var path in location)
+            {
+                if (File.Exists(path))
+                {
+                    images.Add(Image.FromFile(path));
+                }
             }
             images.Add(Properties.Resources.textbox_user_24);
         }
 
-        public bool check()
-        {
-            if (txttk.Text.Trim() == "" || txtmk.Text.Trim() == "")
-            {
-                MessageBox.Show("Không được để trống");
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
+        public bool check() => !(string.IsNullOrWhiteSpace(txttk.Text) || string.IsNullOrWhiteSpace(txtmk.Text));
 
         #region Kéo thả form
         [DllImport("User32.dll")]
@@ -66,107 +64,75 @@ namespace GUI_Quanlykhachsan
         }
         #endregion
 
-        // Nút đăng nhập
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            if (check())
+            if (!check())
             {
-                // truyền qua BUS để kiểm tra xem tài khoản mật khẩu có hợp lệ không
-                if (DangNhap.KetQua(txttk.Text, txtmk.Text))
+                MessageBox.Show("Không được để trống");
+                return;
+            }
+
+            if (DangNhap.KetQua(txttk.Text, txtmk.Text))
+            {
+                var trangChu = new TrangChu();
+                if (DangNhap.VaiTro(txttk.Text) == 1)
                 {
-                    TrangChu trangChu = new TrangChu();
-                    // nếu vai trò = 1 (admin) thì in label admin
-                    if (DangNhap.VaiTro(txttk.Text) == 1)
-                    {
-                        DuLieu.vaitro = 1;
-                        trangChu.Username.Text = "ADMIN";
-                    }
-                    // nếu vai trò = 2 (nhanvien) thì in label nhanvien
-                    else
-                    {
-                        // Đặt id người dùng để phục vụ cho tác vụ liên quan đến đặt phòng
-                        TDatPhong.IDNV = DTODB.db.nhanviens.FirstOrDefault(a => a.taikhoan == txttk.Text).idnv;
-                        DuLieu.vaitro = 2;
-                        trangChu.Username.Text = DTODB.db.nhanviens.FirstOrDefault(a => a.taikhoan == txttk.Text).ten.ToString();
-                    }
-                    trangChu.FormClosed += (a, b) => this.Show();
-                    trangChu.Show();
-                    txttk.Text = "";
-                    txtmk.Text = "";
-                    this.Hide();
-                    MessageBox.Show("Đăng nhập thành công!");
+                    DuLieu.vaitro = 1;
+                    trangChu.Username.Text = "ADMIN";
                 }
+                else
+                {
+                    var nhanVien = DTODB.db.nhanviens.FirstOrDefault(a => a.taikhoan == txttk.Text);
+                    TDatPhong.IDNV = nhanVien?.idnv ?? 0;
+                    DuLieu.vaitro = 2;
+                    trangChu.Username.Text = nhanVien?.ten?.ToString() ?? string.Empty;
+                }
+                trangChu.FormClosed += (a, b) => this.Show();
+                trangChu.Show();
+                txttk.Text = txtmk.Text = string.Empty;
+                this.Hide();
+                MessageBox.Show("Đăng nhập thành công!");
             }
         }
 
+        private void button1_Click(object sender, EventArgs e) => Close();
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-        private void Login_Load(object sender, EventArgs e)
-        {
+        private void Login_Load(object sender, EventArgs e) { }
 
-        }
-
-        private void txttk_TextChanged(object sender, EventArgs e)
+        private void UpdatePictureBox()
         {
-            if (txttk.Text.Length == 0)
-            {
-                pictureBox1.Image = images[24]; ;
-            }
-            else if (txttk.Text.Length > 0 && txttk.Text.Length <= 15)
-            {
-                pictureBox1.Image = images[txttk.Text.Length - 1];
-                pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
-            }
+            int index = txttk.Text.Length;
+            if (index == 0)
+                pictureBox1.Image = images[24];
+            else if (index > 0 && index <= 15)
+                pictureBox1.Image = images[index - 1];
             else
                 pictureBox1.Image = images[22];
-        }
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
+        private void txttk_TextChanged(object sender, EventArgs e) => UpdatePictureBox();
+        private void txttk_Click(object sender, EventArgs e) => UpdatePictureBox();
 
-        }
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
 
-        private void txttk_Click(object sender, EventArgs e)
-        {
-            if (txttk.Text.Length == 0)
-            {
-                pictureBox1.Image = images[24]; ;
-            }
-            else if (txttk.Text.Length > 0 && txttk.Text.Length <= 15)
-            {
-                pictureBox1.Image = images[txttk.Text.Length - 1];
-                pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
-            }
-            else
-                pictureBox1.Image = images[22];
-        }
+        private void label1_Click(object sender, EventArgs e) { }
 
         private void txtmk_Click(object sender, EventArgs e)
         {
-            Bitmap bmpass = new Bitmap(@"_Animation\textbox_password.png");
-            pictureBox1.Image = bmpass;
+            pictureBox1.Image = Image.FromFile(Path.Combine("_Animation", "textbox_password.png"));
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show(txttk.Text.Length.ToString());
             pictureBox1.Image = Properties.Resources.debut;
-
         }
 
         private void txttk_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
             if (e.KeyCode == Keys.Tab)
             {
-                Bitmap bmpass = new Bitmap(@"_Animation\textbox_password.png");
-                pictureBox1.Image = bmpass;
+                pictureBox1.Image = Image.FromFile(Path.Combine("_Animation", "textbox_password.png"));
             }
         }
     }
