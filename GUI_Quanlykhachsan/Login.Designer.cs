@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.txttk = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtmk = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
@@ -39,8 +40,10 @@
             this.guna2GradientButton3 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2GradientButton2 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.guna2GradientPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txttk
@@ -57,7 +60,7 @@
             this.txttk.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txttk.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txttk.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txttk.Location = new System.Drawing.Point(399, 102);
+            this.txttk.Location = new System.Drawing.Point(382, 171);
             this.txttk.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txttk.Name = "txttk";
             this.txttk.PasswordChar = '\0';
@@ -66,6 +69,8 @@
             this.txttk.Size = new System.Drawing.Size(172, 39);
             this.txttk.TabIndex = 0;
             this.txttk.TextChanged += new System.EventHandler(this.txttk_TextChanged);
+            this.txttk.Click += new System.EventHandler(this.txttk_Click);
+            this.txttk.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txttk_PreviewKeyDown);
             // 
             // txtmk
             // 
@@ -81,14 +86,16 @@
             this.txtmk.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtmk.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtmk.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtmk.Location = new System.Drawing.Point(399, 147);
+            this.txtmk.Location = new System.Drawing.Point(382, 216);
             this.txtmk.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtmk.Name = "txtmk";
-            this.txtmk.PasswordChar = '\0';
+            this.txtmk.PasswordChar = '●';
             this.txtmk.PlaceholderText = "Mật khẩu";
             this.txtmk.SelectedText = "";
             this.txtmk.Size = new System.Drawing.Size(172, 39);
             this.txtmk.TabIndex = 1;
+            this.txtmk.UseSystemPasswordChar = true;
+            this.txtmk.Click += new System.EventHandler(this.txtmk_Click);
             // 
             // guna2BorderlessForm1
             // 
@@ -107,7 +114,7 @@
             this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2Button1.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button1.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button1.Location = new System.Drawing.Point(417, 192);
+            this.guna2Button1.Location = new System.Drawing.Point(399, 260);
             this.guna2Button1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Size = new System.Drawing.Size(135, 37);
@@ -118,7 +125,7 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(284, 278);
+            this.dataGridView1.Location = new System.Drawing.Point(304, 301);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
@@ -207,12 +214,23 @@
             this.guna2GradientButton1.TabIndex = 0;
             this.guna2GradientButton1.Text = "guna2GradientButton1";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(382, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(172, 163);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(826, 463);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.txtmk);
@@ -227,6 +245,7 @@
             this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.guna2GradientPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -243,6 +262,7 @@
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton3;
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton2;
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

@@ -10,8 +10,9 @@
 
 namespace GUI_Quanlykhachsan.Properties {
     using System;
-    
-    
+    using System.Drawing;
+
+
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -23,7 +24,8 @@ namespace GUI_Quanlykhachsan.Properties {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
-        
+        internal static Image textbox_user_24;
+        internal static Image debut;
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
