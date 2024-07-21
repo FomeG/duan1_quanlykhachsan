@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.Collections.Generic;
 using System.Text;
+using System.Runtime.InteropServices;
 
 namespace GUI_Quanlykhachsan
 {
@@ -49,6 +50,21 @@ namespace GUI_Quanlykhachsan
             }
         }
 
+        #region Kéo thả form
+        [DllImport("User32.dll")]
+        public static extern bool ReleaseCapture();
+        [DllImport("User32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+
+        private void Form_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(this.Handle, 0xA1, 0x2, 0);
+            }
+        }
+        #endregion
 
         // Nút đăng nhập
         private void guna2Button1_Click(object sender, EventArgs e)
