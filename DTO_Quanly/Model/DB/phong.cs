@@ -18,18 +18,20 @@ namespace DTO_Quanly.Model.DB
         public phong()
         {
             this.checkin_phong = new HashSet<checkin_phong>();
+            this.dsdattruocs = new HashSet<dsdattruoc>();
         }
     
         public int idphong { get; set; }
         public int loaiphong { get; set; }
         public int khuvuc { get; set; }
         public string tenphong { get; set; }
-        public int trangthai { get; set; }
+        public string ghichu { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<checkin_phong> checkin_phong { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<dsdattruoc> dsdattruocs { get; set; }
         public virtual khuvuc khuvuc1 { get; set; }
         public virtual loaiphong loaiphong1 { get; set; }
-        public virtual trangthaiphong trangthaiphong { get; set; }
     }
 }

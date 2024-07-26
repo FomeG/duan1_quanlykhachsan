@@ -15,10 +15,10 @@ namespace DTO_Quanly.Model.DB
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class DA1 : DbContext
+    public partial class Da1 : DbContext
     {
-        public DA1()
-            : base("name=DA1")
+        public Da1()
+            : base("name=Da1")
         {
         }
     
@@ -32,6 +32,7 @@ namespace DTO_Quanly.Model.DB
         public virtual DbSet<checkin_phong> checkin_phong { get; set; }
         public virtual DbSet<checkout> checkouts { get; set; }
         public virtual DbSet<dichvu> dichvus { get; set; }
+        public virtual DbSet<dsdattruoc> dsdattruocs { get; set; }
         public virtual DbSet<dv_trunggian> dv_trunggian { get; set; }
         public virtual DbSet<hoadon> hoadons { get; set; }
         public virtual DbSet<khachhang> khachhangs { get; set; }
@@ -42,19 +43,51 @@ namespace DTO_Quanly.Model.DB
         public virtual DbSet<phong_trunggian> phong_trunggian { get; set; }
         public virtual DbSet<taikhoan> taikhoans { get; set; }
         public virtual DbSet<tempkhachhang> tempkhachhangs { get; set; }
-        public virtual DbSet<trangthaiphong> trangthaiphongs { get; set; }
         public virtual DbSet<vaitro> vaitroes { get; set; }
         public virtual DbSet<voucher> vouchers { get; set; }
         public virtual DbSet<hoadon_dichvu> hoadon_dichvu { get; set; }
         public virtual DbSet<hoadon_phong> hoadon_phong { get; set; }
     
-        public virtual int xoanhanvien(Nullable<int> idnhanvien)
+        public virtual int insert_dsdattruoc(Nullable<int> idnv, Nullable<int> idkh, Nullable<int> idphong, Nullable<System.DateTime> ngayden, Nullable<System.DateTime> ngaydi, string ghichu)
         {
-            var idnhanvienParameter = idnhanvien.HasValue ?
-                new ObjectParameter("idnhanvien", idnhanvien) :
-                new ObjectParameter("idnhanvien", typeof(int));
+            var idnvParameter = idnv.HasValue ?
+                new ObjectParameter("idnv", idnv) :
+                new ObjectParameter("idnv", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("xoanhanvien", idnhanvienParameter);
+            var idkhParameter = idkh.HasValue ?
+                new ObjectParameter("idkh", idkh) :
+                new ObjectParameter("idkh", typeof(int));
+    
+            var idphongParameter = idphong.HasValue ?
+                new ObjectParameter("idphong", idphong) :
+                new ObjectParameter("idphong", typeof(int));
+    
+            var ngaydenParameter = ngayden.HasValue ?
+                new ObjectParameter("ngayden", ngayden) :
+                new ObjectParameter("ngayden", typeof(System.DateTime));
+    
+            var ngaydiParameter = ngaydi.HasValue ?
+                new ObjectParameter("ngaydi", ngaydi) :
+                new ObjectParameter("ngaydi", typeof(System.DateTime));
+    
+            var ghichuParameter = ghichu != null ?
+                new ObjectParameter("ghichu", ghichu) :
+                new ObjectParameter("ghichu", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("insert_dsdattruoc", idnvParameter, idkhParameter, idphongParameter, ngaydenParameter, ngaydiParameter, ghichuParameter);
+        }
+    
+        public virtual ObjectResult<kiemtra_trangthai_phong_Result> kiemtra_trangthai_phong(Nullable<System.DateTime> ngayden, Nullable<System.DateTime> ngaydi)
+        {
+            var ngaydenParameter = ngayden.HasValue ?
+                new ObjectParameter("ngayden", ngayden) :
+                new ObjectParameter("ngayden", typeof(System.DateTime));
+    
+            var ngaydiParameter = ngaydi.HasValue ?
+                new ObjectParameter("ngaydi", ngaydi) :
+                new ObjectParameter("ngaydi", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<kiemtra_trangthai_phong_Result>("kiemtra_trangthai_phong", ngaydenParameter, ngaydiParameter);
         }
     }
 }
