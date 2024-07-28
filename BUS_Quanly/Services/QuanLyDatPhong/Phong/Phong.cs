@@ -9,7 +9,7 @@ namespace BUS_Quanly.Services.QuanLyDatPhong.Phong
             var phong = DTODB.db.phongs.Find(idPhong);
             if (phong != null)
             {
-                phong.trangthai = 2;
+                //phong.trangthai = 2;
                 DTODB.db.SaveChanges();
             }
         }
@@ -19,7 +19,7 @@ namespace BUS_Quanly.Services.QuanLyDatPhong.Phong
             var phong = DTODB.db.phongs.Find(idPhong);
             if (phong != null)
             {
-                phong.trangthai = 3;
+                //phong.trangthai = 3;
                 DTODB.db.SaveChanges();
             }
         }
@@ -29,7 +29,7 @@ namespace BUS_Quanly.Services.QuanLyDatPhong.Phong
             var phong = DTODB.db.phongs.Find(idPhong);
             if (phong != null)
             {
-                phong.trangthai = 1;
+                //phong.trangthai = 1;
                 DTODB.db.SaveChanges();
             }
         }

@@ -15,46 +15,46 @@ namespace GUI_Quanlykhachsan.ChucNang
 
             SoDoPhong.Controls.Clear();
 
-            var listphong = from a in DTODB.db.trangthaiphongs
-                            join b in DTODB.db.phongs
-                            on a.id equals b.trangthai
-                            join c in DTODB.db.loaiphongs
-                            on b.loaiphong equals c.idloaiphong
-                            select new
-                            {
-                                a,
-                                b,
-                                c
-                            };
-            foreach (var item in listphong)
-            {
-                trangthaiphong phong = new trangthaiphong(item.b.tenphong, item.c.mota, item.a.id, item.b.idphong);
-                SoDoPhong.Controls.Add(phong);
-            }
+            //var listphong = from a in DTODB.db.trangthaiphongs
+            //                join b in DTODB.db.phongs
+            //                on a.id equals b.trangthai
+            //                join c in DTODB.db.loaiphongs
+            //                on b.loaiphong equals c.idloaiphong
+            //                select new
+            //                {
+            //                    a,
+            //                    b,
+            //                    c
+            //                };
+            //foreach (var item in listphong)
+            //{
+            //    trangthaiphong phong = new trangthaiphong(item.b.tenphong, item.c.mota, item.a.id, item.b.idphong);
+            //    SoDoPhong.Controls.Add(phong);
+            //}
         }
 
         // Nút tải lại
         private void guna2GradientButton1_Click(object sender, EventArgs e)
         {
             SoDoPhong.Controls.Clear();
-            var listphong = from a in DTODB.db.trangthaiphongs
-                            join b in DTODB.db.phongs
-                            on a.id equals b.trangthai
-                            join c in DTODB.db.loaiphongs
-                            on b.loaiphong equals c.idloaiphong
-                            select new
-                            {
-                                a,
-                                b,
-                                c
-                            };
+            //var listphong = from a in DTODB.db.trangthaiphongs
+            //                join b in DTODB.db.phongs
+            //                on a.id equals b.trangthai
+            //                join c in DTODB.db.loaiphongs
+            //                on b.loaiphong equals c.idloaiphong
+            //                select new
+            //                {
+            //                    a,
+            //                    b,
+            //                    c
+            //                };
 
 
-            foreach (var item in listphong)
-            {
-                trangthaiphong phong = new trangthaiphong(item.b.tenphong, item.c.mota, item.a.id, item.b.idphong);
-                SoDoPhong.Controls.Add(phong);
-            }
+            //foreach (var item in listphong)
+            //{
+            //    trangthaiphong phong = new trangthaiphong(item.b.tenphong, item.c.mota, item.a.id, item.b.idphong);
+            //    SoDoPhong.Controls.Add(phong);
+            //}
         }
 
     }

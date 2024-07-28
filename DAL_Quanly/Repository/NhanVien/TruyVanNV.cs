@@ -157,7 +157,6 @@ namespace DAL_Quanly.Repository.NhanVien
             {
                 try
                 {
-                    DTODB.db.xoanhanvien(id);
                     DTODB.db.SaveChanges();
                     transaction.Commit();
                     return true;
