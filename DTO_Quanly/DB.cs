@@ -5,6 +5,6 @@ namespace DTO_Quanly
     // Khai báo DB tĩnh 
     public static class DTODB
     {
-        public static Da1 db = new Da1();
+        public static DA1Entity db = new DA1Entity();
     }
 }
