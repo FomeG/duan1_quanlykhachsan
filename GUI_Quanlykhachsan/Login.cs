@@ -21,10 +21,11 @@ namespace GUI_Quanlykhachsan
         public Login()
         {
             InitializeComponent();
-            dataGridView1.DataSource = DTODB.db.taikhoans.ToList();
             InitializeImageLocations();
             LoadImages();
             this.MouseDown += Form_MouseDown;
+            panellogin.ApplyRoundedCorners(30);
+            panelvien1.ApplyRoundedCorners(30);
         }
 
         private void InitializeImageLocations()
@@ -66,7 +67,48 @@ namespace GUI_Quanlykhachsan
         }
         #endregion
 
-        private void guna2Button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) => Close();
+
+        private void Login_Load(object sender, EventArgs e) { }
+
+        private void UpdatePictureBox()
+        {
+            int index = txttk.Text.Length;
+            if (index == 0)
+                pictureBox1.Image = images[24];
+            else if (index > 0 && index <= 15)
+                pictureBox1.Image = images[index - 1];
+            else
+                pictureBox1.Image = images[22];
+            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
+        }
+
+        private void txttk_TextChanged(object sender, EventArgs e) => UpdatePictureBox();
+        private void txttk_Click(object sender, EventArgs e) => UpdatePictureBox();
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
+
+        private void label1_Click(object sender, EventArgs e) { }
+
+        private void txtmk_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = Image.FromFile(Path.Combine("_Animation", "textbox_password.png"));
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = Properties.Resources.debut;
+        }
+
+        private void txttk_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyCode == Keys.Tab)
+            {
+                pictureBox1.Image = Image.FromFile(Path.Combine("_Animation", "textbox_password.png"));
+            }
+        }
+
+        private void guna2GradientButton2_Click(object sender, EventArgs e)
         {
             if (!check())
             {
@@ -108,45 +150,96 @@ namespace GUI_Quanlykhachsan
             }
         }
 
-        private void button1_Click(object sender, EventArgs e) => Close();
-
-        private void Login_Load(object sender, EventArgs e) { }
-
-        private void UpdatePictureBox()
+        private void guna2GradientButton1_Click(object sender, EventArgs e)
         {
-            int index = txttk.Text.Length;
-            if (index == 0)
-                pictureBox1.Image = images[24];
-            else if (index > 0 && index <= 15)
-                pictureBox1.Image = images[index - 1];
-            else
-                pictureBox1.Image = images[22];
-            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
+            Close();
         }
 
-        private void txttk_TextChanged(object sender, EventArgs e) => UpdatePictureBox();
-        private void txttk_Click(object sender, EventArgs e) => UpdatePictureBox();
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
+        #region Kéo thả form (Controller)
+        private bool dragging = false;
+        private Point dragCursorPoint;
+        private Point dragFormPoint;
 
-        private void label1_Click(object sender, EventArgs e) { }
 
-        private void txtmk_Click(object sender, EventArgs e)
+        private void guna2PictureBox2_MouseDown(object sender, MouseEventArgs e)
         {
-            pictureBox1.Image = Image.FromFile(Path.Combine("_Animation", "textbox_password.png"));
-        }
-
-        private void guna2Button2_Click(object sender, EventArgs e)
-        {
-            pictureBox1.Image = Properties.Resources.debut;
-        }
-
-        private void txttk_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
-        {
-            if (e.KeyCode == Keys.Tab)
+            if (e.Button == MouseButtons.Left)
             {
-                pictureBox1.Image = Image.FromFile(Path.Combine("_Animation", "textbox_password.png"));
+                dragging = true;
+                dragCursorPoint = Cursor.Position;
+                dragFormPoint = this.Location;
             }
         }
+
+        private void guna2PictureBox2_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (dragging)
+            {
+                Point diff = Point.Subtract(Cursor.Position, new Size(dragCursorPoint));
+                this.Location = Point.Add(dragFormPoint, new Size(diff));
+            }
+        }
+
+        private void guna2PictureBox2_MouseUp(object sender, MouseEventArgs e)
+        {
+            dragging = false;
+
+        }
+
+
+
+        private void panellogin_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                dragging = true;
+                dragCursorPoint = Cursor.Position;
+                dragFormPoint = this.Location;
+            }
+        }
+
+        private void panellogin_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (dragging)
+            {
+                Point diff = Point.Subtract(Cursor.Position, new Size(dragCursorPoint));
+                this.Location = Point.Add(dragFormPoint, new Size(diff));
+            }
+        }
+
+        private void panellogin_MouseUp(object sender, MouseEventArgs e)
+        {
+            dragging = false;
+
+        }
+
+        private void guna2Panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                dragging = true;
+                dragCursorPoint = Cursor.Position;
+                dragFormPoint = this.Location;
+            }
+        }
+
+        private void guna2Panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (dragging)
+            {
+                Point diff = Point.Subtract(Cursor.Position, new Size(dragCursorPoint));
+                this.Location = Point.Add(dragFormPoint, new Size(diff));
+            }
+        }
+
+        private void guna2Panel1_MouseUp(object sender, MouseEventArgs e)
+        {
+            dragging = false;
+
+        }
+
+        #endregion
+
     }
 }

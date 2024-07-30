@@ -53,7 +53,9 @@
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.tngayden = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.tngaydi = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.Ttimp = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.guna2Panel2.SuspendLayout();
@@ -157,7 +159,7 @@
             this.btntest4.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.btntest4.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btntest4.HoverState.ForeColor = System.Drawing.Color.White;
-            this.btntest4.Location = new System.Drawing.Point(767, 624);
+            this.btntest4.Location = new System.Drawing.Point(709, 5);
             this.btntest4.Name = "btntest4";
             this.btntest4.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btntest4.Size = new System.Drawing.Size(180, 45);
@@ -519,7 +521,10 @@
             // 
             // guna2Panel4
             // 
-            this.guna2Panel4.Controls.Add(this.guna2Button1);
+            this.guna2Panel4.Controls.Add(this.Ttimp);
+            this.guna2Panel4.Controls.Add(this.tngaydi);
+            this.guna2Panel4.Controls.Add(this.tngayden);
+            this.guna2Panel4.Controls.Add(this.btntest4);
             this.guna2Panel4.Location = new System.Drawing.Point(200, 619);
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.Size = new System.Drawing.Size(1000, 80);
@@ -529,20 +534,47 @@
             this.guna2Panel4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.guna2Panel4_MouseMove);
             this.guna2Panel4.MouseUp += new System.Windows.Forms.MouseEventHandler(this.guna2Panel4_MouseUp);
             // 
-            // guna2Button1
+            // tngayden
             // 
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(118, 5);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(180, 45);
-            this.guna2Button1.TabIndex = 0;
-            this.guna2Button1.Text = "guna2Button1";
-            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
+            this.tngayden.Checked = true;
+            this.tngayden.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.tngayden.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.tngayden.Location = new System.Drawing.Point(34, 14);
+            this.tngayden.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.tngayden.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.tngayden.Name = "tngayden";
+            this.tngayden.Size = new System.Drawing.Size(200, 36);
+            this.tngayden.TabIndex = 16;
+            this.tngayden.Value = new System.DateTime(2024, 7, 30, 23, 14, 20, 519);
+            // 
+            // tngaydi
+            // 
+            this.tngaydi.Checked = true;
+            this.tngaydi.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.tngaydi.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.tngaydi.Location = new System.Drawing.Point(272, 14);
+            this.tngaydi.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.tngaydi.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.tngaydi.Name = "tngaydi";
+            this.tngaydi.Size = new System.Drawing.Size(200, 36);
+            this.tngaydi.TabIndex = 16;
+            this.tngaydi.Value = new System.DateTime(2024, 7, 30, 23, 14, 20, 519);
+            // 
+            // Ttimp
+            // 
+            this.Ttimp.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Ttimp.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Ttimp.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Ttimp.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Ttimp.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Ttimp.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Ttimp.ForeColor = System.Drawing.Color.White;
+            this.Ttimp.Location = new System.Drawing.Point(478, 14);
+            this.Ttimp.Name = "Ttimp";
+            this.Ttimp.Size = new System.Drawing.Size(180, 45);
+            this.Ttimp.TabIndex = 17;
+            this.Ttimp.Text = "guna2GradientButton1";
+            this.Ttimp.Click += new System.EventHandler(this.Ttimp_Click);
             // 
             // TrangChu
             // 
@@ -550,7 +582,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1200, 700);
-            this.Controls.Add(this.btntest4);
             this.Controls.Add(this.BtnMinimize);
             this.Controls.Add(this.guna2GradientButton10);
             this.Controls.Add(this.container);
@@ -597,7 +628,9 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2GradientButton btnSettings;
+        private Guna.UI2.WinForms.Guna2GradientButton Ttimp;
+        private Guna.UI2.WinForms.Guna2DateTimePicker tngaydi;
+        private Guna.UI2.WinForms.Guna2DateTimePicker tngayden;
     }
 }
