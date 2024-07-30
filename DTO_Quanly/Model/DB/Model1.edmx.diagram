@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c1fcec48ccc84d608c2a102af2b5ecca" Name="Diagram1">
+        <EntityTypeShape EntityType="duan1Model.checkin" Width="1.5" PointX="7.5" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="duan1Model.checkin_dichvu" Width="1.5" PointX="12.75" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="duan1Model.checkin_phong" Width="1.5" PointX="9.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="duan1Model.checkout" Width="1.5" PointX="10.5" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="duan1Model.dichvu" Width="1.5" PointX="10.5" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="duan1Model.dsdattruoc" Width="1.5" PointX="7.5" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="duan1Model.dv_trunggian" Width="1.5" PointX="15" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="duan1Model.hoadon" Width="1.5" PointX="7.5" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="duan1Model.khachhang" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="duan1Model.khuvuc" Width="1.5" PointX="3" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="duan1Model.loaiphong" Width="1.5" PointX="3" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="duan1Model.nhanvien" Width="1.5" PointX="5.25" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="duan1Model.phong" Width="1.5" PointX="5.25" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="duan1Model.phong_trunggian" Width="1.5" PointX="12" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="duan1Model.taikhoan" Width="1.5" PointX="3" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="duan1Model.tempkhachhang" Width="1.5" PointX="9.75" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="duan1Model.vaitro" Width="1.5" PointX="0.75" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="duan1Model.voucher" Width="1.5" PointX="7.5" PointY="26.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="duan1Model.hoadon_dichvu" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="duan1Model.hoadon_phong" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="duan1Model.view_trangthai_phong_hientai" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="duan1Model.FK__checkin__idkh__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="duan1Model.FK__checkin__idnv__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="duan1Model.FK__checkin_d__idche__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="duan1Model.FK__checkin_p__idche__6477ECF3" ManuallyRouted="false" />
+        <AssociationConnector Association="duan1Model.FK__tempkhach__idche__70DDC3D8" ManuallyRouted="false" />
+        <AssociationConnector Association="duan1Model.FK__checkin_di__iddv__619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="duan1Model.FK__dv_trunggi__iddv__6C190EBB" ManuallyRouted="false" />
+        <AssociationConnector Association="duan1Model.FK__checkin_p__idpho__656C112C" ManuallyRouted="false" />
+        <AssociationConnector Association="duan1Model.FK__phong_trung__idp__68487DD7" ManuallyRouted="false" />
+        <AssociationConnector Association="duan1Model.FK__checkout__idkh__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="duan1Model.FK__checkout__idnv__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="duan1Model.FK__dsdattruo__idpho__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="duan1Model.FK__dsdattruoc__idkh__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="duan1Model.FK__dsdattruoc__idnv__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="duan1Model.FK__dv_trunggi__idhd__6D0D32F4" ManuallyRouted="false" />
+        <AssociationConnector Association="duan1Model.FK__hoadon__idkh__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="duan1Model.FK__hoadon__idnv__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="duan1Model.FK__phong_trun__idhd__693CA210" ManuallyRouted="false" />
+        <AssociationConnector Association="duan1Model.FK__tempkhachh__idkh__6FE99F9F" ManuallyRouted="false" />
+        <AssociationConnector Association="duan1Model.FK__phong__khuvuc__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="duan1Model.FK__phong__loaiphong__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="duan1Model.FK__nhanvien__taikho__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="duan1Model.FK__voucher__idnv__73BA3083" ManuallyRouted="false" />
+        <AssociationConnector Association="duan1Model.FK__taikhoan__loaitk__4222D4EF" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

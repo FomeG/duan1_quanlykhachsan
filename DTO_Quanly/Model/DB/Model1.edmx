@@ -1,0 +1,1694 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="duan1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="checkin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idkh" Type="int" Nullable="false" />
+          <Property Name="idnv" Type="int" />
+          <Property Name="ngaycheckin" Type="datetime" Nullable="false" />
+          <Property Name="trangthai" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="checkin_dichvu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idcheckin" Type="int" Nullable="false" />
+          <Property Name="iddv" Type="int" Nullable="false" />
+          <Property Name="soluong" Type="int" />
+        </EntityType>
+        <EntityType Name="checkin_phong">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idcheckin" Type="int" Nullable="false" />
+          <Property Name="idphong" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="checkout">
+          <Key>
+            <PropertyRef Name="idcheckout" />
+          </Key>
+          <Property Name="idcheckout" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idkh" Type="int" />
+          <Property Name="idnv" Type="int" />
+          <Property Name="ngaycheckout" Type="datetime" Nullable="false" />
+          <Property Name="trangthai" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="dichvu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tendv" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="soluongton" Type="int" />
+          <Property Name="gia" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="mota" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="dsdattruoc">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idnv" Type="int" />
+          <Property Name="idkh" Type="int" />
+          <Property Name="idphong" Type="int" />
+          <Property Name="ngayden" Type="datetime" />
+          <Property Name="ngaydi" Type="datetime" />
+          <Property Name="ttphong" Type="bit" />
+          <Property Name="ghichu" Type="nvarchar(max)" />
+          <Property Name="ngaydat" Type="datetime" />
+        </EntityType>
+        <EntityType Name="dv_trunggian">
+          <Key>
+            <PropertyRef Name="iddv" />
+            <PropertyRef Name="idhd" />
+          </Key>
+          <Property Name="iddv" Type="int" Nullable="false" />
+          <Property Name="idhd" Type="int" Nullable="false" />
+          <Property Name="mota" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="hoadon">
+          <Key>
+            <PropertyRef Name="idhoadon" />
+          </Key>
+          <Property Name="idhoadon" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idkh" Type="int" Nullable="false" />
+          <Property Name="idnv" Type="int" Nullable="false" />
+          <Property Name="ngaytao" Type="datetime" Nullable="false" />
+          <Property Name="tongtien" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="songuoi" Type="int" />
+          <Property Name="trangthai" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="khachhang">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ten" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="sdt" Type="varchar" MaxLength="13" />
+          <Property Name="gioitinh" Type="nvarchar" MaxLength="4" />
+          <Property Name="diachi" Type="nvarchar(max)" />
+          <Property Name="anh" Type="varchar(max)" />
+          <Property Name="ngaysinh" Type="date" />
+        </EntityType>
+        <EntityType Name="khuvuc">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tenkhuvuc" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="loaiphong">
+          <Key>
+            <PropertyRef Name="idloaiphong" />
+          </Key>
+          <Property Name="idloaiphong" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="loaiphong" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="giaphong" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="songuoi" Type="int" />
+          <Property Name="mota" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="nhanvien">
+          <Key>
+            <PropertyRef Name="idnv" />
+          </Key>
+          <Property Name="idnv" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ten" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="100" />
+          <Property Name="sdt" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="gioitinh" Type="nvarchar" MaxLength="4" Nullable="false" />
+          <Property Name="diachi" Type="nvarchar(max)" />
+          <Property Name="ngaysinh" Type="date" />
+          <Property Name="taikhoan" Type="varchar" MaxLength="100" />
+          <Property Name="idtrangthai" Type="bit" />
+        </EntityType>
+        <EntityType Name="phong">
+          <Key>
+            <PropertyRef Name="idphong" />
+          </Key>
+          <Property Name="idphong" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="loaiphong" Type="int" Nullable="false" />
+          <Property Name="khuvuc" Type="int" Nullable="false" />
+          <Property Name="tenphong" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ghichu" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="phong_trunggian">
+          <Key>
+            <PropertyRef Name="idp" />
+            <PropertyRef Name="idhd" />
+          </Key>
+          <Property Name="idp" Type="int" Nullable="false" />
+          <Property Name="idhd" Type="int" Nullable="false" />
+          <Property Name="mota" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="taikhoan">
+          <Key>
+            <PropertyRef Name="taikhoan" />
+          </Key>
+          <Property Name="taikhoan" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="matkhau" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="loaitk" Type="int" />
+        </EntityType>
+        <EntityType Name="tempkhachhang">
+          <Key>
+            <PropertyRef Name="idkh" />
+            <PropertyRef Name="idcheckin" />
+          </Key>
+          <Property Name="idkh" Type="int" Nullable="false" />
+          <Property Name="idcheckin" Type="int" Nullable="false" />
+          <Property Name="tienkhachtra" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="ngayvao" Type="datetime" />
+          <Property Name="ngayra" Type="datetime" />
+        </EntityType>
+        <EntityType Name="vaitro">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="vaitro" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="voucher">
+          <Key>
+            <PropertyRef Name="MaVoucher" />
+          </Key>
+          <Property Name="MaVoucher" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="idnv" Type="int" />
+          <Property Name="soluong" Type="int" Nullable="false" />
+          <Property Name="ngaylap" Type="datetime" Nullable="false" />
+          <Property Name="ngayhethan" Type="datetime" Nullable="false" />
+          <Property Name="giamgia" Type="int" Nullable="false" />
+          <Property Name="trangthai" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'duan1.dbo.hoadon_dichvu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="hoadon_dichvu">
+          <Key>
+            <PropertyRef Name="idhoadon" />
+            <PropertyRef Name="Tên nhân viên" />
+            <PropertyRef Name="Tên khách hàng" />
+            <PropertyRef Name="Tên dịch vụ" />
+            <PropertyRef Name="Ngày tạo" />
+          </Key>
+          <Property Name="idhoadon" Type="int" Nullable="false" />
+          <Property Name="Tên nhân viên" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Tên khách hàng" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Tên dịch vụ" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Số lượng" Type="int" />
+          <Property Name="Giá tiền" Type="decimal" Precision="21" Scale="2" />
+          <Property Name="Ngày tạo" Type="datetime" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="hoadon_phong">
+          <Key>
+            <PropertyRef Name="idhoadon" />
+            <PropertyRef Name="Tên nhân viên" />
+            <PropertyRef Name="Tên khách hàng" />
+            <PropertyRef Name="Tên phòng" />
+            <PropertyRef Name="Giá phòng" />
+            <PropertyRef Name="Ngày tạo" />
+          </Key>
+          <Property Name="idhoadon" Type="int" Nullable="false" />
+          <Property Name="Tên nhân viên" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Tên khách hàng" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Tên phòng" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Giá phòng" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Ngày tạo" Type="datetime" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="view_trangthai_phong_hientai">
+          <Key>
+            <PropertyRef Name="idphong" />
+            <PropertyRef Name="tenphong" />
+            <PropertyRef Name="loaiphong" />
+            <PropertyRef Name="giaphong" />
+            <PropertyRef Name="tenkhuvuc" />
+            <PropertyRef Name="trangthai" />
+            <PropertyRef Name="trangthai_text" />
+          </Key>
+          <Property Name="idphong" Type="int" Nullable="false" />
+          <Property Name="tenphong" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="loaiphong" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="mota" Type="nvarchar(max)" />
+          <Property Name="giaphong" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="tenkhuvuc" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="trangthai" Type="int" Nullable="false" />
+          <Property Name="trangthai_text" Type="nvarchar" MaxLength="6" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__checkin__idkh__52593CB8">
+          <End Role="khachhang" Type="Self.khachhang" Multiplicity="1" />
+          <End Role="checkin" Type="Self.checkin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="khachhang">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="checkin">
+              <PropertyRef Name="idkh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__checkin__idnv__534D60F1">
+          <End Role="nhanvien" Type="Self.nhanvien" Multiplicity="0..1" />
+          <End Role="checkin" Type="Self.checkin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="nhanvien">
+              <PropertyRef Name="idnv" />
+            </Principal>
+            <Dependent Role="checkin">
+              <PropertyRef Name="idnv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__checkin_d__idche__60A75C0F">
+          <End Role="checkin" Type="Self.checkin" Multiplicity="1" />
+          <End Role="checkin_dichvu" Type="Self.checkin_dichvu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="checkin">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="checkin_dichvu">
+              <PropertyRef Name="idcheckin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__checkin_di__iddv__619B8048">
+          <End Role="dichvu" Type="Self.dichvu" Multiplicity="1" />
+          <End Role="checkin_dichvu" Type="Self.checkin_dichvu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dichvu">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="checkin_dichvu">
+              <PropertyRef Name="iddv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__checkin_p__idche__6477ECF3">
+          <End Role="checkin" Type="Self.checkin" Multiplicity="1" />
+          <End Role="checkin_phong" Type="Self.checkin_phong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="checkin">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="checkin_phong">
+              <PropertyRef Name="idcheckin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__checkin_p__idpho__656C112C">
+          <End Role="phong" Type="Self.phong" Multiplicity="1" />
+          <End Role="checkin_phong" Type="Self.checkin_phong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="phong">
+              <PropertyRef Name="idphong" />
+            </Principal>
+            <Dependent Role="checkin_phong">
+              <PropertyRef Name="idphong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__checkout__idkh__5629CD9C">
+          <End Role="khachhang" Type="Self.khachhang" Multiplicity="0..1" />
+          <End Role="checkout" Type="Self.checkout" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="khachhang">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="checkout">
+              <PropertyRef Name="idkh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__checkout__idnv__571DF1D5">
+          <End Role="nhanvien" Type="Self.nhanvien" Multiplicity="0..1" />
+          <End Role="checkout" Type="Self.checkout" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="nhanvien">
+              <PropertyRef Name="idnv" />
+            </Principal>
+            <Dependent Role="checkout">
+              <PropertyRef Name="idnv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__dsdattruo__idpho__4E88ABD4">
+          <End Role="phong" Type="Self.phong" Multiplicity="0..1" />
+          <End Role="dsdattruoc" Type="Self.dsdattruoc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="phong">
+              <PropertyRef Name="idphong" />
+            </Principal>
+            <Dependent Role="dsdattruoc">
+              <PropertyRef Name="idphong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__dsdattruoc__idkh__4D94879B">
+          <End Role="khachhang" Type="Self.khachhang" Multiplicity="0..1" />
+          <End Role="dsdattruoc" Type="Self.dsdattruoc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="khachhang">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="dsdattruoc">
+              <PropertyRef Name="idkh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__dsdattruoc__idnv__4CA06362">
+          <End Role="nhanvien" Type="Self.nhanvien" Multiplicity="0..1" />
+          <End Role="dsdattruoc" Type="Self.dsdattruoc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="nhanvien">
+              <PropertyRef Name="idnv" />
+            </Principal>
+            <Dependent Role="dsdattruoc">
+              <PropertyRef Name="idnv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__dv_trunggi__iddv__6C190EBB">
+          <End Role="checkin_dichvu" Type="Self.checkin_dichvu" Multiplicity="1" />
+          <End Role="dv_trunggian" Type="Self.dv_trunggian" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="checkin_dichvu">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="dv_trunggian">
+              <PropertyRef Name="iddv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__dv_trunggi__idhd__6D0D32F4">
+          <End Role="hoadon" Type="Self.hoadon" Multiplicity="1" />
+          <End Role="dv_trunggian" Type="Self.dv_trunggian" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hoadon">
+              <PropertyRef Name="idhoadon" />
+            </Principal>
+            <Dependent Role="dv_trunggian">
+              <PropertyRef Name="idhd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__hoadon__idkh__5AEE82B9">
+          <End Role="khachhang" Type="Self.khachhang" Multiplicity="1" />
+          <End Role="hoadon" Type="Self.hoadon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="khachhang">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="hoadon">
+              <PropertyRef Name="idkh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__hoadon__idnv__5BE2A6F2">
+          <End Role="nhanvien" Type="Self.nhanvien" Multiplicity="1" />
+          <End Role="hoadon" Type="Self.hoadon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="nhanvien">
+              <PropertyRef Name="idnv" />
+            </Principal>
+            <Dependent Role="hoadon">
+              <PropertyRef Name="idnv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__nhanvien__taikho__46E78A0C">
+          <End Role="taikhoan" Type="Self.taikhoan" Multiplicity="0..1" />
+          <End Role="nhanvien" Type="Self.nhanvien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="taikhoan">
+              <PropertyRef Name="taikhoan" />
+            </Principal>
+            <Dependent Role="nhanvien">
+              <PropertyRef Name="taikhoan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__phong__khuvuc__3C69FB99">
+          <End Role="khuvuc" Type="Self.khuvuc" Multiplicity="1" />
+          <End Role="phong" Type="Self.phong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="khuvuc">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="phong">
+              <PropertyRef Name="khuvuc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__phong__loaiphong__3B75D760">
+          <End Role="loaiphong" Type="Self.loaiphong" Multiplicity="1" />
+          <End Role="phong" Type="Self.phong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="loaiphong">
+              <PropertyRef Name="idloaiphong" />
+            </Principal>
+            <Dependent Role="phong">
+              <PropertyRef Name="loaiphong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__phong_trun__idhd__693CA210">
+          <End Role="hoadon" Type="Self.hoadon" Multiplicity="1" />
+          <End Role="phong_trunggian" Type="Self.phong_trunggian" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hoadon">
+              <PropertyRef Name="idhoadon" />
+            </Principal>
+            <Dependent Role="phong_trunggian">
+              <PropertyRef Name="idhd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__phong_trung__idp__68487DD7">
+          <End Role="checkin_phong" Type="Self.checkin_phong" Multiplicity="1" />
+          <End Role="phong_trunggian" Type="Self.phong_trunggian" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="checkin_phong">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="phong_trunggian">
+              <PropertyRef Name="idp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__taikhoan__loaitk__4222D4EF">
+          <End Role="vaitro" Type="Self.vaitro" Multiplicity="0..1" />
+          <End Role="taikhoan" Type="Self.taikhoan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vaitro">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="taikhoan">
+              <PropertyRef Name="loaitk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tempkhach__idche__70DDC3D8">
+          <End Role="checkin" Type="Self.checkin" Multiplicity="1" />
+          <End Role="tempkhachhang" Type="Self.tempkhachhang" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="checkin">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tempkhachhang">
+              <PropertyRef Name="idcheckin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tempkhachh__idkh__6FE99F9F">
+          <End Role="khachhang" Type="Self.khachhang" Multiplicity="1" />
+          <End Role="tempkhachhang" Type="Self.tempkhachhang" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="khachhang">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tempkhachhang">
+              <PropertyRef Name="idkh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__voucher__idnv__73BA3083">
+          <End Role="nhanvien" Type="Self.nhanvien" Multiplicity="0..1" />
+          <End Role="voucher" Type="Self.voucher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="nhanvien">
+              <PropertyRef Name="idnv" />
+            </Principal>
+            <Dependent Role="voucher">
+              <PropertyRef Name="idnv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="insert_dsdattruoc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idnv" Type="int" Mode="In" />
+          <Parameter Name="idkh" Type="int" Mode="In" />
+          <Parameter Name="idphong" Type="int" Mode="In" />
+          <Parameter Name="ngayden" Type="datetime" Mode="In" />
+          <Parameter Name="ngaydi" Type="datetime" Mode="In" />
+          <Parameter Name="ghichu" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="kiemtra_trangthai_phong" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ngayden" Type="datetime" Mode="In" />
+          <Parameter Name="ngaydi" Type="datetime" Mode="In" />
+        </Function>
+        <EntityContainer Name="duan1ModelStoreContainer">
+          <EntitySet Name="checkin" EntityType="Self.checkin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="checkin_dichvu" EntityType="Self.checkin_dichvu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="checkin_phong" EntityType="Self.checkin_phong" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="checkout" EntityType="Self.checkout" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dichvu" EntityType="Self.dichvu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dsdattruoc" EntityType="Self.dsdattruoc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dv_trunggian" EntityType="Self.dv_trunggian" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="hoadon" EntityType="Self.hoadon" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="khachhang" EntityType="Self.khachhang" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="khuvuc" EntityType="Self.khuvuc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="loaiphong" EntityType="Self.loaiphong" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="nhanvien" EntityType="Self.nhanvien" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="phong" EntityType="Self.phong" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="phong_trunggian" EntityType="Self.phong_trunggian" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="taikhoan" EntityType="Self.taikhoan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tempkhachhang" EntityType="Self.tempkhachhang" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vaitro" EntityType="Self.vaitro" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="voucher" EntityType="Self.voucher" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="hoadon_dichvu" EntityType="Self.hoadon_dichvu" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [hoadon_dichvu].[idhoadon] AS [idhoadon], 
+    [hoadon_dichvu].[Tên nhân viên] AS [Tên nhân viên], 
+    [hoadon_dichvu].[Tên khách hàng] AS [Tên khách hàng], 
+    [hoadon_dichvu].[Tên dịch vụ] AS [Tên dịch vụ], 
+    [hoadon_dichvu].[Số lượng] AS [Số lượng], 
+    [hoadon_dichvu].[Giá tiền] AS [Giá tiền], 
+    [hoadon_dichvu].[Ngày tạo] AS [Ngày tạo]
+    FROM [dbo].[hoadon_dichvu] AS [hoadon_dichvu]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="hoadon_phong" EntityType="Self.hoadon_phong" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [hoadon_phong].[idhoadon] AS [idhoadon], 
+    [hoadon_phong].[Tên nhân viên] AS [Tên nhân viên], 
+    [hoadon_phong].[Tên khách hàng] AS [Tên khách hàng], 
+    [hoadon_phong].[Tên phòng] AS [Tên phòng], 
+    [hoadon_phong].[Giá phòng] AS [Giá phòng], 
+    [hoadon_phong].[Ngày tạo] AS [Ngày tạo]
+    FROM [dbo].[hoadon_phong] AS [hoadon_phong]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="view_trangthai_phong_hientai" EntityType="Self.view_trangthai_phong_hientai" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [view_trangthai_phong_hientai].[idphong] AS [idphong], 
+    [view_trangthai_phong_hientai].[tenphong] AS [tenphong], 
+    [view_trangthai_phong_hientai].[loaiphong] AS [loaiphong], 
+    [view_trangthai_phong_hientai].[mota] AS [mota], 
+    [view_trangthai_phong_hientai].[giaphong] AS [giaphong], 
+    [view_trangthai_phong_hientai].[tenkhuvuc] AS [tenkhuvuc], 
+    [view_trangthai_phong_hientai].[trangthai] AS [trangthai], 
+    [view_trangthai_phong_hientai].[trangthai_text] AS [trangthai_text]
+    FROM [dbo].[view_trangthai_phong_hientai] AS [view_trangthai_phong_hientai]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__checkin__idkh__52593CB8" Association="Self.FK__checkin__idkh__52593CB8">
+            <End Role="khachhang" EntitySet="khachhang" />
+            <End Role="checkin" EntitySet="checkin" />
+          </AssociationSet>
+          <AssociationSet Name="FK__checkin__idnv__534D60F1" Association="Self.FK__checkin__idnv__534D60F1">
+            <End Role="nhanvien" EntitySet="nhanvien" />
+            <End Role="checkin" EntitySet="checkin" />
+          </AssociationSet>
+          <AssociationSet Name="FK__checkin_d__idche__60A75C0F" Association="Self.FK__checkin_d__idche__60A75C0F">
+            <End Role="checkin" EntitySet="checkin" />
+            <End Role="checkin_dichvu" EntitySet="checkin_dichvu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__checkin_di__iddv__619B8048" Association="Self.FK__checkin_di__iddv__619B8048">
+            <End Role="dichvu" EntitySet="dichvu" />
+            <End Role="checkin_dichvu" EntitySet="checkin_dichvu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__checkin_p__idche__6477ECF3" Association="Self.FK__checkin_p__idche__6477ECF3">
+            <End Role="checkin" EntitySet="checkin" />
+            <End Role="checkin_phong" EntitySet="checkin_phong" />
+          </AssociationSet>
+          <AssociationSet Name="FK__checkin_p__idpho__656C112C" Association="Self.FK__checkin_p__idpho__656C112C">
+            <End Role="phong" EntitySet="phong" />
+            <End Role="checkin_phong" EntitySet="checkin_phong" />
+          </AssociationSet>
+          <AssociationSet Name="FK__checkout__idkh__5629CD9C" Association="Self.FK__checkout__idkh__5629CD9C">
+            <End Role="khachhang" EntitySet="khachhang" />
+            <End Role="checkout" EntitySet="checkout" />
+          </AssociationSet>
+          <AssociationSet Name="FK__checkout__idnv__571DF1D5" Association="Self.FK__checkout__idnv__571DF1D5">
+            <End Role="nhanvien" EntitySet="nhanvien" />
+            <End Role="checkout" EntitySet="checkout" />
+          </AssociationSet>
+          <AssociationSet Name="FK__dsdattruo__idpho__4E88ABD4" Association="Self.FK__dsdattruo__idpho__4E88ABD4">
+            <End Role="phong" EntitySet="phong" />
+            <End Role="dsdattruoc" EntitySet="dsdattruoc" />
+          </AssociationSet>
+          <AssociationSet Name="FK__dsdattruoc__idkh__4D94879B" Association="Self.FK__dsdattruoc__idkh__4D94879B">
+            <End Role="khachhang" EntitySet="khachhang" />
+            <End Role="dsdattruoc" EntitySet="dsdattruoc" />
+          </AssociationSet>
+          <AssociationSet Name="FK__dsdattruoc__idnv__4CA06362" Association="Self.FK__dsdattruoc__idnv__4CA06362">
+            <End Role="nhanvien" EntitySet="nhanvien" />
+            <End Role="dsdattruoc" EntitySet="dsdattruoc" />
+          </AssociationSet>
+          <AssociationSet Name="FK__dv_trunggi__iddv__6C190EBB" Association="Self.FK__dv_trunggi__iddv__6C190EBB">
+            <End Role="checkin_dichvu" EntitySet="checkin_dichvu" />
+            <End Role="dv_trunggian" EntitySet="dv_trunggian" />
+          </AssociationSet>
+          <AssociationSet Name="FK__dv_trunggi__idhd__6D0D32F4" Association="Self.FK__dv_trunggi__idhd__6D0D32F4">
+            <End Role="hoadon" EntitySet="hoadon" />
+            <End Role="dv_trunggian" EntitySet="dv_trunggian" />
+          </AssociationSet>
+          <AssociationSet Name="FK__hoadon__idkh__5AEE82B9" Association="Self.FK__hoadon__idkh__5AEE82B9">
+            <End Role="khachhang" EntitySet="khachhang" />
+            <End Role="hoadon" EntitySet="hoadon" />
+          </AssociationSet>
+          <AssociationSet Name="FK__hoadon__idnv__5BE2A6F2" Association="Self.FK__hoadon__idnv__5BE2A6F2">
+            <End Role="nhanvien" EntitySet="nhanvien" />
+            <End Role="hoadon" EntitySet="hoadon" />
+          </AssociationSet>
+          <AssociationSet Name="FK__nhanvien__taikho__46E78A0C" Association="Self.FK__nhanvien__taikho__46E78A0C">
+            <End Role="taikhoan" EntitySet="taikhoan" />
+            <End Role="nhanvien" EntitySet="nhanvien" />
+          </AssociationSet>
+          <AssociationSet Name="FK__phong__khuvuc__3C69FB99" Association="Self.FK__phong__khuvuc__3C69FB99">
+            <End Role="khuvuc" EntitySet="khuvuc" />
+            <End Role="phong" EntitySet="phong" />
+          </AssociationSet>
+          <AssociationSet Name="FK__phong__loaiphong__3B75D760" Association="Self.FK__phong__loaiphong__3B75D760">
+            <End Role="loaiphong" EntitySet="loaiphong" />
+            <End Role="phong" EntitySet="phong" />
+          </AssociationSet>
+          <AssociationSet Name="FK__phong_trun__idhd__693CA210" Association="Self.FK__phong_trun__idhd__693CA210">
+            <End Role="hoadon" EntitySet="hoadon" />
+            <End Role="phong_trunggian" EntitySet="phong_trunggian" />
+          </AssociationSet>
+          <AssociationSet Name="FK__phong_trung__idp__68487DD7" Association="Self.FK__phong_trung__idp__68487DD7">
+            <End Role="checkin_phong" EntitySet="checkin_phong" />
+            <End Role="phong_trunggian" EntitySet="phong_trunggian" />
+          </AssociationSet>
+          <AssociationSet Name="FK__taikhoan__loaitk__4222D4EF" Association="Self.FK__taikhoan__loaitk__4222D4EF">
+            <End Role="vaitro" EntitySet="vaitro" />
+            <End Role="taikhoan" EntitySet="taikhoan" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tempkhach__idche__70DDC3D8" Association="Self.FK__tempkhach__idche__70DDC3D8">
+            <End Role="checkin" EntitySet="checkin" />
+            <End Role="tempkhachhang" EntitySet="tempkhachhang" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tempkhachh__idkh__6FE99F9F" Association="Self.FK__tempkhachh__idkh__6FE99F9F">
+            <End Role="khachhang" EntitySet="khachhang" />
+            <End Role="tempkhachhang" EntitySet="tempkhachhang" />
+          </AssociationSet>
+          <AssociationSet Name="FK__voucher__idnv__73BA3083" Association="Self.FK__voucher__idnv__73BA3083">
+            <End Role="nhanvien" EntitySet="nhanvien" />
+            <End Role="voucher" EntitySet="voucher" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="duan1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="checkin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idkh" Type="Int32" Nullable="false" />
+          <Property Name="idnv" Type="Int32" />
+          <Property Name="ngaycheckin" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="trangthai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="khachhang" Relationship="Self.FK__checkin__idkh__52593CB8" FromRole="checkin" ToRole="khachhang" />
+          <NavigationProperty Name="nhanvien" Relationship="Self.FK__checkin__idnv__534D60F1" FromRole="checkin" ToRole="nhanvien" />
+          <NavigationProperty Name="checkin_dichvu" Relationship="Self.FK__checkin_d__idche__60A75C0F" FromRole="checkin" ToRole="checkin_dichvu" />
+          <NavigationProperty Name="checkin_phong" Relationship="Self.FK__checkin_p__idche__6477ECF3" FromRole="checkin" ToRole="checkin_phong" />
+          <NavigationProperty Name="tempkhachhangs" Relationship="Self.FK__tempkhach__idche__70DDC3D8" FromRole="checkin" ToRole="tempkhachhang" />
+        </EntityType>
+        <EntityType Name="checkin_dichvu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idcheckin" Type="Int32" Nullable="false" />
+          <Property Name="iddv" Type="Int32" Nullable="false" />
+          <Property Name="soluong" Type="Int32" />
+          <NavigationProperty Name="checkin" Relationship="Self.FK__checkin_d__idche__60A75C0F" FromRole="checkin_dichvu" ToRole="checkin" />
+          <NavigationProperty Name="dichvu" Relationship="Self.FK__checkin_di__iddv__619B8048" FromRole="checkin_dichvu" ToRole="dichvu" />
+          <NavigationProperty Name="dv_trunggian" Relationship="Self.FK__dv_trunggi__iddv__6C190EBB" FromRole="checkin_dichvu" ToRole="dv_trunggian" />
+        </EntityType>
+        <EntityType Name="checkin_phong">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idcheckin" Type="Int32" Nullable="false" />
+          <Property Name="idphong" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="checkin" Relationship="Self.FK__checkin_p__idche__6477ECF3" FromRole="checkin_phong" ToRole="checkin" />
+          <NavigationProperty Name="phong" Relationship="Self.FK__checkin_p__idpho__656C112C" FromRole="checkin_phong" ToRole="phong" />
+          <NavigationProperty Name="phong_trunggian" Relationship="Self.FK__phong_trung__idp__68487DD7" FromRole="checkin_phong" ToRole="phong_trunggian" />
+        </EntityType>
+        <EntityType Name="checkout">
+          <Key>
+            <PropertyRef Name="idcheckout" />
+          </Key>
+          <Property Name="idcheckout" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idkh" Type="Int32" />
+          <Property Name="idnv" Type="Int32" />
+          <Property Name="ngaycheckout" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="trangthai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="khachhang" Relationship="Self.FK__checkout__idkh__5629CD9C" FromRole="checkout" ToRole="khachhang" />
+          <NavigationProperty Name="nhanvien" Relationship="Self.FK__checkout__idnv__571DF1D5" FromRole="checkout" ToRole="nhanvien" />
+        </EntityType>
+        <EntityType Name="dichvu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tendv" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="soluongton" Type="Int32" />
+          <Property Name="gia" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="checkin_dichvu" Relationship="Self.FK__checkin_di__iddv__619B8048" FromRole="dichvu" ToRole="checkin_dichvu" />
+        </EntityType>
+        <EntityType Name="dsdattruoc">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idnv" Type="Int32" />
+          <Property Name="idkh" Type="Int32" />
+          <Property Name="idphong" Type="Int32" />
+          <Property Name="ngayden" Type="DateTime" Precision="3" />
+          <Property Name="ngaydi" Type="DateTime" Precision="3" />
+          <Property Name="ttphong" Type="Boolean" />
+          <Property Name="ghichu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ngaydat" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="phong" Relationship="Self.FK__dsdattruo__idpho__4E88ABD4" FromRole="dsdattruoc" ToRole="phong" />
+          <NavigationProperty Name="khachhang" Relationship="Self.FK__dsdattruoc__idkh__4D94879B" FromRole="dsdattruoc" ToRole="khachhang" />
+          <NavigationProperty Name="nhanvien" Relationship="Self.FK__dsdattruoc__idnv__4CA06362" FromRole="dsdattruoc" ToRole="nhanvien" />
+        </EntityType>
+        <EntityType Name="dv_trunggian">
+          <Key>
+            <PropertyRef Name="iddv" />
+            <PropertyRef Name="idhd" />
+          </Key>
+          <Property Name="iddv" Type="Int32" Nullable="false" />
+          <Property Name="idhd" Type="Int32" Nullable="false" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="checkin_dichvu" Relationship="Self.FK__dv_trunggi__iddv__6C190EBB" FromRole="dv_trunggian" ToRole="checkin_dichvu" />
+          <NavigationProperty Name="hoadon" Relationship="Self.FK__dv_trunggi__idhd__6D0D32F4" FromRole="dv_trunggian" ToRole="hoadon" />
+        </EntityType>
+        <EntityType Name="hoadon">
+          <Key>
+            <PropertyRef Name="idhoadon" />
+          </Key>
+          <Property Name="idhoadon" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idkh" Type="Int32" Nullable="false" />
+          <Property Name="idnv" Type="Int32" Nullable="false" />
+          <Property Name="ngaytao" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="tongtien" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="songuoi" Type="Int32" />
+          <Property Name="trangthai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="dv_trunggian" Relationship="Self.FK__dv_trunggi__idhd__6D0D32F4" FromRole="hoadon" ToRole="dv_trunggian" />
+          <NavigationProperty Name="khachhang" Relationship="Self.FK__hoadon__idkh__5AEE82B9" FromRole="hoadon" ToRole="khachhang" />
+          <NavigationProperty Name="nhanvien" Relationship="Self.FK__hoadon__idnv__5BE2A6F2" FromRole="hoadon" ToRole="nhanvien" />
+          <NavigationProperty Name="phong_trunggian" Relationship="Self.FK__phong_trun__idhd__693CA210" FromRole="hoadon" ToRole="phong_trunggian" />
+        </EntityType>
+        <EntityType Name="khachhang">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="sdt" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="gioitinh" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="diachi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="anh" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ngaysinh" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="checkins" Relationship="Self.FK__checkin__idkh__52593CB8" FromRole="khachhang" ToRole="checkin" />
+          <NavigationProperty Name="checkouts" Relationship="Self.FK__checkout__idkh__5629CD9C" FromRole="khachhang" ToRole="checkout" />
+          <NavigationProperty Name="dsdattruocs" Relationship="Self.FK__dsdattruoc__idkh__4D94879B" FromRole="khachhang" ToRole="dsdattruoc" />
+          <NavigationProperty Name="hoadons" Relationship="Self.FK__hoadon__idkh__5AEE82B9" FromRole="khachhang" ToRole="hoadon" />
+          <NavigationProperty Name="tempkhachhangs" Relationship="Self.FK__tempkhachh__idkh__6FE99F9F" FromRole="khachhang" ToRole="tempkhachhang" />
+        </EntityType>
+        <EntityType Name="khuvuc">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tenkhuvuc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="phongs" Relationship="Self.FK__phong__khuvuc__3C69FB99" FromRole="khuvuc" ToRole="phong" />
+        </EntityType>
+        <EntityType Name="loaiphong">
+          <Key>
+            <PropertyRef Name="idloaiphong" />
+          </Key>
+          <Property Name="idloaiphong" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="loaiphong1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="giaphong" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="songuoi" Type="Int32" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="phongs" Relationship="Self.FK__phong__loaiphong__3B75D760" FromRole="loaiphong" ToRole="phong" />
+        </EntityType>
+        <EntityType Name="nhanvien">
+          <Key>
+            <PropertyRef Name="idnv" />
+          </Key>
+          <Property Name="idnv" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="sdt" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="gioitinh" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="diachi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ngaysinh" Type="DateTime" Precision="0" />
+          <Property Name="taikhoan" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="idtrangthai" Type="Boolean" />
+          <NavigationProperty Name="checkins" Relationship="Self.FK__checkin__idnv__534D60F1" FromRole="nhanvien" ToRole="checkin" />
+          <NavigationProperty Name="checkouts" Relationship="Self.FK__checkout__idnv__571DF1D5" FromRole="nhanvien" ToRole="checkout" />
+          <NavigationProperty Name="dsdattruocs" Relationship="Self.FK__dsdattruoc__idnv__4CA06362" FromRole="nhanvien" ToRole="dsdattruoc" />
+          <NavigationProperty Name="hoadons" Relationship="Self.FK__hoadon__idnv__5BE2A6F2" FromRole="nhanvien" ToRole="hoadon" />
+          <NavigationProperty Name="taikhoan1" Relationship="Self.FK__nhanvien__taikho__46E78A0C" FromRole="nhanvien" ToRole="taikhoan" />
+          <NavigationProperty Name="vouchers" Relationship="Self.FK__voucher__idnv__73BA3083" FromRole="nhanvien" ToRole="voucher" />
+        </EntityType>
+        <EntityType Name="phong">
+          <Key>
+            <PropertyRef Name="idphong" />
+          </Key>
+          <Property Name="idphong" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="loaiphong" Type="Int32" Nullable="false" />
+          <Property Name="khuvuc" Type="Int32" Nullable="false" />
+          <Property Name="tenphong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ghichu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="checkin_phong" Relationship="Self.FK__checkin_p__idpho__656C112C" FromRole="phong" ToRole="checkin_phong" />
+          <NavigationProperty Name="dsdattruocs" Relationship="Self.FK__dsdattruo__idpho__4E88ABD4" FromRole="phong" ToRole="dsdattruoc" />
+          <NavigationProperty Name="khuvuc1" Relationship="Self.FK__phong__khuvuc__3C69FB99" FromRole="phong" ToRole="khuvuc" />
+          <NavigationProperty Name="loaiphong1" Relationship="Self.FK__phong__loaiphong__3B75D760" FromRole="phong" ToRole="loaiphong" />
+        </EntityType>
+        <EntityType Name="phong_trunggian">
+          <Key>
+            <PropertyRef Name="idp" />
+            <PropertyRef Name="idhd" />
+          </Key>
+          <Property Name="idp" Type="Int32" Nullable="false" />
+          <Property Name="idhd" Type="Int32" Nullable="false" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="checkin_phong" Relationship="Self.FK__phong_trung__idp__68487DD7" FromRole="phong_trunggian" ToRole="checkin_phong" />
+          <NavigationProperty Name="hoadon" Relationship="Self.FK__phong_trun__idhd__693CA210" FromRole="phong_trunggian" ToRole="hoadon" />
+        </EntityType>
+        <EntityType Name="taikhoan">
+          <Key>
+            <PropertyRef Name="taikhoan1" />
+          </Key>
+          <Property Name="taikhoan1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="matkhau" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="loaitk" Type="Int32" />
+          <NavigationProperty Name="nhanviens" Relationship="Self.FK__nhanvien__taikho__46E78A0C" FromRole="taikhoan" ToRole="nhanvien" />
+          <NavigationProperty Name="vaitro" Relationship="Self.FK__taikhoan__loaitk__4222D4EF" FromRole="taikhoan" ToRole="vaitro" />
+        </EntityType>
+        <EntityType Name="tempkhachhang">
+          <Key>
+            <PropertyRef Name="idkh" />
+            <PropertyRef Name="idcheckin" />
+          </Key>
+          <Property Name="idkh" Type="Int32" Nullable="false" />
+          <Property Name="idcheckin" Type="Int32" Nullable="false" />
+          <Property Name="tienkhachtra" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="ngayvao" Type="DateTime" Precision="3" />
+          <Property Name="ngayra" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="checkin" Relationship="Self.FK__tempkhach__idche__70DDC3D8" FromRole="tempkhachhang" ToRole="checkin" />
+          <NavigationProperty Name="khachhang" Relationship="Self.FK__tempkhachh__idkh__6FE99F9F" FromRole="tempkhachhang" ToRole="khachhang" />
+        </EntityType>
+        <EntityType Name="vaitro">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="vaitro1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="taikhoans" Relationship="Self.FK__taikhoan__loaitk__4222D4EF" FromRole="vaitro" ToRole="taikhoan" />
+        </EntityType>
+        <EntityType Name="voucher">
+          <Key>
+            <PropertyRef Name="MaVoucher" />
+          </Key>
+          <Property Name="MaVoucher" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idnv" Type="Int32" />
+          <Property Name="soluong" Type="Int32" Nullable="false" />
+          <Property Name="ngaylap" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ngayhethan" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="giamgia" Type="Int32" Nullable="false" />
+          <Property Name="trangthai" Type="Boolean" />
+          <NavigationProperty Name="nhanvien" Relationship="Self.FK__voucher__idnv__73BA3083" FromRole="voucher" ToRole="nhanvien" />
+        </EntityType>
+        <EntityType Name="hoadon_dichvu">
+          <Key>
+            <PropertyRef Name="idhoadon" />
+            <PropertyRef Name="Tên_nhân_viên" />
+            <PropertyRef Name="Tên_khách_hàng" />
+            <PropertyRef Name="Tên_dịch_vụ" />
+            <PropertyRef Name="Ngày_tạo" />
+          </Key>
+          <Property Name="idhoadon" Type="Int32" Nullable="false" />
+          <Property Name="Tên_nhân_viên" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Tên_khách_hàng" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Tên_dịch_vụ" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Số_lượng" Type="Int32" />
+          <Property Name="Giá_tiền" Type="Decimal" Precision="21" Scale="2" />
+          <Property Name="Ngày_tạo" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="hoadon_phong">
+          <Key>
+            <PropertyRef Name="idhoadon" />
+            <PropertyRef Name="Tên_nhân_viên" />
+            <PropertyRef Name="Tên_khách_hàng" />
+            <PropertyRef Name="Tên_phòng" />
+            <PropertyRef Name="Giá_phòng" />
+            <PropertyRef Name="Ngày_tạo" />
+          </Key>
+          <Property Name="idhoadon" Type="Int32" Nullable="false" />
+          <Property Name="Tên_nhân_viên" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Tên_khách_hàng" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Tên_phòng" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Giá_phòng" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Ngày_tạo" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="view_trangthai_phong_hientai">
+          <Key>
+            <PropertyRef Name="idphong" />
+            <PropertyRef Name="tenphong" />
+            <PropertyRef Name="loaiphong" />
+            <PropertyRef Name="giaphong" />
+            <PropertyRef Name="tenkhuvuc" />
+            <PropertyRef Name="trangthai" />
+            <PropertyRef Name="trangthai_text" />
+          </Key>
+          <Property Name="idphong" Type="Int32" Nullable="false" />
+          <Property Name="tenphong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="loaiphong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="giaphong" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="tenkhuvuc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="trangthai" Type="Int32" Nullable="false" />
+          <Property Name="trangthai_text" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__checkin__idkh__52593CB8">
+          <End Role="khachhang" Type="Self.khachhang" Multiplicity="1" />
+          <End Role="checkin" Type="Self.checkin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="khachhang">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="checkin">
+              <PropertyRef Name="idkh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__checkin__idnv__534D60F1">
+          <End Role="nhanvien" Type="Self.nhanvien" Multiplicity="0..1" />
+          <End Role="checkin" Type="Self.checkin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="nhanvien">
+              <PropertyRef Name="idnv" />
+            </Principal>
+            <Dependent Role="checkin">
+              <PropertyRef Name="idnv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__checkin_d__idche__60A75C0F">
+          <End Role="checkin" Type="Self.checkin" Multiplicity="1" />
+          <End Role="checkin_dichvu" Type="Self.checkin_dichvu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="checkin">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="checkin_dichvu">
+              <PropertyRef Name="idcheckin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__checkin_p__idche__6477ECF3">
+          <End Role="checkin" Type="Self.checkin" Multiplicity="1" />
+          <End Role="checkin_phong" Type="Self.checkin_phong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="checkin">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="checkin_phong">
+              <PropertyRef Name="idcheckin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tempkhach__idche__70DDC3D8">
+          <End Role="checkin" Type="Self.checkin" Multiplicity="1" />
+          <End Role="tempkhachhang" Type="Self.tempkhachhang" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="checkin">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tempkhachhang">
+              <PropertyRef Name="idcheckin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__checkin_di__iddv__619B8048">
+          <End Role="dichvu" Type="Self.dichvu" Multiplicity="1" />
+          <End Role="checkin_dichvu" Type="Self.checkin_dichvu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dichvu">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="checkin_dichvu">
+              <PropertyRef Name="iddv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__dv_trunggi__iddv__6C190EBB">
+          <End Role="checkin_dichvu" Type="Self.checkin_dichvu" Multiplicity="1" />
+          <End Role="dv_trunggian" Type="Self.dv_trunggian" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="checkin_dichvu">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="dv_trunggian">
+              <PropertyRef Name="iddv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__checkin_p__idpho__656C112C">
+          <End Role="phong" Type="Self.phong" Multiplicity="1" />
+          <End Role="checkin_phong" Type="Self.checkin_phong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="phong">
+              <PropertyRef Name="idphong" />
+            </Principal>
+            <Dependent Role="checkin_phong">
+              <PropertyRef Name="idphong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__phong_trung__idp__68487DD7">
+          <End Role="checkin_phong" Type="Self.checkin_phong" Multiplicity="1" />
+          <End Role="phong_trunggian" Type="Self.phong_trunggian" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="checkin_phong">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="phong_trunggian">
+              <PropertyRef Name="idp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__checkout__idkh__5629CD9C">
+          <End Role="khachhang" Type="Self.khachhang" Multiplicity="0..1" />
+          <End Role="checkout" Type="Self.checkout" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="khachhang">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="checkout">
+              <PropertyRef Name="idkh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__checkout__idnv__571DF1D5">
+          <End Role="nhanvien" Type="Self.nhanvien" Multiplicity="0..1" />
+          <End Role="checkout" Type="Self.checkout" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="nhanvien">
+              <PropertyRef Name="idnv" />
+            </Principal>
+            <Dependent Role="checkout">
+              <PropertyRef Name="idnv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__dsdattruo__idpho__4E88ABD4">
+          <End Role="phong" Type="Self.phong" Multiplicity="0..1" />
+          <End Role="dsdattruoc" Type="Self.dsdattruoc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="phong">
+              <PropertyRef Name="idphong" />
+            </Principal>
+            <Dependent Role="dsdattruoc">
+              <PropertyRef Name="idphong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__dsdattruoc__idkh__4D94879B">
+          <End Role="khachhang" Type="Self.khachhang" Multiplicity="0..1" />
+          <End Role="dsdattruoc" Type="Self.dsdattruoc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="khachhang">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="dsdattruoc">
+              <PropertyRef Name="idkh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__dsdattruoc__idnv__4CA06362">
+          <End Role="nhanvien" Type="Self.nhanvien" Multiplicity="0..1" />
+          <End Role="dsdattruoc" Type="Self.dsdattruoc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="nhanvien">
+              <PropertyRef Name="idnv" />
+            </Principal>
+            <Dependent Role="dsdattruoc">
+              <PropertyRef Name="idnv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__dv_trunggi__idhd__6D0D32F4">
+          <End Role="hoadon" Type="Self.hoadon" Multiplicity="1" />
+          <End Role="dv_trunggian" Type="Self.dv_trunggian" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hoadon">
+              <PropertyRef Name="idhoadon" />
+            </Principal>
+            <Dependent Role="dv_trunggian">
+              <PropertyRef Name="idhd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__hoadon__idkh__5AEE82B9">
+          <End Role="khachhang" Type="Self.khachhang" Multiplicity="1" />
+          <End Role="hoadon" Type="Self.hoadon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="khachhang">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="hoadon">
+              <PropertyRef Name="idkh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__hoadon__idnv__5BE2A6F2">
+          <End Role="nhanvien" Type="Self.nhanvien" Multiplicity="1" />
+          <End Role="hoadon" Type="Self.hoadon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="nhanvien">
+              <PropertyRef Name="idnv" />
+            </Principal>
+            <Dependent Role="hoadon">
+              <PropertyRef Name="idnv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__phong_trun__idhd__693CA210">
+          <End Role="hoadon" Type="Self.hoadon" Multiplicity="1" />
+          <End Role="phong_trunggian" Type="Self.phong_trunggian" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hoadon">
+              <PropertyRef Name="idhoadon" />
+            </Principal>
+            <Dependent Role="phong_trunggian">
+              <PropertyRef Name="idhd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tempkhachh__idkh__6FE99F9F">
+          <End Role="khachhang" Type="Self.khachhang" Multiplicity="1" />
+          <End Role="tempkhachhang" Type="Self.tempkhachhang" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="khachhang">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tempkhachhang">
+              <PropertyRef Name="idkh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__phong__khuvuc__3C69FB99">
+          <End Role="khuvuc" Type="Self.khuvuc" Multiplicity="1" />
+          <End Role="phong" Type="Self.phong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="khuvuc">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="phong">
+              <PropertyRef Name="khuvuc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__phong__loaiphong__3B75D760">
+          <End Role="loaiphong" Type="Self.loaiphong" Multiplicity="1" />
+          <End Role="phong" Type="Self.phong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="loaiphong">
+              <PropertyRef Name="idloaiphong" />
+            </Principal>
+            <Dependent Role="phong">
+              <PropertyRef Name="loaiphong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__nhanvien__taikho__46E78A0C">
+          <End Role="taikhoan" Type="Self.taikhoan" Multiplicity="0..1" />
+          <End Role="nhanvien" Type="Self.nhanvien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="taikhoan">
+              <PropertyRef Name="taikhoan1" />
+            </Principal>
+            <Dependent Role="nhanvien">
+              <PropertyRef Name="taikhoan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__voucher__idnv__73BA3083">
+          <End Role="nhanvien" Type="Self.nhanvien" Multiplicity="0..1" />
+          <End Role="voucher" Type="Self.voucher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="nhanvien">
+              <PropertyRef Name="idnv" />
+            </Principal>
+            <Dependent Role="voucher">
+              <PropertyRef Name="idnv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__taikhoan__loaitk__4222D4EF">
+          <End Role="vaitro" Type="Self.vaitro" Multiplicity="0..1" />
+          <End Role="taikhoan" Type="Self.taikhoan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vaitro">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="taikhoan">
+              <PropertyRef Name="loaitk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DA1_DA1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="checkins" EntityType="Self.checkin" />
+          <EntitySet Name="checkin_dichvu" EntityType="Self.checkin_dichvu" />
+          <EntitySet Name="checkin_phong" EntityType="Self.checkin_phong" />
+          <EntitySet Name="checkouts" EntityType="Self.checkout" />
+          <EntitySet Name="dichvus" EntityType="Self.dichvu" />
+          <EntitySet Name="dsdattruocs" EntityType="Self.dsdattruoc" />
+          <EntitySet Name="dv_trunggian" EntityType="Self.dv_trunggian" />
+          <EntitySet Name="hoadons" EntityType="Self.hoadon" />
+          <EntitySet Name="khachhangs" EntityType="Self.khachhang" />
+          <EntitySet Name="khuvucs" EntityType="Self.khuvuc" />
+          <EntitySet Name="loaiphongs" EntityType="Self.loaiphong" />
+          <EntitySet Name="nhanviens" EntityType="Self.nhanvien" />
+          <EntitySet Name="phongs" EntityType="Self.phong" />
+          <EntitySet Name="phong_trunggian" EntityType="Self.phong_trunggian" />
+          <EntitySet Name="taikhoans" EntityType="Self.taikhoan" />
+          <EntitySet Name="tempkhachhangs" EntityType="Self.tempkhachhang" />
+          <EntitySet Name="vaitroes" EntityType="Self.vaitro" />
+          <EntitySet Name="vouchers" EntityType="Self.voucher" />
+          <EntitySet Name="hoadon_dichvu" EntityType="Self.hoadon_dichvu" />
+          <EntitySet Name="hoadon_phong" EntityType="Self.hoadon_phong" />
+          <EntitySet Name="view_trangthai_phong_hientai" EntityType="Self.view_trangthai_phong_hientai" />
+          <AssociationSet Name="FK__checkin__idkh__52593CB8" Association="Self.FK__checkin__idkh__52593CB8">
+            <End Role="khachhang" EntitySet="khachhangs" />
+            <End Role="checkin" EntitySet="checkins" />
+          </AssociationSet>
+          <AssociationSet Name="FK__checkin__idnv__534D60F1" Association="Self.FK__checkin__idnv__534D60F1">
+            <End Role="nhanvien" EntitySet="nhanviens" />
+            <End Role="checkin" EntitySet="checkins" />
+          </AssociationSet>
+          <AssociationSet Name="FK__checkin_d__idche__60A75C0F" Association="Self.FK__checkin_d__idche__60A75C0F">
+            <End Role="checkin" EntitySet="checkins" />
+            <End Role="checkin_dichvu" EntitySet="checkin_dichvu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__checkin_p__idche__6477ECF3" Association="Self.FK__checkin_p__idche__6477ECF3">
+            <End Role="checkin" EntitySet="checkins" />
+            <End Role="checkin_phong" EntitySet="checkin_phong" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tempkhach__idche__70DDC3D8" Association="Self.FK__tempkhach__idche__70DDC3D8">
+            <End Role="checkin" EntitySet="checkins" />
+            <End Role="tempkhachhang" EntitySet="tempkhachhangs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__checkin_di__iddv__619B8048" Association="Self.FK__checkin_di__iddv__619B8048">
+            <End Role="dichvu" EntitySet="dichvus" />
+            <End Role="checkin_dichvu" EntitySet="checkin_dichvu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__dv_trunggi__iddv__6C190EBB" Association="Self.FK__dv_trunggi__iddv__6C190EBB">
+            <End Role="checkin_dichvu" EntitySet="checkin_dichvu" />
+            <End Role="dv_trunggian" EntitySet="dv_trunggian" />
+          </AssociationSet>
+          <AssociationSet Name="FK__checkin_p__idpho__656C112C" Association="Self.FK__checkin_p__idpho__656C112C">
+            <End Role="phong" EntitySet="phongs" />
+            <End Role="checkin_phong" EntitySet="checkin_phong" />
+          </AssociationSet>
+          <AssociationSet Name="FK__phong_trung__idp__68487DD7" Association="Self.FK__phong_trung__idp__68487DD7">
+            <End Role="checkin_phong" EntitySet="checkin_phong" />
+            <End Role="phong_trunggian" EntitySet="phong_trunggian" />
+          </AssociationSet>
+          <AssociationSet Name="FK__checkout__idkh__5629CD9C" Association="Self.FK__checkout__idkh__5629CD9C">
+            <End Role="khachhang" EntitySet="khachhangs" />
+            <End Role="checkout" EntitySet="checkouts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__checkout__idnv__571DF1D5" Association="Self.FK__checkout__idnv__571DF1D5">
+            <End Role="nhanvien" EntitySet="nhanviens" />
+            <End Role="checkout" EntitySet="checkouts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__dsdattruo__idpho__4E88ABD4" Association="Self.FK__dsdattruo__idpho__4E88ABD4">
+            <End Role="phong" EntitySet="phongs" />
+            <End Role="dsdattruoc" EntitySet="dsdattruocs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__dsdattruoc__idkh__4D94879B" Association="Self.FK__dsdattruoc__idkh__4D94879B">
+            <End Role="khachhang" EntitySet="khachhangs" />
+            <End Role="dsdattruoc" EntitySet="dsdattruocs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__dsdattruoc__idnv__4CA06362" Association="Self.FK__dsdattruoc__idnv__4CA06362">
+            <End Role="nhanvien" EntitySet="nhanviens" />
+            <End Role="dsdattruoc" EntitySet="dsdattruocs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__dv_trunggi__idhd__6D0D32F4" Association="Self.FK__dv_trunggi__idhd__6D0D32F4">
+            <End Role="hoadon" EntitySet="hoadons" />
+            <End Role="dv_trunggian" EntitySet="dv_trunggian" />
+          </AssociationSet>
+          <AssociationSet Name="FK__hoadon__idkh__5AEE82B9" Association="Self.FK__hoadon__idkh__5AEE82B9">
+            <End Role="khachhang" EntitySet="khachhangs" />
+            <End Role="hoadon" EntitySet="hoadons" />
+          </AssociationSet>
+          <AssociationSet Name="FK__hoadon__idnv__5BE2A6F2" Association="Self.FK__hoadon__idnv__5BE2A6F2">
+            <End Role="nhanvien" EntitySet="nhanviens" />
+            <End Role="hoadon" EntitySet="hoadons" />
+          </AssociationSet>
+          <AssociationSet Name="FK__phong_trun__idhd__693CA210" Association="Self.FK__phong_trun__idhd__693CA210">
+            <End Role="hoadon" EntitySet="hoadons" />
+            <End Role="phong_trunggian" EntitySet="phong_trunggian" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tempkhachh__idkh__6FE99F9F" Association="Self.FK__tempkhachh__idkh__6FE99F9F">
+            <End Role="khachhang" EntitySet="khachhangs" />
+            <End Role="tempkhachhang" EntitySet="tempkhachhangs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__phong__khuvuc__3C69FB99" Association="Self.FK__phong__khuvuc__3C69FB99">
+            <End Role="khuvuc" EntitySet="khuvucs" />
+            <End Role="phong" EntitySet="phongs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__phong__loaiphong__3B75D760" Association="Self.FK__phong__loaiphong__3B75D760">
+            <End Role="loaiphong" EntitySet="loaiphongs" />
+            <End Role="phong" EntitySet="phongs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__nhanvien__taikho__46E78A0C" Association="Self.FK__nhanvien__taikho__46E78A0C">
+            <End Role="taikhoan" EntitySet="taikhoans" />
+            <End Role="nhanvien" EntitySet="nhanviens" />
+          </AssociationSet>
+          <AssociationSet Name="FK__voucher__idnv__73BA3083" Association="Self.FK__voucher__idnv__73BA3083">
+            <End Role="nhanvien" EntitySet="nhanviens" />
+            <End Role="voucher" EntitySet="vouchers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__taikhoan__loaitk__4222D4EF" Association="Self.FK__taikhoan__loaitk__4222D4EF">
+            <End Role="vaitro" EntitySet="vaitroes" />
+            <End Role="taikhoan" EntitySet="taikhoans" />
+          </AssociationSet>
+          <FunctionImport Name="insert_dsdattruoc">
+            <Parameter Name="idnv" Mode="In" Type="Int32" />
+            <Parameter Name="idkh" Mode="In" Type="Int32" />
+            <Parameter Name="idphong" Mode="In" Type="Int32" />
+            <Parameter Name="ngayden" Mode="In" Type="DateTime" />
+            <Parameter Name="ngaydi" Mode="In" Type="DateTime" />
+            <Parameter Name="ghichu" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="kiemtra_trangthai_phong" ReturnType="Collection(duan1Model.kiemtra_trangthai_phong_Result)">
+            <Parameter Name="ngayden" Mode="In" Type="DateTime" />
+            <Parameter Name="ngaydi" Mode="In" Type="DateTime" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="kiemtra_trangthai_phong_Result">
+          <Property Type="Int32" Name="idphong" Nullable="false" />
+          <Property Type="String" Name="tenphong" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="loaiphong" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="mota" Nullable="true" />
+          <Property Type="Decimal" Name="giaphong" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="String" Name="tenkhuvuc" Nullable="false" />
+          <Property Type="String" Name="trangthai" Nullable="false" MaxLength="1" />
+          <Property Type="String" Name="trangthai_text" Nullable="false" MaxLength="6" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="duan1ModelStoreContainer" CdmEntityContainer="DA1_DA1">
+          <EntitySetMapping Name="checkins">
+            <EntityTypeMapping TypeName="duan1Model.checkin">
+              <MappingFragment StoreEntitySet="checkin">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idkh" ColumnName="idkh" />
+                <ScalarProperty Name="idnv" ColumnName="idnv" />
+                <ScalarProperty Name="ngaycheckin" ColumnName="ngaycheckin" />
+                <ScalarProperty Name="trangthai" ColumnName="trangthai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="checkin_dichvu">
+            <EntityTypeMapping TypeName="duan1Model.checkin_dichvu">
+              <MappingFragment StoreEntitySet="checkin_dichvu">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idcheckin" ColumnName="idcheckin" />
+                <ScalarProperty Name="iddv" ColumnName="iddv" />
+                <ScalarProperty Name="soluong" ColumnName="soluong" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="checkin_phong">
+            <EntityTypeMapping TypeName="duan1Model.checkin_phong">
+              <MappingFragment StoreEntitySet="checkin_phong">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idcheckin" ColumnName="idcheckin" />
+                <ScalarProperty Name="idphong" ColumnName="idphong" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="checkouts">
+            <EntityTypeMapping TypeName="duan1Model.checkout">
+              <MappingFragment StoreEntitySet="checkout">
+                <ScalarProperty Name="idcheckout" ColumnName="idcheckout" />
+                <ScalarProperty Name="idkh" ColumnName="idkh" />
+                <ScalarProperty Name="idnv" ColumnName="idnv" />
+                <ScalarProperty Name="ngaycheckout" ColumnName="ngaycheckout" />
+                <ScalarProperty Name="trangthai" ColumnName="trangthai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dichvus">
+            <EntityTypeMapping TypeName="duan1Model.dichvu">
+              <MappingFragment StoreEntitySet="dichvu">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="tendv" ColumnName="tendv" />
+                <ScalarProperty Name="soluongton" ColumnName="soluongton" />
+                <ScalarProperty Name="gia" ColumnName="gia" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dsdattruocs">
+            <EntityTypeMapping TypeName="duan1Model.dsdattruoc">
+              <MappingFragment StoreEntitySet="dsdattruoc">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idnv" ColumnName="idnv" />
+                <ScalarProperty Name="idkh" ColumnName="idkh" />
+                <ScalarProperty Name="idphong" ColumnName="idphong" />
+                <ScalarProperty Name="ngayden" ColumnName="ngayden" />
+                <ScalarProperty Name="ngaydi" ColumnName="ngaydi" />
+                <ScalarProperty Name="ttphong" ColumnName="ttphong" />
+                <ScalarProperty Name="ghichu" ColumnName="ghichu" />
+                <ScalarProperty Name="ngaydat" ColumnName="ngaydat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dv_trunggian">
+            <EntityTypeMapping TypeName="duan1Model.dv_trunggian">
+              <MappingFragment StoreEntitySet="dv_trunggian">
+                <ScalarProperty Name="iddv" ColumnName="iddv" />
+                <ScalarProperty Name="idhd" ColumnName="idhd" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="hoadons">
+            <EntityTypeMapping TypeName="duan1Model.hoadon">
+              <MappingFragment StoreEntitySet="hoadon">
+                <ScalarProperty Name="idhoadon" ColumnName="idhoadon" />
+                <ScalarProperty Name="idkh" ColumnName="idkh" />
+                <ScalarProperty Name="idnv" ColumnName="idnv" />
+                <ScalarProperty Name="ngaytao" ColumnName="ngaytao" />
+                <ScalarProperty Name="tongtien" ColumnName="tongtien" />
+                <ScalarProperty Name="songuoi" ColumnName="songuoi" />
+                <ScalarProperty Name="trangthai" ColumnName="trangthai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="khachhangs">
+            <EntityTypeMapping TypeName="duan1Model.khachhang">
+              <MappingFragment StoreEntitySet="khachhang">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ten" ColumnName="ten" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="sdt" ColumnName="sdt" />
+                <ScalarProperty Name="gioitinh" ColumnName="gioitinh" />
+                <ScalarProperty Name="diachi" ColumnName="diachi" />
+                <ScalarProperty Name="anh" ColumnName="anh" />
+                <ScalarProperty Name="ngaysinh" ColumnName="ngaysinh" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="khuvucs">
+            <EntityTypeMapping TypeName="duan1Model.khuvuc">
+              <MappingFragment StoreEntitySet="khuvuc">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="tenkhuvuc" ColumnName="tenkhuvuc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="loaiphongs">
+            <EntityTypeMapping TypeName="duan1Model.loaiphong">
+              <MappingFragment StoreEntitySet="loaiphong">
+                <ScalarProperty Name="idloaiphong" ColumnName="idloaiphong" />
+                <ScalarProperty Name="loaiphong1" ColumnName="loaiphong" />
+                <ScalarProperty Name="giaphong" ColumnName="giaphong" />
+                <ScalarProperty Name="songuoi" ColumnName="songuoi" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="nhanviens">
+            <EntityTypeMapping TypeName="duan1Model.nhanvien">
+              <MappingFragment StoreEntitySet="nhanvien">
+                <ScalarProperty Name="idnv" ColumnName="idnv" />
+                <ScalarProperty Name="ten" ColumnName="ten" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="sdt" ColumnName="sdt" />
+                <ScalarProperty Name="gioitinh" ColumnName="gioitinh" />
+                <ScalarProperty Name="diachi" ColumnName="diachi" />
+                <ScalarProperty Name="ngaysinh" ColumnName="ngaysinh" />
+                <ScalarProperty Name="taikhoan" ColumnName="taikhoan" />
+                <ScalarProperty Name="idtrangthai" ColumnName="idtrangthai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="phongs">
+            <EntityTypeMapping TypeName="duan1Model.phong">
+              <MappingFragment StoreEntitySet="phong">
+                <ScalarProperty Name="idphong" ColumnName="idphong" />
+                <ScalarProperty Name="loaiphong" ColumnName="loaiphong" />
+                <ScalarProperty Name="khuvuc" ColumnName="khuvuc" />
+                <ScalarProperty Name="tenphong" ColumnName="tenphong" />
+                <ScalarProperty Name="ghichu" ColumnName="ghichu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="phong_trunggian">
+            <EntityTypeMapping TypeName="duan1Model.phong_trunggian">
+              <MappingFragment StoreEntitySet="phong_trunggian">
+                <ScalarProperty Name="idp" ColumnName="idp" />
+                <ScalarProperty Name="idhd" ColumnName="idhd" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="taikhoans">
+            <EntityTypeMapping TypeName="duan1Model.taikhoan">
+              <MappingFragment StoreEntitySet="taikhoan">
+                <ScalarProperty Name="taikhoan1" ColumnName="taikhoan" />
+                <ScalarProperty Name="matkhau" ColumnName="matkhau" />
+                <ScalarProperty Name="loaitk" ColumnName="loaitk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tempkhachhangs">
+            <EntityTypeMapping TypeName="duan1Model.tempkhachhang">
+              <MappingFragment StoreEntitySet="tempkhachhang">
+                <ScalarProperty Name="idkh" ColumnName="idkh" />
+                <ScalarProperty Name="idcheckin" ColumnName="idcheckin" />
+                <ScalarProperty Name="tienkhachtra" ColumnName="tienkhachtra" />
+                <ScalarProperty Name="ngayvao" ColumnName="ngayvao" />
+                <ScalarProperty Name="ngayra" ColumnName="ngayra" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vaitroes">
+            <EntityTypeMapping TypeName="duan1Model.vaitro">
+              <MappingFragment StoreEntitySet="vaitro">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="vaitro1" ColumnName="vaitro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vouchers">
+            <EntityTypeMapping TypeName="duan1Model.voucher">
+              <MappingFragment StoreEntitySet="voucher">
+                <ScalarProperty Name="MaVoucher" ColumnName="MaVoucher" />
+                <ScalarProperty Name="idnv" ColumnName="idnv" />
+                <ScalarProperty Name="soluong" ColumnName="soluong" />
+                <ScalarProperty Name="ngaylap" ColumnName="ngaylap" />
+                <ScalarProperty Name="ngayhethan" ColumnName="ngayhethan" />
+                <ScalarProperty Name="giamgia" ColumnName="giamgia" />
+                <ScalarProperty Name="trangthai" ColumnName="trangthai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="hoadon_dichvu">
+            <EntityTypeMapping TypeName="duan1Model.hoadon_dichvu">
+              <MappingFragment StoreEntitySet="hoadon_dichvu">
+                <ScalarProperty Name="idhoadon" ColumnName="idhoadon" />
+                <ScalarProperty Name="Tên_nhân_viên" ColumnName="Tên nhân viên" />
+                <ScalarProperty Name="Tên_khách_hàng" ColumnName="Tên khách hàng" />
+                <ScalarProperty Name="Tên_dịch_vụ" ColumnName="Tên dịch vụ" />
+                <ScalarProperty Name="Số_lượng" ColumnName="Số lượng" />
+                <ScalarProperty Name="Giá_tiền" ColumnName="Giá tiền" />
+                <ScalarProperty Name="Ngày_tạo" ColumnName="Ngày tạo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="hoadon_phong">
+            <EntityTypeMapping TypeName="duan1Model.hoadon_phong">
+              <MappingFragment StoreEntitySet="hoadon_phong">
+                <ScalarProperty Name="idhoadon" ColumnName="idhoadon" />
+                <ScalarProperty Name="Tên_nhân_viên" ColumnName="Tên nhân viên" />
+                <ScalarProperty Name="Tên_khách_hàng" ColumnName="Tên khách hàng" />
+                <ScalarProperty Name="Tên_phòng" ColumnName="Tên phòng" />
+                <ScalarProperty Name="Giá_phòng" ColumnName="Giá phòng" />
+                <ScalarProperty Name="Ngày_tạo" ColumnName="Ngày tạo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="view_trangthai_phong_hientai">
+            <EntityTypeMapping TypeName="duan1Model.view_trangthai_phong_hientai">
+              <MappingFragment StoreEntitySet="view_trangthai_phong_hientai">
+                <ScalarProperty Name="idphong" ColumnName="idphong" />
+                <ScalarProperty Name="tenphong" ColumnName="tenphong" />
+                <ScalarProperty Name="loaiphong" ColumnName="loaiphong" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="giaphong" ColumnName="giaphong" />
+                <ScalarProperty Name="tenkhuvuc" ColumnName="tenkhuvuc" />
+                <ScalarProperty Name="trangthai" ColumnName="trangthai" />
+                <ScalarProperty Name="trangthai_text" ColumnName="trangthai_text" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="insert_dsdattruoc" FunctionName="duan1Model.Store.insert_dsdattruoc" />
+          <FunctionImportMapping FunctionImportName="kiemtra_trangthai_phong" FunctionName="duan1Model.Store.kiemtra_trangthai_phong">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="duan1Model.kiemtra_trangthai_phong_Result">
+                <ScalarProperty Name="idphong" ColumnName="idphong" />
+                <ScalarProperty Name="tenphong" ColumnName="tenphong" />
+                <ScalarProperty Name="loaiphong" ColumnName="loaiphong" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="giaphong" ColumnName="giaphong" />
+                <ScalarProperty Name="tenkhuvuc" ColumnName="tenkhuvuc" />
+                <ScalarProperty Name="trangthai" ColumnName="trangthai" />
+                <ScalarProperty Name="trangthai_text" ColumnName="trangthai_text" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
