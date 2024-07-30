@@ -15,10 +15,10 @@ namespace DTO_Quanly.Model.DB
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class DA1_DA1 : DbContext
+    public partial class DuAn1_D : DbContext
     {
-        public DA1_DA1()
-            : base("name=DA1_DA1")
+        public DuAn1_D()
+            : base("name=DuAn1_D")
         {
         }
     

@@ -1269,7 +1269,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DA1_DA1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DuAn1_D" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="checkins" EntityType="Self.checkin" />
           <EntitySet Name="checkin_dichvu" EntityType="Self.checkin_dichvu" />
           <EntitySet Name="checkin_phong" EntityType="Self.checkin_phong" />
@@ -1407,7 +1407,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
           <Property Type="String" Name="mota" Nullable="true" />
           <Property Type="Decimal" Name="giaphong" Nullable="false" Precision="10" Scale="2" />
           <Property Type="String" Name="tenkhuvuc" Nullable="false" />
-          <Property Type="String" Name="trangthai" Nullable="false" MaxLength="1" />
+          <Property Type="Int32" Name="trangthai" Nullable="false" />
           <Property Type="String" Name="trangthai_text" Nullable="false" MaxLength="6" />
         </ComplexType>
       </Schema>
@@ -1415,7 +1415,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="duan1ModelStoreContainer" CdmEntityContainer="DA1_DA1">
+        <EntityContainerMapping StorageEntityContainer="duan1ModelStoreContainer" CdmEntityContainer="DuAn1_D">
           <EntitySetMapping Name="checkins">
             <EntityTypeMapping TypeName="duan1Model.checkin">
               <MappingFragment StoreEntitySet="checkin">

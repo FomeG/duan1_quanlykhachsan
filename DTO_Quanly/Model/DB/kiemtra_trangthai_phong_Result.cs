@@ -19,7 +19,7 @@ namespace DTO_Quanly.Model.DB
         public string mota { get; set; }
         public decimal giaphong { get; set; }
         public string tenkhuvuc { get; set; }
-        public string trangthai { get; set; }
+        public int trangthai { get; set; }
         public string trangthai_text { get; set; }
     }
 }
