@@ -150,6 +150,10 @@
     <Compile Include="ChucNang\KhachHang.Designer.cs">
       <DependentUpon>KhachHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChucNang\Test\ControlExtensions.cs" />
+    <Compile Include="ChucNang\Test\RoundedPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ChucNang\trangthaiphong.cs">
       <SubType>UserControl</SubType>
     </Compile>

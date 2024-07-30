@@ -26,16 +26,10 @@ namespace GUI_Quanlykhachsan.ChucNang
             TDatPhong.IdPhong = IdPhong;
 
 
-            if (trangthaip == 1) // Nếu phòng trống
+            if (trangthaip == 0) // Nếu phòng trống
             {
                 this.BackColor = Color.FromArgb(128, 255, 128);
                 btnDat.Text = "Đặt Phòng";
-            }
-            else if (trangthaip == 2) // Nếu phòng đang được đặt trước
-            {
-                this.BackColor = Color.Yellow;
-                btnDat.Text = "Nhận Phòng";
-
             }
             else // Nếu phòng đã được đặt (có người ở)
             {
@@ -53,7 +47,6 @@ namespace GUI_Quanlykhachsan.ChucNang
         {
 
         }
-
 
         private void guna2GradientButton1_Click(object sender, EventArgs e)
         {
@@ -137,5 +130,8 @@ namespace GUI_Quanlykhachsan.ChucNang
             _phongService.TraPhong(IdPhong);
         }
         #endregion
+
+
+      
     }
 }

@@ -22,6 +22,7 @@ namespace GUI_Quanlykhachsan
             this.MouseDown += new MouseEventHandler(Form_MouseDown);
 
         }
+        private QuanLyDatPhong _qlydp;
 
         #region Kéo thả form
         [DllImport("User32.dll")]
@@ -94,7 +95,11 @@ namespace GUI_Quanlykhachsan
         }
 
         private void guna2GradientButton2_Click(object sender, EventArgs e) => LoadForm(new Qly_NhanVien(), (Guna2GradientButton)sender);
-        private void guna2GradientButton1_Click(object sender, EventArgs e) => LoadForm(new QuanLyDatPhong(), (Guna2GradientButton)sender);
+        private void guna2GradientButton1_Click(object sender, EventArgs e)
+        {
+            this._qlydp = new QuanLyDatPhong();
+            LoadForm(new QuanLyDatPhong(), (Guna2GradientButton)sender);
+        }
         private void guna2GradientButton3_Click(object sender, EventArgs e) => LoadForm(new ThongTinKH(), (Guna2GradientButton)sender);
         private void guna2GradientButton6_Click(object sender, EventArgs e) => LoadForm(new TaiChinh(), (Guna2GradientButton)sender);
         private void guna2GradientButton8_Click(object sender, EventArgs e) => LoadForm(new FrmSettings(), (Guna2GradientButton)sender);
@@ -277,6 +282,10 @@ namespace GUI_Quanlykhachsan
         private void guna2GradientButton5_Click(object sender, EventArgs e)
         {
 
+        }
+        private void Ttimp_Click(object sender, EventArgs e)
+        {
+            _qlydp.timkiem();
         }
     }
 }
