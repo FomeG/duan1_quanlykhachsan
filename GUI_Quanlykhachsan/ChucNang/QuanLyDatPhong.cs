@@ -18,9 +18,10 @@ namespace GUI_Quanlykhachsan.ChucNang
         public void hienthiphong()
         {
             SoDoPhong.Controls.Clear();
-            foreach (var item in DTODB.db.view_trangthai_phong_hientai.ToList())
+            var listp = DTODB.db.view_trangthai_phong_hientai.ToList();
+            foreach (var item in listp)
             {
-                trangthaiphong phong = new trangthaiphong(item.tenphong, item.mota, item.trangthai, item.idphong);
+                trangthaiphong phong = new trangthaiphong(item.tenphong, item.mota, item.trangthai, item.idphong, 2);
                 SoDoPhong.Controls.Add(phong);
             }
         }
@@ -30,13 +31,18 @@ namespace GUI_Quanlykhachsan.ChucNang
             hienthiphong();
         }
 
+        private string ngaydenStr;
+        private string ngaydiStr;
         public void timkiem(DateTime ngayden, DateTime ngaydi)
         {
             SoDoPhong.Controls.Clear();
-            var listp = DTODB.db.kiemtra_trangthai_phong(ngayden, ngaydi).ToList();
-            foreach (var item in listp)
+            this.ngaydenStr = ngayden.ToString("yyyy-MM-dd HH:mm:ss");
+            this.ngaydiStr = ngaydi.ToString("yyyy-MM-dd HH:mm:ss");
+            var listptimkiem = DTODB.db.kiemtra_trangthai_phong(ngaydenStr, ngaydiStr).ToList();
+
+            foreach (var item in listptimkiem)
             {
-                trangthaiphong phong = new trangthaiphong(item.tenphong, item.mota, item.trangthai, item.idphong);
+                trangthaiphong phong = new trangthaiphong(item.tenphong, item.mota, item.trangthai, item.idphong, item.trangthai != 0 ? 1 : 2);
                 SoDoPhong.Controls.Add(phong);
             }
         }

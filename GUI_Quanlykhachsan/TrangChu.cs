@@ -1,4 +1,5 @@
 ﻿using BUS_Quanly.Services.QuanLyDatPhong.ThanhToan_DV;
+using DTO_Quanly.Model.DB;
 using DTO_Quanly.Transfer;
 using GUI_Quanlykhachsan.ChucNang;
 using GUI_Quanlykhachsan.ChucNang.ADMIN;
@@ -8,6 +9,7 @@ using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -15,14 +17,23 @@ namespace GUI_Quanlykhachsan
 {
     public partial class TrangChu : Form
     {
-
+        private QuanLyDatPhong _qlydp;
+        private Qly_NhanVien _qlynv;
+        private ThongTinKH _ttkh;
+        private HoaDon _hd;
+        private TaiChinh _taiChinh;
+        private FrmSettings _caiDat;
         public TrangChu()
         {
             InitializeComponent();
             this.MouseDown += new MouseEventHandler(Form_MouseDown);
-
+            this._qlydp = new QuanLyDatPhong();
+            this._qlynv = new Qly_NhanVien();
+            this._ttkh = new ThongTinKH();
+            this._hd = new HoaDon();
+            this._taiChinh = new TaiChinh();
+            this._caiDat = new FrmSettings();
         }
-        private QuanLyDatPhong _qlydp;
 
         #region Kéo thả form
         [DllImport("User32.dll")]
@@ -94,28 +105,18 @@ namespace GUI_Quanlykhachsan
             }
         }
 
-        private void guna2GradientButton2_Click(object sender, EventArgs e) => LoadForm(new Qly_NhanVien(), (Guna2GradientButton)sender);
-        private void guna2GradientButton1_Click(object sender, EventArgs e)
-        {
-            this._qlydp = new QuanLyDatPhong();
-            LoadForm(new QuanLyDatPhong(), (Guna2GradientButton)sender);
-        }
-        private void guna2GradientButton3_Click(object sender, EventArgs e) => LoadForm(new ThongTinKH(), (Guna2GradientButton)sender);
-        private void guna2GradientButton6_Click(object sender, EventArgs e) => LoadForm(new TaiChinh(), (Guna2GradientButton)sender);
-        private void guna2GradientButton8_Click(object sender, EventArgs e) => LoadForm(new FrmSettings(), (Guna2GradientButton)sender);
+        private void guna2GradientButton2_Click(object sender, EventArgs e) => LoadForm(this._qlynv, (Guna2GradientButton)sender);
+        private void guna2GradientButton1_Click(object sender, EventArgs e) => LoadForm(this._qlydp, (Guna2GradientButton)sender);
+        
+        private void guna2GradientButton3_Click(object sender, EventArgs e) => LoadForm(this._ttkh, (Guna2GradientButton)sender);
+        private void guna2GradientButton6_Click(object sender, EventArgs e) => LoadForm(this._taiChinh, (Guna2GradientButton)sender);
+        private void guna2GradientButton8_Click(object sender, EventArgs e) => LoadForm(this._caiDat, (Guna2GradientButton)sender);
+        private void guna2GradientButton4_Click(object sender, EventArgs e) => LoadForm(new FrmSettings(), (Guna2GradientButton)sender);
+        private void guna2GradientButton5_Click(object sender, EventArgs e) => LoadForm(this._hd, (Guna2GradientButton)sender);
+        private void guna2GradientButton7_Click(object sender, EventArgs e) => LoadForm(new FrmSettings(), (Guna2GradientButton)sender);
 
         #endregion
 
-        private void guna2GradientButton7_Click(object sender, EventArgs e)
-        {
-            //ThanhToan ls = new ThanhToan();
-            //ls.FormBorderStyle = FormBorderStyle.None;
-            //ls.TopLevel = false;
-            //container.Controls.Clear();
-            //container.Controls.Add(ls);
-            //ls.Show();
-            //ls.Dock = DockStyle.Fill;
-        }
 
         private void guna2GradientButton10_Click(object sender, EventArgs e)
         {
@@ -279,13 +280,23 @@ namespace GUI_Quanlykhachsan
             MessageBox.Show(nghia.hienthidv().Count.ToString());
         }
 
-        private void guna2GradientButton5_Click(object sender, EventArgs e)
-        {
 
-        }
         private void Ttimp_Click(object sender, EventArgs e)
         {
-            _qlydp.timkiem();
+            if (tngayden.Value.Date < DateTime.Now.Date)
+            {
+                MessageBox.Show("Ngày đến không được nhỏ hơn ngày hiện tại!", "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (tngaydi.Value.Date <= tngayden.Value.Date)
+            {
+                MessageBox.Show("Ngày đi không được nhỏ hơn ngày đến!", "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                _qlydp.timkiem(tngayden.Value.Date, tngaydi.Value.Date);
+            }
         }
+
+
     }
 }

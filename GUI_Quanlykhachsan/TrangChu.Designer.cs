@@ -53,9 +53,9 @@
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
-            this.tngayden = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.tngaydi = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.Ttimp = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.tngaydi = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.tngayden = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.guna2Panel2.SuspendLayout();
@@ -246,7 +246,7 @@
             this.btnQLNV.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnQLNV.FillColor = System.Drawing.Color.White;
             this.btnQLNV.FillColor2 = System.Drawing.Color.White;
-            this.btnQLNV.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQLNV.Font = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnQLNV.ForeColor = System.Drawing.Color.Black;
             this.btnQLNV.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnQLNV.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
@@ -275,7 +275,7 @@
             this.btnQLDP.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnQLDP.FillColor = System.Drawing.Color.White;
             this.btnQLDP.FillColor2 = System.Drawing.Color.White;
-            this.btnQLDP.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQLDP.Font = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnQLDP.ForeColor = System.Drawing.Color.Black;
             this.btnQLDP.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnQLDP.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
@@ -304,7 +304,7 @@
             this.btnKH.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnKH.FillColor = System.Drawing.Color.White;
             this.btnKH.FillColor2 = System.Drawing.Color.White;
-            this.btnKH.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnKH.Font = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnKH.ForeColor = System.Drawing.Color.Black;
             this.btnKH.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnKH.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
@@ -333,7 +333,7 @@
             this.guna2GradientButton4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2GradientButton4.FillColor = System.Drawing.Color.White;
             this.guna2GradientButton4.FillColor2 = System.Drawing.Color.White;
-            this.guna2GradientButton4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2GradientButton4.Font = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2GradientButton4.ForeColor = System.Drawing.Color.Black;
             this.guna2GradientButton4.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.guna2GradientButton4.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
@@ -346,6 +346,7 @@
             this.guna2GradientButton4.TabIndex = 6;
             this.guna2GradientButton4.Text = "Quản lý phòng";
             this.guna2GradientButton4.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2GradientButton4.Click += new System.EventHandler(this.guna2GradientButton4_Click);
             // 
             // guna2GradientButton5
             // 
@@ -361,7 +362,7 @@
             this.guna2GradientButton5.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2GradientButton5.FillColor = System.Drawing.Color.White;
             this.guna2GradientButton5.FillColor2 = System.Drawing.Color.White;
-            this.guna2GradientButton5.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2GradientButton5.Font = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2GradientButton5.ForeColor = System.Drawing.Color.Black;
             this.guna2GradientButton5.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.guna2GradientButton5.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
@@ -390,7 +391,7 @@
             this.btnTC.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnTC.FillColor = System.Drawing.Color.White;
             this.btnTC.FillColor2 = System.Drawing.Color.White;
-            this.btnTC.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTC.Font = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTC.ForeColor = System.Drawing.Color.Black;
             this.btnTC.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnTC.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
@@ -419,7 +420,7 @@
             this.guna2GradientButton7.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2GradientButton7.FillColor = System.Drawing.Color.White;
             this.guna2GradientButton7.FillColor2 = System.Drawing.Color.White;
-            this.guna2GradientButton7.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2GradientButton7.Font = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2GradientButton7.ForeColor = System.Drawing.Color.Black;
             this.guna2GradientButton7.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.guna2GradientButton7.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
@@ -447,7 +448,7 @@
             this.btnDangXuat.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnDangXuat.FillColor = System.Drawing.Color.White;
             this.btnDangXuat.FillColor2 = System.Drawing.Color.White;
-            this.btnDangXuat.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDangXuat.Font = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Bold);
             this.btnDangXuat.ForeColor = System.Drawing.Color.Black;
             this.btnDangXuat.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnDangXuat.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
@@ -476,7 +477,7 @@
             this.btnSettings.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnSettings.FillColor = System.Drawing.Color.White;
             this.btnSettings.FillColor2 = System.Drawing.Color.White;
-            this.btnSettings.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSettings.Font = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSettings.ForeColor = System.Drawing.Color.Black;
             this.btnSettings.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnSettings.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
@@ -534,32 +535,6 @@
             this.guna2Panel4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.guna2Panel4_MouseMove);
             this.guna2Panel4.MouseUp += new System.Windows.Forms.MouseEventHandler(this.guna2Panel4_MouseUp);
             // 
-            // tngayden
-            // 
-            this.tngayden.Checked = true;
-            this.tngayden.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.tngayden.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.tngayden.Location = new System.Drawing.Point(34, 14);
-            this.tngayden.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.tngayden.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.tngayden.Name = "tngayden";
-            this.tngayden.Size = new System.Drawing.Size(200, 36);
-            this.tngayden.TabIndex = 16;
-            this.tngayden.Value = new System.DateTime(2024, 7, 30, 23, 14, 20, 519);
-            // 
-            // tngaydi
-            // 
-            this.tngaydi.Checked = true;
-            this.tngaydi.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.tngaydi.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.tngaydi.Location = new System.Drawing.Point(272, 14);
-            this.tngaydi.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.tngaydi.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.tngaydi.Name = "tngaydi";
-            this.tngaydi.Size = new System.Drawing.Size(200, 36);
-            this.tngaydi.TabIndex = 16;
-            this.tngaydi.Value = new System.DateTime(2024, 7, 30, 23, 14, 20, 519);
-            // 
             // Ttimp
             // 
             this.Ttimp.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -575,6 +550,32 @@
             this.Ttimp.TabIndex = 17;
             this.Ttimp.Text = "guna2GradientButton1";
             this.Ttimp.Click += new System.EventHandler(this.Ttimp_Click);
+            // 
+            // tngaydi
+            // 
+            this.tngaydi.Checked = true;
+            this.tngaydi.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.tngaydi.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.tngaydi.Location = new System.Drawing.Point(272, 14);
+            this.tngaydi.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.tngaydi.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.tngaydi.Name = "tngaydi";
+            this.tngaydi.Size = new System.Drawing.Size(200, 36);
+            this.tngaydi.TabIndex = 16;
+            this.tngaydi.Value = new System.DateTime(2024, 7, 30, 23, 14, 20, 519);
+            // 
+            // tngayden
+            // 
+            this.tngayden.Checked = true;
+            this.tngayden.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.tngayden.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.tngayden.Location = new System.Drawing.Point(66, 14);
+            this.tngayden.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.tngayden.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.tngayden.Name = "tngayden";
+            this.tngayden.Size = new System.Drawing.Size(200, 36);
+            this.tngayden.TabIndex = 16;
+            this.tngayden.Value = new System.DateTime(2024, 7, 30, 23, 14, 20, 519);
             // 
             // TrangChu
             // 
