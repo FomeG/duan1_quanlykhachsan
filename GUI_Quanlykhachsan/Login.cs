@@ -1,11 +1,9 @@
 ﻿using BUS_Quanly.Services.LoginLogout;
 using DTO_Quanly;
-using DTO_Quanly.Model.DB;
 using DTO_Quanly.Transfer;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Drawing.Text;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;

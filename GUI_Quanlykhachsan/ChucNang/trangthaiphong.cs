@@ -6,7 +6,6 @@ using Guna.UI2.WinForms;
 using System;
 using System.Drawing;
 using System.Linq;
-using System.Runtime.Remoting.Channels;
 using System.Windows.Forms;
 
 namespace GUI_Quanlykhachsan.ChucNang
