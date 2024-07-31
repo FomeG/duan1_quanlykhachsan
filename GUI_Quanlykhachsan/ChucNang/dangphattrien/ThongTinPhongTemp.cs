@@ -1,6 +1,5 @@
 ﻿using DTO_Quanly;
 using System;
-using System.ComponentModel.Design;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -23,14 +22,14 @@ namespace GUI_Quanlykhachsan.ChucNang.dangphattrien
             mota.Text = thongtinp.mota.ToString();
             giaphong.Text = thongtinp.giaphong.ToString();
             khuvuc.Text = thongtinp.tenkhuvuc.ToString();
-            if(thongtinp.trangthai_text.ToString() == "Trống")
+            if (thongtinp.trangthai_text.ToString() == "Trống")
             {
                 trangthai.Text = "Trống";
             }
             else
             {
                 trangthai.Text = "Đã đặt";
-                
+
             }
         }
 

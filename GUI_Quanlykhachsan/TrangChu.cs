@@ -1,5 +1,4 @@
 ﻿using BUS_Quanly.Services.QuanLyDatPhong.ThanhToan_DV;
-using DTO_Quanly.Model.DB;
 using DTO_Quanly.Transfer;
 using GUI_Quanlykhachsan.ChucNang;
 using GUI_Quanlykhachsan.ChucNang.ADMIN;
@@ -9,7 +8,6 @@ using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Drawing.Printing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -17,22 +15,28 @@ namespace GUI_Quanlykhachsan
 {
     public partial class TrangChu : Form
     {
-        private QuanLyDatPhong _qlydp;
-        private Qly_NhanVien _qlynv;
-        private ThongTinKH _ttkh;
-        private HoaDon _hd;
-        private TaiChinh _taiChinh;
-        private FrmSettings _caiDat;
+        private readonly QuanLyDatPhong _qlydp;
+        private readonly Qly_NhanVien _qlynv;
+        private readonly ThongTinKH _ttkh;
+        private readonly HoaDon _hd;
+        private readonly TaiChinh _taiChinh;
+        private readonly FrmSettings _caiDat;
+        private Guna2GradientButton _currentButton;
+        private bool _dragging;
+        private Point _dragCursorPoint;
+        private Point _dragFormPoint;
+        private readonly TTDichVu _nghia = new TTDichVu();
+
         public TrangChu()
         {
             InitializeComponent();
-            this.MouseDown += new MouseEventHandler(Form_MouseDown);
-            this._qlydp = new QuanLyDatPhong();
-            this._qlynv = new Qly_NhanVien();
-            this._ttkh = new ThongTinKH();
-            this._hd = new HoaDon();
-            this._taiChinh = new TaiChinh();
-            this._caiDat = new FrmSettings();
+            MouseDown += Form_MouseDown;
+            _qlydp = new QuanLyDatPhong();
+            _qlynv = new Qly_NhanVien();
+            _ttkh = new ThongTinKH();
+            _hd = new HoaDon();
+            _taiChinh = new TaiChinh();
+            _caiDat = new FrmSettings();
         }
 
         #region Kéo thả form
@@ -66,14 +70,11 @@ namespace GUI_Quanlykhachsan
             e.Cancel = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes;
         }
 
-
         // Màu mặc định và màu khi nhấn vào
         private Color MauMacDinh() => Color.FromArgb(255, 255, 255);
         private Color MauKhiNhan() => Color.FromArgb(128, 128, 255);
 
-
         // Nút thoát
-        private void btnEXIT_Click(object sender, EventArgs e) => Close();
 
         #region Code rút gọn
 
@@ -107,7 +108,7 @@ namespace GUI_Quanlykhachsan
 
         private void guna2GradientButton2_Click(object sender, EventArgs e) => LoadForm(this._qlynv, (Guna2GradientButton)sender);
         private void guna2GradientButton1_Click(object sender, EventArgs e) => LoadForm(this._qlydp, (Guna2GradientButton)sender);
-        
+
         private void guna2GradientButton3_Click(object sender, EventArgs e) => LoadForm(this._ttkh, (Guna2GradientButton)sender);
         private void guna2GradientButton6_Click(object sender, EventArgs e) => LoadForm(this._taiChinh, (Guna2GradientButton)sender);
         private void guna2GradientButton8_Click(object sender, EventArgs e) => LoadForm(this._caiDat, (Guna2GradientButton)sender);
@@ -181,92 +182,40 @@ namespace GUI_Quanlykhachsan
         // Kết thúc phần test code
         #endregion
 
-
         #region Kéo thả form (controller)
-
-        private bool dragging = false;
-        private Point dragCursorPoint;
-        private Point dragFormPoint;
-
-        private void guna2Panel2_MouseDown(object sender, MouseEventArgs e)
+        private void StartDragging(MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
-                dragging = true;
-                dragCursorPoint = Cursor.Position;
-                dragFormPoint = this.Location;
+                _dragging = true;
+                _dragCursorPoint = Cursor.Position;
+                _dragFormPoint = Location;
             }
         }
 
-        private void guna2Panel2_MouseMove(object sender, MouseEventArgs e)
+        private void DragForm(MouseEventArgs e)
         {
-            if (dragging)
+            if (_dragging)
             {
-                Point diff = Point.Subtract(Cursor.Position, new Size(dragCursorPoint));
-                this.Location = Point.Add(dragFormPoint, new Size(diff));
+                Point diff = Point.Subtract(Cursor.Position, new Size(_dragCursorPoint));
+                Location = Point.Add(_dragFormPoint, new Size(diff));
             }
         }
+        private void StopDragging(MouseEventArgs e) => _dragging = false;
 
-        private void guna2Panel2_MouseUp(object sender, MouseEventArgs e)
-        {
-            dragging = false;
+        private void guna2Panel2_MouseDown(object sender, MouseEventArgs e) => StartDragging(e);
+        private void guna2Panel2_MouseMove(object sender, MouseEventArgs e) => DragForm(e);
+        private void guna2Panel2_MouseUp(object sender, MouseEventArgs e) => StopDragging(e);
 
-        }
+        private void label1_MouseDown(object sender, MouseEventArgs e) => StartDragging(e);
+        private void label1_MouseMove(object sender, MouseEventArgs e) => DragForm(e);
+        private void label1_MouseUp(object sender, MouseEventArgs e) => StopDragging(e);
 
-        private void label1_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                dragging = true;
-                dragCursorPoint = Cursor.Position;
-                dragFormPoint = this.Location;
-            }
-        }
-
-        private void label1_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (dragging)
-            {
-                Point diff = Point.Subtract(Cursor.Position, new Size(dragCursorPoint));
-                this.Location = Point.Add(dragFormPoint, new Size(diff));
-            }
-        }
-
-        private void label1_MouseUp(object sender, MouseEventArgs e)
-        {
-            dragging = false;
-        }
-        private void guna2Panel4_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                dragging = true;
-                dragCursorPoint = Cursor.Position;
-                dragFormPoint = this.Location;
-            }
-
-        }
-        private void guna2Panel4_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (dragging)
-            {
-                Point diff = Point.Subtract(Cursor.Position, new Size(dragCursorPoint));
-                this.Location = Point.Add(dragFormPoint, new Size(diff));
-            }
-        }
-
-        private void guna2Panel4_MouseUp(object sender, MouseEventArgs e)
-        {
-            dragging = false;
-        }
-
+        private void guna2Panel4_MouseDown(object sender, MouseEventArgs e) => StartDragging(e);
+        private void guna2Panel4_MouseMove(object sender, MouseEventArgs e) => DragForm(e);
+        private void guna2Panel4_MouseUp(object sender, MouseEventArgs e) => StopDragging(e);
 
         #endregion
-
-        private void guna2Panel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         // Nút đăng xuất
         private void btnDangXuat_Click(object sender, EventArgs e)
@@ -279,7 +228,6 @@ namespace GUI_Quanlykhachsan
         {
             MessageBox.Show(nghia.hienthidv().Count.ToString());
         }
-
 
         private void Ttimp_Click(object sender, EventArgs e)
         {
