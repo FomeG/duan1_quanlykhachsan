@@ -13,8 +13,6 @@ namespace GUI_Quanlykhachsan.ChucNang
             SoDoPhong.Controls.Clear();
 
 
-            SoDoPhong.Controls.Clear();
-
             //var listphong = from a in DTODB.db.trangthaiphongs
             //                join b in DTODB.db.phongs
             //                on a.id equals b.trangthai

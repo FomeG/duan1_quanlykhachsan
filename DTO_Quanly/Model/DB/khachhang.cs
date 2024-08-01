@@ -32,6 +32,7 @@ namespace DTO_Quanly.Model.DB
         public string diachi { get; set; }
         public string anh { get; set; }
         public Nullable<System.DateTime> ngaysinh { get; set; }
+        public Nullable<bool> tt { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<checkin> checkins { get; set; }

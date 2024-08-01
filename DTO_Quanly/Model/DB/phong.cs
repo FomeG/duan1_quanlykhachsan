@@ -26,6 +26,7 @@ namespace DTO_Quanly.Model.DB
         public int khuvuc { get; set; }
         public string tenphong { get; set; }
         public string ghichu { get; set; }
+        public Nullable<bool> tt { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<checkin_phong> checkin_phong { get; set; }

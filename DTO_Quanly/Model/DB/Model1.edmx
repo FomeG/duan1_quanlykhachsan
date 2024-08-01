@@ -51,6 +51,7 @@
           <Property Name="soluongton" Type="int" />
           <Property Name="gia" Type="decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="mota" Type="nvarchar(max)" />
+          <Property Name="tt" Type="bit" />
         </EntityType>
         <EntityType Name="dsdattruoc">
           <Key>
@@ -99,6 +100,7 @@
           <Property Name="diachi" Type="nvarchar(max)" />
           <Property Name="anh" Type="varchar(max)" />
           <Property Name="ngaysinh" Type="date" />
+          <Property Name="tt" Type="bit" />
         </EntityType>
         <EntityType Name="khuvuc">
           <Key>
@@ -129,7 +131,7 @@
           <Property Name="diachi" Type="nvarchar(max)" />
           <Property Name="ngaysinh" Type="date" />
           <Property Name="taikhoan" Type="varchar" MaxLength="100" />
-          <Property Name="idtrangthai" Type="bit" />
+          <Property Name="tt" Type="bit" />
         </EntityType>
         <EntityType Name="phong">
           <Key>
@@ -140,6 +142,7 @@
           <Property Name="khuvuc" Type="int" Nullable="false" />
           <Property Name="tenphong" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ghichu" Type="nvarchar(max)" />
+          <Property Name="tt" Type="bit" />
         </EntityType>
         <EntityType Name="phong_trunggian">
           <Key>
@@ -223,6 +226,32 @@ warning 6002: The table/view 'duan1.dbo.hoadon_phong' does not have a primary ke
           <Property Name="Tên phòng" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Giá phòng" Type="decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="Ngày tạo" Type="datetime" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'duan1.dbo.view_dsdattruoc_chitiet' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="view_dsdattruoc_chitiet">
+          <Key>
+            <PropertyRef Name="idphong" />
+            <PropertyRef Name="tenphong" />
+            <PropertyRef Name="loaiphong" />
+            <PropertyRef Name="giaphong" />
+            <PropertyRef Name="tenkhuvuc" />
+            <PropertyRef Name="ten_nhanvien" />
+            <PropertyRef Name="ten_khachhang" />
+          </Key>
+          <Property Name="idphong" Type="int" Nullable="false" />
+          <Property Name="tenphong" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="loaiphong" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="mota" Type="nvarchar(max)" />
+          <Property Name="giaphong" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="tenkhuvuc" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ten_nhanvien" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ten_khachhang" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ngayden" Type="datetime" />
+          <Property Name="ngaydi" Type="datetime" />
+          <Property Name="ttphong" Type="bit" />
+          <Property Name="ghichu" Type="nvarchar(max)" />
+          <Property Name="ngaydat" Type="datetime" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -541,9 +570,14 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
           <Parameter Name="ngaydi" Type="datetime" Mode="In" />
           <Parameter Name="ghichu" Type="nvarchar(max)" Mode="In" />
         </Function>
+        <Function Name="kiemtra_dsdattruoc_chitiet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ngayden" Type="varchar" Mode="In" />
+          <Parameter Name="ngaydi" Type="varchar" Mode="In" />
+          <Parameter Name="idphong" Type="int" Mode="In" />
+        </Function>
         <Function Name="kiemtra_trangthai_phong" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="ngayden" Type="datetime" Mode="In" />
-          <Parameter Name="ngaydi" Type="datetime" Mode="In" />
+          <Parameter Name="ngayden" Type="varchar" Mode="In" />
+          <Parameter Name="ngaydi" Type="varchar" Mode="In" />
         </Function>
         <EntityContainer Name="duan1ModelStoreContainer">
           <EntitySet Name="checkin" EntityType="Self.checkin" Schema="dbo" store:Type="Tables" />
@@ -584,6 +618,23 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
     [hoadon_phong].[Giá phòng] AS [Giá phòng], 
     [hoadon_phong].[Ngày tạo] AS [Ngày tạo]
     FROM [dbo].[hoadon_phong] AS [hoadon_phong]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="view_dsdattruoc_chitiet" EntityType="Self.view_dsdattruoc_chitiet" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [view_dsdattruoc_chitiet].[idphong] AS [idphong], 
+    [view_dsdattruoc_chitiet].[tenphong] AS [tenphong], 
+    [view_dsdattruoc_chitiet].[loaiphong] AS [loaiphong], 
+    [view_dsdattruoc_chitiet].[mota] AS [mota], 
+    [view_dsdattruoc_chitiet].[giaphong] AS [giaphong], 
+    [view_dsdattruoc_chitiet].[tenkhuvuc] AS [tenkhuvuc], 
+    [view_dsdattruoc_chitiet].[ten_nhanvien] AS [ten_nhanvien], 
+    [view_dsdattruoc_chitiet].[ten_khachhang] AS [ten_khachhang], 
+    [view_dsdattruoc_chitiet].[ngayden] AS [ngayden], 
+    [view_dsdattruoc_chitiet].[ngaydi] AS [ngaydi], 
+    [view_dsdattruoc_chitiet].[ttphong] AS [ttphong], 
+    [view_dsdattruoc_chitiet].[ghichu] AS [ghichu], 
+    [view_dsdattruoc_chitiet].[ngaydat] AS [ngaydat]
+    FROM [dbo].[view_dsdattruoc_chitiet] AS [view_dsdattruoc_chitiet]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="view_trangthai_phong_hientai" EntityType="Self.view_trangthai_phong_hientai" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -758,6 +809,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
           <Property Name="soluongton" Type="Int32" />
           <Property Name="gia" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="tt" Type="Boolean" />
           <NavigationProperty Name="checkin_dichvu" Relationship="Self.FK__checkin_di__iddv__619B8048" FromRole="dichvu" ToRole="checkin_dichvu" />
         </EntityType>
         <EntityType Name="dsdattruoc">
@@ -816,6 +868,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
           <Property Name="diachi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="anh" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="ngaysinh" Type="DateTime" Precision="0" />
+          <Property Name="tt" Type="Boolean" />
           <NavigationProperty Name="checkins" Relationship="Self.FK__checkin__idkh__52593CB8" FromRole="khachhang" ToRole="checkin" />
           <NavigationProperty Name="checkouts" Relationship="Self.FK__checkout__idkh__5629CD9C" FromRole="khachhang" ToRole="checkout" />
           <NavigationProperty Name="dsdattruocs" Relationship="Self.FK__dsdattruoc__idkh__4D94879B" FromRole="khachhang" ToRole="dsdattruoc" />
@@ -853,7 +906,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
           <Property Name="diachi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ngaysinh" Type="DateTime" Precision="0" />
           <Property Name="taikhoan" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="idtrangthai" Type="Boolean" />
+          <Property Name="tt" Type="Boolean" />
           <NavigationProperty Name="checkins" Relationship="Self.FK__checkin__idnv__534D60F1" FromRole="nhanvien" ToRole="checkin" />
           <NavigationProperty Name="checkouts" Relationship="Self.FK__checkout__idnv__571DF1D5" FromRole="nhanvien" ToRole="checkout" />
           <NavigationProperty Name="dsdattruocs" Relationship="Self.FK__dsdattruoc__idnv__4CA06362" FromRole="nhanvien" ToRole="dsdattruoc" />
@@ -870,6 +923,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
           <Property Name="khuvuc" Type="Int32" Nullable="false" />
           <Property Name="tenphong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ghichu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="tt" Type="Boolean" />
           <NavigationProperty Name="checkin_phong" Relationship="Self.FK__checkin_p__idpho__656C112C" FromRole="phong" ToRole="checkin_phong" />
           <NavigationProperty Name="dsdattruocs" Relationship="Self.FK__dsdattruo__idpho__4E88ABD4" FromRole="phong" ToRole="dsdattruoc" />
           <NavigationProperty Name="khuvuc1" Relationship="Self.FK__phong__khuvuc__3C69FB99" FromRole="phong" ToRole="khuvuc" />
@@ -961,6 +1015,30 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
           <Property Name="Tên_phòng" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Giá_phòng" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="Ngày_tạo" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="view_dsdattruoc_chitiet">
+          <Key>
+            <PropertyRef Name="idphong" />
+            <PropertyRef Name="tenphong" />
+            <PropertyRef Name="loaiphong" />
+            <PropertyRef Name="giaphong" />
+            <PropertyRef Name="tenkhuvuc" />
+            <PropertyRef Name="ten_nhanvien" />
+            <PropertyRef Name="ten_khachhang" />
+          </Key>
+          <Property Name="idphong" Type="Int32" Nullable="false" />
+          <Property Name="tenphong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="loaiphong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="giaphong" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="tenkhuvuc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ten_nhanvien" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ten_khachhang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ngayden" Type="DateTime" Precision="3" />
+          <Property Name="ngaydi" Type="DateTime" Precision="3" />
+          <Property Name="ttphong" Type="Boolean" />
+          <Property Name="ghichu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ngaydat" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="view_trangthai_phong_hientai">
           <Key>
@@ -1269,7 +1347,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DuAn1_D" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DA1_entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="checkins" EntityType="Self.checkin" />
           <EntitySet Name="checkin_dichvu" EntityType="Self.checkin_dichvu" />
           <EntitySet Name="checkin_phong" EntityType="Self.checkin_phong" />
@@ -1290,6 +1368,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
           <EntitySet Name="vouchers" EntityType="Self.voucher" />
           <EntitySet Name="hoadon_dichvu" EntityType="Self.hoadon_dichvu" />
           <EntitySet Name="hoadon_phong" EntityType="Self.hoadon_phong" />
+          <EntitySet Name="view_dsdattruoc_chitiet" EntityType="Self.view_dsdattruoc_chitiet" />
           <EntitySet Name="view_trangthai_phong_hientai" EntityType="Self.view_trangthai_phong_hientai" />
           <AssociationSet Name="FK__checkin__idkh__52593CB8" Association="Self.FK__checkin__idkh__52593CB8">
             <End Role="khachhang" EntitySet="khachhangs" />
@@ -1395,11 +1474,31 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             <Parameter Name="ngaydi" Mode="In" Type="DateTime" />
             <Parameter Name="ghichu" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="kiemtra_dsdattruoc_chitiet" ReturnType="Collection(duan1Model.kiemtra_dsdattruoc_chitiet_Result)">
+            <Parameter Name="ngayden" Mode="In" Type="String" />
+            <Parameter Name="ngaydi" Mode="In" Type="String" />
+            <Parameter Name="idphong" Mode="In" Type="Int32" />
+          </FunctionImport>
           <FunctionImport Name="kiemtra_trangthai_phong" ReturnType="Collection(duan1Model.kiemtra_trangthai_phong_Result)">
-            <Parameter Name="ngayden" Mode="In" Type="DateTime" />
-            <Parameter Name="ngaydi" Mode="In" Type="DateTime" />
+            <Parameter Name="ngayden" Mode="In" Type="String" />
+            <Parameter Name="ngaydi" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
+        <ComplexType Name="kiemtra_dsdattruoc_chitiet_Result">
+          <Property Type="Int32" Name="idphong" Nullable="false" />
+          <Property Type="String" Name="tenphong" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="loaiphong" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="mota" Nullable="true" />
+          <Property Type="Decimal" Name="giaphong" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="String" Name="tenkhuvuc" Nullable="false" />
+          <Property Type="String" Name="ten_nhanvien" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ten_khachhang" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="ngayden" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="ngaydi" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="ttphong" Nullable="true" />
+          <Property Type="String" Name="ghichu" Nullable="true" />
+          <Property Type="DateTime" Name="ngaydat" Nullable="true" Precision="23" />
+        </ComplexType>
         <ComplexType Name="kiemtra_trangthai_phong_Result">
           <Property Type="Int32" Name="idphong" Nullable="false" />
           <Property Type="String" Name="tenphong" Nullable="false" MaxLength="50" />
@@ -1415,7 +1514,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="duan1ModelStoreContainer" CdmEntityContainer="DuAn1_D">
+        <EntityContainerMapping StorageEntityContainer="duan1ModelStoreContainer" CdmEntityContainer="DA1_entities">
           <EntitySetMapping Name="checkins">
             <EntityTypeMapping TypeName="duan1Model.checkin">
               <MappingFragment StoreEntitySet="checkin">
@@ -1465,6 +1564,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
                 <ScalarProperty Name="soluongton" ColumnName="soluongton" />
                 <ScalarProperty Name="gia" ColumnName="gia" />
                 <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="tt" ColumnName="tt" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1516,6 +1616,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
                 <ScalarProperty Name="diachi" ColumnName="diachi" />
                 <ScalarProperty Name="anh" ColumnName="anh" />
                 <ScalarProperty Name="ngaysinh" ColumnName="ngaysinh" />
+                <ScalarProperty Name="tt" ColumnName="tt" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1549,7 +1650,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
                 <ScalarProperty Name="diachi" ColumnName="diachi" />
                 <ScalarProperty Name="ngaysinh" ColumnName="ngaysinh" />
                 <ScalarProperty Name="taikhoan" ColumnName="taikhoan" />
-                <ScalarProperty Name="idtrangthai" ColumnName="idtrangthai" />
+                <ScalarProperty Name="tt" ColumnName="tt" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1561,6 +1662,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
                 <ScalarProperty Name="khuvuc" ColumnName="khuvuc" />
                 <ScalarProperty Name="tenphong" ColumnName="tenphong" />
                 <ScalarProperty Name="ghichu" ColumnName="ghichu" />
+                <ScalarProperty Name="tt" ColumnName="tt" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1639,6 +1741,25 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="view_dsdattruoc_chitiet">
+            <EntityTypeMapping TypeName="duan1Model.view_dsdattruoc_chitiet">
+              <MappingFragment StoreEntitySet="view_dsdattruoc_chitiet">
+                <ScalarProperty Name="idphong" ColumnName="idphong" />
+                <ScalarProperty Name="tenphong" ColumnName="tenphong" />
+                <ScalarProperty Name="loaiphong" ColumnName="loaiphong" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="giaphong" ColumnName="giaphong" />
+                <ScalarProperty Name="tenkhuvuc" ColumnName="tenkhuvuc" />
+                <ScalarProperty Name="ten_nhanvien" ColumnName="ten_nhanvien" />
+                <ScalarProperty Name="ten_khachhang" ColumnName="ten_khachhang" />
+                <ScalarProperty Name="ngayden" ColumnName="ngayden" />
+                <ScalarProperty Name="ngaydi" ColumnName="ngaydi" />
+                <ScalarProperty Name="ttphong" ColumnName="ttphong" />
+                <ScalarProperty Name="ghichu" ColumnName="ghichu" />
+                <ScalarProperty Name="ngaydat" ColumnName="ngaydat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="view_trangthai_phong_hientai">
             <EntityTypeMapping TypeName="duan1Model.view_trangthai_phong_hientai">
               <MappingFragment StoreEntitySet="view_trangthai_phong_hientai">
@@ -1654,6 +1775,25 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="insert_dsdattruoc" FunctionName="duan1Model.Store.insert_dsdattruoc" />
+          <FunctionImportMapping FunctionImportName="kiemtra_dsdattruoc_chitiet" FunctionName="duan1Model.Store.kiemtra_dsdattruoc_chitiet">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="duan1Model.kiemtra_dsdattruoc_chitiet_Result">
+                <ScalarProperty Name="idphong" ColumnName="idphong" />
+                <ScalarProperty Name="tenphong" ColumnName="tenphong" />
+                <ScalarProperty Name="loaiphong" ColumnName="loaiphong" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="giaphong" ColumnName="giaphong" />
+                <ScalarProperty Name="tenkhuvuc" ColumnName="tenkhuvuc" />
+                <ScalarProperty Name="ten_nhanvien" ColumnName="ten_nhanvien" />
+                <ScalarProperty Name="ten_khachhang" ColumnName="ten_khachhang" />
+                <ScalarProperty Name="ngayden" ColumnName="ngayden" />
+                <ScalarProperty Name="ngaydi" ColumnName="ngaydi" />
+                <ScalarProperty Name="ttphong" ColumnName="ttphong" />
+                <ScalarProperty Name="ghichu" ColumnName="ghichu" />
+                <ScalarProperty Name="ngaydat" ColumnName="ngaydat" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="kiemtra_trangthai_phong" FunctionName="duan1Model.Store.kiemtra_trangthai_phong">
             <ResultMapping>
               <ComplexTypeMapping TypeName="duan1Model.kiemtra_trangthai_phong_Result">

@@ -25,6 +25,7 @@ namespace DTO_Quanly.Model.DB
         public Nullable<int> soluongton { get; set; }
         public decimal gia { get; set; }
         public string mota { get; set; }
+        public Nullable<bool> tt { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<checkin_dichvu> checkin_dichvu { get; set; }

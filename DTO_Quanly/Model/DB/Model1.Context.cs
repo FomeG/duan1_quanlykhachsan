@@ -15,10 +15,10 @@ namespace DTO_Quanly.Model.DB
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class DuAn1_D : DbContext
+    public partial class DA1_entities : DbContext
     {
-        public DuAn1_D()
-            : base("name=DuAn1_D")
+        public DA1_entities()
+            : base("name=DA1_entities")
         {
         }
     
@@ -47,6 +47,7 @@ namespace DTO_Quanly.Model.DB
         public virtual DbSet<voucher> vouchers { get; set; }
         public virtual DbSet<hoadon_dichvu> hoadon_dichvu { get; set; }
         public virtual DbSet<hoadon_phong> hoadon_phong { get; set; }
+        public virtual DbSet<view_dsdattruoc_chitiet> view_dsdattruoc_chitiet { get; set; }
         public virtual DbSet<view_trangthai_phong_hientai> view_trangthai_phong_hientai { get; set; }
     
         public virtual int insert_dsdattruoc(Nullable<int> idnv, Nullable<int> idkh, Nullable<int> idphong, Nullable<System.DateTime> ngayden, Nullable<System.DateTime> ngaydi, string ghichu)
@@ -78,15 +79,32 @@ namespace DTO_Quanly.Model.DB
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("insert_dsdattruoc", idnvParameter, idkhParameter, idphongParameter, ngaydenParameter, ngaydiParameter, ghichuParameter);
         }
     
-        public virtual ObjectResult<kiemtra_trangthai_phong_Result> kiemtra_trangthai_phong(Nullable<System.DateTime> ngayden, Nullable<System.DateTime> ngaydi)
+        public virtual ObjectResult<kiemtra_dsdattruoc_chitiet_Result> kiemtra_dsdattruoc_chitiet(string ngayden, string ngaydi, Nullable<int> idphong)
         {
-            var ngaydenParameter = ngayden.HasValue ?
+            var ngaydenParameter = ngayden != null ?
                 new ObjectParameter("ngayden", ngayden) :
-                new ObjectParameter("ngayden", typeof(System.DateTime));
+                new ObjectParameter("ngayden", typeof(string));
     
-            var ngaydiParameter = ngaydi.HasValue ?
+            var ngaydiParameter = ngaydi != null ?
                 new ObjectParameter("ngaydi", ngaydi) :
-                new ObjectParameter("ngaydi", typeof(System.DateTime));
+                new ObjectParameter("ngaydi", typeof(string));
+    
+            var idphongParameter = idphong.HasValue ?
+                new ObjectParameter("idphong", idphong) :
+                new ObjectParameter("idphong", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<kiemtra_dsdattruoc_chitiet_Result>("kiemtra_dsdattruoc_chitiet", ngaydenParameter, ngaydiParameter, idphongParameter);
+        }
+    
+        public virtual ObjectResult<kiemtra_trangthai_phong_Result> kiemtra_trangthai_phong(string ngayden, string ngaydi)
+        {
+            var ngaydenParameter = ngayden != null ?
+                new ObjectParameter("ngayden", ngayden) :
+                new ObjectParameter("ngayden", typeof(string));
+    
+            var ngaydiParameter = ngaydi != null ?
+                new ObjectParameter("ngaydi", ngaydi) :
+                new ObjectParameter("ngaydi", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<kiemtra_trangthai_phong_Result>("kiemtra_trangthai_phong", ngaydenParameter, ngaydiParameter);
         }
