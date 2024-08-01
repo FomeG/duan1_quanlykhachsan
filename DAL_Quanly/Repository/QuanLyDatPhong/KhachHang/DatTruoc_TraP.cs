@@ -78,25 +78,30 @@ namespace DAL_Quanly.Repository.QuanLyDatPhong.KhachHang
         }
 
 
-        public bool DatPhong(string tenkh, string email, string sdt, bool gender, string diachi, DateTime Nsinh, string duongdan, string khachtt, DateTime nDen, DateTime nDi)
+        public bool DatPhong(string tenkh, string email, string sdt, bool gender, string diachi, DateTime Nsinh, string duongdan, string khachtt, DateTime nDen, DateTime nDi, bool kiemtra)
         {
             using (var transaction = DTODB.db.Database.BeginTransaction())
             {
                 try
                 {
-                    // Thêm khách hàng mới vào DB
-                    khachhang khmoi = new khachhang()
+                    if (kiemtra == false)
                     {
-                        ten = tenkh,
-                        email = email,
-                        sdt = sdt,
-                        gioitinh = gender ? "Nam" : "Nữ",
-                        diachi = diachi,
-                        ngaysinh = Nsinh,
-                        anh = duongdan
-                    };
-                    DTODB.db.khachhangs.Add(khmoi);
-                    DTODB.db.SaveChanges();
+
+                        // Thêm khách hàng mới vào DB
+                        khachhang khmoi = new khachhang()
+                        {
+                            ten = tenkh,
+                            email = email,
+                            sdt = sdt,
+                            gioitinh = gender ? "Nam" : "Nữ",
+                            diachi = diachi,
+                            ngaysinh = Nsinh,
+                            anh = duongdan
+                        };
+
+                        DTODB.db.khachhangs.Add(khmoi);
+                        DTODB.db.SaveChanges();
+                    }
 
                     // Thêm checkin mới vào DB
                     checkin checkinmoi = new checkin()
@@ -104,7 +109,7 @@ namespace DAL_Quanly.Repository.QuanLyDatPhong.KhachHang
                         idkh = DTODB.db.khachhangs.FirstOrDefault(p => p.email == email).id,
                         idnv = TDatPhong.IDNV,
                         ngaycheckin = DateTime.Now.Date,
-                        trangthai = "Đặt trước"
+                        trangthai = "Đặt"
                     };
                     DTODB.db.checkins.Add(checkinmoi);
                     DTODB.db.SaveChanges();
@@ -134,8 +139,14 @@ namespace DAL_Quanly.Repository.QuanLyDatPhong.KhachHang
                     DTODB.db.checkin_phong.Add(cpmoi);
                     DTODB.db.SaveChanges();
 
+
+                    DTODB.db.insert_dsdattruoc(TDatPhong.IDNV, DTODB.db.khachhangs.FirstOrDefault(p => p.email == email).id, TDatPhong.IdPhong, nDen, nDi, "Khong");
+                    DTODB.db.SaveChanges();
+
+
                     transaction.Commit(); // Ổn thì commit 
                     return true;
+
                 }
                 catch (Exception a)
                 {

@@ -10,11 +10,6 @@ namespace BUS_Quanly.Services.QuanLyDatPhong.DatTruoc_NhanP
     {
         DatTruoc_TraP truyvan = new DatTruoc_TraP();
 
-        public Tdphong(DatTruoc_TraP truyvan)
-        {
-            this.truyvan = truyvan;
-        }
-
         public Tdphong()
         {
 
@@ -40,20 +35,44 @@ namespace BUS_Quanly.Services.QuanLyDatPhong.DatTruoc_NhanP
             }
         }
 
+        public bool checkngay(DateTime nDen, DateTime nDi, int IdPhong)
+        {
+            string ngaydenStr = nDen.ToString("yyyy-MM-dd HH:mm:ss");
+            string ngaydiStr = nDi.ToString("yyyy-MM-dd HH:mm:ss");
+                if(DTODB.db.kiemtra_dsdattruoc_chitiet(ngaydenStr, ngaydiStr, IdPhong).ToList().Count == 0)
+            {
+                return true;
+            }
+            return false;
 
-        public bool DatPhong(string tenkh, string email, string sdt, bool gender, string diachi, DateTime Nsinh, string duongdan, string khachtt, DateTime nDen, DateTime nDi)
+        }
+
+        public bool DatPhong(int Idphong,string tenkh, string email, string sdt, bool gender, string diachi, DateTime Nsinh, string duongdan, string khachtt, DateTime nDen, DateTime nDi, bool kiemtra)
         {
             try
             {
-                if (DTODB.db.khachhangs.FirstOrDefault(x => x.email == email) == null)
+                if (checkngay(nDen, nDi, Idphong))
                 {
-                    return truyvan.DatPhong(tenkh, email, sdt, gender, diachi, Nsinh, duongdan, khachtt, nDen, nDi);
+                    if (DTODB.db.khachhangs.FirstOrDefault(x => x.email == email) != null && kiemtra == true) // ko kiểm tra!
+                    {
+                        return truyvan.DatPhong(tenkh, email, sdt, gender, diachi, Nsinh, duongdan, khachtt, nDen, nDi, true);
+                    }
+                    else
+                    {
+                        if (DTODB.db.khachhangs.FirstOrDefault(x => x.email == email) != null && kiemtra == false)// có kiểm tra
+                        {
+                            MessageBox.Show("Email khách hàng đã tồn tại!");
+                            return false;
+                        }
+                        else
+                        {
+                            return truyvan.DatPhong(tenkh, email, sdt, gender, diachi, Nsinh, duongdan, khachtt, nDen, nDi, false);
+                        }
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Email khách hàng đã tồn tại!");
-                    return false;
-                }
+                MessageBox.Show($"Phòng này đã có người ở từ: {nDen.ToString()} đến {nDi.ToString()} rồi!");
+                return false;
+
             }
             catch
             {

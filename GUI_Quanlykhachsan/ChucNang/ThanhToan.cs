@@ -11,7 +11,7 @@ namespace GUI_Quanlykhachsan.ChucNang
 {
     public partial class ThanhToan : Form
     {
-        TTDichVu _dv = new TTDichVu();
+        private readonly TTDichVu _dv;
         public Action traphong;
         private TTDichVu _truyvan;
         private readonly int IDCin;
@@ -32,6 +32,11 @@ namespace GUI_Quanlykhachsan.ChucNang
             loaddvgview();
 
             this.MouseDown += new MouseEventHandler(Form_MouseDown);
+        }
+
+        public ThanhToan(TTDichVu dv)
+        {
+            _dv = dv;
         }
 
         #region Kéo thả form
