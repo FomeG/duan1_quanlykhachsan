@@ -2,6 +2,8 @@
 using DTO_Quanly;
 using DTO_Quanly.Transfer;
 using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -12,23 +14,35 @@ namespace GUI_Quanlykhachsan.ChucNang
 {
     public partial class KhachHang : Form
     {
-        private readonly Tdphong _tdp = new Tdphong();
-        private readonly Action _dattruoc;
+        private readonly Tdphong _tdp;
         private readonly Action _nhanphong;
         private bool _dragging;
         private Point _dragCursorPoint;
         private Point _dragFormPoint;
         private string _duongdananh;
-        public KhachHang(Action nhanphong, Action dattruoc)
+        public KhachHang(Action nhanphong)
         {
             InitializeComponent();
-            _dattruoc = dattruoc;
             _nhanphong = nhanphong;
 
             tiencantra.Text = TDatPhong.TienPhong.ToString();
 
             this.MouseDown += new MouseEventHandler(Form_MouseDown);
+
+
+
+
+            reload();
+
+
         }
+
+        public KhachHang(Tdphong tdp)
+        {
+            _tdp = tdp;
+        }
+
+
         #region Kéo thả form
         // Dùng WinAPI để di chuyển form
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -128,31 +142,33 @@ namespace GUI_Quanlykhachsan.ChucNang
                 return false;
             }
         }
+
+        //Nút tải lại
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            if (checkthanhtoan())
-            {
-                if (MessageBox.Show("Xác nhận đặt trước?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                {
-                    int soluongnguoitoida = (int)(from a in DTODB.db.phongs
-                                                  join b in DTODB.db.loaiphongs on a.loaiphong equals b.idloaiphong
-                                                  where a.idphong == TDatPhong.IdPhong
-                                                  select b.songuoi).FirstOrDefault();
-                    if (SoLuongNguoi.Value > soluongnguoitoida)
-                    {
-                        MessageBox.Show("Số lượng người vượt quá tối đa!");
-                    }
-                    else
-                    {
-                        if (_tdp.DatTruoc(txtTen.Text, txtEmail.Text, txtSDT.Text, rdNam.Checked, txtDiaChi.Text, NgaySinh.Value.Date, _duongdananh, txtKhachThanhToan.Text, NgayDen.Value.Date, NgayDi.Value.Date))
-                        {
-                            _dattruoc?.Invoke();
-                            Close();
-                        }
-                    }
-                }
-            }
+            reload();
+            invalidate();
+            txtTen.Text = txtEmail.Text = txtSDT.Text = txtDiaChi.Text = "";
+            rdNam.Checked = rdNu.Checked = false;
         }
+
+        public void reload()
+        {
+            var listkh = from a in DTODB.db.khachhangs.ToList()
+                         select new
+                         {
+                             a.ten,
+                             a.email,
+                             a.sdt,
+                             a.gioitinh,
+                             a.diachi,
+                             a.ngaysinh,
+                             a.anh
+                         };
+            gview1.DataSource = listkh.ToList();
+        }
+
+
         // Nút nhận phòng
         private void guna2Button3_Click(object sender, EventArgs e)
         {
@@ -183,6 +199,8 @@ namespace GUI_Quanlykhachsan.ChucNang
         private void label9_Click(object sender, EventArgs e)
         {
         }
+
+
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             OpenFileDialog lam = new OpenFileDialog();
@@ -192,6 +210,7 @@ namespace GUI_Quanlykhachsan.ChucNang
                 _duongdananh = lam.FileName;
             }
         }
+
         private void txtKhachThanhToan_TextChanged(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtKhachThanhToan.Text))
@@ -212,6 +231,59 @@ namespace GUI_Quanlykhachsan.ChucNang
         private void BtnDatThem_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+
+        private void txtSDT_TextChanged(object sender, EventArgs e)
+        {
+            if (DTODB.db.khachhangs.FirstOrDefault(a => a.sdt == txtSDT.Text) == null)
+            {
+                var listtk = from a in DTODB.db.khachhangs.ToList()
+                             where a.sdt.Contains(txtSDT.Text)
+                             select new
+                             {
+                                 a.ten,
+                                 a.email,
+                                 a.sdt,
+                                 a.gioitinh,
+                                 a.diachi,
+                                 a.ngaysinh,
+                                 a.anh
+                             };
+                gview1.DataSource = listtk.ToList();
+            }
+
+        }
+
+        public void validate()
+        {
+            txtTen.Enabled = txtEmail.Enabled = rdNam.Enabled = rdNu.Enabled = txtSDT.Enabled = NgaySinh.Enabled = txtDiaChi.Enabled = false;
+        }
+        public void invalidate()
+        {
+            txtTen.Enabled = txtEmail.Enabled = rdNam.Enabled = rdNu.Enabled = txtSDT.Enabled = NgaySinh.Enabled = txtDiaChi.Enabled = true;
+        }
+        private void gview1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            validate();
+            var dong = gview1.Rows[e.RowIndex];
+
+            txtTen.Text = dong.Cells[0].Value.ToString();
+            txtEmail.Text = dong.Cells[1].Value.ToString();
+            txtSDT.Text = dong.Cells[2].Value.ToString();
+            if (dong.Cells["gioitinh"].Value.ToString() == "Nam")
+            {
+                rdNam.Checked = true;
+            }
+            else
+            {
+                rdNu.Checked = true;
+            }
+            txtDiaChi.Text = dong.Cells[4].Value.ToString();
+            NgaySinh.Value = (DateTime)dong.Cells[5].Value;
+
+
+
         }
     }
 }

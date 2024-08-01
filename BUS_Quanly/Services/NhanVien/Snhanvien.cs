@@ -76,7 +76,7 @@ namespace BUS_Quanly
 
         public bool suanv(int idnvcansua, string ten, string email, string sdt, string gioitinh, string diachi, DateTime nSinh, string tk, string mkmoi, int? loaitk)
         {
-            if (DTODB.db.nhanviens.Where(a => a.email == email) == null)
+            if (DTODB.db.nhanviens.Where(a => a.email == email) != null)
             {
 
                 nhanvien nv = new nhanvien();

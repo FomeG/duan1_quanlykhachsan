@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -38,17 +39,19 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.tenphong = new System.Windows.Forms.Label();
-            this.loaiphong = new System.Windows.Forms.Label();
-            this.mota = new System.Windows.Forms.Label();
-            this.giaphong = new System.Windows.Forms.Label();
-            this.khuvuc = new System.Windows.Forms.Label();
-            this.trangthai = new System.Windows.Forms.Label();
-            this.nguoidat = new System.Windows.Forms.Label();
-            this.ngayvao = new System.Windows.Forms.Label();
             this.ngayra = new System.Windows.Forms.Label();
+            this.ngayvao = new System.Windows.Forms.Label();
+            this.nguoidat = new System.Windows.Forms.Label();
+            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.trangthai = new System.Windows.Forms.Label();
+            this.khuvuc = new System.Windows.Forms.Label();
+            this.giaphong = new System.Windows.Forms.Label();
+            this.mota = new System.Windows.Forms.Label();
+            this.loaiphong = new System.Windows.Forms.Label();
+            this.tenphong = new System.Windows.Forms.Label();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
+            this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.SuspendLayout();
@@ -146,19 +149,50 @@
             // 
             // guna2Panel1
             // 
+            this.guna2Panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Panel1.Controls.Add(this.label7);
             this.guna2Panel1.Controls.Add(this.label9);
             this.guna2Panel1.Controls.Add(this.label8);
             this.guna2Panel1.Controls.Add(this.ngayra);
             this.guna2Panel1.Controls.Add(this.ngayvao);
             this.guna2Panel1.Controls.Add(this.nguoidat);
-            this.guna2Panel1.Location = new System.Drawing.Point(549, 12);
+            this.guna2Panel1.Location = new System.Drawing.Point(549, 39);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(334, 216);
             this.guna2Panel1.TabIndex = 9;
             // 
+            // ngayra
+            // 
+            this.ngayra.AutoSize = true;
+            this.ngayra.Location = new System.Drawing.Point(142, 96);
+            this.ngayra.Name = "ngayra";
+            this.ngayra.Size = new System.Drawing.Size(41, 13);
+            this.ngayra.TabIndex = 6;
+            this.ngayra.Text = "label10";
+            // 
+            // ngayvao
+            // 
+            this.ngayvao.AutoSize = true;
+            this.ngayvao.Location = new System.Drawing.Point(142, 59);
+            this.ngayvao.Name = "ngayvao";
+            this.ngayvao.Size = new System.Drawing.Size(41, 13);
+            this.ngayvao.TabIndex = 6;
+            this.ngayvao.Text = "label10";
+            // 
+            // nguoidat
+            // 
+            this.nguoidat.AutoSize = true;
+            this.nguoidat.Location = new System.Drawing.Point(142, 25);
+            this.nguoidat.Name = "nguoidat";
+            this.nguoidat.Size = new System.Drawing.Size(41, 13);
+            this.nguoidat.TabIndex = 6;
+            this.nguoidat.Text = "label10";
+            // 
             // guna2Panel2
             // 
+            this.guna2Panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Panel2.Controls.Add(this.trangthai);
             this.guna2Panel2.Controls.Add(this.khuvuc);
             this.guna2Panel2.Controls.Add(this.giaphong);
@@ -171,55 +205,10 @@
             this.guna2Panel2.Controls.Add(this.label5);
             this.guna2Panel2.Controls.Add(this.label3);
             this.guna2Panel2.Controls.Add(this.label4);
-            this.guna2Panel2.Location = new System.Drawing.Point(12, 12);
+            this.guna2Panel2.Location = new System.Drawing.Point(12, 39);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(531, 216);
             this.guna2Panel2.TabIndex = 10;
-            // 
-            // tenphong
-            // 
-            this.tenphong.AutoSize = true;
-            this.tenphong.Location = new System.Drawing.Point(186, 20);
-            this.tenphong.Name = "tenphong";
-            this.tenphong.Size = new System.Drawing.Size(41, 13);
-            this.tenphong.TabIndex = 6;
-            this.tenphong.Text = "label10";
-            // 
-            // loaiphong
-            // 
-            this.loaiphong.AutoSize = true;
-            this.loaiphong.Location = new System.Drawing.Point(186, 51);
-            this.loaiphong.Name = "loaiphong";
-            this.loaiphong.Size = new System.Drawing.Size(41, 13);
-            this.loaiphong.TabIndex = 6;
-            this.loaiphong.Text = "label10";
-            // 
-            // mota
-            // 
-            this.mota.AutoSize = true;
-            this.mota.Location = new System.Drawing.Point(186, 81);
-            this.mota.Name = "mota";
-            this.mota.Size = new System.Drawing.Size(41, 13);
-            this.mota.TabIndex = 6;
-            this.mota.Text = "label10";
-            // 
-            // giaphong
-            // 
-            this.giaphong.AutoSize = true;
-            this.giaphong.Location = new System.Drawing.Point(186, 115);
-            this.giaphong.Name = "giaphong";
-            this.giaphong.Size = new System.Drawing.Size(41, 13);
-            this.giaphong.TabIndex = 6;
-            this.giaphong.Text = "label10";
-            // 
-            // khuvuc
-            // 
-            this.khuvuc.AutoSize = true;
-            this.khuvuc.Location = new System.Drawing.Point(186, 151);
-            this.khuvuc.Name = "khuvuc";
-            this.khuvuc.Size = new System.Drawing.Size(41, 13);
-            this.khuvuc.TabIndex = 6;
-            this.khuvuc.Text = "label10";
             // 
             // trangthai
             // 
@@ -230,59 +219,100 @@
             this.trangthai.TabIndex = 6;
             this.trangthai.Text = "label10";
             // 
-            // nguoidat
+            // khuvuc
             // 
-            this.nguoidat.AutoSize = true;
-            this.nguoidat.Location = new System.Drawing.Point(142, 25);
-            this.nguoidat.Name = "nguoidat";
-            this.nguoidat.Size = new System.Drawing.Size(41, 13);
-            this.nguoidat.TabIndex = 6;
-            this.nguoidat.Text = "label10";
+            this.khuvuc.AutoSize = true;
+            this.khuvuc.Location = new System.Drawing.Point(186, 151);
+            this.khuvuc.Name = "khuvuc";
+            this.khuvuc.Size = new System.Drawing.Size(41, 13);
+            this.khuvuc.TabIndex = 6;
+            this.khuvuc.Text = "label10";
             // 
-            // ngayvao
+            // giaphong
             // 
-            this.ngayvao.AutoSize = true;
-            this.ngayvao.Location = new System.Drawing.Point(142, 59);
-            this.ngayvao.Name = "ngayvao";
-            this.ngayvao.Size = new System.Drawing.Size(41, 13);
-            this.ngayvao.TabIndex = 6;
-            this.ngayvao.Text = "label10";
+            this.giaphong.AutoSize = true;
+            this.giaphong.Location = new System.Drawing.Point(186, 115);
+            this.giaphong.Name = "giaphong";
+            this.giaphong.Size = new System.Drawing.Size(41, 13);
+            this.giaphong.TabIndex = 6;
+            this.giaphong.Text = "label10";
             // 
-            // ngayra
+            // mota
             // 
-            this.ngayra.AutoSize = true;
-            this.ngayra.Location = new System.Drawing.Point(142, 96);
-            this.ngayra.Name = "ngayra";
-            this.ngayra.Size = new System.Drawing.Size(41, 13);
-            this.ngayra.TabIndex = 6;
-            this.ngayra.Text = "label10";
+            this.mota.AutoSize = true;
+            this.mota.Location = new System.Drawing.Point(186, 81);
+            this.mota.Name = "mota";
+            this.mota.Size = new System.Drawing.Size(41, 13);
+            this.mota.TabIndex = 6;
+            this.mota.Text = "label10";
+            // 
+            // loaiphong
+            // 
+            this.loaiphong.AutoSize = true;
+            this.loaiphong.Location = new System.Drawing.Point(186, 51);
+            this.loaiphong.Name = "loaiphong";
+            this.loaiphong.Size = new System.Drawing.Size(41, 13);
+            this.loaiphong.TabIndex = 6;
+            this.loaiphong.Text = "label10";
+            // 
+            // tenphong
+            // 
+            this.tenphong.AutoSize = true;
+            this.tenphong.Location = new System.Drawing.Point(186, 20);
+            this.tenphong.Name = "tenphong";
+            this.tenphong.Size = new System.Drawing.Size(41, 13);
+            this.tenphong.TabIndex = 6;
+            this.tenphong.Text = "label10";
             // 
             // guna2Button1
             // 
+            this.guna2Button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(12, 236);
+            this.guna2Button1.Location = new System.Drawing.Point(12, 263);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Size = new System.Drawing.Size(180, 45);
             this.guna2Button1.TabIndex = 11;
-            this.guna2Button1.Text = "guna2Button1";
+            this.guna2Button1.Text = "Quay trở về";
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
+            // 
+            // guna2BorderlessForm1
+            // 
+            this.guna2BorderlessForm1.ContainerControl = this;
+            this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2BorderlessForm1.TransparentWhileDrag = true;
+            // 
+            // guna2GroupBox1
+            // 
+            this.guna2GroupBox1.CustomBorderColor = System.Drawing.Color.White;
+            this.guna2GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2GroupBox1.Font = new System.Drawing.Font("Montserrat", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2GroupBox1.ForeColor = System.Drawing.Color.Black;
+            this.guna2GroupBox1.Location = new System.Drawing.Point(0, 0);
+            this.guna2GroupBox1.Name = "guna2GroupBox1";
+            this.guna2GroupBox1.Size = new System.Drawing.Size(895, 320);
+            this.guna2GroupBox1.TabIndex = 12;
+            this.guna2GroupBox1.Text = "THÔNG TIN PHÒNG";
             // 
             // ThongTinPhongTemp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(895, 293);
+            this.ClientSize = new System.Drawing.Size(895, 320);
             this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.guna2Panel2);
+            this.Controls.Add(this.guna2GroupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ThongTinPhongTemp";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ThongTinPhongTemp";
             this.Load += new System.EventHandler(this.ThongTinPhongTemp_Load);
             this.guna2Panel1.ResumeLayout(false);
@@ -316,5 +346,7 @@
         private System.Windows.Forms.Label ngayvao;
         private System.Windows.Forms.Label nguoidat;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
+        private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
     }
 }
