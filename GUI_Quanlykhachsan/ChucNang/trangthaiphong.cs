@@ -28,7 +28,7 @@ namespace GUI_Quanlykhachsan.ChucNang
             TDatPhong.IdPhong = IdPhong;
             contextMenuStrip = new Guna2ContextMenuStrip();
 
-            _ttphongtemp = new ThongTinPhongTemp(IdPhong, null, null);
+            //_ttphongtemp = new ThongTinPhongTemp(IdPhong, null, null);
 
             if (tim == 2) // trong trường hợp phòng trống, tìm kiếm hoặc không tìm kiếm
             {
@@ -36,6 +36,7 @@ namespace GUI_Quanlykhachsan.ChucNang
                 {
                     this.BackColor = Color.FromArgb(128, 255, 128);
                     btnDat.Text = "Đặt Phòng";
+                    _ttphongtemp = new ThongTinPhongTemp(IdPhong, null, null);
 
                     contextMenuStrip.Items.Add("Thông tin phòng", null, (sender, e) => { _ttphongtemp.Show(); });
                     contextMenuStrip.Items.Add("Đặt phòng", null, (sender, e) => { MessageBox.Show("Đặt phòng"); });
@@ -45,6 +46,10 @@ namespace GUI_Quanlykhachsan.ChucNang
                     this.BackColor = Color.Red;
                     btnDat.Text = "Dịch vụ";
 
+                    DateTime nden = (DateTime)DTODB.db.view_dsdattruoc_chitiet.FirstOrDefault(x => x.idphong == IdPhong).ngayden;
+                    DateTime ndi = (DateTime)DTODB.db.view_dsdattruoc_chitiet.FirstOrDefault(x => x.idphong == IdPhong).ngaydi;
+
+                    _ttphongtemp = new ThongTinPhongTemp(IdPhong, nden, ndi);
 
                     contextMenuStrip.Items.Add("Thông tin phòng", null, (sender, e) => { _ttphongtemp.Show(); });
                     contextMenuStrip.Items.Add("Thanh toán phòng", null, (sender, e) => { MessageBox.Show("Thanh toán phòng"); });
@@ -89,6 +94,7 @@ namespace GUI_Quanlykhachsan.ChucNang
         {
 
         }
+
         public void dph()
         {
             if (btnDat.Text == "Đặt Phòng")
@@ -99,7 +105,7 @@ namespace GUI_Quanlykhachsan.ChucNang
                 TDatPhong.TienPhong = (from a in DTODB.db.phongs join b in DTODB.db.loaiphongs on a.loaiphong equals b.idloaiphong where a.idphong == IdPhong select b.giaphong).FirstOrDefault();
 
 
-                KhachHang khachHang = new KhachHang(nhanphong);
+                KhachHang khachHang = new KhachHang(IdPhong);
                 khachHang.Show();
             }
             else if (btnDat.Text == "Nhận Phòng")
@@ -148,12 +154,30 @@ namespace GUI_Quanlykhachsan.ChucNang
                 TDatPhong.TienPhong = (from a in DTODB.db.phongs join b in DTODB.db.loaiphongs on a.loaiphong equals b.idloaiphong where a.idphong == IdPhong select b.giaphong).FirstOrDefault();
 
 
-                KhachHang khachHang = new KhachHang(nhanphong);
+                KhachHang khachHang = new KhachHang(IdPhong);
                 khachHang.Show();
             }
             else if (btnDat.Text == "Dịch vụ")
             {
-                FrmDichVu frmDichVu = new FrmDichVu();
+                var listtt = (from p in DTODB.db.phongs
+                              join cp in DTODB.db.checkin_phong on p.idphong equals cp.idphong
+                              join c in DTODB.db.checkins on cp.idcheckin equals c.id
+                              join tk in DTODB.db.tempkhachhangs on c.id equals tk.idcheckin
+                              join kh in DTODB.db.khachhangs on tk.idkh equals kh.id
+                              join lp in DTODB.db.loaiphongs on p.loaiphong equals lp.idloaiphong
+                              where p.idphong == TDatPhong.IdPhong
+                              select new
+                              {
+                                  c.id,
+                                  IdKh = kh.id
+                              }).FirstOrDefault();
+
+                int idcin = listtt.id;
+                int idkh = listtt.IdKh;
+                TDatPhong.IDKH = listtt.IdKh;
+                TDatPhong.IDCHECKIN = idcin;
+
+                FrmDichVu frmDichVu = new FrmDichVu(idcin, idkh);
                 frmDichVu.Show();
             }
 

@@ -14,34 +14,28 @@ namespace GUI_Quanlykhachsan.ChucNang
 {
     public partial class KhachHang : Form
     {
-        private readonly Tdphong _tdp;
+         Tdphong _tdp = new Tdphong();
         private readonly Action _nhanphong;
         private bool _dragging;
         private Point _dragCursorPoint;
         private Point _dragFormPoint;
         private string _duongdananh;
-        public KhachHang(Action nhanphong)
+        private bool checkclick;
+
+
+        private readonly int IDP;
+        public KhachHang(int iDPphong)
         {
             InitializeComponent();
-            _nhanphong = nhanphong;
 
             tiencantra.Text = TDatPhong.TienPhong.ToString();
 
+            checkclick = false; // có kiểm tra email
+
             this.MouseDown += new MouseEventHandler(Form_MouseDown);
-
-
-
-
             reload();
-
-
+            this.IDP = iDPphong;
         }
-
-        public KhachHang(Tdphong tdp)
-        {
-            _tdp = tdp;
-        }
-
 
         #region Kéo thả form
         // Dùng WinAPI để di chuyển form
@@ -166,6 +160,7 @@ namespace GUI_Quanlykhachsan.ChucNang
                              a.anh
                          };
             gview1.DataSource = listkh.ToList();
+            checkclick = false;
         }
 
 
@@ -187,9 +182,9 @@ namespace GUI_Quanlykhachsan.ChucNang
                     }
                     else
                     {
-                        if (_tdp.DatPhong(txtTen.Text, txtEmail.Text, txtSDT.Text, rdNam.Checked, txtDiaChi.Text, NgaySinh.Value.Date, _duongdananh, txtKhachThanhToan.Text, NgayDen.Value.Date, NgayDi.Value.Date))
+                        if (_tdp.DatPhong(IDP,txtTen.Text, txtEmail.Text, txtSDT.Text, rdNam.Checked, txtDiaChi.Text, NgaySinh.Value.Date, _duongdananh, txtKhachThanhToan.Text, NgayDen.Value.Date, NgayDi.Value.Date, checkclick))
                         {
-                            _nhanphong?.Invoke();
+                            MessageBox.Show("Đặt phòng thành công!");
                             Close();
                         }
                     }
@@ -282,7 +277,7 @@ namespace GUI_Quanlykhachsan.ChucNang
             txtDiaChi.Text = dong.Cells[4].Value.ToString();
             NgaySinh.Value = (DateTime)dong.Cells[5].Value;
 
-
+            checkclick = true; // Ko kiểm tra email
 
         }
     }
