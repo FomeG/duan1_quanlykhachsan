@@ -43,7 +43,7 @@ namespace GUI_Quanlykhachsan.ChucNang
                 else if (trangthaip == 1) // Nếu phòng đã được đặt (có người ở)
                 {
                     this.BackColor = Color.Red;
-                    btnDat.Text = "Trả Phòng";
+                    btnDat.Text = "Dịch vụ";
 
 
                     contextMenuStrip.Items.Add("Thông tin phòng", null, (sender, e) => { _ttphongtemp.Show(); });
@@ -60,7 +60,6 @@ namespace GUI_Quanlykhachsan.ChucNang
                     btnDat.Visible = false;
                     contextMenuStrip.Items.Add("Thông tin phòng", null, (sender, e) => { MessageBox.Show("Thông tin phòng"); });
                     contextMenuStrip.Items.Add("Huỷ phòng", null, (sender, e) => { MessageBox.Show("Huỷ phòng"); });
-                    contextMenuStrip.Items.Add("Xem hoá đơn", null, (sender, e) => { MessageBox.Show("Xem hoá đơn"); });
                 }
                 else if (trangthaip == 0) // Nếu phòng trống
                 {
@@ -100,7 +99,7 @@ namespace GUI_Quanlykhachsan.ChucNang
                 TDatPhong.TienPhong = (from a in DTODB.db.phongs join b in DTODB.db.loaiphongs on a.loaiphong equals b.idloaiphong where a.idphong == IdPhong select b.giaphong).FirstOrDefault();
 
 
-                KhachHang khachHang = new KhachHang(nhanphong, dattruoc);
+                KhachHang khachHang = new KhachHang(nhanphong);
                 khachHang.Show();
             }
             else if (btnDat.Text == "Nhận Phòng")
@@ -111,6 +110,7 @@ namespace GUI_Quanlykhachsan.ChucNang
             else
             {
                 TDatPhong.IdPhong = IdPhong;
+
 
                 // Tìm ra idcheckin để phục vụ cho việc thêm dịch vụ trong form thanh toán
                 // Cụ thể là hiển thị ra form dịch vụ để add / xoá dịch vụ
@@ -126,6 +126,7 @@ namespace GUI_Quanlykhachsan.ChucNang
                                   c.id,
                                   IdKh = kh.id
                               }).FirstOrDefault();
+
                 int idcin = listtt.id;
                 int idkh = listtt.IdKh;
 
@@ -147,41 +148,44 @@ namespace GUI_Quanlykhachsan.ChucNang
                 TDatPhong.TienPhong = (from a in DTODB.db.phongs join b in DTODB.db.loaiphongs on a.loaiphong equals b.idloaiphong where a.idphong == IdPhong select b.giaphong).FirstOrDefault();
 
 
-                KhachHang khachHang = new KhachHang(nhanphong, dattruoc);
+                KhachHang khachHang = new KhachHang(nhanphong);
                 khachHang.Show();
             }
-            else if (btnDat.Text == "Nhận Phòng")
+            else if (btnDat.Text == "Dịch vụ")
             {
-                TDatPhong.IdPhong = IdPhong;
-                nhanphong();
+                FrmDichVu frmDichVu = new FrmDichVu();
+                frmDichVu.Show();
             }
-            else
-            {
-                TDatPhong.IdPhong = IdPhong;
 
-                // Tìm ra idcheckin để phục vụ cho việc thêm dịch vụ trong form thanh toán
-                // Cụ thể là hiển thị ra form dịch vụ để add / xoá dịch vụ
-                var listtt = (from p in DTODB.db.phongs
-                              join cp in DTODB.db.checkin_phong on p.idphong equals cp.idphong
-                              join c in DTODB.db.checkins on cp.idcheckin equals c.id
-                              join tk in DTODB.db.tempkhachhangs on c.id equals tk.idcheckin
-                              join kh in DTODB.db.khachhangs on tk.idkh equals kh.id
-                              join lp in DTODB.db.loaiphongs on p.loaiphong equals lp.idloaiphong
-                              where p.idphong == TDatPhong.IdPhong
-                              select new
-                              {
-                                  c.id,
-                                  IdKh = kh.id
-                              }).FirstOrDefault();
-                int idcin = listtt.id;
-                int idkh = listtt.IdKh;
+            // Code trả phòng cũ
 
-                TDatPhong.IDKH = listtt.IdKh;
-                TDatPhong.IDCHECKIN = idcin;
+            //else
+            //{
+            //    TDatPhong.IdPhong = IdPhong;
 
-                ThanhToan traphongthanhtoan = new ThanhToan(traphong, idcin, idkh, IdPhong);
-                traphongthanhtoan.Show();
-            }
+            //    // Tìm ra idcheckin để phục vụ cho việc thêm dịch vụ trong form thanh toán
+            //    // Cụ thể là hiển thị ra form dịch vụ để add / xoá dịch vụ
+            //    var listtt = (from p in DTODB.db.phongs
+            //                  join cp in DTODB.db.checkin_phong on p.idphong equals cp.idphong
+            //                  join c in DTODB.db.checkins on cp.idcheckin equals c.id
+            //                  join tk in DTODB.db.tempkhachhangs on c.id equals tk.idcheckin
+            //                  join kh in DTODB.db.khachhangs on tk.idkh equals kh.id
+            //                  join lp in DTODB.db.loaiphongs on p.loaiphong equals lp.idloaiphong
+            //                  where p.idphong == TDatPhong.IdPhong
+            //                  select new
+            //                  {
+            //                      c.id,
+            //                      IdKh = kh.id
+            //                  }).FirstOrDefault();
+            //    int idcin = listtt.id;
+            //    int idkh = listtt.IdKh;
+
+            //    TDatPhong.IDKH = listtt.IdKh;
+            //    TDatPhong.IDCHECKIN = idcin;
+
+            //    ThanhToan traphongthanhtoan = new ThanhToan(traphong, idcin, idkh, IdPhong);
+            //    traphongthanhtoan.Show();
+            //}
         }
 
 

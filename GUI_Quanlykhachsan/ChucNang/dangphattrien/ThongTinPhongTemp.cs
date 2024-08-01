@@ -40,7 +40,7 @@ namespace GUI_Quanlykhachsan.ChucNang.dangphattrien
 
         private void guna2Button1_Click(object sender, System.EventArgs e)
         {
-            Close();
+            this.Hide();
         }
 
         private void ThongTinPhongTemp_Load(object sender, System.EventArgs e)

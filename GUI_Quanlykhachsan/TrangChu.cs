@@ -37,6 +37,8 @@ namespace GUI_Quanlykhachsan
             _hd = new HoaDon();
             _taiChinh = new TaiChinh();
             _caiDat = new FrmSettings();
+
+            tngayden.Enabled = tngayden.Visible = tngaydi.Enabled = tngaydi.Visible = Ttimp.Visible = Ttimp.Enabled = false;
         }
 
         #region Kéo thả form
@@ -106,15 +108,61 @@ namespace GUI_Quanlykhachsan
             }
         }
 
-        private void guna2GradientButton2_Click(object sender, EventArgs e) => LoadForm(this._qlynv, (Guna2GradientButton)sender);
-        private void guna2GradientButton1_Click(object sender, EventArgs e) => LoadForm(this._qlydp, (Guna2GradientButton)sender);
+        // Form nhân viên
+        private void guna2GradientButton2_Click(object sender, EventArgs e)
+        {
+            tngayden.Enabled = tngayden.Visible = tngaydi.Enabled = tngaydi.Visible = Ttimp.Visible = Ttimp.Enabled = false;
+            LoadForm(this._qlynv, (Guna2GradientButton)sender);
+        }
 
-        private void guna2GradientButton3_Click(object sender, EventArgs e) => LoadForm(this._ttkh, (Guna2GradientButton)sender);
-        private void guna2GradientButton6_Click(object sender, EventArgs e) => LoadForm(this._taiChinh, (Guna2GradientButton)sender);
-        private void guna2GradientButton8_Click(object sender, EventArgs e) => LoadForm(this._caiDat, (Guna2GradientButton)sender);
-        private void guna2GradientButton4_Click(object sender, EventArgs e) => LoadForm(new FrmSettings(), (Guna2GradientButton)sender);
-        private void guna2GradientButton5_Click(object sender, EventArgs e) => LoadForm(this._hd, (Guna2GradientButton)sender);
-        private void guna2GradientButton7_Click(object sender, EventArgs e) => LoadForm(new FrmSettings(), (Guna2GradientButton)sender);
+        // Form quản lý đặt phòng
+        private void guna2GradientButton1_Click(object sender, EventArgs e)
+        {
+            tngayden.Enabled = tngayden.Visible = tngaydi.Enabled = tngaydi.Visible = Ttimp.Visible = Ttimp.Enabled = true;
+            LoadForm(this._qlydp, (Guna2GradientButton)sender);
+        }
+
+        // Form quản lý thông tin khách hàng
+        private void guna2GradientButton3_Click(object sender, EventArgs e)
+        {
+            tngayden.Enabled = tngayden.Visible = tngaydi.Enabled = tngaydi.Visible = Ttimp.Visible = Ttimp.Enabled = false;
+            LoadForm(this._ttkh, (Guna2GradientButton)sender);
+        }
+
+        // Form tài chính, hiển thị biểu đồ doanh thu
+        private void guna2GradientButton6_Click(object sender, EventArgs e)
+        {
+            tngayden.Enabled = tngayden.Visible = tngaydi.Enabled = tngaydi.Visible = Ttimp.Visible = Ttimp.Enabled = false;
+            LoadForm(this._taiChinh, (Guna2GradientButton)sender);
+        }
+
+        // Form cài đặt
+        private void guna2GradientButton8_Click(object sender, EventArgs e)
+        {
+            tngayden.Enabled = tngayden.Visible = tngaydi.Enabled = tngaydi.Visible = Ttimp.Visible = Ttimp.Enabled = false;
+            LoadForm(this._caiDat, (Guna2GradientButton)sender);
+        }
+
+
+        private void guna2GradientButton4_Click(object sender, EventArgs e)
+        {
+            tngayden.Enabled = tngayden.Visible = tngaydi.Enabled = tngaydi.Visible = Ttimp.Visible = Ttimp.Enabled = false;
+            LoadForm(new FrmSettings(), (Guna2GradientButton)sender);
+        }
+
+        // Form quản lý hoá đơn
+        private void guna2GradientButton5_Click(object sender, EventArgs e)
+        {
+            tngayden.Enabled = tngayden.Visible = tngaydi.Enabled = tngaydi.Visible = Ttimp.Visible = Ttimp.Enabled = false;
+            LoadForm(this._hd, (Guna2GradientButton)sender);
+        }
+
+        // Form thanh toán test
+        private void guna2GradientButton7_Click(object sender, EventArgs e)
+        {
+            tngayden.Enabled = tngayden.Visible = tngaydi.Enabled = tngaydi.Visible = Ttimp.Visible = Ttimp.Enabled = false;
+            LoadForm(new FrmSettings(), (Guna2GradientButton)sender);
+        }
 
         #endregion
 

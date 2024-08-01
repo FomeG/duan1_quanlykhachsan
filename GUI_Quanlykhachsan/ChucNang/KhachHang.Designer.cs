@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtTen = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtEmail = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtSDT = new Guna.UI2.WinForms.Guna2TextBox();
@@ -54,7 +58,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.BtnDatThem = new Guna.UI2.WinForms.Guna2Button();
-            this.DsPhongDaDat = new System.Windows.Forms.DataGridView();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.anhkh = new Guna.UI2.WinForms.Guna2PictureBox();
@@ -66,10 +69,11 @@
             this.txttientralai = new Guna.UI2.WinForms.Guna2TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.DsPhongDaDat)).BeginInit();
+            this.gview1 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.anhkh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SoLuongNguoi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gview1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtTen
@@ -140,6 +144,7 @@
             this.txtSDT.SelectedText = "";
             this.txtSDT.Size = new System.Drawing.Size(172, 39);
             this.txtSDT.TabIndex = 0;
+            this.txtSDT.TextChanged += new System.EventHandler(this.txtSDT_TextChanged);
             // 
             // txtDiaChi
             // 
@@ -307,12 +312,12 @@
             this.BtnDatTruoc.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.BtnDatTruoc.Font = new System.Drawing.Font("Montserrat", 11.25F, System.Drawing.FontStyle.Bold);
             this.BtnDatTruoc.ForeColor = System.Drawing.Color.White;
-            this.BtnDatTruoc.Location = new System.Drawing.Point(692, 562);
+            this.BtnDatTruoc.Location = new System.Drawing.Point(413, 201);
             this.BtnDatTruoc.Margin = new System.Windows.Forms.Padding(2);
             this.BtnDatTruoc.Name = "BtnDatTruoc";
             this.BtnDatTruoc.Size = new System.Drawing.Size(200, 42);
             this.BtnDatTruoc.TabIndex = 11;
-            this.BtnDatTruoc.Text = "Đặt trước";
+            this.BtnDatTruoc.Text = "Reload";
             this.BtnDatTruoc.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
             // NgayDi
@@ -470,14 +475,6 @@
             this.BtnDatThem.Text = "Trở về";
             this.BtnDatThem.Click += new System.EventHandler(this.BtnDatThem_Click);
             // 
-            // DsPhongDaDat
-            // 
-            this.DsPhongDaDat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DsPhongDaDat.Location = new System.Drawing.Point(11, 293);
-            this.DsPhongDaDat.Name = "DsPhongDaDat";
-            this.DsPhongDaDat.Size = new System.Drawing.Size(880, 123);
-            this.DsPhongDaDat.TabIndex = 15;
-            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
@@ -486,6 +483,8 @@
             // 
             this.guna2GroupBox1.BorderColor = System.Drawing.Color.Silver;
             this.guna2GroupBox1.BorderRadius = 13;
+            this.guna2GroupBox1.Controls.Add(this.gview1);
+            this.guna2GroupBox1.Controls.Add(this.BtnDatTruoc);
             this.guna2GroupBox1.Controls.Add(this.anhkh);
             this.guna2GroupBox1.Controls.Add(this.button1);
             this.guna2GroupBox1.Controls.Add(this.SoLuongNguoi);
@@ -501,7 +500,6 @@
             this.guna2GroupBox1.Controls.Add(this.label13);
             this.guna2GroupBox1.Controls.Add(this.label10);
             this.guna2GroupBox1.Controls.Add(this.NgaySinh);
-            this.guna2GroupBox1.Controls.Add(this.DsPhongDaDat);
             this.guna2GroupBox1.Controls.Add(this.label9);
             this.guna2GroupBox1.Controls.Add(this.txtSDT);
             this.guna2GroupBox1.Controls.Add(this.txtEmail);
@@ -645,6 +643,74 @@
             this.bunifuElipse1.ElipseRadius = 15;
             this.bunifuElipse1.TargetControl = this;
             // 
+            // gview1
+            // 
+            this.gview1.AllowUserToResizeRows = false;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.gview1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.gview1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gview1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.gview1.ColumnHeadersHeight = 22;
+            this.gview1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gview1.DefaultCellStyle = dataGridViewCellStyle7;
+            this.gview1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.gview1.Location = new System.Drawing.Point(3, 292);
+            this.gview1.MultiSelect = false;
+            this.gview1.Name = "gview1";
+            this.gview1.ReadOnly = true;
+            this.gview1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Montserrat", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gview1.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.gview1.RowHeadersVisible = false;
+            this.gview1.Size = new System.Drawing.Size(897, 124);
+            this.gview1.TabIndex = 22;
+            this.gview1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.gview1.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gview1.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.gview1.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.gview1.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.gview1.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.gview1.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.gview1.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.gview1.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.gview1.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gview1.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.gview1.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.gview1.ThemeStyle.HeaderStyle.Height = 22;
+            this.gview1.ThemeStyle.ReadOnly = true;
+            this.gview1.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.gview1.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.gview1.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gview1.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.gview1.ThemeStyle.RowsStyle.Height = 22;
+            this.gview1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.gview1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.gview1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gview1_CellClick);
+            // 
             // KhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -652,18 +718,17 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(903, 615);
             this.Controls.Add(this.BtnNhanPhong);
-            this.Controls.Add(this.BtnDatTruoc);
             this.Controls.Add(this.guna2GroupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "KhachHang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "KhachHang";
-            ((System.ComponentModel.ISupportInitialize)(this.DsPhongDaDat)).EndInit();
             this.guna2GroupBox1.ResumeLayout(false);
             this.guna2GroupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.anhkh)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SoLuongNguoi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gview1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -694,7 +759,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private Guna.UI2.WinForms.Guna2Button BtnDatThem;
-        private System.Windows.Forms.DataGridView DsPhongDaDat;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
         private Guna.UI2.WinForms.Guna2TextBox txtGhiChu;
@@ -706,5 +770,6 @@
         private System.Windows.Forms.Button button1;
         private Guna.UI2.WinForms.Guna2PictureBox anhkh;
         private System.Windows.Forms.Label tiencantra;
+        private Guna.UI2.WinForms.Guna2DataGridView gview1;
     }
 }

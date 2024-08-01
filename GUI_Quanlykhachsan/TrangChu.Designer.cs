@@ -159,7 +159,7 @@
             this.btntest4.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.btntest4.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btntest4.HoverState.ForeColor = System.Drawing.Color.White;
-            this.btntest4.Location = new System.Drawing.Point(709, 5);
+            this.btntest4.Location = new System.Drawing.Point(817, 14);
             this.btntest4.Name = "btntest4";
             this.btntest4.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btntest4.Size = new System.Drawing.Size(180, 45);
@@ -541,13 +541,15 @@
             this.Ttimp.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.Ttimp.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.Ttimp.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.Ttimp.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Ttimp.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.Ttimp.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.Ttimp.Font = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Ttimp.ForeColor = System.Drawing.Color.White;
-            this.Ttimp.Location = new System.Drawing.Point(478, 14);
+            this.Ttimp.Location = new System.Drawing.Point(698, 20);
             this.Ttimp.Name = "Ttimp";
-            this.Ttimp.Size = new System.Drawing.Size(180, 45);
+            this.Ttimp.Size = new System.Drawing.Size(111, 36);
             this.Ttimp.TabIndex = 17;
-            this.Ttimp.Text = "guna2GradientButton1";
+            this.Ttimp.Text = "Tìm kiếm phòng";
             this.Ttimp.Click += new System.EventHandler(this.Ttimp_Click);
             // 
             // tngaydi
@@ -555,7 +557,7 @@
             this.tngaydi.Checked = true;
             this.tngaydi.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tngaydi.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.tngaydi.Location = new System.Drawing.Point(272, 14);
+            this.tngaydi.Location = new System.Drawing.Point(492, 20);
             this.tngaydi.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.tngaydi.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.tngaydi.Name = "tngaydi";
@@ -568,7 +570,7 @@
             this.tngayden.Checked = true;
             this.tngayden.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tngayden.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.tngayden.Location = new System.Drawing.Point(66, 14);
+            this.tngayden.Location = new System.Drawing.Point(286, 20);
             this.tngayden.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.tngayden.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.tngayden.Name = "tngayden";
