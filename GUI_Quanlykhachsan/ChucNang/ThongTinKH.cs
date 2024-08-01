@@ -8,5 +8,10 @@ namespace GUI_Quanlykhachsan.ChucNang
         {
             InitializeComponent();
         }
+
+        private void guna2GradientButton1_Click(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }
