@@ -79,6 +79,23 @@ namespace DTO_Quanly.Model.DB
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("insert_dsdattruoc", idnvParameter, idkhParameter, idphongParameter, ngaydenParameter, ngaydiParameter, ghichuParameter);
         }
     
+        public virtual ObjectResult<kiemtra_dsdattruoc_chitiet_Result> kiemtra_dsdattruoc_chitiet(string ngayden, string ngaydi, Nullable<int> idphong)
+        {
+            var ngaydenParameter = ngayden != null ?
+                new ObjectParameter("ngayden", ngayden) :
+                new ObjectParameter("ngayden", typeof(string));
+    
+            var ngaydiParameter = ngaydi != null ?
+                new ObjectParameter("ngaydi", ngaydi) :
+                new ObjectParameter("ngaydi", typeof(string));
+    
+            var idphongParameter = idphong.HasValue ?
+                new ObjectParameter("idphong", idphong) :
+                new ObjectParameter("idphong", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<kiemtra_dsdattruoc_chitiet_Result>("kiemtra_dsdattruoc_chitiet", ngaydenParameter, ngaydiParameter, idphongParameter);
+        }
+    
         public virtual ObjectResult<kiemtra_trangthai_phong_Result> kiemtra_trangthai_phong(string ngayden, string ngaydi)
         {
             var ngaydenParameter = ngayden != null ?
