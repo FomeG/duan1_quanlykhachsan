@@ -16,7 +16,7 @@ namespace GUI_Quanlykhachsan
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form_test());
+            Application.Run(new Login());
         }
     }
 }

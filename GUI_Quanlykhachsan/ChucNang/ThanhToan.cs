@@ -1,9 +1,12 @@
-﻿using BUS_Quanly.Services.QuanLyDatPhong.ThanhToan_DV;
+﻿using BUS_Quanly.Services.QuanLyDatPhong.DatTruoc_NhanP;
+using BUS_Quanly.Services.QuanLyDatPhong.ThanhToan_DV;
 using DTO_Quanly;
 using DTO_Quanly.Model.DB;
 using DTO_Quanly.Transfer;
 using GUI_Quanlykhachsan.ChucNang.dangphattrien;
 using System;
+using System.Data.Entity.ModelConfiguration.Conventions;
+using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -19,6 +22,11 @@ namespace GUI_Quanlykhachsan.ChucNang
         private readonly int IDKh;
         private readonly int idnv;
         private readonly int IDPhong;
+
+
+
+
+
         public ThanhToan(int idcheckin, int idkh, int idphong)
         {
             InitializeComponent();
@@ -108,11 +116,6 @@ namespace GUI_Quanlykhachsan.ChucNang
         #endregion
 
 
-        #region Lấy dữ liệu để lập hoá đơn (code quan trọng)
-
-
-        #endregion
-
         private void BtnExit_Click(object sender, EventArgs e)
         {
             Close();
@@ -127,35 +130,6 @@ namespace GUI_Quanlykhachsan.ChucNang
         {
 
         }
-
-        private void guna2GradientButton2_Click(object sender, EventArgs e)
-        {
-            if (gview1.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Vui lòng chọn dịch vụ cần xoá!", "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                var listtinhtien = from cd in DTODB.db.checkin_dichvu
-                                   join dv in DTODB.db.dichvus on cd.iddv equals dv.id
-                                   where cd.idcheckin == IDCin
-                                   select new
-                                   {
-                                       cd.idcheckin,
-                                       cd.soluong,
-                                       dv.tendv,
-                                       iddichvu = dv.id,
-                                       GiaTien = dv.gia * cd.soluong
-                                   };
-                int iddichvu = listtinhtien.ToList()[gview1.CurrentCell.RowIndex].iddichvu;
-                int slgdichvu = (int)listtinhtien.ToList()[gview1.CurrentCell.RowIndex].soluong;
-                DTODB.db.checkin_dichvu.Remove(DTODB.db.checkin_dichvu.FirstOrDefault(p => p.idcheckin == IDCin && p.soluong == slgdichvu && p.iddv == iddichvu));
-                DTODB.db.SaveChanges();
-                loaddvgview();
-            }
-        }
-
-
 
         /* Nút trả phòng và thanh toán, luồng hoạt động:
            1.  Sau khi trả phòng và thanh toán thì khách hàng đang sử dụng phòng trong bảng temp sẽ không còn nữa.
@@ -230,8 +204,15 @@ namespace GUI_Quanlykhachsan.ChucNang
                         DTODB.db.phong_trunggian.Add(ptrunggianmoi);
                         DTODB.db.SaveChanges();
 
+                        // Xoá ds đặt trước đi => sẽ đổi trạng thái phòng về trống!
 
-                        HDTemp hdtempmoi = new HDTemp();
+                        var ngayhientai = DateTime.Now;
+                        DTODB.db.dsdattruocs.Remove(DTODB.db.dsdattruocs.FirstOrDefault(a => a.idphong == IDPhong && a.idkh == IDKh && (ngayhientai >= a.ngayden && ngayhientai <= a.ngaydi)));
+                        DTODB.db.SaveChanges();
+                        
+
+                        // Show ra cái hoá đơn
+                        HDTemp hdtempmoi = new HDTemp(IDCin, IDKh, IDPhong, hoadonmoi.idhoadon);
                         hdtempmoi.Show();
 
                         MessageBox.Show("Cập nhật thành công!");
