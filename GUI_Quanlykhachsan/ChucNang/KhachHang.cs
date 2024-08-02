@@ -288,5 +288,10 @@ namespace GUI_Quanlykhachsan.ChucNang
             checkclick = true; // Ko kiểm tra email
 
         }
+
+        private void SoLuongNguoi_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
