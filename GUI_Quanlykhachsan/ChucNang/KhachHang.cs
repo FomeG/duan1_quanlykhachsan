@@ -24,7 +24,7 @@ namespace GUI_Quanlykhachsan.ChucNang
 
 
         private readonly int IDP;
-        public KhachHang(int iDPphong, DateTime? ngayden, DateTime? ngaydi)
+        public KhachHang(int iDPphong, DateTime? Nden, DateTime? Ndi)
         {
             InitializeComponent();
 
@@ -35,6 +35,14 @@ namespace GUI_Quanlykhachsan.ChucNang
             this.MouseDown += new MouseEventHandler(Form_MouseDown);
             reload();
             this.IDP = iDPphong;
+
+            if(Nden.HasValue && Ndi.HasValue)
+            {
+                NgayDen.Enabled = false;
+                NgayDi.Enabled = false;
+                NgayDen.Value = Nden.Value;
+                NgayDi.Value = Ndi.Value;
+            }
         }
 
         #region Kéo thả form

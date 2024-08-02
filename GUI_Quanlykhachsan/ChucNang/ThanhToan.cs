@@ -11,32 +11,26 @@ namespace GUI_Quanlykhachsan.ChucNang
 {
     public partial class ThanhToan : Form
     {
-        private readonly TTDichVu _dv;
+        TTDichVu _dv = new TTDichVu();
         public Action traphong;
         private TTDichVu _truyvan;
         private readonly int IDCin;
         private readonly int IDKh;
         private readonly int idnv;
         private readonly int IDPhong;
-        public ThanhToan(Action traphong, int idcheckin, int idkh, int idphong)
+        public ThanhToan(int idcheckin, int idkh, int idphong)
         {
             InitializeComponent();
             this.traphong = traphong;
             this.IDCin = idcheckin;
             this.IDKh = idkh;
             this.idnv = TDatPhong.IDNV;
-            this.IDPhong = idphong;
+           TDatPhong.IDNV = this.IDPhong = idphong;
 
-            LoadDV();
             loadtt();
             loaddvgview();
 
             this.MouseDown += new MouseEventHandler(Form_MouseDown);
-        }
-
-        public ThanhToan(TTDichVu dv)
-        {
-            _dv = dv;
         }
 
         #region Kéo thả form
@@ -64,14 +58,11 @@ namespace GUI_Quanlykhachsan.ChucNang
 
         #region LOAD DỮ LIỆU TRÊN FORM, VÀ DỊCH VỤ
 
-        public void LoadDV()
+        public void loadttdv()
         {
-            foreach (var item in _dv.hienthidv().ToList())
-            {
-                LsDichVu.Items.Add(item.tendv);
-            }
-        }
 
+
+        }
         public void loadtt()
         {
             var hoadontemp = (from p in DTODB.db.phongs
@@ -80,7 +71,7 @@ namespace GUI_Quanlykhachsan.ChucNang
                               join tk in DTODB.db.tempkhachhangs on c.id equals tk.idcheckin
                               join kh in DTODB.db.khachhangs on tk.idkh equals kh.id
                               join lp in DTODB.db.loaiphongs on p.loaiphong equals lp.idloaiphong
-                              where p.idphong == TDatPhong.IdPhong
+                              where p.idphong == IDPhong
                               select new
                               {
                                   kh.ten,
@@ -134,32 +125,6 @@ namespace GUI_Quanlykhachsan.ChucNang
         private void guna2CustomCheckBox1_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void LsDichVu_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2GradientButton1_Click(object sender, EventArgs e)
-        {
-            if (LsDichVu.SelectedIndex == -1)
-            {
-                MessageBox.Show("Vui lòng chọn dịch vụ cần thêm!", "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                checkin_dichvu dvmoi = new checkin_dichvu()
-                {
-                    idcheckin = IDCin,
-                    iddv = LsDichVu.SelectedIndex + 1,
-                    soluong = (int)SlgDV.Value
-                };
-                DTODB.db.checkin_dichvu.Add(dvmoi);
-                DTODB.db.SaveChanges();
-                loaddvgview();
-                MessageBox.Show("Thêm thành công!");
-            }
         }
 
         private void guna2GradientButton2_Click(object sender, EventArgs e)
@@ -265,8 +230,6 @@ namespace GUI_Quanlykhachsan.ChucNang
                         //DTODB.db.SaveChanges();
 
 
-                        // Chuyển trạng thái phòng về trống (dựa vào temp khách hàng đã bị xoá trước đó)
-                        traphong.Invoke();
                         MessageBox.Show("Cập nhật thành công!");
                         transaction.Commit();
                     }

@@ -57,6 +57,10 @@ namespace GUI_Quanlykhachsan.ChucNang.dangphattrien
             {
                 MessageBox.Show("Vui lòng chọn dịch vụ cần thêm!", "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            else if(SlgDV.Value <= 0)
+            {
+                MessageBox.Show("Số lượng phải lớn hơn 0!", "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             else
             {
                 checkin_dichvu dvmoi = new checkin_dichvu()
@@ -97,6 +101,11 @@ namespace GUI_Quanlykhachsan.ChucNang.dangphattrien
                 DTODB.db.SaveChanges();
                 loaddvgview();
             }
+        }
+
+        private void SlgDV_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
