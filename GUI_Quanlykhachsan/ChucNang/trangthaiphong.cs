@@ -186,55 +186,6 @@ namespace GUI_Quanlykhachsan.ChucNang
 
         }
 
-        public void dph()
-        {
-            if (btnDat.Text == "Đặt Phòng")
-            {
-                TDatPhong.IdPhong = IdPhong;
-
-                // Hiển thị tiền phòng (của tất cả các phòng đã đặt nếu có)
-                TDatPhong.TienPhong = (from a in DTODB.db.phongs join b in DTODB.db.loaiphongs on a.loaiphong equals b.idloaiphong where a.idphong == IdPhong select b.giaphong).FirstOrDefault();
-
-
-                KhachHang khachHang = new KhachHang(IdPhong, null, null);
-                khachHang.Show();
-            }
-            else if (btnDat.Text == "Nhận Phòng")
-            {
-                TDatPhong.IdPhong = IdPhong;
-                nhanphong();
-            }
-            else
-            {
-                TDatPhong.IdPhong = IdPhong;
-
-
-                // Tìm ra idcheckin để phục vụ cho việc thêm dịch vụ trong form thanh toán
-                // Cụ thể là hiển thị ra form dịch vụ để add / xoá dịch vụ
-                var listtt = (from p in DTODB.db.phongs
-                              join cp in DTODB.db.checkin_phong on p.idphong equals cp.idphong
-                              join c in DTODB.db.checkins on cp.idcheckin equals c.id
-                              join tk in DTODB.db.tempkhachhangs on c.id equals tk.idcheckin
-                              join kh in DTODB.db.khachhangs on tk.idkh equals kh.id
-                              join lp in DTODB.db.loaiphongs on p.loaiphong equals lp.idloaiphong
-                              where p.idphong == TDatPhong.IdPhong
-                              select new
-                              {
-                                  c.id,
-                                  IdKh = kh.id
-                              }).FirstOrDefault();
-
-                int idcin = listtt.id;
-                int idkh = listtt.IdKh;
-
-                TDatPhong.IDKH = listtt.IdKh;
-                TDatPhong.IDCHECKIN = idcin;
-
-                //ThanhToan traphongthanhtoan = new ThanhToan(traphong, idcin, idkh, IdPhong);
-                //traphongthanhtoan.Show();
-            }
-        }
-
         private void guna2GradientButton1_Click(object sender, EventArgs e)
         {
             if (btnDat.Text == "Đặt Phòng")
@@ -280,76 +231,7 @@ namespace GUI_Quanlykhachsan.ChucNang
                 FrmDichVu frmDichVu = new FrmDichVu(idcin, idkh);
                 frmDichVu.Show();
             }
-
-            // Code trả phòng cũ
-
-            //else
-            //{
-            //    TDatPhong.IdPhong = IdPhong;
-
-            //    // Tìm ra idcheckin để phục vụ cho việc thêm dịch vụ trong form thanh toán
-            //    // Cụ thể là hiển thị ra form dịch vụ để add / xoá dịch vụ
-            //    var listtt = (from p in DTODB.db.phongs
-            //                  join cp in DTODB.db.checkin_phong on p.idphong equals cp.idphong
-            //                  join c in DTODB.db.checkins on cp.idcheckin equals c.id
-            //                  join tk in DTODB.db.tempkhachhangs on c.id equals tk.idcheckin
-            //                  join kh in DTODB.db.khachhangs on tk.idkh equals kh.id
-            //                  join lp in DTODB.db.loaiphongs on p.loaiphong equals lp.idloaiphong
-            //                  where p.idphong == TDatPhong.IdPhong
-            //                  select new
-            //                  {
-            //                      c.id,
-            //                      IdKh = kh.id
-            //                  }).FirstOrDefault();
-            //    int idcin = listtt.id;
-            //    int idkh = listtt.IdKh;
-
-            //    TDatPhong.IDKH = listtt.IdKh;
-            //    TDatPhong.IDCHECKIN = idcin;
-
-            //    ThanhToan traphongthanhtoan = new ThanhToan(traphong, idcin, idkh, IdPhong);
-            //    traphongthanhtoan.Show();
-            //}
+       
         }
-
-
-        #region Trạng thái phòng
-
-        public void dattruoc()
-        {
-            btnDat.Text = "Nhận Phòng";
-            description.Text = "Phòng được đặt trước";
-            this.BackColor = Color.Yellow;
-
-
-            _phongService.DatTruoc(IdPhong);
-        }
-
-
-        public void nhanphong()
-        {
-            btnDat.Text = "Trả phòng";
-            description.Text = "Phòng đang được sử dụng";
-            this.BackColor = Color.Red;
-
-
-            _phongService.NhanPhong(IdPhong);
-        }
-
-
-        public void traphong()
-        {
-            btnDat.Text = "Đặt phòng";
-            description.Text = motaphong;
-            this.BackColor = Color.FromArgb(128, 255, 128);
-
-
-            _phongService.TraPhong(IdPhong);
-        }
-
-
-        #endregion
-
-
     }
 }

@@ -164,7 +164,7 @@ namespace GUI_Quanlykhachsan.ChucNang
        */
         private void BtnTraPhong_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn chắc chắn muốn thực hiện hành động này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            if (MessageBox.Show("Bạn chắc chắn muốn xuất hoá đơn?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 var listThongTin = from cd in DTODB.db.checkin_dichvu
                                    join dv in DTODB.db.dichvus on cd.iddv equals dv.id
@@ -221,13 +221,13 @@ namespace GUI_Quanlykhachsan.ChucNang
                             DTODB.db.SaveChanges();
                         };
 
-                        //phong_trunggian ptrunggianmoi = new phong_trunggian()
-                        //{
-                        //    idp = IDPhong,
-                        //    idhd = hoadonmoi.idhoadon
-                        //};
-                        //DTODB.db.phong_trunggian.Add(ptrunggianmoi);
-                        //DTODB.db.SaveChanges();
+                        phong_trunggian ptrunggianmoi = new phong_trunggian()
+                        {
+                            idp = IDPhong,
+                            idhd = hoadonmoi.idhoadon
+                        };
+                        DTODB.db.phong_trunggian.Add(ptrunggianmoi);
+                        DTODB.db.SaveChanges();
 
 
                         MessageBox.Show("Cập nhật thành công!");
