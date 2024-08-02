@@ -154,6 +154,7 @@
             this.guna2GradientButton5.Size = new System.Drawing.Size(180, 45);
             this.guna2GradientButton5.TabIndex = 4;
             this.guna2GradientButton5.Text = "test5";
+            this.guna2GradientButton5.Click += new System.EventHandler(this.guna2GradientButton5_Click);
             // 
             // Form_test
             // 

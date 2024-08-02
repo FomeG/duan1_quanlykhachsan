@@ -26,7 +26,7 @@ namespace GUI_Quanlykhachsan.ChucNang
             this.IDCin = idcheckin;
             this.IDKh = idkh;
             this.idnv = TDatPhong.IDNV;
-           TDatPhong.IDNV = this.IDPhong = idphong;
+            TDatPhong.IDNV = this.IDPhong = idphong;
 
             loadtt();
             loaddvgview();

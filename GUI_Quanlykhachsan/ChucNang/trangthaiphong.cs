@@ -6,9 +6,7 @@ using Guna.UI2.WinForms;
 using System;
 using System.Drawing;
 using System.Linq;
-using System.Runtime.Remoting.Contexts;
 using System.Windows.Forms;
-using System.Xml;
 
 namespace GUI_Quanlykhachsan.ChucNang
 {
@@ -75,8 +73,8 @@ namespace GUI_Quanlykhachsan.ChucNang
                     _ttphongtemp = new ThongTinPhongTemp(IdPhong, nden, ndi);
                     #region Phần chuột phải
                     contextMenuStrip.Items.Add("Thông tin phòng", null, (sender, e) =>
-                    { 
-                        _ttphongtemp.Show(); 
+                    {
+                        _ttphongtemp.Show();
                     });
 
                     contextMenuStrip.Items.Add("Thanh toán phòng", null, (sender, e) =>

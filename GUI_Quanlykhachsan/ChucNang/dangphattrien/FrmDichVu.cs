@@ -1,14 +1,9 @@
 ﻿using BUS_Quanly.Services.QuanLyDatPhong.ThanhToan_DV;
-using DTO_Quanly.Model.DB;
 using DTO_Quanly;
+using DTO_Quanly.Model.DB;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GUI_Quanlykhachsan.ChucNang.dangphattrien
@@ -57,7 +52,7 @@ namespace GUI_Quanlykhachsan.ChucNang.dangphattrien
             {
                 MessageBox.Show("Vui lòng chọn dịch vụ cần thêm!", "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else if(SlgDV.Value <= 0)
+            else if (SlgDV.Value <= 0)
             {
                 MessageBox.Show("Số lượng phải lớn hơn 0!", "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }

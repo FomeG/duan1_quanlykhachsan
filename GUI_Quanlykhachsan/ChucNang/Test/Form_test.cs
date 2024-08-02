@@ -6,11 +6,9 @@ namespace GUI_Quanlykhachsan.ChucNang.Test
     public partial class Form_test : Form
     {
 
-        public Action tangdang;
-        public Form_test(Action tangdang)
+        public Form_test()
         {
             InitializeComponent();
-            this.tangdang = tangdang;
         }
 
         public void button2_Click(object sender, EventArgs e)
@@ -45,13 +43,18 @@ namespace GUI_Quanlykhachsan.ChucNang.Test
 
         private void guna2GradientButton1_Click_1(object sender, EventArgs e)
         {
-            this.tangdang?.Invoke();
         }
 
         int sl = 0;
         private void button1_Click(object sender, EventArgs e)
         {
             listBox1.Items.Add("OK " + sl++.ToString());
+        }
+
+        private void guna2GradientButton5_Click(object sender, EventArgs e)
+        {
+            InvoiceGenerator generator = new InvoiceGenerator();
+            generator.GenerateInvoice();
         }
     }
 }
