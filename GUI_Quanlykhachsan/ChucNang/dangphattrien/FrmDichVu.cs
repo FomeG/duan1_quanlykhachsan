@@ -27,6 +27,9 @@ namespace GUI_Quanlykhachsan.ChucNang.dangphattrien
             InitializeComponent();
             this.IDCin = idcheckin;
             this.IDKh = idkh;
+
+            loaddv();
+            loaddvgview();
         }
 
         public void loaddv()

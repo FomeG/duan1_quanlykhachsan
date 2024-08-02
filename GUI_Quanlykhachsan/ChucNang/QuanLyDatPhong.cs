@@ -1,29 +1,39 @@
 ﻿using DTO_Quanly;
 using System;
 using System.Linq;
+using System.Web.UI;
 using System.Windows.Forms;
 
 namespace GUI_Quanlykhachsan.ChucNang
 {
     public partial class QuanLyDatPhong : Form
     {
+        private bool IsSeached;
+
         public QuanLyDatPhong()
         {
             InitializeComponent();
             SoDoPhong.Controls.Clear();
             hienthiphong();
+
+            IsSeached = false;
         }
 
 
         public void hienthiphong()
         {
             SoDoPhong.Controls.Clear();
+
             var listp = DTODB.db.view_trangthai_phong_hientai.ToList();
             foreach (var item in listp)
             {
-                trangthaiphong phong = new trangthaiphong(item.tenphong, item.mota, item.trangthai, item.idphong, 2);
-                SoDoPhong.Controls.Add(phong);
+               
+                SoDoPhong.Controls.Add(new trangthaiphong(item.tenphong, item.mota, item.trangthai, item.idphong, 2));
             }
+
+            //var phongddddd = DTODB.db.view_trangthai_phong_hientai.Where(x => x.idphong == 9).First();
+            //SoDoPhong.Controls.Add(new trangthaiphong(phongddddd.tenphong, phongddddd.mota, phongddddd.trangthai, phongddddd.idphong, 2));
+
         }
         // Nút tải lại
         private void guna2GradientButton1_Click(object sender, EventArgs e)
@@ -45,6 +55,7 @@ namespace GUI_Quanlykhachsan.ChucNang
                 trangthaiphong phong = new trangthaiphong(item.tenphong, item.mota, item.trangthai, item.idphong, item.trangthai != 0 ? 1 : 2);
                 SoDoPhong.Controls.Add(phong);
             }
+            IsSeached = true;
         }
     }
 }

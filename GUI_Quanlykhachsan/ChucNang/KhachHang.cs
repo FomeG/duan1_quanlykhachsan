@@ -24,7 +24,7 @@ namespace GUI_Quanlykhachsan.ChucNang
 
 
         private readonly int IDP;
-        public KhachHang(int iDPphong)
+        public KhachHang(int iDPphong, DateTime? ngayden, DateTime? ngaydi)
         {
             InitializeComponent();
 
