@@ -2,8 +2,6 @@
 using DTO_Quanly;
 using DTO_Quanly.Transfer;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -14,7 +12,7 @@ namespace GUI_Quanlykhachsan.ChucNang
 {
     public partial class KhachHang : Form
     {
-         Tdphong _tdp = new Tdphong();
+        Tdphong _tdp = new Tdphong();
         private readonly Action _nhanphong;
         private bool _dragging;
         private Point _dragCursorPoint;
@@ -36,7 +34,7 @@ namespace GUI_Quanlykhachsan.ChucNang
             reload();
             this.IDP = iDPphong;
 
-            if(Nden.HasValue && Ndi.HasValue)
+            if (Nden.HasValue && Ndi.HasValue)
             {
                 NgayDen.Enabled = false;
                 NgayDi.Enabled = false;
@@ -190,7 +188,7 @@ namespace GUI_Quanlykhachsan.ChucNang
                     }
                     else
                     {
-                        if (_tdp.DatPhong(IDP,txtTen.Text, txtEmail.Text, txtSDT.Text, rdNam.Checked, txtDiaChi.Text, NgaySinh.Value.Date, _duongdananh, txtKhachThanhToan.Text, NgayDen.Value.Date, NgayDi.Value.Date, checkclick))
+                        if (_tdp.DatPhong(IDP, txtTen.Text, txtEmail.Text, txtSDT.Text, rdNam.Checked, txtDiaChi.Text, NgaySinh.Value.Date, _duongdananh, txtKhachThanhToan.Text, NgayDen.Value.Date, NgayDi.Value.Date, checkclick))
                         {
                             MessageBox.Show("Đặt phòng thành công!");
                             Close();

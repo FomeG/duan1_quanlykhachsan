@@ -39,7 +39,7 @@ namespace BUS_Quanly.Services.QuanLyDatPhong.DatTruoc_NhanP
         {
             string ngaydenStr = nDen.ToString("yyyy-MM-dd HH:mm:ss");
             string ngaydiStr = nDi.ToString("yyyy-MM-dd HH:mm:ss");
-                if(DTODB.db.kiemtra_dsdattruoc_chitiet(ngaydenStr, ngaydiStr, IdPhong).ToList().Count == 0)
+            if (DTODB.db.kiemtra_dsdattruoc_chitiet(ngaydenStr, ngaydiStr, IdPhong).ToList().Count == 0)
             {
                 return true;
             }
@@ -47,7 +47,7 @@ namespace BUS_Quanly.Services.QuanLyDatPhong.DatTruoc_NhanP
 
         }
 
-        public bool DatPhong(int Idphong,string tenkh, string email, string sdt, bool gender, string diachi, DateTime Nsinh, string duongdan, string khachtt, DateTime nDen, DateTime nDi, bool kiemtra)
+        public bool DatPhong(int Idphong, string tenkh, string email, string sdt, bool gender, string diachi, DateTime Nsinh, string duongdan, string khachtt, DateTime nDen, DateTime nDi, bool kiemtra)
         {
             try
             {

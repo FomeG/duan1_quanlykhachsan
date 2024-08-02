@@ -1,7 +1,6 @@
 ﻿using DTO_Quanly;
 using System;
 using System.Linq;
-using System.Web.UI;
 using System.Windows.Forms;
 
 namespace GUI_Quanlykhachsan.ChucNang
@@ -27,8 +26,8 @@ namespace GUI_Quanlykhachsan.ChucNang
             var listp = DTODB.db.view_trangthai_phong_hientai.ToList();
             foreach (var item in listp)
             {
-               
-                SoDoPhong.Controls.Add(new trangthaiphong(item.tenphong, item.mota, item.trangthai, item.idphong, 2, false, null,null));
+
+                SoDoPhong.Controls.Add(new trangthaiphong(item.tenphong, item.mota, item.trangthai, item.idphong, 2, false, null, null));
             }
 
             //var phongddddd = DTODB.db.view_trangthai_phong_hientai.Where(x => x.idphong == 9).First();
