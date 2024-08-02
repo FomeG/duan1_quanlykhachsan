@@ -150,12 +150,6 @@
     <Compile Include="ChucNang\HoaDon.Designer.cs">
       <DependentUpon>HoaDon.cs</DependentUpon>
     </Compile>
-    <Compile Include="ChucNang\dangphattrien\HoaDonTEMP.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ChucNang\dangphattrien\HoaDonTEMP.Designer.cs">
-      <DependentUpon>HoaDonTEMP.cs</DependentUpon>
-    </Compile>
     <Compile Include="ChucNang\KhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -261,9 +255,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ChucNang\HoaDon.resx">
       <DependentUpon>HoaDon.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ChucNang\dangphattrien\HoaDonTEMP.resx">
-      <DependentUpon>HoaDonTEMP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChucNang\KhachHang.resx">
       <DependentUpon>KhachHang.cs</DependentUpon>
