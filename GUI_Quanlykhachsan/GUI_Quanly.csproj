@@ -51,6 +51,42 @@
     <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>packages\Guna.UI2.WinForms.2.0.4.6\lib\net48\Guna.UI2.dll</HintPath>
     </Reference>
+    <Reference Include="itext.barcodes, Version=8.0.5.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\itext.8.0.5\lib\net461\itext.barcodes.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.bouncy-castle-connector, Version=8.0.5.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\itext.8.0.5\lib\net461\itext.bouncy-castle-connector.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.commons, Version=8.0.5.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\itext.commons.8.0.5\lib\net461\itext.commons.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.forms, Version=8.0.5.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\itext.8.0.5\lib\net461\itext.forms.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.io, Version=8.0.5.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\itext.8.0.5\lib\net461\itext.io.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.kernel, Version=8.0.5.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\itext.8.0.5\lib\net461\itext.kernel.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.layout, Version=8.0.5.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\itext.8.0.5\lib\net461\itext.layout.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.pdfa, Version=8.0.5.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\itext.8.0.5\lib\net461\itext.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.pdfua, Version=8.0.5.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\itext.8.0.5\lib\net461\itext.pdfua.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.sign, Version=8.0.5.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\itext.8.0.5\lib\net461\itext.sign.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.styledxmlparser, Version=8.0.5.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\itext.8.0.5\lib\net461\itext.styledxmlparser.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.svg, Version=8.0.5.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\itext.8.0.5\lib\net461\itext.svg.dll</HintPath>
+    </Reference>
     <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
       <HintPath>packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
     </Reference>
@@ -62,6 +98,24 @@
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.DependencyInjection.5.0.0\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.DependencyInjection.Abstractions.5.0.0\lib\net461\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Logging.5.0.0\lib\net461\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Logging.Abstractions.5.0.0\lib\net461\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Options.5.0.0\lib\net461\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Primitives.5.0.0\lib\net461\Microsoft.Extensions.Primitives.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -83,6 +137,9 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Diagnostics.DiagnosticSource.5.0.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
     <Reference Include="System.Management" />
     <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
@@ -128,11 +185,11 @@
     <Compile Include="ChucNang\ADMIN\TaiChinh.Designer.cs">
       <DependentUpon>TaiChinh.cs</DependentUpon>
     </Compile>
-    <Compile Include="ChucNang\dangphattrien\DatPhongTemp.cs">
+    <Compile Include="ChucNang\dangphattrien\HDTemp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChucNang\dangphattrien\DatPhongTemp.Designer.cs">
-      <DependentUpon>DatPhongTemp.cs</DependentUpon>
+    <Compile Include="ChucNang\dangphattrien\HDTemp.Designer.cs">
+      <DependentUpon>HDTemp.cs</DependentUpon>
     </Compile>
     <Compile Include="ChucNang\dangphattrien\FrmDichVu.cs">
       <SubType>Form</SubType>
@@ -252,8 +309,8 @@
     <EmbeddedResource Include="ChucNang\ADMIN\TaiChinh.resx">
       <DependentUpon>TaiChinh.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChucNang\dangphattrien\DatPhongTemp.resx">
-      <DependentUpon>DatPhongTemp.cs</DependentUpon>
+    <EmbeddedResource Include="ChucNang\dangphattrien\HDTemp.resx">
+      <DependentUpon>HDTemp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChucNang\dangphattrien\FrmDichVu.resx">
       <DependentUpon>FrmDichVu.cs</DependentUpon>

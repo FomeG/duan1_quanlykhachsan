@@ -55,13 +55,11 @@
             this.BtnTraPhong = new Guna.UI2.WinForms.Guna2GradientButton();
             this.BtnThanhToanSau = new Guna.UI2.WinForms.Guna2GradientButton();
             this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.tongTT = new System.Windows.Forms.Label();
             this.txtVoucher = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2CustomCheckBox1 = new Guna.UI2.WinForms.Guna2CustomCheckBox();
             this.label15 = new System.Windows.Forms.Label();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.label16 = new System.Windows.Forms.Label();
-            this.tongTT = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.txtGhiChu = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2GroupBox2 = new Guna.UI2.WinForms.Guna2GroupBox();
@@ -381,17 +379,17 @@
             this.label13.TabIndex = 7;
             this.label13.Text = "Tổng thanh toán:";
             // 
-            // label14
+            // tongTT
             // 
-            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label14.Location = new System.Drawing.Point(145, 491);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(71, 21);
-            this.label14.TabIndex = 8;
-            this.label14.Text = "{Số tiền}";
+            this.tongTT.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.tongTT.AutoSize = true;
+            this.tongTT.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tongTT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.tongTT.Location = new System.Drawing.Point(145, 491);
+            this.tongTT.Name = "tongTT";
+            this.tongTT.Size = new System.Drawing.Size(71, 21);
+            this.tongTT.TabIndex = 8;
+            this.tongTT.Text = "{Số tiền}";
             // 
             // txtVoucher
             // 
@@ -452,29 +450,6 @@
             // 
             this.bunifuElipse1.ElipseRadius = 15;
             this.bunifuElipse1.TargetControl = this;
-            // 
-            // label16
-            // 
-            this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(12, 512);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(149, 18);
-            this.label16.TabIndex = 7;
-            this.label16.Text = "Tổng tiền hoá đơn:";
-            // 
-            // tongTT
-            // 
-            this.tongTT.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.tongTT.AutoSize = true;
-            this.tongTT.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tongTT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.tongTT.Location = new System.Drawing.Point(167, 509);
-            this.tongTT.Name = "tongTT";
-            this.tongTT.Size = new System.Drawing.Size(71, 21);
-            this.tongTT.TabIndex = 8;
-            this.tongTT.Text = "{Số tiền}";
             // 
             // label18
             // 
@@ -623,8 +598,6 @@
             this.Controls.Add(this.guna2CustomCheckBox1);
             this.Controls.Add(this.txtVoucher);
             this.Controls.Add(this.tongTT);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.label16);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.BtnThanhToanSau);
             this.Controls.Add(this.BtnTraPhong);
@@ -666,7 +639,7 @@
         private Guna.UI2.WinForms.Guna2GradientButton BtnTraPhong;
         private Guna.UI2.WinForms.Guna2GradientButton BtnThanhToanSau;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label tongTT;
         private Guna.UI2.WinForms.Guna2TextBox txtVoucher;
         private Guna.UI2.WinForms.Guna2CustomCheckBox guna2CustomCheckBox1;
         private System.Windows.Forms.Label label15;
@@ -677,8 +650,6 @@
         private System.Windows.Forms.Label txtngayvao;
         private System.Windows.Forms.Label txttenkh;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
-        private System.Windows.Forms.Label tongTT;
-        private System.Windows.Forms.Label label16;
         private Guna.UI2.WinForms.Guna2TextBox txtGhiChu;
         private System.Windows.Forms.Label label18;
         private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox2;

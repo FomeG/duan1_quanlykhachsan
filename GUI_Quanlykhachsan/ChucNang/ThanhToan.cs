@@ -2,6 +2,7 @@
 using DTO_Quanly;
 using DTO_Quanly.Model.DB;
 using DTO_Quanly.Transfer;
+using GUI_Quanlykhachsan.ChucNang.dangphattrien;
 using System;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -229,6 +230,9 @@ namespace GUI_Quanlykhachsan.ChucNang
                         DTODB.db.phong_trunggian.Add(ptrunggianmoi);
                         DTODB.db.SaveChanges();
 
+
+                        HDTemp hdtempmoi = new HDTemp();
+                        hdtempmoi.Show();
 
                         MessageBox.Show("Cập nhật thành công!");
                         transaction.Commit();
