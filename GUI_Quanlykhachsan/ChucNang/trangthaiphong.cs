@@ -6,6 +6,7 @@ using Guna.UI2.WinForms;
 using System;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Windows.Forms;
 
 namespace GUI_Quanlykhachsan.ChucNang
@@ -24,8 +25,7 @@ namespace GUI_Quanlykhachsan.ChucNang
             roomname.Text = tenphong;
             description.Text = mota;
             motaphong = mota;
-            IdPhong = idphong;
-            TDatPhong.IdPhong = IdPhong;
+            TDatPhong.IdPhong = IdPhong = idphong;
             contextMenuStrip = new Guna2ContextMenuStrip();
 
             //_ttphongtemp = new ThongTinPhongTemp(IdPhong, null, null);
@@ -105,7 +105,7 @@ namespace GUI_Quanlykhachsan.ChucNang
                 TDatPhong.TienPhong = (from a in DTODB.db.phongs join b in DTODB.db.loaiphongs on a.loaiphong equals b.idloaiphong where a.idphong == IdPhong select b.giaphong).FirstOrDefault();
 
 
-                KhachHang khachHang = new KhachHang(IdPhong);
+                KhachHang khachHang = new KhachHang(IdPhong, null, null);
                 khachHang.Show();
             }
             else if (btnDat.Text == "Nhận Phòng")
@@ -154,28 +154,30 @@ namespace GUI_Quanlykhachsan.ChucNang
                 TDatPhong.TienPhong = (from a in DTODB.db.phongs join b in DTODB.db.loaiphongs on a.loaiphong equals b.idloaiphong where a.idphong == IdPhong select b.giaphong).FirstOrDefault();
 
 
-                KhachHang khachHang = new KhachHang(IdPhong);
+                KhachHang khachHang = new KhachHang(IdPhong, null, null);
                 khachHang.Show();
+
             }
             else if (btnDat.Text == "Dịch vụ")
             {
-                var listtt = (from p in DTODB.db.phongs
-                              join cp in DTODB.db.checkin_phong on p.idphong equals cp.idphong
-                              join c in DTODB.db.checkins on cp.idcheckin equals c.id
-                              join tk in DTODB.db.tempkhachhangs on c.id equals tk.idcheckin
-                              join kh in DTODB.db.khachhangs on tk.idkh equals kh.id
-                              join lp in DTODB.db.loaiphongs on p.loaiphong equals lp.idloaiphong
-                              where p.idphong == TDatPhong.IdPhong
-                              select new
-                              {
-                                  c.id,
-                                  IdKh = kh.id
-                              }).FirstOrDefault();
 
-                int idcin = listtt.id;
-                int idkh = listtt.IdKh;
-                TDatPhong.IDKH = listtt.IdKh;
+                var query = (from dsd in DTODB.db.dsdattruocs
+                             join kh in DTODB.db.khachhangs on dsd.idkh equals kh.id
+                             join p in DTODB.db.phongs on dsd.idphong equals p.idphong
+                             join cip in DTODB.db.checkin_phong on p.idphong equals cip.idphong
+                             where p.idphong == IdPhong
+
+                             select new
+                             {
+                                 IDkhachhang = kh.id,
+                                 IDcheckin = cip.idcheckin
+                             }).FirstOrDefault();
+
+
+                int idcin = query.IDcheckin;
                 TDatPhong.IDCHECKIN = idcin;
+                int idkh = query.IDkhachhang;
+                TDatPhong.IDKH = query.IDkhachhang;
 
                 FrmDichVu frmDichVu = new FrmDichVu(idcin, idkh);
                 frmDichVu.Show();
