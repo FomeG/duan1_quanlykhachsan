@@ -15,7 +15,7 @@ namespace GUI_Quanlykhachsan.ChucNang.dangphattrien
         {
             InitializeComponent();
             this._idp = idphong;
-            if(!ngayden.HasValue && !ngaydi.HasValue)
+            if (!ngayden.HasValue && !ngaydi.HasValue)
             {
                 nguoidat.Text = ngayvao.Text = ngayra.Text = "";
             }
@@ -23,10 +23,25 @@ namespace GUI_Quanlykhachsan.ChucNang.dangphattrien
             {
                 this.ngaydenStr = ngayden?.ToString("yyyy-MM-dd HH:mm:ss");
                 this.ngaydiStr = ngaydi?.ToString("yyyy-MM-dd HH:mm:ss");
-                nguoidat.Text = DTODB.db.kiemtra_dsdattruoc_chitiet(ngaydenStr, ngaydiStr, idphong).First().ten_khachhang;
-                ngayvao.Text = ngayden.ToString();
-                ngayra.Text = ngaydi.ToString();
+                if (DTODB.db.kiemtra_dsdattruoc_chitiet(ngaydenStr, ngaydiStr, idphong).Count() > 1)
+                {
+                    gview1.Visible = gview1.Enabled = true;
+                    nguoidat.Enabled = ngayvao.Enabled = ngayra.Enabled = nguoidat.Visible = ngayvao.Visible = ngayra.Visible = false;
+                    gview1.DataSource = DTODB.db.kiemtra_dsdattruoc_chitiet(ngaydenStr, ngaydiStr, idphong).ToList();
+
+                }
+                else
+                {
+                    nguoidat.Enabled = ngayvao.Enabled = ngayra.Enabled = nguoidat.Visible = ngayvao.Visible = ngayra.Visible = true;
+                    gview1.Visible = gview1.Enabled = false;
+
+                    nguoidat.Text = DTODB.db.kiemtra_dsdattruoc_chitiet(ngaydenStr, ngaydiStr, idphong).First().ten_khachhang;
+                    ngayvao.Text = ngayden.ToString();
+                    ngayra.Text = ngaydi.ToString();
+                }
             }
+
+
         }
         public ThongTinPhongTemp()
         {
