@@ -7,6 +7,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GUI_Quanlykhachsan
@@ -15,7 +16,7 @@ namespace GUI_Quanlykhachsan
     {
         private readonly List<Image> images = new List<Image>();
         private readonly string[] location = new string[25];
-
+        private TrangChu _TrangChu;
         public Login()
         {
             InitializeComponent();
@@ -24,6 +25,12 @@ namespace GUI_Quanlykhachsan
             this.MouseDown += Form_MouseDown;
             panellogin.ApplyRoundedCorners(30);
             panelvien1.ApplyRoundedCorners(30);
+
+
+            // Khởi tạo Timer
+            progressTimer = new System.Windows.Forms.Timer();
+            progressTimer.Interval = 10; // Cập nhật mỗi 10ms
+            progressTimer.Tick += ProgressTimer_Tick;
         }
 
         private void InitializeImageLocations()
@@ -106,7 +113,33 @@ namespace GUI_Quanlykhachsan
             }
         }
 
-        private void guna2GradientButton2_Click(object sender, EventArgs e)
+        #region Nút đăng nhập Animated
+        private System.Windows.Forms.Timer progressTimer;
+        private int targetProgress = 0;
+
+        private void ProgressTimer_Tick(object sender, EventArgs e)
+        {
+            if (bar1.Value < targetProgress)
+            {
+                bar1.Value++;
+            }
+            else if (bar1.Value > targetProgress)
+            {
+                bar1.Value--;
+            }
+            else
+            {
+                progressTimer.Stop();
+            }
+        }
+
+        private void UpdateProgressBar(int value)
+        {
+            targetProgress = value;
+            progressTimer.Start();
+        }
+
+        private async void guna2GradientButton2_Click(object sender, EventArgs e)
         {
             if (!check())
             {
@@ -114,39 +147,82 @@ namespace GUI_Quanlykhachsan
                 return;
             }
 
-            if (DangNhap.KetQua(txttk.Text, txtmk.Text))
+            // Disable nút đăng nhập và hiển thị ProgressBar
+            guna2GradientButton2.Enabled = false;
+            guna2GradientButton2.Text = "Đang đăng nhập";
+            bar1.Visible = true;
+            bar1.Value = 0;
+
+            try
             {
-                var trangChu = new TrangChu();
-                if (DangNhap.VaiTro(txttk.Text) == 1)
+                // Bắt đầu đăng nhập
+                UpdateProgressBar(20);
+                bool loginResult = await Task.Run(() => DangNhap.KetQua(txttk.Text, txtmk.Text));
+                UpdateProgressBar(40);
+
+                if (loginResult)
                 {
-                    // Admin
-                    trangChu.Username.Text = "ADMIN";
-                    TDatPhong.IDNV = 1;
-                    TDatPhong.VaiTro = 1;
+                    this._TrangChu = new TrangChu();
+                    UpdateProgressBar(60);
+
+                    int? vaiTro = await Task.Run(() => DangNhap.VaiTro(txttk.Text));
+                    UpdateProgressBar(80);
+
+                    switch (vaiTro)
+                    {
+                        case 1:
+                            // Admin (idvaitro = 1)
+                            _TrangChu.Username.Text = "ADMIN";
+                            TDatPhong.IDNV = 1;
+                            TDatPhong.VaiTro = 1;
+                            break;
+                        case 2:
+                            // Quản lý (idvaitro = 2)
+                            var quanLy = await Task.Run(() => DTODB.db.nhanviens.FirstOrDefault(a => a.taikhoan == txttk.Text));
+                            _TrangChu.Username.Text = quanLy?.ten?.ToString() ?? string.Empty;
+                            TDatPhong.IDNV = 1;
+                            TDatPhong.VaiTro = 2;
+                            break;
+                        default:
+                            // Nhân viên (idvaitro = 3)
+                            var nhanVien = await Task.Run(() => DTODB.db.nhanviens.FirstOrDefault(a => a.taikhoan == txttk.Text));
+                            TDatPhong.IDNV = nhanVien?.idnv ?? 0;
+                            TDatPhong.VaiTro = 3;
+                            _TrangChu.Username.Text = nhanVien?.ten?.ToString() ?? string.Empty;
+                            break;
+                    }
+
+                    UpdateProgressBar(100);
+
+                    // Đợi ProgressBar hoàn thành trước khi chuyển form
+                    while (bar1.Value < 100)
+                    {
+                        await Task.Delay(1);
+                    }
+
+                    _TrangChu.FormClosed += (a, b) => this.Show();
+                    _TrangChu.Show();
+                    txttk.Text = txtmk.Text = string.Empty;
+                    this.Hide();
+                    MessageBox.Show("Đăng nhập thành công!");
                 }
-                else if (DangNhap.VaiTro(txttk.Text) == 2)
-                {
-                    // Quản lý
-                    var nhanVien = DTODB.db.nhanviens.FirstOrDefault(a => a.taikhoan == txttk.Text);
-                    trangChu.Username.Text = nhanVien?.ten?.ToString() ?? string.Empty;
-                    TDatPhong.IDNV = 1;
-                    TDatPhong.VaiTro = 2;
-                }
-                else
-                {
-                    // Nhân viên
-                    var nhanVien = DTODB.db.nhanviens.FirstOrDefault(a => a.taikhoan == txttk.Text);
-                    TDatPhong.IDNV = nhanVien?.idnv ?? 0;
-                    TDatPhong.VaiTro = 3;
-                    trangChu.Username.Text = nhanVien?.ten?.ToString() ?? string.Empty;
-                }
-                trangChu.FormClosed += (a, b) => this.Show();
-                trangChu.Show();
-                txttk.Text = txtmk.Text = string.Empty;
-                this.Hide();
-                MessageBox.Show("Đăng nhập thành công!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}");
+            }
+            finally
+            {
+                // Ẩn ProgressBar, enable lại nút đăng nhập
+                progressTimer.Stop();
+                bar1.Visible = false;
+                guna2GradientButton2.Enabled = true;
+                guna2GradientButton2.Text = "Đăng nhập";
             }
         }
+        #endregion
+
+
 
         private void guna2GradientButton1_Click(object sender, EventArgs e)
         {

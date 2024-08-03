@@ -41,6 +41,7 @@
             this.panelvien1 = new System.Windows.Forms.Panel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.bar1 = new Guna.UI2.WinForms.Guna2ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panellogin.SuspendLayout();
@@ -167,6 +168,7 @@
             // 
             // panellogin
             // 
+            this.panellogin.Controls.Add(this.bar1);
             this.panellogin.Controls.Add(this.pictureBox1);
             this.panellogin.Controls.Add(this.txtmk);
             this.panellogin.Controls.Add(this.guna2GradientButton2);
@@ -214,6 +216,22 @@
             this.guna2PictureBox2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.guna2PictureBox2_MouseMove);
             this.guna2PictureBox2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.guna2PictureBox2_MouseUp);
             // 
+            // bar1
+            // 
+            this.bar1.AutoRoundedCorners = true;
+            this.bar1.BorderColor = System.Drawing.Color.Silver;
+            this.bar1.BorderRadius = 14;
+            this.bar1.BorderThickness = 1;
+            this.bar1.Location = new System.Drawing.Point(15, 520);
+            this.bar1.Name = "bar1";
+            this.bar1.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.bar1.ProgressColor2 = System.Drawing.Color.Green;
+            this.bar1.Size = new System.Drawing.Size(316, 30);
+            this.bar1.TabIndex = 10;
+            this.bar1.Text = "guna2ProgressBar1";
+            this.bar1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.bar1.Visible = false;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -250,6 +268,7 @@
         private System.Windows.Forms.Panel panelvien1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
+        private Guna.UI2.WinForms.Guna2ProgressBar bar1;
     }
 }
 
