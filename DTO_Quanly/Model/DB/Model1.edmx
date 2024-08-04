@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="duan1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="duan1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="checkin">
           <Key>
             <PropertyRef Name="id" />
@@ -274,7 +274,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
           <Property Name="trangthai" Type="int" Nullable="false" />
           <Property Name="trangthai_text" Type="nvarchar" MaxLength="6" Nullable="false" />
         </EntityType>
-        <Association Name="FK__checkin__idkh__52593CB8">
+        <Association Name="FK__checkin__idkh__534D60F1">
           <End Role="khachhang" Type="Self.khachhang" Multiplicity="1" />
           <End Role="checkin" Type="Self.checkin" Multiplicity="*" />
           <ReferentialConstraint>
@@ -286,7 +286,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__checkin__idnv__534D60F1">
+        <Association Name="FK__checkin__idnv__5441852A">
           <End Role="nhanvien" Type="Self.nhanvien" Multiplicity="0..1" />
           <End Role="checkin" Type="Self.checkin" Multiplicity="*" />
           <ReferentialConstraint>
@@ -346,7 +346,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__checkout__idkh__5629CD9C">
+        <Association Name="FK__checkout__idkh__571DF1D5">
           <End Role="khachhang" Type="Self.khachhang" Multiplicity="0..1" />
           <End Role="checkout" Type="Self.checkout" Multiplicity="*" />
           <ReferentialConstraint>
@@ -358,7 +358,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__checkout__idnv__571DF1D5">
+        <Association Name="FK__checkout__idnv__5812160E">
           <End Role="nhanvien" Type="Self.nhanvien" Multiplicity="0..1" />
           <End Role="checkout" Type="Self.checkout" Multiplicity="*" />
           <ReferentialConstraint>
@@ -370,7 +370,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dsdattruo__idpho__4E88ABD4">
+        <Association Name="FK__dsdattruo__idpho__4F7CD00D">
           <End Role="phong" Type="Self.phong" Multiplicity="0..1" />
           <End Role="dsdattruoc" Type="Self.dsdattruoc" Multiplicity="*" />
           <ReferentialConstraint>
@@ -382,7 +382,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dsdattruoc__idkh__4D94879B">
+        <Association Name="FK__dsdattruoc__idkh__4E88ABD4">
           <End Role="khachhang" Type="Self.khachhang" Multiplicity="0..1" />
           <End Role="dsdattruoc" Type="Self.dsdattruoc" Multiplicity="*" />
           <ReferentialConstraint>
@@ -394,7 +394,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dsdattruoc__idnv__4CA06362">
+        <Association Name="FK__dsdattruoc__idnv__4D94879B">
           <End Role="nhanvien" Type="Self.nhanvien" Multiplicity="0..1" />
           <End Role="dsdattruoc" Type="Self.dsdattruoc" Multiplicity="*" />
           <ReferentialConstraint>
@@ -454,7 +454,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__nhanvien__taikho__46E78A0C">
+        <Association Name="FK__nhanvien__taikho__47DBAE45">
           <End Role="taikhoan" Type="Self.taikhoan" Multiplicity="0..1" />
           <End Role="nhanvien" Type="Self.nhanvien" Multiplicity="*" />
           <ReferentialConstraint>
@@ -466,7 +466,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__phong__khuvuc__3C69FB99">
+        <Association Name="FK__phong__khuvuc__3D5E1FD2">
           <End Role="khuvuc" Type="Self.khuvuc" Multiplicity="1" />
           <End Role="phong" Type="Self.phong" Multiplicity="*" />
           <ReferentialConstraint>
@@ -478,7 +478,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__phong__loaiphong__3B75D760">
+        <Association Name="FK__phong__loaiphong__3C69FB99">
           <End Role="loaiphong" Type="Self.loaiphong" Multiplicity="1" />
           <End Role="phong" Type="Self.phong" Multiplicity="*" />
           <ReferentialConstraint>
@@ -514,7 +514,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__taikhoan__loaitk__4222D4EF">
+        <Association Name="FK__taikhoan__loaitk__4316F928">
           <End Role="vaitro" Type="Self.vaitro" Multiplicity="0..1" />
           <End Role="taikhoan" Type="Self.taikhoan" Multiplicity="*" />
           <ReferentialConstraint>
@@ -648,11 +648,11 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
     [view_trangthai_phong_hientai].[trangthai_text] AS [trangthai_text]
     FROM [dbo].[view_trangthai_phong_hientai] AS [view_trangthai_phong_hientai]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK__checkin__idkh__52593CB8" Association="Self.FK__checkin__idkh__52593CB8">
+          <AssociationSet Name="FK__checkin__idkh__534D60F1" Association="Self.FK__checkin__idkh__534D60F1">
             <End Role="khachhang" EntitySet="khachhang" />
             <End Role="checkin" EntitySet="checkin" />
           </AssociationSet>
-          <AssociationSet Name="FK__checkin__idnv__534D60F1" Association="Self.FK__checkin__idnv__534D60F1">
+          <AssociationSet Name="FK__checkin__idnv__5441852A" Association="Self.FK__checkin__idnv__5441852A">
             <End Role="nhanvien" EntitySet="nhanvien" />
             <End Role="checkin" EntitySet="checkin" />
           </AssociationSet>
@@ -672,23 +672,23 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             <End Role="phong" EntitySet="phong" />
             <End Role="checkin_phong" EntitySet="checkin_phong" />
           </AssociationSet>
-          <AssociationSet Name="FK__checkout__idkh__5629CD9C" Association="Self.FK__checkout__idkh__5629CD9C">
+          <AssociationSet Name="FK__checkout__idkh__571DF1D5" Association="Self.FK__checkout__idkh__571DF1D5">
             <End Role="khachhang" EntitySet="khachhang" />
             <End Role="checkout" EntitySet="checkout" />
           </AssociationSet>
-          <AssociationSet Name="FK__checkout__idnv__571DF1D5" Association="Self.FK__checkout__idnv__571DF1D5">
+          <AssociationSet Name="FK__checkout__idnv__5812160E" Association="Self.FK__checkout__idnv__5812160E">
             <End Role="nhanvien" EntitySet="nhanvien" />
             <End Role="checkout" EntitySet="checkout" />
           </AssociationSet>
-          <AssociationSet Name="FK__dsdattruo__idpho__4E88ABD4" Association="Self.FK__dsdattruo__idpho__4E88ABD4">
+          <AssociationSet Name="FK__dsdattruo__idpho__4F7CD00D" Association="Self.FK__dsdattruo__idpho__4F7CD00D">
             <End Role="phong" EntitySet="phong" />
             <End Role="dsdattruoc" EntitySet="dsdattruoc" />
           </AssociationSet>
-          <AssociationSet Name="FK__dsdattruoc__idkh__4D94879B" Association="Self.FK__dsdattruoc__idkh__4D94879B">
+          <AssociationSet Name="FK__dsdattruoc__idkh__4E88ABD4" Association="Self.FK__dsdattruoc__idkh__4E88ABD4">
             <End Role="khachhang" EntitySet="khachhang" />
             <End Role="dsdattruoc" EntitySet="dsdattruoc" />
           </AssociationSet>
-          <AssociationSet Name="FK__dsdattruoc__idnv__4CA06362" Association="Self.FK__dsdattruoc__idnv__4CA06362">
+          <AssociationSet Name="FK__dsdattruoc__idnv__4D94879B" Association="Self.FK__dsdattruoc__idnv__4D94879B">
             <End Role="nhanvien" EntitySet="nhanvien" />
             <End Role="dsdattruoc" EntitySet="dsdattruoc" />
           </AssociationSet>
@@ -708,15 +708,15 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             <End Role="nhanvien" EntitySet="nhanvien" />
             <End Role="hoadon" EntitySet="hoadon" />
           </AssociationSet>
-          <AssociationSet Name="FK__nhanvien__taikho__46E78A0C" Association="Self.FK__nhanvien__taikho__46E78A0C">
+          <AssociationSet Name="FK__nhanvien__taikho__47DBAE45" Association="Self.FK__nhanvien__taikho__47DBAE45">
             <End Role="taikhoan" EntitySet="taikhoan" />
             <End Role="nhanvien" EntitySet="nhanvien" />
           </AssociationSet>
-          <AssociationSet Name="FK__phong__khuvuc__3C69FB99" Association="Self.FK__phong__khuvuc__3C69FB99">
+          <AssociationSet Name="FK__phong__khuvuc__3D5E1FD2" Association="Self.FK__phong__khuvuc__3D5E1FD2">
             <End Role="khuvuc" EntitySet="khuvuc" />
             <End Role="phong" EntitySet="phong" />
           </AssociationSet>
-          <AssociationSet Name="FK__phong__loaiphong__3B75D760" Association="Self.FK__phong__loaiphong__3B75D760">
+          <AssociationSet Name="FK__phong__loaiphong__3C69FB99" Association="Self.FK__phong__loaiphong__3C69FB99">
             <End Role="loaiphong" EntitySet="loaiphong" />
             <End Role="phong" EntitySet="phong" />
           </AssociationSet>
@@ -728,7 +728,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             <End Role="checkin_phong" EntitySet="checkin_phong" />
             <End Role="phong_trunggian" EntitySet="phong_trunggian" />
           </AssociationSet>
-          <AssociationSet Name="FK__taikhoan__loaitk__4222D4EF" Association="Self.FK__taikhoan__loaitk__4222D4EF">
+          <AssociationSet Name="FK__taikhoan__loaitk__4316F928" Association="Self.FK__taikhoan__loaitk__4316F928">
             <End Role="vaitro" EntitySet="vaitro" />
             <End Role="taikhoan" EntitySet="taikhoan" />
           </AssociationSet>
@@ -745,8 +745,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             <End Role="voucher" EntitySet="voucher" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="duan1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
