@@ -30,9 +30,9 @@ namespace GUI_Quanlykhachsan.ChucNang
 
             checkclick = false; // có kiểm tra email
 
-            this.MouseDown += new MouseEventHandler(Form_MouseDown);
+            MouseDown += new MouseEventHandler(Form_MouseDown);
             reload();
-            this.IDP = iDPphong;
+            IDP = iDPphong;
 
             if (Nden.HasValue && Ndi.HasValue)
             {

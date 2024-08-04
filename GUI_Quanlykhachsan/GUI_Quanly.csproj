@@ -191,6 +191,12 @@
     <Compile Include="ChucNang\ADMIN\TaiChinh.Designer.cs">
       <DependentUpon>TaiChinh.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChucNang\dangphattrien\frmQuanlyDV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChucNang\dangphattrien\frmQuanlyDV.Designer.cs">
+      <DependentUpon>frmQuanlyDV.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChucNang\dangphattrien\HDTemp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -316,6 +322,9 @@
     <EmbeddedResource Include="ChucNang\ADMIN\TaiChinh.resx">
       <DependentUpon>TaiChinh.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ChucNang\dangphattrien\frmQuanlyDV.resx">
+      <DependentUpon>frmQuanlyDV.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChucNang\dangphattrien\HDTemp.resx">
       <DependentUpon>HDTemp.cs</DependentUpon>
     </EmbeddedResource>
@@ -360,6 +369,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ChucNang\ThongTinKH.resx">
       <DependentUpon>ThongTinKH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChucNang\Voucher.resx">
+      <DependentUpon>Voucher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

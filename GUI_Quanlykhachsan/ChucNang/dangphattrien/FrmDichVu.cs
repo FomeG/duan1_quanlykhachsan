@@ -17,8 +17,8 @@ namespace GUI_Quanlykhachsan.ChucNang.dangphattrien
         public FrmDichVu(int idcheckin, int idkh)
         {
             InitializeComponent();
-            this.IDCin = idcheckin;
-            this.IDKh = idkh;
+            IDCin = idcheckin;
+            IDKh = idkh;
 
             loaddv();
             loaddvgview();

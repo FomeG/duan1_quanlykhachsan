@@ -33,13 +33,13 @@ namespace GUI_Quanlykhachsan.ChucNang.dangphattrien
         public HDTemp(int idcheckin, int idphong, int idhoadon, string tenkh, DateTime ngayvao, DateTime ngayra, decimal? tientra)
         {
             InitializeComponent();
-            this.Idhd = idhoadon;
-            this.Tenkh = tenkh;
-            this.Nvao = ngayvao;
-            this.Nra = ngayra;
-            this.Tientra = tientra;
-            this.IdCin = idcheckin;
-            this.idp = idphong;
+            Idhd = idhoadon;
+            Tenkh = tenkh;
+            Nvao = ngayvao;
+            Nra = ngayra;
+            Tientra = tientra;
+            IdCin = idcheckin;
+            idp = idphong;
 
 
             MaHD.Text = idhoadon.ToString();
@@ -182,7 +182,7 @@ namespace GUI_Quanlykhachsan.ChucNang.dangphattrien
                 // Bảng dịch vụ
                 document.Add(new Paragraph("Dịch vụ sử dụng:").SetFont(boldFont));
                 Table serviceTable = new Table(5).UseAllAvailableWidth();
-                string[] headers = { "STT", "Dịch vụ", "Số lượng", "Đơn giá", "Thành tiền" };
+                string[] headers = { "STT", "Dịch vụ", "Số lượng", "Đơn giá" };
                 foreach (string header in headers)
                 {
                     serviceTable.AddHeaderCell(CreateCell(header, boldFont, TextAlignment.CENTER)

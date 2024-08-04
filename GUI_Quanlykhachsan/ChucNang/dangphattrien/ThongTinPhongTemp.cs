@@ -13,15 +13,15 @@ namespace GUI_Quanlykhachsan.ChucNang.dangphattrien
         public ThongTinPhongTemp(int idphong, DateTime? ngayden, DateTime? ngaydi)
         {
             InitializeComponent();
-            this._idp = idphong;
+            _idp = idphong;
             if (!ngayden.HasValue && !ngaydi.HasValue)
             {
                 nguoidat.Text = ngayvao.Text = ngayra.Text = "";
             }
             else
             {
-                this.ngaydenStr = ngayden?.ToString("yyyy-MM-dd HH:mm:ss");
-                this.ngaydiStr = ngaydi?.ToString("yyyy-MM-dd HH:mm:ss");
+                ngaydenStr = ngayden?.ToString("yyyy-MM-dd HH:mm:ss");
+                ngaydiStr = ngaydi?.ToString("yyyy-MM-dd HH:mm:ss");
                 if (DTODB.db.kiemtra_dsdattruoc_chitiet(ngaydenStr, ngaydiStr, idphong).Count() > 1)
                 {
                     gview1.Visible = gview1.Enabled = true;
@@ -48,7 +48,7 @@ namespace GUI_Quanlykhachsan.ChucNang.dangphattrien
         }
         public void loadtt()
         {
-            var thongtinp = DTODB.db.view_trangthai_phong_hientai.SingleOrDefault(a => a.idphong == this._idp);
+            var thongtinp = DTODB.db.view_trangthai_phong_hientai.SingleOrDefault(a => a.idphong == _idp);
             tenphong.Text = thongtinp.tenphong.ToString();
             loaiphong.Text = thongtinp.loaiphong.ToString();
             mota.Text = thongtinp.mota.ToString();
@@ -72,7 +72,7 @@ namespace GUI_Quanlykhachsan.ChucNang.dangphattrien
 
         private void guna2Button1_Click(object sender, System.EventArgs e)
         {
-            this.Hide();
+            Hide();
         }
 
         private void ThongTinPhongTemp_Load(object sender, System.EventArgs e)

@@ -35,7 +35,7 @@ namespace GUI_Quanlykhachsan.ChucNang
 
         }
         // Nút tải lại
-        private void guna2GradientButton1_Click(object sender, EventArgs e)
+        public void guna2GradientButton1_Click(object sender, EventArgs e)
         {
             hienthiphong();
         }
@@ -45,8 +45,8 @@ namespace GUI_Quanlykhachsan.ChucNang
         public void timkiem(DateTime ngayden, DateTime ngaydi)
         {
             SoDoPhong.Controls.Clear();
-            this.ngaydenStr = ngayden.ToString("yyyy-MM-dd HH:mm:ss");
-            this.ngaydiStr = ngaydi.ToString("yyyy-MM-dd HH:mm:ss");
+            ngaydenStr = ngayden.ToString("yyyy-MM-dd HH:mm:ss");
+            ngaydiStr = ngaydi.ToString("yyyy-MM-dd HH:mm:ss");
             var listptimkiem = DTODB.db.kiemtra_trangthai_phong(ngaydenStr, ngaydiStr).ToList();
 
             foreach (var item in listptimkiem)

@@ -1,5 +1,4 @@
 ﻿using DTO_Quanly;
-using DTO_Quanly.Model.DB;
 using DTO_Quanly.Model.NoiBang;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +11,19 @@ namespace DAL_Quanly.Repository.QuanLyDatPhong.ThanhToan
         {
 
         }
-        public List<dichvu> truyendichvu()
+        public List<NoiDichvu> truyendichvu()
         {
-            return DTODB.db.dichvus.ToList();
+            var listdv = from a in DTODB.db.dichvus
+                         where a.tt == false
+                         select new NoiDichvu
+                         {
+                             tendv = a.tendv,
+                             soluongton = (int)a.soluongton,
+                             gia = a.gia,
+                             mota = a.mota,
+                             id = a.id,
+                         };
+            return listdv.ToList();
         }
 
         // lấy dịch vụ dựa vào id checkin

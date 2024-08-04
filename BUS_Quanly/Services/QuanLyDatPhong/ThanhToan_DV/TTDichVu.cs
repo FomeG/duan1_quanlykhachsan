@@ -1,5 +1,4 @@
 ﻿using DAL_Quanly.Repository.QuanLyDatPhong.ThanhToan;
-using DTO_Quanly.Model.DB;
 using DTO_Quanly.Model.NoiBang;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +13,7 @@ namespace BUS_Quanly.Services.QuanLyDatPhong.ThanhToan_DV
 
         }
 
-        public List<dichvu> hienthidv()
+        public List<NoiDichvu> hienthidv()
         {
             return _truyvan.truyendichvu().ToList();
         }

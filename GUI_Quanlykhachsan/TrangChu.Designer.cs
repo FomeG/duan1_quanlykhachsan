@@ -338,7 +338,7 @@
             this.guna2GradientButton5.Image = ((System.Drawing.Image)(resources.GetObject("guna2GradientButton5.Image")));
             this.guna2GradientButton5.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2GradientButton5.ImageSize = new System.Drawing.Size(25, 25);
-            this.guna2GradientButton5.Location = new System.Drawing.Point(3, 292);
+            this.guna2GradientButton5.Location = new System.Drawing.Point(3, 394);
             this.guna2GradientButton5.Name = "guna2GradientButton5";
             this.guna2GradientButton5.Size = new System.Drawing.Size(192, 45);
             this.guna2GradientButton5.TabIndex = 7;
@@ -396,11 +396,11 @@
             this.guna2GradientButton7.Image = ((System.Drawing.Image)(resources.GetObject("guna2GradientButton7.Image")));
             this.guna2GradientButton7.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2GradientButton7.ImageSize = new System.Drawing.Size(25, 25);
-            this.guna2GradientButton7.Location = new System.Drawing.Point(3, 394);
+            this.guna2GradientButton7.Location = new System.Drawing.Point(3, 292);
             this.guna2GradientButton7.Name = "guna2GradientButton7";
             this.guna2GradientButton7.Size = new System.Drawing.Size(192, 45);
             this.guna2GradientButton7.TabIndex = 9;
-            this.guna2GradientButton7.Text = "Thanh toán (test)";
+            this.guna2GradientButton7.Text = "Quản lý dịch vụ";
             this.guna2GradientButton7.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2GradientButton7.Click += new System.EventHandler(this.guna2GradientButton7_Click);
             // 

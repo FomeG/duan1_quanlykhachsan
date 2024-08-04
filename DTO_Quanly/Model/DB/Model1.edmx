@@ -274,7 +274,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
           <Property Name="trangthai" Type="int" Nullable="false" />
           <Property Name="trangthai_text" Type="nvarchar" MaxLength="6" Nullable="false" />
         </EntityType>
-        <Association Name="FK__checkin__idkh__3F466844">
+        <Association Name="FK__checkin__idkh__534D60F1">
           <End Role="khachhang" Type="Self.khachhang" Multiplicity="1" />
           <End Role="checkin" Type="Self.checkin" Multiplicity="*" />
           <ReferentialConstraint>
@@ -286,7 +286,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__checkin__idnv__403A8C7D">
+        <Association Name="FK__checkin__idnv__5441852A">
           <End Role="nhanvien" Type="Self.nhanvien" Multiplicity="0..1" />
           <End Role="checkin" Type="Self.checkin" Multiplicity="*" />
           <ReferentialConstraint>
@@ -298,7 +298,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__checkin_d__idche__4D94879B">
+        <Association Name="FK__checkin_d__idche__60A75C0F">
           <End Role="checkin" Type="Self.checkin" Multiplicity="1" />
           <End Role="checkin_dichvu" Type="Self.checkin_dichvu" Multiplicity="*" />
           <ReferentialConstraint>
@@ -310,7 +310,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__checkin_di__iddv__4E88ABD4">
+        <Association Name="FK__checkin_di__iddv__619B8048">
           <End Role="dichvu" Type="Self.dichvu" Multiplicity="1" />
           <End Role="checkin_dichvu" Type="Self.checkin_dichvu" Multiplicity="*" />
           <ReferentialConstraint>
@@ -322,7 +322,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__checkin_p__idche__5165187F">
+        <Association Name="FK__checkin_p__idche__6477ECF3">
           <End Role="checkin" Type="Self.checkin" Multiplicity="1" />
           <End Role="checkin_phong" Type="Self.checkin_phong" Multiplicity="*" />
           <ReferentialConstraint>
@@ -334,7 +334,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__checkin_p__idpho__52593CB8">
+        <Association Name="FK__checkin_p__idpho__656C112C">
           <End Role="phong" Type="Self.phong" Multiplicity="1" />
           <End Role="checkin_phong" Type="Self.checkin_phong" Multiplicity="*" />
           <ReferentialConstraint>
@@ -346,7 +346,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__checkout__idkh__4316F928">
+        <Association Name="FK__checkout__idkh__571DF1D5">
           <End Role="khachhang" Type="Self.khachhang" Multiplicity="0..1" />
           <End Role="checkout" Type="Self.checkout" Multiplicity="*" />
           <ReferentialConstraint>
@@ -358,7 +358,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__checkout__idnv__440B1D61">
+        <Association Name="FK__checkout__idnv__5812160E">
           <End Role="nhanvien" Type="Self.nhanvien" Multiplicity="0..1" />
           <End Role="checkout" Type="Self.checkout" Multiplicity="*" />
           <ReferentialConstraint>
@@ -370,7 +370,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dsdattruo__idpho__3B75D760">
+        <Association Name="FK__dsdattruo__idpho__4F7CD00D">
           <End Role="phong" Type="Self.phong" Multiplicity="0..1" />
           <End Role="dsdattruoc" Type="Self.dsdattruoc" Multiplicity="*" />
           <ReferentialConstraint>
@@ -382,7 +382,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dsdattruoc__idkh__3A81B327">
+        <Association Name="FK__dsdattruoc__idkh__4E88ABD4">
           <End Role="khachhang" Type="Self.khachhang" Multiplicity="0..1" />
           <End Role="dsdattruoc" Type="Self.dsdattruoc" Multiplicity="*" />
           <ReferentialConstraint>
@@ -394,7 +394,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dsdattruoc__idnv__398D8EEE">
+        <Association Name="FK__dsdattruoc__idnv__4D94879B">
           <End Role="nhanvien" Type="Self.nhanvien" Multiplicity="0..1" />
           <End Role="dsdattruoc" Type="Self.dsdattruoc" Multiplicity="*" />
           <ReferentialConstraint>
@@ -406,7 +406,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dv_trunggi__iddv__59063A47">
+        <Association Name="FK__dv_trunggi__iddv__6C190EBB">
           <End Role="checkin_dichvu" Type="Self.checkin_dichvu" Multiplicity="1" />
           <End Role="dv_trunggian" Type="Self.dv_trunggian" Multiplicity="*" />
           <ReferentialConstraint>
@@ -418,7 +418,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dv_trunggi__idhd__59FA5E80">
+        <Association Name="FK__dv_trunggi__idhd__6D0D32F4">
           <End Role="hoadon" Type="Self.hoadon" Multiplicity="1" />
           <End Role="dv_trunggian" Type="Self.dv_trunggian" Multiplicity="*" />
           <ReferentialConstraint>
@@ -430,7 +430,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__hoadon__idkh__47DBAE45">
+        <Association Name="FK__hoadon__idkh__5AEE82B9">
           <End Role="khachhang" Type="Self.khachhang" Multiplicity="1" />
           <End Role="hoadon" Type="Self.hoadon" Multiplicity="*" />
           <ReferentialConstraint>
@@ -442,7 +442,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__hoadon__idnv__48CFD27E">
+        <Association Name="FK__hoadon__idnv__5BE2A6F2">
           <End Role="nhanvien" Type="Self.nhanvien" Multiplicity="1" />
           <End Role="hoadon" Type="Self.hoadon" Multiplicity="*" />
           <ReferentialConstraint>
@@ -454,7 +454,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__nhanvien__taikho__33D4B598">
+        <Association Name="FK__nhanvien__taikho__47DBAE45">
           <End Role="taikhoan" Type="Self.taikhoan" Multiplicity="0..1" />
           <End Role="nhanvien" Type="Self.nhanvien" Multiplicity="*" />
           <ReferentialConstraint>
@@ -466,7 +466,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__phong__khuvuc__29572725">
+        <Association Name="FK__phong__khuvuc__3D5E1FD2">
           <End Role="khuvuc" Type="Self.khuvuc" Multiplicity="1" />
           <End Role="phong" Type="Self.phong" Multiplicity="*" />
           <ReferentialConstraint>
@@ -478,7 +478,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__phong__loaiphong__286302EC">
+        <Association Name="FK__phong__loaiphong__3C69FB99">
           <End Role="loaiphong" Type="Self.loaiphong" Multiplicity="1" />
           <End Role="phong" Type="Self.phong" Multiplicity="*" />
           <ReferentialConstraint>
@@ -490,7 +490,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__phong_trun__idhd__5629CD9C">
+        <Association Name="FK__phong_trun__idhd__693CA210">
           <End Role="hoadon" Type="Self.hoadon" Multiplicity="1" />
           <End Role="phong_trunggian" Type="Self.phong_trunggian" Multiplicity="*" />
           <ReferentialConstraint>
@@ -502,7 +502,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__phong_trung__idp__5535A963">
+        <Association Name="FK__phong_trung__idp__68487DD7">
           <End Role="checkin_phong" Type="Self.checkin_phong" Multiplicity="1" />
           <End Role="phong_trunggian" Type="Self.phong_trunggian" Multiplicity="*" />
           <ReferentialConstraint>
@@ -514,7 +514,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__taikhoan__loaitk__2F10007B">
+        <Association Name="FK__taikhoan__loaitk__4316F928">
           <End Role="vaitro" Type="Self.vaitro" Multiplicity="0..1" />
           <End Role="taikhoan" Type="Self.taikhoan" Multiplicity="*" />
           <ReferentialConstraint>
@@ -526,7 +526,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tempkhach__idche__5DCAEF64">
+        <Association Name="FK__tempkhach__idche__70DDC3D8">
           <End Role="checkin" Type="Self.checkin" Multiplicity="1" />
           <End Role="tempkhachhang" Type="Self.tempkhachhang" Multiplicity="*" />
           <ReferentialConstraint>
@@ -538,7 +538,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tempkhachh__idkh__5CD6CB2B">
+        <Association Name="FK__tempkhachh__idkh__6FE99F9F">
           <End Role="khachhang" Type="Self.khachhang" Multiplicity="1" />
           <End Role="tempkhachhang" Type="Self.tempkhachhang" Multiplicity="*" />
           <ReferentialConstraint>
@@ -550,7 +550,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__voucher__idnv__60A75C0F">
+        <Association Name="FK__voucher__idnv__73BA3083">
           <End Role="nhanvien" Type="Self.nhanvien" Multiplicity="0..1" />
           <End Role="voucher" Type="Self.voucher" Multiplicity="*" />
           <ReferentialConstraint>
@@ -648,99 +648,99 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
     [view_trangthai_phong_hientai].[trangthai_text] AS [trangthai_text]
     FROM [dbo].[view_trangthai_phong_hientai] AS [view_trangthai_phong_hientai]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK__checkin__idkh__3F466844" Association="Self.FK__checkin__idkh__3F466844">
+          <AssociationSet Name="FK__checkin__idkh__534D60F1" Association="Self.FK__checkin__idkh__534D60F1">
             <End Role="khachhang" EntitySet="khachhang" />
             <End Role="checkin" EntitySet="checkin" />
           </AssociationSet>
-          <AssociationSet Name="FK__checkin__idnv__403A8C7D" Association="Self.FK__checkin__idnv__403A8C7D">
+          <AssociationSet Name="FK__checkin__idnv__5441852A" Association="Self.FK__checkin__idnv__5441852A">
             <End Role="nhanvien" EntitySet="nhanvien" />
             <End Role="checkin" EntitySet="checkin" />
           </AssociationSet>
-          <AssociationSet Name="FK__checkin_d__idche__4D94879B" Association="Self.FK__checkin_d__idche__4D94879B">
+          <AssociationSet Name="FK__checkin_d__idche__60A75C0F" Association="Self.FK__checkin_d__idche__60A75C0F">
             <End Role="checkin" EntitySet="checkin" />
             <End Role="checkin_dichvu" EntitySet="checkin_dichvu" />
           </AssociationSet>
-          <AssociationSet Name="FK__checkin_di__iddv__4E88ABD4" Association="Self.FK__checkin_di__iddv__4E88ABD4">
+          <AssociationSet Name="FK__checkin_di__iddv__619B8048" Association="Self.FK__checkin_di__iddv__619B8048">
             <End Role="dichvu" EntitySet="dichvu" />
             <End Role="checkin_dichvu" EntitySet="checkin_dichvu" />
           </AssociationSet>
-          <AssociationSet Name="FK__checkin_p__idche__5165187F" Association="Self.FK__checkin_p__idche__5165187F">
+          <AssociationSet Name="FK__checkin_p__idche__6477ECF3" Association="Self.FK__checkin_p__idche__6477ECF3">
             <End Role="checkin" EntitySet="checkin" />
             <End Role="checkin_phong" EntitySet="checkin_phong" />
           </AssociationSet>
-          <AssociationSet Name="FK__checkin_p__idpho__52593CB8" Association="Self.FK__checkin_p__idpho__52593CB8">
+          <AssociationSet Name="FK__checkin_p__idpho__656C112C" Association="Self.FK__checkin_p__idpho__656C112C">
             <End Role="phong" EntitySet="phong" />
             <End Role="checkin_phong" EntitySet="checkin_phong" />
           </AssociationSet>
-          <AssociationSet Name="FK__checkout__idkh__4316F928" Association="Self.FK__checkout__idkh__4316F928">
+          <AssociationSet Name="FK__checkout__idkh__571DF1D5" Association="Self.FK__checkout__idkh__571DF1D5">
             <End Role="khachhang" EntitySet="khachhang" />
             <End Role="checkout" EntitySet="checkout" />
           </AssociationSet>
-          <AssociationSet Name="FK__checkout__idnv__440B1D61" Association="Self.FK__checkout__idnv__440B1D61">
+          <AssociationSet Name="FK__checkout__idnv__5812160E" Association="Self.FK__checkout__idnv__5812160E">
             <End Role="nhanvien" EntitySet="nhanvien" />
             <End Role="checkout" EntitySet="checkout" />
           </AssociationSet>
-          <AssociationSet Name="FK__dsdattruo__idpho__3B75D760" Association="Self.FK__dsdattruo__idpho__3B75D760">
+          <AssociationSet Name="FK__dsdattruo__idpho__4F7CD00D" Association="Self.FK__dsdattruo__idpho__4F7CD00D">
             <End Role="phong" EntitySet="phong" />
             <End Role="dsdattruoc" EntitySet="dsdattruoc" />
           </AssociationSet>
-          <AssociationSet Name="FK__dsdattruoc__idkh__3A81B327" Association="Self.FK__dsdattruoc__idkh__3A81B327">
+          <AssociationSet Name="FK__dsdattruoc__idkh__4E88ABD4" Association="Self.FK__dsdattruoc__idkh__4E88ABD4">
             <End Role="khachhang" EntitySet="khachhang" />
             <End Role="dsdattruoc" EntitySet="dsdattruoc" />
           </AssociationSet>
-          <AssociationSet Name="FK__dsdattruoc__idnv__398D8EEE" Association="Self.FK__dsdattruoc__idnv__398D8EEE">
+          <AssociationSet Name="FK__dsdattruoc__idnv__4D94879B" Association="Self.FK__dsdattruoc__idnv__4D94879B">
             <End Role="nhanvien" EntitySet="nhanvien" />
             <End Role="dsdattruoc" EntitySet="dsdattruoc" />
           </AssociationSet>
-          <AssociationSet Name="FK__dv_trunggi__iddv__59063A47" Association="Self.FK__dv_trunggi__iddv__59063A47">
+          <AssociationSet Name="FK__dv_trunggi__iddv__6C190EBB" Association="Self.FK__dv_trunggi__iddv__6C190EBB">
             <End Role="checkin_dichvu" EntitySet="checkin_dichvu" />
             <End Role="dv_trunggian" EntitySet="dv_trunggian" />
           </AssociationSet>
-          <AssociationSet Name="FK__dv_trunggi__idhd__59FA5E80" Association="Self.FK__dv_trunggi__idhd__59FA5E80">
+          <AssociationSet Name="FK__dv_trunggi__idhd__6D0D32F4" Association="Self.FK__dv_trunggi__idhd__6D0D32F4">
             <End Role="hoadon" EntitySet="hoadon" />
             <End Role="dv_trunggian" EntitySet="dv_trunggian" />
           </AssociationSet>
-          <AssociationSet Name="FK__hoadon__idkh__47DBAE45" Association="Self.FK__hoadon__idkh__47DBAE45">
+          <AssociationSet Name="FK__hoadon__idkh__5AEE82B9" Association="Self.FK__hoadon__idkh__5AEE82B9">
             <End Role="khachhang" EntitySet="khachhang" />
             <End Role="hoadon" EntitySet="hoadon" />
           </AssociationSet>
-          <AssociationSet Name="FK__hoadon__idnv__48CFD27E" Association="Self.FK__hoadon__idnv__48CFD27E">
+          <AssociationSet Name="FK__hoadon__idnv__5BE2A6F2" Association="Self.FK__hoadon__idnv__5BE2A6F2">
             <End Role="nhanvien" EntitySet="nhanvien" />
             <End Role="hoadon" EntitySet="hoadon" />
           </AssociationSet>
-          <AssociationSet Name="FK__nhanvien__taikho__33D4B598" Association="Self.FK__nhanvien__taikho__33D4B598">
+          <AssociationSet Name="FK__nhanvien__taikho__47DBAE45" Association="Self.FK__nhanvien__taikho__47DBAE45">
             <End Role="taikhoan" EntitySet="taikhoan" />
             <End Role="nhanvien" EntitySet="nhanvien" />
           </AssociationSet>
-          <AssociationSet Name="FK__phong__khuvuc__29572725" Association="Self.FK__phong__khuvuc__29572725">
+          <AssociationSet Name="FK__phong__khuvuc__3D5E1FD2" Association="Self.FK__phong__khuvuc__3D5E1FD2">
             <End Role="khuvuc" EntitySet="khuvuc" />
             <End Role="phong" EntitySet="phong" />
           </AssociationSet>
-          <AssociationSet Name="FK__phong__loaiphong__286302EC" Association="Self.FK__phong__loaiphong__286302EC">
+          <AssociationSet Name="FK__phong__loaiphong__3C69FB99" Association="Self.FK__phong__loaiphong__3C69FB99">
             <End Role="loaiphong" EntitySet="loaiphong" />
             <End Role="phong" EntitySet="phong" />
           </AssociationSet>
-          <AssociationSet Name="FK__phong_trun__idhd__5629CD9C" Association="Self.FK__phong_trun__idhd__5629CD9C">
+          <AssociationSet Name="FK__phong_trun__idhd__693CA210" Association="Self.FK__phong_trun__idhd__693CA210">
             <End Role="hoadon" EntitySet="hoadon" />
             <End Role="phong_trunggian" EntitySet="phong_trunggian" />
           </AssociationSet>
-          <AssociationSet Name="FK__phong_trung__idp__5535A963" Association="Self.FK__phong_trung__idp__5535A963">
+          <AssociationSet Name="FK__phong_trung__idp__68487DD7" Association="Self.FK__phong_trung__idp__68487DD7">
             <End Role="checkin_phong" EntitySet="checkin_phong" />
             <End Role="phong_trunggian" EntitySet="phong_trunggian" />
           </AssociationSet>
-          <AssociationSet Name="FK__taikhoan__loaitk__2F10007B" Association="Self.FK__taikhoan__loaitk__2F10007B">
+          <AssociationSet Name="FK__taikhoan__loaitk__4316F928" Association="Self.FK__taikhoan__loaitk__4316F928">
             <End Role="vaitro" EntitySet="vaitro" />
             <End Role="taikhoan" EntitySet="taikhoan" />
           </AssociationSet>
-          <AssociationSet Name="FK__tempkhach__idche__5DCAEF64" Association="Self.FK__tempkhach__idche__5DCAEF64">
+          <AssociationSet Name="FK__tempkhach__idche__70DDC3D8" Association="Self.FK__tempkhach__idche__70DDC3D8">
             <End Role="checkin" EntitySet="checkin" />
             <End Role="tempkhachhang" EntitySet="tempkhachhang" />
           </AssociationSet>
-          <AssociationSet Name="FK__tempkhachh__idkh__5CD6CB2B" Association="Self.FK__tempkhachh__idkh__5CD6CB2B">
+          <AssociationSet Name="FK__tempkhachh__idkh__6FE99F9F" Association="Self.FK__tempkhachh__idkh__6FE99F9F">
             <End Role="khachhang" EntitySet="khachhang" />
             <End Role="tempkhachhang" EntitySet="tempkhachhang" />
           </AssociationSet>
-          <AssociationSet Name="FK__voucher__idnv__60A75C0F" Association="Self.FK__voucher__idnv__60A75C0F">
+          <AssociationSet Name="FK__voucher__idnv__73BA3083" Association="Self.FK__voucher__idnv__73BA3083">
             <End Role="nhanvien" EntitySet="nhanvien" />
             <End Role="voucher" EntitySet="voucher" />
           </AssociationSet>

@@ -19,7 +19,7 @@ namespace BUS_Quanly
 
         public Snhanvien(TruyVanNV truyVanNV)
         {
-            this._truyvan = truyVanNV;
+            _truyvan = truyVanNV;
         }
 
         public IEnumerable<dynamic> hienthi()

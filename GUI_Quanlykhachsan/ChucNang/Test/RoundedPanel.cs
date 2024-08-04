@@ -11,7 +11,7 @@ public class RoundedPanel : Panel
         set
         {
             radius = value;
-            this.Invalidate();
+            Invalidate();
         }
     }
 
@@ -24,7 +24,7 @@ public class RoundedPanel : Panel
         path.AddArc(0, Height - radius, radius, radius, 90, 90);
         path.CloseAllFigures();
 
-        this.Region = new Region(path);
+        Region = new Region(path);
 
         base.OnPaint(e);
     }

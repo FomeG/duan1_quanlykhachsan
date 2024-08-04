@@ -99,7 +99,7 @@
             this.guna2GroupBox1.Controls.Add(this.SoDoPhong);
             this.guna2GroupBox1.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.guna2GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2GroupBox1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2GroupBox1.Font = new System.Drawing.Font("Montserrat", 15.75F, System.Drawing.FontStyle.Bold);
             this.guna2GroupBox1.ForeColor = System.Drawing.Color.Black;
             this.guna2GroupBox1.Location = new System.Drawing.Point(0, 0);
             this.guna2GroupBox1.Margin = new System.Windows.Forms.Padding(0);
@@ -111,6 +111,7 @@
             // SoDoPhong
             // 
             this.SoDoPhong.AutoScroll = true;
+            this.SoDoPhong.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SoDoPhong.Location = new System.Drawing.Point(8, 43);
             this.SoDoPhong.Name = "SoDoPhong";
             this.SoDoPhong.Size = new System.Drawing.Size(805, 495);

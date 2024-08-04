@@ -1,6 +1,5 @@
 ﻿using BUS_Quanly.Services.QuanLyDatPhong.Phong;
 using DTO_Quanly;
-using DTO_Quanly.Model.DB;
 using DTO_Quanly.Transfer;
 using GUI_Quanlykhachsan.ChucNang.dangphattrien;
 using Guna.UI2.WinForms;
@@ -33,15 +32,15 @@ namespace GUI_Quanlykhachsan.ChucNang
             motaphong = mota;
             TDatPhong.IdPhong = IdPhong = idphong;
             contextMenuStrip = new Guna2ContextMenuStrip();
-            this.cotimkiem = Tk;
-            this.Nden = ngayden;
-            this.Ndi = ngaydi;
+            cotimkiem = Tk;
+            Nden = ngayden;
+            Ndi = ngaydi;
 
             if (tim == 2) // trong trường hợp pkhông tìm kiếm
             {
                 if (trangthaip == 0) // Nếu phòng trống
                 {
-                    this.BackColor = Color.FromArgb(128, 255, 128);
+                    BackColor = Color.FromArgb(128, 255, 128);
                     btnDat.Text = "Đặt Phòng";
 
                     _ttphongtemp = new ThongTinPhongTemp(IdPhong, null, null);
@@ -67,7 +66,7 @@ namespace GUI_Quanlykhachsan.ChucNang
                 }
                 else if (trangthaip == 1) // Nếu phòng đã được đặt (có người ở)
                 {
-                    this.BackColor = Color.Red;
+                    BackColor = Color.Red;
                     btnDat.Text = "Dịch vụ";
                     DateTime nden = (DateTime)DTODB.db.view_dsdattruoc_chitiet.FirstOrDefault(x => x.idphong == IdPhong).ngayden;
                     DateTime ndi = (DateTime)DTODB.db.view_dsdattruoc_chitiet.FirstOrDefault(x => x.idphong == IdPhong).ngaydi;
@@ -117,7 +116,7 @@ namespace GUI_Quanlykhachsan.ChucNang
             {
                 if (trangthaip == 1) // Nếu phòng đã được đặt (có người ở)
                 {
-                    this.BackColor = Color.Red;
+                    BackColor = Color.Red;
                     btnDat.Visible = false;
                     _ttphongtemp = new ThongTinPhongTemp(IdPhong, Nden, Ndi);
                     #region Phần chuột phải
@@ -134,7 +133,7 @@ namespace GUI_Quanlykhachsan.ChucNang
                 }
                 else if (trangthaip == 0) // Nếu phòng trống
                 {
-                    this.BackColor = Color.FromArgb(128, 255, 128);
+                    BackColor = Color.FromArgb(128, 255, 128);
                     btnDat.Text = "Đặt Phòng";
                     _ttphongtemp = new ThongTinPhongTemp(IdPhong, null, null);
 
@@ -166,7 +165,7 @@ namespace GUI_Quanlykhachsan.ChucNang
                 }
             }
 
-            this.MouseDown += new MouseEventHandler(trangthaiphong_MouseDown);
+            MouseDown += new MouseEventHandler(trangthaiphong_MouseDown);
         }
 
         private void trangthaiphong_MouseDown(object sender, MouseEventArgs e)

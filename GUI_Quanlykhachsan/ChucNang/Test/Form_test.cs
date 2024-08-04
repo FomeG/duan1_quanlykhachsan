@@ -40,7 +40,7 @@ namespace GUI_Quanlykhachsan.ChucNang.Test
 
         private void guna2GradientButton2_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Hide();
         }
 
         private void guna2GradientButton1_Click_1(object sender, EventArgs e)
