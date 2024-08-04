@@ -55,8 +55,6 @@ namespace DAL_Quanly.Repository.NhanVien
                                        Taikhoan = a.taikhoan,
                                        Vaitro = c.vaitro1,
                                    };
-
-
                 return listnhanvien.ToList();
             }
         }
@@ -95,7 +93,6 @@ namespace DAL_Quanly.Repository.NhanVien
 
                     DTODB.db.nhanviens.Add(nvmoi);
                     DTODB.db.SaveChanges();
-
 
                     transaction.Commit();
                     return true;

@@ -34,7 +34,6 @@
             this.container = new Guna.UI2.WinForms.Guna2ContainerControl();
             this.BtnMinimize = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2GradientButton10 = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.btntest4 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.HoaDonCho = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -136,36 +135,6 @@
             this.guna2GradientButton10.TabIndex = 13;
             this.guna2GradientButton10.Text = "X";
             this.guna2GradientButton10.Click += new System.EventHandler(this.guna2GradientButton10_Click);
-            // 
-            // btntest4
-            // 
-            this.btntest4.Animated = true;
-            this.btntest4.AutoRoundedCorners = true;
-            this.btntest4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.btntest4.BorderRadius = 21;
-            this.btntest4.BorderThickness = 1;
-            this.btntest4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btntest4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btntest4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btntest4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btntest4.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btntest4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btntest4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btntest4.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btntest4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btntest4.ForeColor = System.Drawing.Color.Black;
-            this.btntest4.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
-            this.btntest4.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btntest4.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.btntest4.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btntest4.HoverState.ForeColor = System.Drawing.Color.White;
-            this.btntest4.Location = new System.Drawing.Point(817, 14);
-            this.btntest4.Name = "btntest4";
-            this.btntest4.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btntest4.Size = new System.Drawing.Size(180, 45);
-            this.btntest4.TabIndex = 15;
-            this.btntest4.Text = "Nút test 4";
-            this.btntest4.Click += new System.EventHandler(this.btntest4_Click);
             // 
             // HoaDonCho
             // 
@@ -525,7 +494,6 @@
             this.guna2Panel4.Controls.Add(this.Ttimp);
             this.guna2Panel4.Controls.Add(this.tngaydi);
             this.guna2Panel4.Controls.Add(this.tngayden);
-            this.guna2Panel4.Controls.Add(this.btntest4);
             this.guna2Panel4.Location = new System.Drawing.Point(200, 619);
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.Size = new System.Drawing.Size(1000, 80);
@@ -619,7 +587,6 @@
         private Guna.UI2.WinForms.Guna2GradientButton btnQLDP;
         private Guna.UI2.WinForms.Guna2GradientButton BtnMinimize;
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton10;
-        public Guna.UI2.WinForms.Guna2GradientButton btntest4;
         private System.Windows.Forms.FlowLayoutPanel HoaDonCho;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;

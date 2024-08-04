@@ -265,6 +265,8 @@ namespace GUI_Quanlykhachsan
 
         #endregion
 
+
+
         // Nút đăng xuất
         private void btnDangXuat_Click(object sender, EventArgs e)
         {

@@ -139,6 +139,8 @@ namespace GUI_Quanlykhachsan
             progressTimer.Start();
         }
 
+        private bool IsRetired;
+
         private async void guna2GradientButton2_Click(object sender, EventArgs e)
         {
             if (!check())
@@ -180,15 +182,25 @@ namespace GUI_Quanlykhachsan
                             // Quản lý (idvaitro = 2)
                             var quanLy = await Task.Run(() => DTODB.db.nhanviens.FirstOrDefault(a => a.taikhoan == txttk.Text));
                             _TrangChu.Username.Text = quanLy?.ten?.ToString() ?? string.Empty;
-                            TDatPhong.IDNV = 1;
+                            TDatPhong.IDNV = quanLy.idnv;
                             TDatPhong.VaiTro = 2;
+                            if (quanLy.tt == true)
+                            {
+                                IsRetired = true;
+                            }
+                            else IsRetired = false;
                             break;
                         default:
                             // Nhân viên (idvaitro = 3)
                             var nhanVien = await Task.Run(() => DTODB.db.nhanviens.FirstOrDefault(a => a.taikhoan == txttk.Text));
-                            TDatPhong.IDNV = nhanVien?.idnv ?? 0;
+                            TDatPhong.IDNV = nhanVien.idnv;
                             TDatPhong.VaiTro = 3;
                             _TrangChu.Username.Text = nhanVien?.ten?.ToString() ?? string.Empty;
+                            if (nhanVien.tt == true)
+                            {
+                                IsRetired = true;
+                            }
+                            else IsRetired = false;
                             break;
                     }
 
@@ -200,11 +212,18 @@ namespace GUI_Quanlykhachsan
                         await Task.Delay(1);
                     }
 
-                    _TrangChu.FormClosed += (a, b) => this.Show();
-                    _TrangChu.Show();
-                    txttk.Text = txtmk.Text = string.Empty;
-                    this.Hide();
-                    MessageBox.Show("Đăng nhập thành công!");
+                    if (IsRetired)
+                    {
+                        MessageBox.Show("Nhân viên đã nghỉ việc, không thể đăng nhập nữa");
+                    }
+                    else
+                    {
+                        _TrangChu.FormClosed += (a, b) => this.Show();
+                        _TrangChu.Show();
+                        txttk.Text = txtmk.Text = string.Empty;
+                        this.Hide();
+                        MessageBox.Show("Đăng nhập thành công!");
+                    }
                 }
             }
             catch (Exception ex)
@@ -285,7 +304,6 @@ namespace GUI_Quanlykhachsan
         private void panellogin_MouseUp(object sender, MouseEventArgs e)
         {
             dragging = false;
-
         }
 
         private void guna2Panel1_MouseDown(object sender, MouseEventArgs e)

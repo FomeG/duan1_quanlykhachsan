@@ -57,6 +57,7 @@ namespace BUS_Quanly
                         ngaysinh = ngaysinh,
                         taikhoan = tk
                     };
+
                     return _truyvan.them(nvmoi, tknv);
                 }
                 else

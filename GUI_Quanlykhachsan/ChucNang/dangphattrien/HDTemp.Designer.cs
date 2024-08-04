@@ -67,6 +67,8 @@
             this.guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2GradientButton2 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.tennv = new System.Windows.Forms.Label();
             this.guna2GroupBox1.SuspendLayout();
             this.guna2GroupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gview1)).BeginInit();
@@ -91,7 +93,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(40, 71);
+            this.label3.Location = new System.Drawing.Point(33, 51);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(99, 13);
             this.label3.TabIndex = 2;
@@ -100,7 +102,7 @@
             // ngaytaoHD
             // 
             this.ngaytaoHD.AutoSize = true;
-            this.ngaytaoHD.Location = new System.Drawing.Point(145, 71);
+            this.ngaytaoHD.Location = new System.Drawing.Point(138, 51);
             this.ngaytaoHD.Name = "ngaytaoHD";
             this.ngaytaoHD.Size = new System.Drawing.Size(73, 13);
             this.ngaytaoHD.TabIndex = 2;
@@ -109,20 +111,22 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(587, 71);
+            this.label4.Location = new System.Drawing.Point(596, 51);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(68, 13);
             this.label4.TabIndex = 2;
             this.label4.Text = "Mã hoá đơn:";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // MaHD
             // 
             this.MaHD.AutoSize = true;
-            this.MaHD.Location = new System.Drawing.Point(661, 71);
+            this.MaHD.Location = new System.Drawing.Point(670, 51);
             this.MaHD.Name = "MaHD";
             this.MaHD.Size = new System.Drawing.Size(57, 13);
             this.MaHD.TabIndex = 2;
             this.MaHD.Text = "{{Mã HD}}";
+            this.MaHD.Click += new System.EventHandler(this.MaHD_Click);
             // 
             // guna2GroupBox1
             // 
@@ -477,6 +481,7 @@
             this.gview1.ThemeStyle.RowsStyle.Height = 22;
             this.gview1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.gview1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.gview1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gview1_CellContentClick);
             // 
             // guna2GradientButton1
             // 
@@ -519,6 +524,24 @@
             this.bunifuElipse1.ElipseRadius = 20;
             this.bunifuElipse1.TargetControl = this;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(33, 74);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Nhân viên:";
+            // 
+            // tennv
+            // 
+            this.tennv.AutoSize = true;
+            this.tennv.Location = new System.Drawing.Point(138, 74);
+            this.tennv.Name = "tennv";
+            this.tennv.Size = new System.Drawing.Size(88, 13);
+            this.tennv.TabIndex = 2;
+            this.tennv.Text = "{{tên nhân viên}}";
+            // 
             // HDTemp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -530,13 +553,16 @@
             this.Controls.Add(this.guna2GroupBox2);
             this.Controls.Add(this.guna2GroupBox1);
             this.Controls.Add(this.MaHD);
+            this.Controls.Add(this.tennv);
             this.Controls.Add(this.ngaytaoHD);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "HDTemp";
             this.Text = "DatPhongTemp";
+            this.Load += new System.EventHandler(this.HDTemp_Load);
             this.guna2GroupBox1.ResumeLayout(false);
             this.guna2GroupBox1.PerformLayout();
             this.guna2GroupBox2.ResumeLayout(false);
@@ -582,5 +608,7 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
+        private System.Windows.Forms.Label tennv;
+        private System.Windows.Forms.Label label1;
     }
 }

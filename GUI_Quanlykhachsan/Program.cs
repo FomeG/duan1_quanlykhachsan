@@ -1,4 +1,4 @@
-﻿using GUI_Quanlykhachsan.ChucNang.Test;
+﻿using GUI_Quanlykhachsan.ChucNang.dangphattrien;
 using System;
 using System.Windows.Forms;
 
@@ -16,7 +16,7 @@ namespace GUI_Quanlykhachsan
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+            Application.Run(new frmPhong());
         }
     }
 }
