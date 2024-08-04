@@ -24,6 +24,7 @@ namespace GUI_Quanlykhachsan
         private readonly FrmSettings _caiDat;
         private readonly frmPhong _frmphong;
         private readonly frmQuanlyDV _frmQuanlyDV;
+        private readonly Voucher _frmVoucher;
 
         private Guna2GradientButton _currentButton;
         private bool _dragging;
@@ -43,6 +44,8 @@ namespace GUI_Quanlykhachsan
             _caiDat = new FrmSettings();
             _frmphong = new frmPhong();
             _frmQuanlyDV = new frmQuanlyDV();
+            _frmVoucher = new Voucher();
+
             tngayden.Enabled = tngayden.Visible = tngaydi.Enabled = tngaydi.Visible = Ttimp.Visible = Ttimp.Enabled = false;
         }
 
@@ -169,6 +172,15 @@ namespace GUI_Quanlykhachsan
             tngayden.Enabled = tngayden.Visible = tngaydi.Enabled = tngaydi.Visible = Ttimp.Visible = Ttimp.Enabled = false;
             LoadForm(_frmQuanlyDV, (Guna2GradientButton)sender);
         }
+
+
+        // Form voucher
+        private void guna2GradientButton1_Click_1(object sender, EventArgs e)
+        {
+            tngayden.Enabled = tngayden.Visible = tngaydi.Enabled = tngaydi.Visible = Ttimp.Visible = Ttimp.Enabled = false;
+            LoadForm(_frmVoucher, (Guna2GradientButton)sender);
+        }
+
         #endregion
 
 
@@ -300,6 +312,6 @@ namespace GUI_Quanlykhachsan
             }
         }
 
-
+       
     }
 }
