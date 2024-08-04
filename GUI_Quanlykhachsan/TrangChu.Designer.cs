@@ -55,6 +55,7 @@
             this.Ttimp = new Guna.UI2.WinForms.Guna2GradientButton();
             this.tngaydi = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.tngayden = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.guna2Panel2.SuspendLayout();
@@ -156,6 +157,7 @@
             this.guna2Panel1.Controls.Add(this.btnQLDP);
             this.guna2Panel1.Controls.Add(this.btnKH);
             this.guna2Panel1.Controls.Add(this.guna2GradientButton4);
+            this.guna2Panel1.Controls.Add(this.guna2GradientButton1);
             this.guna2Panel1.Controls.Add(this.guna2GradientButton5);
             this.guna2Panel1.Controls.Add(this.btnTC);
             this.guna2Panel1.Controls.Add(this.guna2GradientButton7);
@@ -453,7 +455,7 @@
             this.btnSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnSettings.Image")));
             this.btnSettings.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnSettings.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnSettings.Location = new System.Drawing.Point(2, 445);
+            this.btnSettings.Location = new System.Drawing.Point(3, 595);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(192, 45);
             this.btnSettings.TabIndex = 10;
@@ -504,6 +506,7 @@
             // 
             // Ttimp
             // 
+            this.Ttimp.BorderRadius = 10;
             this.Ttimp.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.Ttimp.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.Ttimp.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -522,6 +525,7 @@
             // 
             // tngaydi
             // 
+            this.tngaydi.BorderRadius = 10;
             this.tngaydi.Checked = true;
             this.tngaydi.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tngaydi.Format = System.Windows.Forms.DateTimePickerFormat.Long;
@@ -535,6 +539,7 @@
             // 
             // tngayden
             // 
+            this.tngayden.BorderRadius = 10;
             this.tngayden.Checked = true;
             this.tngayden.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tngayden.Format = System.Windows.Forms.DateTimePickerFormat.Long;
@@ -545,6 +550,35 @@
             this.tngayden.Size = new System.Drawing.Size(200, 36);
             this.tngayden.TabIndex = 16;
             this.tngayden.Value = new System.DateTime(2024, 7, 30, 23, 14, 20, 519);
+            // 
+            // guna2GradientButton1
+            // 
+            this.guna2GradientButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2GradientButton1.Animated = true;
+            this.guna2GradientButton1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2GradientButton1.BorderRadius = 10;
+            this.guna2GradientButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.guna2GradientButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2GradientButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2GradientButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2GradientButton1.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2GradientButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2GradientButton1.FillColor = System.Drawing.Color.White;
+            this.guna2GradientButton1.FillColor2 = System.Drawing.Color.White;
+            this.guna2GradientButton1.Font = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2GradientButton1.ForeColor = System.Drawing.Color.Black;
+            this.guna2GradientButton1.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.guna2GradientButton1.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.guna2GradientButton1.Image = ((System.Drawing.Image)(resources.GetObject("guna2GradientButton1.Image")));
+            this.guna2GradientButton1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2GradientButton1.ImageSize = new System.Drawing.Size(25, 25);
+            this.guna2GradientButton1.Location = new System.Drawing.Point(2, 445);
+            this.guna2GradientButton1.Name = "guna2GradientButton1";
+            this.guna2GradientButton1.Size = new System.Drawing.Size(192, 45);
+            this.guna2GradientButton1.TabIndex = 7;
+            this.guna2GradientButton1.Text = "Quản lý voucher";
+            this.guna2GradientButton1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2GradientButton1.Click += new System.EventHandler(this.guna2GradientButton1_Click_1);
             // 
             // TrangChu
             // 
@@ -601,5 +635,6 @@
         private Guna.UI2.WinForms.Guna2GradientButton Ttimp;
         private Guna.UI2.WinForms.Guna2DateTimePicker tngaydi;
         private Guna.UI2.WinForms.Guna2DateTimePicker tngayden;
+        private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton1;
     }
 }
