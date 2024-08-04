@@ -6,6 +6,7 @@ using GUI_Quanlykhachsan.ChucNang.dangphattrien;
 using System;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 using System.Windows.Forms;
 
 namespace GUI_Quanlykhachsan.ChucNang
@@ -224,6 +225,20 @@ namespace GUI_Quanlykhachsan.ChucNang
                         HDTemp hdtempmoi = new HDTemp(IDCin, IDPhong, hoadonmoi.idhoadon, txttenkh.Text, Nvao.Value, Nra.Value, tientra);
                         hdtempmoi.Show();
 
+                        if (checkv.Checked)
+                        {
+                            if (DTODB.db.vouchers.Find(txtVoucher.Text) != null)
+                            {
+
+                                MessageBox.Show("Cập nhật thành công với voucher!");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Voucher không hợp lệ!");
+                                return;
+                            }
+                        }
+
                         MessageBox.Show("Cập nhật thành công!");
                         transaction.Commit();
                     }
@@ -246,6 +261,15 @@ namespace GUI_Quanlykhachsan.ChucNang
             {
                 Close();
             }
+        }
+
+        private void guna2CustomCheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkv.Enabled)
+            {
+                txtVoucher.Enabled = true;
+            }
+            else txtVoucher.Enabled = false;
         }
     }
 }

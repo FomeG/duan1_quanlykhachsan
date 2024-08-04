@@ -57,7 +57,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.tongTT = new System.Windows.Forms.Label();
             this.txtVoucher = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2CustomCheckBox1 = new Guna.UI2.WinForms.Guna2CustomCheckBox();
+            this.checkv = new Guna.UI2.WinForms.Guna2CustomCheckBox();
             this.label15 = new System.Windows.Forms.Label();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.label18 = new System.Windows.Forms.Label();
@@ -396,7 +396,7 @@
             this.txtVoucher.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txtVoucher.Animated = true;
             this.txtVoucher.AutoRoundedCorners = true;
-            this.txtVoucher.BorderRadius = 10;
+            this.txtVoucher.BorderRadius = 17;
             this.txtVoucher.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtVoucher.DefaultText = "";
             this.txtVoucher.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -416,24 +416,25 @@
             this.txtVoucher.Size = new System.Drawing.Size(280, 36);
             this.txtVoucher.TabIndex = 5;
             // 
-            // guna2CustomCheckBox1
+            // checkv
             // 
-            this.guna2CustomCheckBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2CustomCheckBox1.Animated = true;
-            this.guna2CustomCheckBox1.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2CustomCheckBox1.CheckedState.BorderRadius = 2;
-            this.guna2CustomCheckBox1.CheckedState.BorderThickness = 0;
-            this.guna2CustomCheckBox1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2CustomCheckBox1.Location = new System.Drawing.Point(941, 451);
-            this.guna2CustomCheckBox1.Name = "guna2CustomCheckBox1";
-            this.guna2CustomCheckBox1.Size = new System.Drawing.Size(37, 36);
-            this.guna2CustomCheckBox1.TabIndex = 5;
-            this.guna2CustomCheckBox1.Text = "guna2CustomCheckBox1";
-            this.guna2CustomCheckBox1.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2CustomCheckBox1.UncheckedState.BorderRadius = 2;
-            this.guna2CustomCheckBox1.UncheckedState.BorderThickness = 0;
-            this.guna2CustomCheckBox1.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2CustomCheckBox1.Click += new System.EventHandler(this.guna2CustomCheckBox1_Click);
+            this.checkv.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkv.Animated = true;
+            this.checkv.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.checkv.CheckedState.BorderRadius = 2;
+            this.checkv.CheckedState.BorderThickness = 0;
+            this.checkv.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.checkv.Location = new System.Drawing.Point(941, 451);
+            this.checkv.Name = "checkv";
+            this.checkv.Size = new System.Drawing.Size(37, 36);
+            this.checkv.TabIndex = 5;
+            this.checkv.Text = "guna2CustomCheckBox1";
+            this.checkv.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.checkv.UncheckedState.BorderRadius = 2;
+            this.checkv.UncheckedState.BorderThickness = 0;
+            this.checkv.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.checkv.CheckedChanged += new System.EventHandler(this.guna2CustomCheckBox1_CheckedChanged);
+            this.checkv.Click += new System.EventHandler(this.guna2CustomCheckBox1_Click);
             // 
             // label15
             // 
@@ -595,7 +596,7 @@
             this.Controls.Add(this.txtGhiChu);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label15);
-            this.Controls.Add(this.guna2CustomCheckBox1);
+            this.Controls.Add(this.checkv);
             this.Controls.Add(this.txtVoucher);
             this.Controls.Add(this.tongTT);
             this.Controls.Add(this.label13);
@@ -641,7 +642,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label tongTT;
         private Guna.UI2.WinForms.Guna2TextBox txtVoucher;
-        private Guna.UI2.WinForms.Guna2CustomCheckBox guna2CustomCheckBox1;
+        private Guna.UI2.WinForms.Guna2CustomCheckBox checkv;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label txttientratruoc;
         private System.Windows.Forms.Label txttienphong;

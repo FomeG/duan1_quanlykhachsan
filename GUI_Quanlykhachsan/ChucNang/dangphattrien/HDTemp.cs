@@ -181,7 +181,7 @@ namespace GUI_Quanlykhachsan.ChucNang.dangphattrien
 
                 // Bảng dịch vụ
                 document.Add(new Paragraph("Dịch vụ sử dụng:").SetFont(boldFont));
-                Table serviceTable = new Table(5).UseAllAvailableWidth();
+                Table serviceTable = new Table(4).UseAllAvailableWidth();
                 string[] headers = { "STT", "Dịch vụ", "Số lượng", "Đơn giá" };
                 foreach (string header in headers)
                 {
