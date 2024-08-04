@@ -139,6 +139,7 @@
             this.guna2GradientButton4.Size = new System.Drawing.Size(180, 45);
             this.guna2GradientButton4.TabIndex = 4;
             this.guna2GradientButton4.Text = "If Else test btn4";
+            this.guna2GradientButton4.Click += new System.EventHandler(this.guna2GradientButton4_Click);
             // 
             // guna2GradientButton5
             // 

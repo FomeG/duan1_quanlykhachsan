@@ -1,5 +1,6 @@
 ﻿using BUS_Quanly.Services.QuanLyDatPhong.Phong;
 using DTO_Quanly;
+using DTO_Quanly.Model.DB;
 using DTO_Quanly.Transfer;
 using GUI_Quanlykhachsan.ChucNang.dangphattrien;
 using Guna.UI2.WinForms;
@@ -77,20 +78,21 @@ namespace GUI_Quanlykhachsan.ChucNang
                         _ttphongtemp.Show();
                     });
 
-                    contextMenuStrip.Items.Add("Thanh toán phòng", null, (sender, e) =>
-                    {
-                        if (MessageBox.Show("Bạn có chắc chắn muốn thanh toán phòng?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                        {
-                            MessageBox.Show("Thành công!");
-                        }
-                    });
+                    //contextMenuStrip.Items.Add("Thanh toán phòng", null, (sender, e) =>
+                    //{
+                    //    if (MessageBox.Show("Bạn có chắc chắn muốn thanh toán phòng?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    //    {
+                    //        MessageBox.Show("Thành công!");
+                    //    }
+                    //});
 
-                    contextMenuStrip.Items.Add("Xem hoá đơn", null, (sender, e) =>
+                    contextMenuStrip.Items.Add("Thanh toán phòng", null, (sender, e) =>
                     {
                         var query = (from dsd in DTODB.db.dsdattruocs
                                      join kh in DTODB.db.khachhangs on dsd.idkh equals kh.id
                                      join p in DTODB.db.phongs on dsd.idphong equals p.idphong
                                      join cip in DTODB.db.checkin_phong on p.idphong equals cip.idphong
+                                     join tkh in DTODB.db.tempkhachhangs on cip.idcheckin equals tkh.idcheckin
                                      where p.idphong == IdPhong
 
                                      select new
@@ -260,6 +262,7 @@ namespace GUI_Quanlykhachsan.ChucNang
                              join kh in DTODB.db.khachhangs on dsd.idkh equals kh.id
                              join p in DTODB.db.phongs on dsd.idphong equals p.idphong
                              join cip in DTODB.db.checkin_phong on p.idphong equals cip.idphong
+                             join tkh in DTODB.db.tempkhachhangs on cip.idcheckin equals tkh.idcheckin
                              where p.idphong == IdPhong
 
                              select new

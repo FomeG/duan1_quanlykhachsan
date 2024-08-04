@@ -1,12 +1,9 @@
-﻿using BUS_Quanly.Services.QuanLyDatPhong.DatTruoc_NhanP;
-using BUS_Quanly.Services.QuanLyDatPhong.ThanhToan_DV;
+﻿using BUS_Quanly.Services.QuanLyDatPhong.ThanhToan_DV;
 using DTO_Quanly;
 using DTO_Quanly.Model.DB;
 using DTO_Quanly.Transfer;
 using GUI_Quanlykhachsan.ChucNang.dangphattrien;
 using System;
-using System.Data.Entity.ModelConfiguration.Conventions;
-using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -34,7 +31,7 @@ namespace GUI_Quanlykhachsan.ChucNang
             this.IDCin = idcheckin;
             this.IDKh = idkh;
             this.idnv = TDatPhong.IDNV;
-            TDatPhong.IDNV = this.IDPhong = idphong;
+            TDatPhong.IdPhong = this.IDPhong = idphong;
 
             loadtt();
             loaddvgview();
@@ -146,7 +143,7 @@ namespace GUI_Quanlykhachsan.ChucNang
                                    where cd.idcheckin == IDCin
                                    select new
                                    {
-                                       IDdv = cd.id
+                                       cd.id,
                                    };
                 using (var transaction = DTODB.db.Database.BeginTransaction())
                 {
@@ -162,11 +159,17 @@ namespace GUI_Quanlykhachsan.ChucNang
                             trangthai = txtGhiChu.Text
                         };
                         DTODB.db.checkouts.Add(checkoutmoi);
-                        DTODB.db.SaveChanges();
+                        //DTODB.db.SaveChanges();
+
+
+                        var tempkh = DTODB.db.tempkhachhangs.FirstOrDefault(p => p.idcheckin == IDCin && p.idkh == IDKh);
+                        DateTime? Nvao = tempkh.ngayvao;
+                        DateTime? Nra = tempkh.ngayra;
+                        decimal? tientra = tempkh.tienkhachtra;
 
                         // Trả phòng xong thì sẽ xoá hết dữ liệu trong bảng temp
                         DTODB.db.tempkhachhangs.Remove(DTODB.db.tempkhachhangs.FirstOrDefault(p => p.idcheckin == IDCin && p.idkh == IDKh));
-                        DTODB.db.SaveChanges();
+                        //DTODB.db.SaveChanges();
 
 
                         // Chốt hoá đơn, dv_trunggian và phong_trunggian (nếu có)
@@ -182,37 +185,43 @@ namespace GUI_Quanlykhachsan.ChucNang
 
                         };
                         DTODB.db.hoadons.Add(hoadonmoi);
-                        DTODB.db.SaveChanges();
+                        //DTODB.db.SaveChanges();
 
                         foreach (var item in listThongTin)
                         {
-                            dv_trunggian dvtrunggianmoi = new dv_trunggian()
+                            if (!DTODB.db.dv_trunggian.Any(d => d.iddv == item.id && d.idhd == hoadonmoi.idhoadon))
                             {
-                                iddv = item.IDdv,
-                                idhd = hoadonmoi.idhoadon
-                            };
-
-                            DTODB.db.dv_trunggian.Add(dvtrunggianmoi);
-                            DTODB.db.SaveChanges();
-                        };
+                                dv_trunggian dvtrunggianmoi = new dv_trunggian()
+                                {
+                                    iddv = item.id,
+                                    idhd = hoadonmoi.idhoadon
+                                };
+                                DTODB.db.dv_trunggian.Add(dvtrunggianmoi);
+                            }
+                        }
+                        DTODB.db.SaveChanges();
 
                         phong_trunggian ptrunggianmoi = new phong_trunggian()
                         {
-                            idp = IDPhong,
+                            idp = (from p in DTODB.db.phongs
+                                   join cp in DTODB.db.checkin_phong on p.idphong equals cp.idphong
+                                   join c in DTODB.db.checkins on cp.idcheckin equals c.id
+                                   where p.idphong == IDPhong && c.id == IDCin
+                                   select cp.id).FirstOrDefault(),
                             idhd = hoadonmoi.idhoadon
                         };
                         DTODB.db.phong_trunggian.Add(ptrunggianmoi);
-                        DTODB.db.SaveChanges();
+                        //DTODB.db.SaveChanges();
 
                         // Xoá ds đặt trước đi => sẽ đổi trạng thái phòng về trống!
 
                         var ngayhientai = DateTime.Now;
-                        DTODB.db.dsdattruocs.Remove(DTODB.db.dsdattruocs.FirstOrDefault(a => a.idphong == IDPhong && a.idkh == IDKh && (ngayhientai >= a.ngayden && ngayhientai <= a.ngaydi)));
+                        DTODB.db.dsdattruocs.Remove(DTODB.db.dsdattruocs.FirstOrDefault(a => a.idphong == IDPhong && a.idkh == IDKh && ngayhientai >= a.ngayden && ngayhientai <= a.ngaydi));
                         DTODB.db.SaveChanges();
-                        
+
 
                         // Show ra cái hoá đơn
-                        HDTemp hdtempmoi = new HDTemp(IDCin, IDKh, IDPhong, hoadonmoi.idhoadon);
+                        HDTemp hdtempmoi = new HDTemp(IDCin, IDPhong, hoadonmoi.idhoadon, txttenkh.Text, Nvao.Value, Nra.Value, tientra);
                         hdtempmoi.Show();
 
                         MessageBox.Show("Cập nhật thành công!");
@@ -225,6 +234,7 @@ namespace GUI_Quanlykhachsan.ChucNang
                         MessageBox.Show(a.ToString());
                     }
                 }
+
                 Close();
             }
         }

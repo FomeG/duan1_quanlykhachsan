@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DTO_Quanly;
+using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace GUI_Quanlykhachsan.ChucNang.Test
@@ -54,7 +56,37 @@ namespace GUI_Quanlykhachsan.ChucNang.Test
         private void guna2GradientButton5_Click(object sender, EventArgs e)
         {
             InvoiceGenerator generator = new InvoiceGenerator();
-            generator.GenerateInvoice();
+            generator.GenerateInvoice("hoadon");
+        }
+
+        private void guna2GradientButton4_Click(object sender, EventArgs e)
+        {
+            var hoadontemp = (from p in DTODB.db.phongs.ToList()
+                              join cp in DTODB.db.checkin_phong on p.idphong equals cp.idphong
+                              join c in DTODB.db.checkins on cp.idcheckin equals c.id
+                              join tk in DTODB.db.tempkhachhangs on c.id equals tk.idcheckin
+                              join kh in DTODB.db.khachhangs on tk.idkh equals kh.id
+                              join lp in DTODB.db.loaiphongs on p.loaiphong equals lp.idloaiphong
+                              join kv in DTODB.db.khuvucs on p.khuvuc equals kv.id
+                              where p.idphong == 8 && c.id == 1
+                              select new
+                              {
+                                  kh.ten,
+                                  kh.diachi,
+                                  tk.ngayvao,
+                                  tk.ngayra,
+                                  lp.giaphong,
+                                  tk.tienkhachtra,
+
+                                  p.tenphong,
+                                  lp.loaiphong1,
+                                  lp.mota,
+                                  kv.tenkhuvuc,
+
+                              }).FirstOrDefault();
+
+            MessageBox.Show(hoadontemp != null ? "Có dữ liệu" : "Không có dữ liệu");
+            MessageBox.Show(hoadontemp.ToString());
         }
     }
 }
