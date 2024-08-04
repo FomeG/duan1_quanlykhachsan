@@ -29,10 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.nhethan = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.giamg = new Guna.UI2.WinForms.Guna2NumericUpDown();
+            this.slg = new Guna.UI2.WinForms.Guna2NumericUpDown();
+            this.gview1 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.txttimkiem = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2GradientButton4 = new Guna.UI2.WinForms.Guna2GradientButton();
@@ -42,18 +51,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.maV = new Guna.UI2.WinForms.Guna2TextBox();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.gview1 = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
-            this.slg = new Guna.UI2.WinForms.Guna2NumericUpDown();
-            this.label2 = new System.Windows.Forms.Label();
-            this.giamg = new Guna.UI2.WinForms.Guna2NumericUpDown();
-            this.label3 = new System.Windows.Forms.Label();
-            this.nhethan = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.label5 = new System.Windows.Forms.Label();
             this.guna2GroupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gview1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.slg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.giamg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.slg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gview1)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2GroupBox1
@@ -87,6 +88,161 @@
             this.guna2GroupBox1.TabIndex = 3;
             this.guna2GroupBox1.Text = "Quản lý voucher";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Bold);
+            this.label5.Location = new System.Drawing.Point(12, 179);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(128, 22);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Ngày hết hạn:";
+            // 
+            // nhethan
+            // 
+            this.nhethan.BorderRadius = 10;
+            this.nhethan.Checked = true;
+            this.nhethan.FillColor = System.Drawing.Color.White;
+            this.nhethan.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.nhethan.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.nhethan.Location = new System.Drawing.Point(12, 204);
+            this.nhethan.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.nhethan.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.nhethan.Name = "nhethan";
+            this.nhethan.Size = new System.Drawing.Size(420, 36);
+            this.nhethan.TabIndex = 25;
+            this.nhethan.Value = new System.DateTime(2024, 8, 4, 22, 0, 47, 372);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Bold);
+            this.label2.Location = new System.Drawing.Point(142, 138);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(24, 22);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "%";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(12, 113);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(89, 22);
+            this.label3.TabIndex = 23;
+            this.label3.Text = "Giảm giá:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Bold);
+            this.label4.Location = new System.Drawing.Point(216, 113);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(87, 22);
+            this.label4.TabIndex = 23;
+            this.label4.Text = "Số lượng:";
+            // 
+            // giamg
+            // 
+            this.giamg.BackColor = System.Drawing.Color.Transparent;
+            this.giamg.BorderRadius = 10;
+            this.giamg.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.giamg.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.giamg.Location = new System.Drawing.Point(12, 131);
+            this.giamg.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.giamg.Name = "giamg";
+            this.giamg.Size = new System.Drawing.Size(124, 36);
+            this.giamg.TabIndex = 24;
+            // 
+            // slg
+            // 
+            this.slg.BackColor = System.Drawing.Color.Transparent;
+            this.slg.BorderRadius = 10;
+            this.slg.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.slg.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.slg.Location = new System.Drawing.Point(216, 131);
+            this.slg.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.slg.Name = "slg";
+            this.slg.Size = new System.Drawing.Size(216, 36);
+            this.slg.TabIndex = 24;
+            // 
+            // gview1
+            // 
+            this.gview1.AllowUserToResizeRows = false;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.gview1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle20;
+            this.gview1.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.gview1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gview1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            this.gview1.ColumnHeadersHeight = 22;
+            this.gview1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gview1.DefaultCellStyle = dataGridViewCellStyle22;
+            this.gview1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.gview1.Location = new System.Drawing.Point(448, 112);
+            this.gview1.Name = "gview1";
+            this.gview1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Montserrat", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gview1.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
+            this.gview1.RowHeadersVisible = false;
+            this.gview1.Size = new System.Drawing.Size(539, 426);
+            this.gview1.TabIndex = 5;
+            this.gview1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.gview1.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.gview1.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.gview1.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.gview1.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.gview1.ThemeStyle.BackColor = System.Drawing.Color.Gainsboro;
+            this.gview1.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.gview1.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.gview1.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.gview1.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Montserrat", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gview1.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.gview1.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.gview1.ThemeStyle.HeaderStyle.Height = 22;
+            this.gview1.ThemeStyle.ReadOnly = false;
+            this.gview1.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.gview1.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.gview1.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Montserrat", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gview1.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.gview1.ThemeStyle.RowsStyle.Height = 22;
+            this.gview1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.gview1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.gview1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gview1_CellClick);
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -117,6 +273,7 @@
             this.txttimkiem.SelectedText = "";
             this.txttimkiem.Size = new System.Drawing.Size(339, 36);
             this.txttimkiem.TabIndex = 1;
+            this.txttimkiem.TextChanged += new System.EventHandler(this.txttimkiem_TextChanged);
             // 
             // guna2GradientButton4
             // 
@@ -157,6 +314,7 @@
             this.btnXoa.Size = new System.Drawing.Size(180, 45);
             this.btnXoa.TabIndex = 4;
             this.btnXoa.Text = "Xoá";
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSua
             // 
@@ -177,6 +335,7 @@
             this.btnSua.Size = new System.Drawing.Size(180, 45);
             this.btnSua.TabIndex = 4;
             this.btnSua.Text = "Sửa";
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // guna2GradientButton1
             // 
@@ -234,144 +393,6 @@
             this.bunifuElipse1.ElipseRadius = 15;
             this.bunifuElipse1.TargetControl = this;
             // 
-            // gview1
-            // 
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.White;
-            this.gview1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
-            this.gview1.BackgroundColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Montserrat", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gview1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
-            this.gview1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Montserrat", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gview1.DefaultCellStyle = dataGridViewCellStyle21;
-            this.gview1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.gview1.Location = new System.Drawing.Point(448, 112);
-            this.gview1.Name = "gview1";
-            this.gview1.RowHeadersVisible = false;
-            this.gview1.Size = new System.Drawing.Size(539, 426);
-            this.gview1.TabIndex = 5;
-            this.gview1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.gview1.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.gview1.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.gview1.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.gview1.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.gview1.ThemeStyle.BackColor = System.Drawing.Color.Gainsboro;
-            this.gview1.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.gview1.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.gview1.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.gview1.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Montserrat", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gview1.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.gview1.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gview1.ThemeStyle.HeaderStyle.Height = 4;
-            this.gview1.ThemeStyle.ReadOnly = false;
-            this.gview1.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.gview1.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.gview1.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Montserrat", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gview1.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.gview1.ThemeStyle.RowsStyle.Height = 22;
-            this.gview1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.gview1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(216, 113);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(87, 22);
-            this.label4.TabIndex = 23;
-            this.label4.Text = "Số lượng:";
-            // 
-            // slg
-            // 
-            this.slg.BackColor = System.Drawing.Color.Transparent;
-            this.slg.BorderRadius = 10;
-            this.slg.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.slg.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.slg.Location = new System.Drawing.Point(216, 131);
-            this.slg.Maximum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-            this.slg.Name = "slg";
-            this.slg.Size = new System.Drawing.Size(216, 36);
-            this.slg.TabIndex = 24;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(142, 138);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(24, 22);
-            this.label2.TabIndex = 23;
-            this.label2.Text = "%";
-            // 
-            // giamg
-            // 
-            this.giamg.BackColor = System.Drawing.Color.Transparent;
-            this.giamg.BorderRadius = 10;
-            this.giamg.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.giamg.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.giamg.Location = new System.Drawing.Point(12, 131);
-            this.giamg.Maximum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-            this.giamg.Name = "giamg";
-            this.giamg.Size = new System.Drawing.Size(124, 36);
-            this.giamg.TabIndex = 24;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(12, 113);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 22);
-            this.label3.TabIndex = 23;
-            this.label3.Text = "Giảm giá:";
-            // 
-            // nhethan
-            // 
-            this.nhethan.BorderRadius = 10;
-            this.nhethan.Checked = true;
-            this.nhethan.FillColor = System.Drawing.Color.White;
-            this.nhethan.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.nhethan.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.nhethan.Location = new System.Drawing.Point(12, 204);
-            this.nhethan.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.nhethan.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.nhethan.Name = "nhethan";
-            this.nhethan.Size = new System.Drawing.Size(420, 36);
-            this.nhethan.TabIndex = 25;
-            this.nhethan.Value = new System.DateTime(2024, 8, 4, 22, 0, 47, 372);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(12, 179);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(128, 22);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Ngày hết hạn:";
-            // 
             // Voucher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -384,9 +405,9 @@
             this.Text = "Voucher";
             this.guna2GroupBox1.ResumeLayout(false);
             this.guna2GroupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gview1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.slg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.giamg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.slg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gview1)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -115,7 +115,6 @@ namespace GUI_Quanlykhachsan.ChucNang.dangphattrien
             {
                 gview1.DataSource = dsphong;
             }
-
         }
 
         public bool check()
