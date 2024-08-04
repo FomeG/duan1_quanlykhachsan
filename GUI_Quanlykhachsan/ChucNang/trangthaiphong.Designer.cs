@@ -40,7 +40,7 @@
             this.roomname.AutoSize = true;
             this.roomname.Font = new System.Drawing.Font("Montserrat", 18F, System.Drawing.FontStyle.Bold);
             this.roomname.ForeColor = System.Drawing.Color.Black;
-            this.roomname.Location = new System.Drawing.Point(3, 10);
+            this.roomname.Location = new System.Drawing.Point(3, 12);
             this.roomname.Name = "roomname";
             this.roomname.Size = new System.Drawing.Size(75, 33);
             this.roomname.TabIndex = 0;
@@ -51,9 +51,9 @@
             this.description.AutoEllipsis = true;
             this.description.Font = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.description.ForeColor = System.Drawing.Color.Black;
-            this.description.Location = new System.Drawing.Point(5, 35);
+            this.description.Location = new System.Drawing.Point(5, 36);
             this.description.Name = "description";
-            this.description.Size = new System.Drawing.Size(49, 17);
+            this.description.Size = new System.Drawing.Size(97, 37);
             this.description.TabIndex = 1;
             this.description.Text = "{tenkh}";
             // 
@@ -70,9 +70,9 @@
             this.btnDat.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnDat.Font = new System.Drawing.Font("Montserrat", 9F);
             this.btnDat.ForeColor = System.Drawing.Color.Black;
-            this.btnDat.Location = new System.Drawing.Point(0, 57);
+            this.btnDat.Location = new System.Drawing.Point(0, 76);
             this.btnDat.Name = "btnDat";
-            this.btnDat.Size = new System.Drawing.Size(78, 27);
+            this.btnDat.Size = new System.Drawing.Size(105, 37);
             this.btnDat.TabIndex = 2;
             this.btnDat.Text = "Đặt phòng";
             this.btnDat.Click += new System.EventHandler(this.guna2GradientButton1_Click);
@@ -90,9 +90,9 @@
             this.Controls.Add(this.btnDat);
             this.Controls.Add(this.description);
             this.Controls.Add(this.roomname);
-            this.MaximumSize = new System.Drawing.Size(78, 84);
+            this.MaximumSize = new System.Drawing.Size(105, 112);
             this.Name = "trangthaiphong";
-            this.Size = new System.Drawing.Size(78, 84);
+            this.Size = new System.Drawing.Size(105, 112);
             this.Load += new System.EventHandler(this.Room_Load);
             this.Click += new System.EventHandler(this.Room_Click);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.trangthaiphong_MouseDown);

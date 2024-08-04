@@ -27,16 +27,16 @@ namespace GUI_Quanlykhachsan.ChucNang
         public ThanhToan(int idcheckin, int idkh, int idphong)
         {
             InitializeComponent();
-            this.traphong = traphong;
-            this.IDCin = idcheckin;
-            this.IDKh = idkh;
-            this.idnv = TDatPhong.IDNV;
-            TDatPhong.IdPhong = this.IDPhong = idphong;
+            traphong = traphong;
+            IDCin = idcheckin;
+            IDKh = idkh;
+            idnv = TDatPhong.IDNV;
+            TDatPhong.IdPhong = IDPhong = idphong;
 
             loadtt();
             loaddvgview();
 
-            this.MouseDown += new MouseEventHandler(Form_MouseDown);
+            MouseDown += new MouseEventHandler(Form_MouseDown);
         }
 
         #region Kéo thả form
@@ -56,7 +56,7 @@ namespace GUI_Quanlykhachsan.ChucNang
             if (e.Button == MouseButtons.Left)
             {
                 ReleaseCapture();
-                SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
         #endregion

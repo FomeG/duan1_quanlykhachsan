@@ -2,6 +2,7 @@
 using DTO_Quanly.Transfer;
 using GUI_Quanlykhachsan.ChucNang;
 using GUI_Quanlykhachsan.ChucNang.ADMIN;
+using GUI_Quanlykhachsan.ChucNang.dangphattrien;
 using GUI_Quanlykhachsan.ChucNang.Tai_Khoan;
 using GUI_Quanlykhachsan.ChucNang.Test;
 using Guna.UI2.WinForms;
@@ -21,6 +22,9 @@ namespace GUI_Quanlykhachsan
         private readonly HoaDon _hd;
         private readonly TaiChinh _taiChinh;
         private readonly FrmSettings _caiDat;
+        private readonly frmPhong _frmphong;
+        private readonly frmQuanlyDV _frmQuanlyDV;
+
         private Guna2GradientButton _currentButton;
         private bool _dragging;
         private Point _dragCursorPoint;
@@ -37,7 +41,8 @@ namespace GUI_Quanlykhachsan
             _hd = new HoaDon();
             _taiChinh = new TaiChinh();
             _caiDat = new FrmSettings();
-
+            _frmphong = new frmPhong();
+            _frmQuanlyDV = new frmQuanlyDV();
             tngayden.Enabled = tngayden.Visible = tngaydi.Enabled = tngaydi.Visible = Ttimp.Visible = Ttimp.Enabled = false;
         }
 
@@ -52,7 +57,7 @@ namespace GUI_Quanlykhachsan
             if (e.Button == MouseButtons.Left)
             {
                 ReleaseCapture();
-                SendMessage(this.Handle, 0xA1, 0x2, 0);
+                SendMessage(Handle, 0xA1, 0x2, 0);
             }
         }
         #endregion
@@ -112,58 +117,58 @@ namespace GUI_Quanlykhachsan
         private void guna2GradientButton2_Click(object sender, EventArgs e)
         {
             tngayden.Enabled = tngayden.Visible = tngaydi.Enabled = tngaydi.Visible = Ttimp.Visible = Ttimp.Enabled = false;
-            LoadForm(this._qlynv, (Guna2GradientButton)sender);
+            LoadForm(_qlynv, (Guna2GradientButton)sender);
         }
 
         // Form quản lý đặt phòng
         private void guna2GradientButton1_Click(object sender, EventArgs e)
         {
             tngayden.Enabled = tngayden.Visible = tngaydi.Enabled = tngaydi.Visible = Ttimp.Visible = Ttimp.Enabled = true;
-            LoadForm(this._qlydp, (Guna2GradientButton)sender);
+            _qlydp.hienthiphong();
+            LoadForm(_qlydp, (Guna2GradientButton)sender);
         }
 
         // Form quản lý thông tin khách hàng
         private void guna2GradientButton3_Click(object sender, EventArgs e)
         {
             tngayden.Enabled = tngayden.Visible = tngaydi.Enabled = tngaydi.Visible = Ttimp.Visible = Ttimp.Enabled = false;
-            LoadForm(this._ttkh, (Guna2GradientButton)sender);
+            LoadForm(_ttkh, (Guna2GradientButton)sender);
         }
 
         // Form tài chính, hiển thị biểu đồ doanh thu
         private void guna2GradientButton6_Click(object sender, EventArgs e)
         {
             tngayden.Enabled = tngayden.Visible = tngaydi.Enabled = tngaydi.Visible = Ttimp.Visible = Ttimp.Enabled = false;
-            LoadForm(this._taiChinh, (Guna2GradientButton)sender);
+            LoadForm(_taiChinh, (Guna2GradientButton)sender);
         }
 
         // Form cài đặt
         private void guna2GradientButton8_Click(object sender, EventArgs e)
         {
             tngayden.Enabled = tngayden.Visible = tngaydi.Enabled = tngaydi.Visible = Ttimp.Visible = Ttimp.Enabled = false;
-            LoadForm(this._caiDat, (Guna2GradientButton)sender);
+            LoadForm(_caiDat, (Guna2GradientButton)sender);
         }
 
 
         private void guna2GradientButton4_Click(object sender, EventArgs e)
         {
             tngayden.Enabled = tngayden.Visible = tngaydi.Enabled = tngaydi.Visible = Ttimp.Visible = Ttimp.Enabled = false;
-            LoadForm(new FrmSettings(), (Guna2GradientButton)sender);
+            LoadForm(_frmphong, (Guna2GradientButton)sender);
         }
 
         // Form quản lý hoá đơn
         private void guna2GradientButton5_Click(object sender, EventArgs e)
         {
             tngayden.Enabled = tngayden.Visible = tngaydi.Enabled = tngaydi.Visible = Ttimp.Visible = Ttimp.Enabled = false;
-            LoadForm(this._hd, (Guna2GradientButton)sender);
+            LoadForm(_hd, (Guna2GradientButton)sender);
         }
 
-        // Form thanh toán test
+        // Form quản lý dịch vụ
         private void guna2GradientButton7_Click(object sender, EventArgs e)
         {
             tngayden.Enabled = tngayden.Visible = tngaydi.Enabled = tngaydi.Visible = Ttimp.Visible = Ttimp.Enabled = false;
-            LoadForm(new FrmSettings(), (Guna2GradientButton)sender);
+            LoadForm(_frmQuanlyDV, (Guna2GradientButton)sender);
         }
-
         #endregion
 
 
@@ -174,7 +179,7 @@ namespace GUI_Quanlykhachsan
 
         private void BtnMinimize_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;
+            WindowState = FormWindowState.Minimized;
         }
 
         #region khu vực test code

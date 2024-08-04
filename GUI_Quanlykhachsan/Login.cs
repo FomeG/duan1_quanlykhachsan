@@ -22,7 +22,7 @@ namespace GUI_Quanlykhachsan
             InitializeComponent();
             InitializeImageLocations();
             LoadImages();
-            this.MouseDown += Form_MouseDown;
+            MouseDown += Form_MouseDown;
             panellogin.ApplyRoundedCorners(30);
             panelvien1.ApplyRoundedCorners(30);
 
@@ -67,7 +67,7 @@ namespace GUI_Quanlykhachsan
             if (e.Button == MouseButtons.Left)
             {
                 ReleaseCapture();
-                SendMessage(this.Handle, 0xA1, 0x2, 0);
+                SendMessage(Handle, 0xA1, 0x2, 0);
             }
         }
         #endregion
@@ -164,7 +164,7 @@ namespace GUI_Quanlykhachsan
 
                 if (loginResult)
                 {
-                    this._TrangChu = new TrangChu();
+                    _TrangChu = new TrangChu();
                     UpdateProgressBar(60);
 
                     int? vaiTro = await Task.Run(() => DangNhap.VaiTro(txttk.Text));
@@ -218,10 +218,10 @@ namespace GUI_Quanlykhachsan
                     }
                     else
                     {
-                        _TrangChu.FormClosed += (a, b) => this.Show();
+                        _TrangChu.FormClosed += (a, b) => Show();
                         _TrangChu.Show();
                         txttk.Text = txtmk.Text = string.Empty;
-                        this.Hide();
+                        Hide();
                         MessageBox.Show("Đăng nhập thành công!");
                     }
                 }
@@ -261,7 +261,7 @@ namespace GUI_Quanlykhachsan
             {
                 dragging = true;
                 dragCursorPoint = Cursor.Position;
-                dragFormPoint = this.Location;
+                dragFormPoint = Location;
             }
         }
 
@@ -270,7 +270,7 @@ namespace GUI_Quanlykhachsan
             if (dragging)
             {
                 Point diff = Point.Subtract(Cursor.Position, new Size(dragCursorPoint));
-                this.Location = Point.Add(dragFormPoint, new Size(diff));
+                Location = Point.Add(dragFormPoint, new Size(diff));
             }
         }
 
@@ -288,7 +288,7 @@ namespace GUI_Quanlykhachsan
             {
                 dragging = true;
                 dragCursorPoint = Cursor.Position;
-                dragFormPoint = this.Location;
+                dragFormPoint = Location;
             }
         }
 
@@ -297,7 +297,7 @@ namespace GUI_Quanlykhachsan
             if (dragging)
             {
                 Point diff = Point.Subtract(Cursor.Position, new Size(dragCursorPoint));
-                this.Location = Point.Add(dragFormPoint, new Size(diff));
+                Location = Point.Add(dragFormPoint, new Size(diff));
             }
         }
 
@@ -312,7 +312,7 @@ namespace GUI_Quanlykhachsan
             {
                 dragging = true;
                 dragCursorPoint = Cursor.Position;
-                dragFormPoint = this.Location;
+                dragFormPoint = Location;
             }
         }
 
@@ -321,7 +321,7 @@ namespace GUI_Quanlykhachsan
             if (dragging)
             {
                 Point diff = Point.Subtract(Cursor.Position, new Size(dragCursorPoint));
-                this.Location = Point.Add(dragFormPoint, new Size(diff));
+                Location = Point.Add(dragFormPoint, new Size(diff));
             }
         }
 

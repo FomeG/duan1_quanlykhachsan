@@ -233,6 +233,7 @@
     </Compile>
     <Compile Include="Model\NoiBang\KiemTraTrangThaiPhongResult.cs" />
     <Compile Include="Model\NoiBang\kkk.cs" />
+    <Compile Include="Model\NoiBang\NoiDichvu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Transfer\TDatPhong.cs" />
   </ItemGroup>
