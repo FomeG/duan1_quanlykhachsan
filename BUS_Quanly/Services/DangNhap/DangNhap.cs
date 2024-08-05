@@ -30,9 +30,9 @@ namespace BUS_Quanly.Services.LoginLogout
         }
 
         // Kiểm tra vai trò => đưa ra đúng form 
-        public static int? VaiTro(string tk)
+        public static int VaiTro(string tk)
         {
-            return DTODB.db.taikhoans.Find(tk).loaitk;
+            return (int)DTODB.db.taikhoans.Find(tk).loaitk;
         }
 
     }

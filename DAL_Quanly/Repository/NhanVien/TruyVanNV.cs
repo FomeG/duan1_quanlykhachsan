@@ -43,7 +43,7 @@ namespace DAL_Quanly.Repository.NhanVien
                                on a.taikhoan equals b.taikhoan1
                                    join c in DTODB.db.vaitroes.ToList()
                                    on b.loaitk equals c.id
-                                   where b.loaitk == 2 || b.loaitk == 3
+                                   where b.loaitk == 3
                                    select new
                                    {
                                        Ten = a.ten,

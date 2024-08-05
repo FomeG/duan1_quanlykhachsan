@@ -1,4 +1,5 @@
 ﻿using BUS_Quanly.Services.QuanLyDatPhong.ThanhToan_DV;
+using DTO_Quanly.Model.DB;
 using DTO_Quanly.Transfer;
 using GUI_Quanlykhachsan.ChucNang;
 using GUI_Quanlykhachsan.ChucNang.ADMIN;
@@ -36,6 +37,7 @@ namespace GUI_Quanlykhachsan
         {
             InitializeComponent();
             MouseDown += Form_MouseDown;
+
             _qlydp = new QuanLyDatPhong();
             _qlynv = new Qly_NhanVien();
             _ttkh = new ThongTinKH();
@@ -73,6 +75,7 @@ namespace GUI_Quanlykhachsan
             {
                 btnQLNV.Enabled = false;
             }
+
 
             _taiChinh.TopLevel = false;
             container.Controls.Add(_taiChinh);
@@ -316,6 +319,9 @@ namespace GUI_Quanlykhachsan
             }
         }
 
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
     }
 }

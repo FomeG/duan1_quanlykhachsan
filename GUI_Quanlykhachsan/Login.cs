@@ -16,7 +16,7 @@ namespace GUI_Quanlykhachsan
     {
         private readonly List<Image> images = new List<Image>();
         private readonly string[] location = new string[25];
-        private TrangChu _TrangChu;
+
         public Login()
         {
             InitializeComponent();
@@ -164,19 +164,25 @@ namespace GUI_Quanlykhachsan
 
                 if (loginResult)
                 {
-                    _TrangChu = new TrangChu();
                     UpdateProgressBar(60);
 
-                    int? vaiTro = await Task.Run(() => DangNhap.VaiTro(txttk.Text));
+                    int vaiTro = await Task.Run(() => (int)DangNhap.VaiTro(txttk.Text));
                     UpdateProgressBar(80);
-
+                    TrangChu _TrangChu = new TrangChu();
                     switch (vaiTro)
                     {
                         case 1:
                             // Admin (idvaitro = 1)
+                            var admin = await Task.Run(() => DTODB.db.nhanviens.FirstOrDefault(a => a.taikhoan == txttk.Text));
+
                             _TrangChu.Username.Text = "ADMIN";
                             TDatPhong.IDNV = 1;
                             TDatPhong.VaiTro = 1;
+                            if (admin.tt == true)
+                            {
+                                IsRetired = true;
+                            }
+                            else IsRetired = false;
                             break;
                         case 2:
                             // Quản lý (idvaitro = 2)
