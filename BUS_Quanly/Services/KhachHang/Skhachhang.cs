@@ -26,17 +26,9 @@ namespace BUS_Quanly.Services.KhachHang
         {
             return TruyVanKH.getlist();
         }
-        public void ThemKhachHang(khachhang khachhang)
+        public bool ThemKhachHang(khachhang khachhang)
         {
-            try
-            {
-                TruyVanKH.them(khachhang);
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Thêm thất bại, lỗi: " + ex.Message);
-            }
+            return TruyVanKH.them(khachhang);
         }
         public bool SuaKhachHang(khachhang khachhang)
         {

@@ -49,9 +49,8 @@ namespace DAL_Quanly.Repository.KhachHang
             }
         }
 
-        public void them(khachhang kh)
+        public bool them(khachhang kh)
         {
-
             try
             {
                 if (MessageBox.Show("Bạn có chắc chắn muốn thêm không?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -63,6 +62,8 @@ namespace DAL_Quanly.Repository.KhachHang
                     khmoi.diachi = kh.diachi;
                     khmoi.gioitinh = kh.gioitinh;
                     khmoi.sdt = kh.sdt;
+                    khmoi.anh = kh.anh;
+                    khmoi.tt = false;
 
                     khmoi.ngaysinh = kh.ngaysinh;
 
@@ -70,11 +71,13 @@ namespace DAL_Quanly.Repository.KhachHang
                     DTODB.db.SaveChanges();
                     MessageBox.Show("Thêm thành công!");
                 }
+                return true;
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi!");
+                return false;
             }
 
         }

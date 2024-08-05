@@ -414,7 +414,9 @@
       <Name>DTO_Quanly</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="LuuAnh\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="_Animation\debut.JPG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

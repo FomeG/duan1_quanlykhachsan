@@ -131,6 +131,7 @@
             this.guna2GradientButton4.Size = new System.Drawing.Size(135, 37);
             this.guna2GradientButton4.TabIndex = 15;
             this.guna2GradientButton4.Text = "Tải lại";
+            this.guna2GradientButton4.Click += new System.EventHandler(this.guna2GradientButton4_Click_1);
             // 
             // guna2GradientButton2
             // 
@@ -160,6 +161,7 @@
             this.guna2GradientButton2.Size = new System.Drawing.Size(135, 37);
             this.guna2GradientButton2.TabIndex = 13;
             this.guna2GradientButton2.Text = "Sửa";
+            this.guna2GradientButton2.Click += new System.EventHandler(this.guna2GradientButton2_Click_1);
             // 
             // guna2GradientButton3
             // 
@@ -189,6 +191,7 @@
             this.guna2GradientButton3.Size = new System.Drawing.Size(135, 37);
             this.guna2GradientButton3.TabIndex = 14;
             this.guna2GradientButton3.Text = "Xóa";
+            this.guna2GradientButton3.Click += new System.EventHandler(this.guna2GradientButton3_Click_1);
             // 
             // guna2GradientButton1
             // 
@@ -218,6 +221,7 @@
             this.guna2GradientButton1.Size = new System.Drawing.Size(135, 37);
             this.guna2GradientButton1.TabIndex = 12;
             this.guna2GradientButton1.Text = "Thêm";
+            this.guna2GradientButton1.Click += new System.EventHandler(this.guna2GradientButton1_Click_1);
             // 
             // guna2PictureBox1
             // 
@@ -451,6 +455,7 @@
             this.guna2DataGridView1.ThemeStyle.RowsStyle.Height = 24;
             this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.guna2DataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DataGridView1_CellClick_1);
             // 
             // openFileDialog1
             // 
