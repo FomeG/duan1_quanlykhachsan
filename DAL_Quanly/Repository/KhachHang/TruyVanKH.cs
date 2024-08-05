@@ -3,6 +3,7 @@ using DTO_Quanly.Model.DB;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace DAL_Quanly.Repository.KhachHang
@@ -11,7 +12,7 @@ namespace DAL_Quanly.Repository.KhachHang
     {
         public List<khachhang> getlist()
         {
-            return DTODB.db.khachhangs.ToList();
+            return DTODB.db.khachhangs.Where(a=>a.tt==false).ToList();
         }
 
         public List<khachhang> getlistbyid(int id)
@@ -86,7 +87,7 @@ namespace DAL_Quanly.Repository.KhachHang
                 var kh = DTODB.db.khachhangs.FirstOrDefault(k => k.id == id);
                 if (kh != null)
                 {
-                    DTODB.db.khachhangs.Remove(kh);
+                    kh.tt = true;
                     DTODB.db.SaveChanges();
 
                 }

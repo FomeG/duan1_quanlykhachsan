@@ -196,7 +196,20 @@ namespace GUI_Quanlykhachsan.ChucNang
         // Xoá
         private void guna2GradientButton3_Click_1(object sender, EventArgs e)
         {
-
+            if (guna2DataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn dòng cần xoá");
+            }
+            else
+            {
+                if (MessageBox.Show("Bạn có chắc chắn muốn xoá không?", "xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    string tenkh = guna2DataGridView1.Rows[guna2DataGridView1.CurrentCell.RowIndex].Cells[1].Value.ToString();
+                    var nvcanxoa = DTODB.db.khachhangs.FirstOrDefault(a => a.ten == tenkh);
+                    BUS_khachhang.Xoa(nvcanxoa);
+                    reload();
+                }
+            }
         }
 
         // Tải lại
