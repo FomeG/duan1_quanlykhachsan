@@ -73,6 +73,10 @@ namespace GUI_Quanlykhachsan
             {
                 btnQLNV.Enabled = false;
             }
+
+            _taiChinh.TopLevel = false;
+            container.Controls.Add(_taiChinh);
+            _taiChinh.Show();
         }
 
         private void TrangChu_FormClosing_1(object sender, FormClosingEventArgs e)

@@ -19,11 +19,6 @@ namespace GUI_Quanlykhachsan.ChucNang
         private readonly int IDKh;
         private readonly int idnv;
         private readonly int IDPhong;
-
-
-
-
-
         public ThanhToan(int idcheckin, int idkh, int idphong)
         {
             InitializeComponent();
