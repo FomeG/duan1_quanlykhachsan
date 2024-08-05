@@ -77,8 +77,6 @@ namespace GUI_Quanlykhachsan.ChucNang.dangphattrien
             return true;
         }
 
-
-
         private void guna2GradientButton1_Click(object sender, EventArgs e)
         {
             if (check())
@@ -132,6 +130,13 @@ namespace GUI_Quanlykhachsan.ChucNang.dangphattrien
                 reload();
                 MessageBox.Show("Xoá thành công!");
             }
+        }
+
+
+        // Nút sửa
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
