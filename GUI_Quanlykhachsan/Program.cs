@@ -1,5 +1,4 @@
-﻿using GUI_Quanlykhachsan.ChucNang.ADMIN;
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 namespace GUI_Quanlykhachsan

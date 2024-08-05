@@ -1,10 +1,8 @@
-﻿using System;
+﻿using DAL_Quanly.Repository.KhachHang;
+using DTO_Quanly.Model.DB;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using DAL_Quanly.Repository.NhanVien;
-using DTO_Quanly.Model.DB;
-using DAL_Quanly;
-using DAL_Quanly.Repository.KhachHang;
 
 namespace BUS_Quanly.Services.KhachHang
 {

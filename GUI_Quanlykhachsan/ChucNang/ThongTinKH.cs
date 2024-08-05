@@ -1,11 +1,11 @@
-﻿using System;
-using System.Windows.Forms;
-using BUS_Quanly.Services.KhachHang;
-using System.Linq;
+﻿using BUS_Quanly.Services.KhachHang;
 using DTO_Quanly;
 using DTO_Quanly.Model.DB;
-using System.IO;
+using System;
 using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Windows.Forms;
 
 
 namespace GUI_Quanlykhachsan.ChucNang
@@ -24,7 +24,7 @@ namespace GUI_Quanlykhachsan.ChucNang
 
         private void ThongTinKH_Load(object sender, EventArgs e)
         {
-             
+
         }
 
         public void reload()
