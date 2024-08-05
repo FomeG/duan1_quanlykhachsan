@@ -312,6 +312,6 @@ namespace GUI_Quanlykhachsan
             }
         }
 
-       
+
     }
 }

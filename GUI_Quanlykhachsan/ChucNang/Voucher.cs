@@ -2,9 +2,7 @@
 using DTO_Quanly.Model.DB;
 using DTO_Quanly.Transfer;
 using System;
-using System.ComponentModel.Design.Serialization;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using System.Windows.Forms;
 
 namespace GUI_Quanlykhachsan.ChucNang

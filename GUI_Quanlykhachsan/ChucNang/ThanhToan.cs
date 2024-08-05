@@ -6,7 +6,6 @@ using GUI_Quanlykhachsan.ChucNang.dangphattrien;
 using System;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Security.Cryptography;
 using System.Windows.Forms;
 
 namespace GUI_Quanlykhachsan.ChucNang
@@ -225,20 +224,6 @@ namespace GUI_Quanlykhachsan.ChucNang
                         HDTemp hdtempmoi = new HDTemp(IDCin, IDPhong, hoadonmoi.idhoadon, txttenkh.Text, Nvao.Value, Nra.Value, tientra);
                         hdtempmoi.Show();
 
-                        if (checkv.Checked)
-                        {
-                            if (DTODB.db.vouchers.Find(txtVoucher.Text) != null)
-                            {
-
-                                MessageBox.Show("Cập nhật thành công với voucher!");
-                            }
-                            else
-                            {
-                                MessageBox.Show("Voucher không hợp lệ!");
-                                return;
-                            }
-                        }
-
                         MessageBox.Show("Cập nhật thành công!");
                         transaction.Commit();
                     }
@@ -263,13 +248,36 @@ namespace GUI_Quanlykhachsan.ChucNang
             }
         }
 
-        private void guna2CustomCheckBox1_CheckedChanged(object sender, EventArgs e)
+        private void guna2GradientButton1_Click(object sender, EventArgs e)
         {
-            if (checkv.Enabled)
+            var voucher = DTODB.db.vouchers.Find(txtVoucher.Text);
+            if (voucher == null)
             {
-                txtVoucher.Enabled = true;
+                MessageBox.Show("Voucher không hợp lệ!");
+                return;
             }
-            else txtVoucher.Enabled = false;
+
+            if (DateTime.Now > voucher.ngayhethan)
+            {
+                MessageBox.Show("Voucher này đã hết hạn sử dụng");
+                return;
+            }
+
+            if (voucher.soluong <= 0)
+            {
+                MessageBox.Show("Voucher này đã hết");
+                return;
+            }
+
+            if (MessageBox.Show("Xác nhận dùng voucher? sẽ không được hoàn tác", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                decimal.TryParse(tongTT.Text, out decimal tongtien);
+                tongtien = tongtien - (tongtien * (voucher.giamgia / 100));
+                tongTT.Text = tongtien.ToString();
+
+                MessageBox.Show("Thành công!");
+            }
+
         }
     }
 }

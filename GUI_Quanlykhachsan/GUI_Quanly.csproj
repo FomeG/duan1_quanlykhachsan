@@ -185,6 +185,7 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChucNang\ADMIN\LoiNhuan.cs" />
     <Compile Include="ChucNang\ADMIN\TaiChinh.cs">
       <SubType>Form</SubType>
     </Compile>
