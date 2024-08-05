@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Services\DangNhap\DangNhap.cs" />
+    <Compile Include="Services\KhachHang\Skhachhang.cs" />
     <Compile Include="Services\NhanVien\Snhanvien.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

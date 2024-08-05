@@ -32,9 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.rdnu = new System.Windows.Forms.RadioButton();
@@ -42,10 +39,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtmk2 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtmk = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txttk = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtdiachi = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtsdt = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtemail = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtten = new Guna.UI2.WinForms.Guna2TextBox();
@@ -55,6 +49,10 @@
             this.guna2GradientButton2 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2GradientButton3 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.label6 = new System.Windows.Forms.Label();
+            this.date1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.btnanh = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
             this.guna2Panel1.SuspendLayout();
@@ -65,47 +63,18 @@
             this.guna2PictureBox1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.guna2PictureBox1.FillColor = System.Drawing.Color.LightGray;
             this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(246, 9);
+            this.guna2PictureBox1.Location = new System.Drawing.Point(566, 27);
             this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(129, 162);
+            this.guna2PictureBox1.Size = new System.Drawing.Size(145, 162);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox1.TabIndex = 34;
             this.guna2PictureBox1.TabStop = false;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(9, 158);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(68, 13);
-            this.label8.TabIndex = 33;
-            this.label8.Text = "Nhập lại MK:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(9, 133);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(55, 13);
-            this.label7.TabIndex = 32;
-            this.label7.Text = "Mật khẩu:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(9, 110);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(58, 13);
-            this.label6.TabIndex = 31;
-            this.label6.Text = "Tài khoản:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 182);
+            this.label5.Location = new System.Drawing.Point(9, 158);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(43, 13);
@@ -176,97 +145,28 @@
             this.label1.TabIndex = 24;
             this.label1.Text = "Tên:";
             // 
-            // guna2TextBox1
+            // txtdiachi
             // 
-            this.guna2TextBox1.Animated = true;
-            this.guna2TextBox1.AutoRoundedCorners = true;
-            this.guna2TextBox1.BorderRadius = 8;
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Location = new System.Drawing.Point(85, 177);
-            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PasswordChar = '\0';
-            this.guna2TextBox1.PlaceholderText = "";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.Size = new System.Drawing.Size(290, 18);
-            this.guna2TextBox1.TabIndex = 23;
-            // 
-            // txtmk2
-            // 
-            this.txtmk2.Animated = true;
-            this.txtmk2.AutoRoundedCorners = true;
-            this.txtmk2.BorderRadius = 8;
-            this.txtmk2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtmk2.DefaultText = "";
-            this.txtmk2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtmk2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtmk2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtmk2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtmk2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtmk2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtmk2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtmk2.Location = new System.Drawing.Point(85, 153);
-            this.txtmk2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.txtmk2.Name = "txtmk2";
-            this.txtmk2.PasswordChar = '\0';
-            this.txtmk2.PlaceholderText = "";
-            this.txtmk2.SelectedText = "";
-            this.txtmk2.Size = new System.Drawing.Size(157, 18);
-            this.txtmk2.TabIndex = 21;
-            // 
-            // txtmk
-            // 
-            this.txtmk.Animated = true;
-            this.txtmk.AutoRoundedCorners = true;
-            this.txtmk.BorderRadius = 8;
-            this.txtmk.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtmk.DefaultText = "";
-            this.txtmk.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtmk.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtmk.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtmk.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtmk.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtmk.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtmk.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtmk.Location = new System.Drawing.Point(85, 128);
-            this.txtmk.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.txtmk.Name = "txtmk";
-            this.txtmk.PasswordChar = '\0';
-            this.txtmk.PlaceholderText = "";
-            this.txtmk.SelectedText = "";
-            this.txtmk.Size = new System.Drawing.Size(157, 18);
-            this.txtmk.TabIndex = 20;
-            // 
-            // txttk
-            // 
-            this.txttk.Animated = true;
-            this.txttk.AutoRoundedCorners = true;
-            this.txttk.BorderRadius = 8;
-            this.txttk.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txttk.DefaultText = "";
-            this.txttk.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txttk.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txttk.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txttk.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txttk.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txttk.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txttk.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txttk.Location = new System.Drawing.Point(85, 104);
-            this.txttk.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.txttk.Name = "txttk";
-            this.txttk.PasswordChar = '\0';
-            this.txttk.PlaceholderText = "";
-            this.txttk.SelectedText = "";
-            this.txttk.Size = new System.Drawing.Size(157, 18);
-            this.txttk.TabIndex = 19;
+            this.txtdiachi.Animated = true;
+            this.txtdiachi.AutoRoundedCorners = true;
+            this.txtdiachi.BorderRadius = 8;
+            this.txtdiachi.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtdiachi.DefaultText = "";
+            this.txtdiachi.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtdiachi.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtdiachi.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtdiachi.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtdiachi.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtdiachi.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtdiachi.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtdiachi.Location = new System.Drawing.Point(85, 153);
+            this.txtdiachi.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtdiachi.Name = "txtdiachi";
+            this.txtdiachi.PasswordChar = '\0';
+            this.txtdiachi.PlaceholderText = "";
+            this.txtdiachi.SelectedText = "";
+            this.txtdiachi.Size = new System.Drawing.Size(290, 18);
+            this.txtdiachi.TabIndex = 23;
             // 
             // txtsdt
             // 
@@ -390,6 +290,7 @@
             this.guna2DataGridView1.ThemeStyle.RowsStyle.Height = 24;
             this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.guna2DataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DataGridView1_CellClick);
             // 
             // guna2Panel1
             // 
@@ -430,6 +331,7 @@
             this.guna2GradientButton4.Size = new System.Drawing.Size(135, 37);
             this.guna2GradientButton4.TabIndex = 15;
             this.guna2GradientButton4.Text = "Tải lại";
+            this.guna2GradientButton4.Click += new System.EventHandler(this.guna2GradientButton4_Click);
             // 
             // guna2GradientButton2
             // 
@@ -459,6 +361,7 @@
             this.guna2GradientButton2.Size = new System.Drawing.Size(135, 37);
             this.guna2GradientButton2.TabIndex = 13;
             this.guna2GradientButton2.Text = "Sửa";
+            this.guna2GradientButton2.Click += new System.EventHandler(this.guna2GradientButton2_Click);
             // 
             // guna2GradientButton3
             // 
@@ -487,7 +390,8 @@
             this.guna2GradientButton3.PressedColor = System.Drawing.Color.IndianRed;
             this.guna2GradientButton3.Size = new System.Drawing.Size(135, 37);
             this.guna2GradientButton3.TabIndex = 14;
-            this.guna2GradientButton3.Text = "Xoá";
+            this.guna2GradientButton3.Text = "Xóa";
+            this.guna2GradientButton3.Click += new System.EventHandler(this.guna2GradientButton3_Click);
             // 
             // guna2GradientButton1
             // 
@@ -517,6 +421,44 @@
             this.guna2GradientButton1.Size = new System.Drawing.Size(135, 37);
             this.guna2GradientButton1.TabIndex = 12;
             this.guna2GradientButton1.Text = "Thêm";
+            this.guna2GradientButton1.Click += new System.EventHandler(this.guna2GradientButton1_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(8, 117);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(54, 13);
+            this.label6.TabIndex = 36;
+            this.label6.Text = "Ngày sinh";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // date1
+            // 
+            this.date1.Checked = true;
+            this.date1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.date1.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.date1.Location = new System.Drawing.Point(85, 111);
+            this.date1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.date1.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.date1.Name = "date1";
+            this.date1.Size = new System.Drawing.Size(200, 36);
+            this.date1.TabIndex = 37;
+            this.date1.Value = new System.DateTime(2024, 8, 4, 13, 50, 41, 284);
+            // 
+            // btnanh
+            // 
+            this.btnanh.Location = new System.Drawing.Point(599, 208);
+            this.btnanh.Name = "btnanh";
+            this.btnanh.Size = new System.Drawing.Size(75, 23);
+            this.btnanh.TabIndex = 38;
+            this.btnanh.Text = "Chọn ảnh";
+            this.btnanh.UseVisualStyleBackColor = true;
+            this.btnanh.Click += new System.EventHandler(this.btnanh_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // ThongTinKH
             // 
@@ -524,11 +466,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(990, 550);
+            this.Controls.Add(this.btnanh);
+            this.Controls.Add(this.date1);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.guna2PictureBox1);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.rdnu);
@@ -536,10 +478,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.guna2TextBox1);
-            this.Controls.Add(this.txtmk2);
-            this.Controls.Add(this.txtmk);
-            this.Controls.Add(this.txttk);
+            this.Controls.Add(this.txtdiachi);
             this.Controls.Add(this.txtsdt);
             this.Controls.Add(this.txtemail);
             this.Controls.Add(this.txtten);
@@ -547,6 +486,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ThongTinKH";
             this.Text = "ThongTinKH";
+            this.Load += new System.EventHandler(this.ThongTinKH_Load);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
             this.guna2Panel1.ResumeLayout(false);
@@ -557,9 +497,6 @@
 
         #endregion
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.RadioButton rdnu;
@@ -567,10 +504,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
-        private Guna.UI2.WinForms.Guna2TextBox txtmk2;
-        private Guna.UI2.WinForms.Guna2TextBox txtmk;
-        private Guna.UI2.WinForms.Guna2TextBox txttk;
+        private Guna.UI2.WinForms.Guna2TextBox txtdiachi;
         private Guna.UI2.WinForms.Guna2TextBox txtsdt;
         private Guna.UI2.WinForms.Guna2TextBox txtemail;
         private Guna.UI2.WinForms.Guna2TextBox txtten;
@@ -580,5 +514,9 @@
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton2;
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton3;
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton1;
+        private System.Windows.Forms.Label label6;
+        private Guna.UI2.WinForms.Guna2DateTimePicker date1;
+        private System.Windows.Forms.Button btnanh;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

@@ -7,6 +7,14 @@ namespace GUI_Quanlykhachsan.ChucNang
     {
         public Action dattruoc;
         public Action nhanphong;
+        internal string ten;
+        internal string diachi;
+        internal string sdt;
+        internal DateTime ngaysinh;
+        internal string gioitinh;
+        internal string email;
+        internal string anh;
+
         public KhachHang(/*Action nhanphong, Action dattruoc*/)
         {
             InitializeComponent();

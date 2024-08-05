@@ -6,5 +6,7 @@ namespace DTO_Quanly
     public static class DTODB
     {
         public static DuAn1_QLKS db = new DuAn1_QLKS();
+        public static khachhang kh = new khachhang();
     }
+
 }

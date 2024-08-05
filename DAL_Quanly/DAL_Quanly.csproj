@@ -54,7 +54,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IRepository\IKhachHang.cs" />
     <Compile Include="IRepository\INhanVien.cs" />
+    <Compile Include="Repository\KhachHang\TruyVanKH.cs" />
     <Compile Include="Repository\Login\Dangnhap.cs" />
     <Compile Include="Repository\NhanVien\TruyVanNV.cs" />
     <Compile Include="Repository\TruyVan.cs" />
