@@ -24,7 +24,7 @@ namespace GUI_Quanlykhachsan.ChucNang
 
         private void ThongTinKH_Load(object sender, EventArgs e)
         {
-
+             
         }
 
         public void reload()
