@@ -546,7 +546,7 @@
             this.guna2GradientButton3.PressedColor = System.Drawing.Color.IndianRed;
             this.guna2GradientButton3.Size = new System.Drawing.Size(181, 43);
             this.guna2GradientButton3.TabIndex = 14;
-            this.guna2GradientButton3.Text = "Dổi trạng thái";
+            this.guna2GradientButton3.Text = "Đổi trạng thái";
             this.guna2GradientButton3.Click += new System.EventHandler(this.guna2GradientButton3_Click);
             // 
             // guna2GradientButton1

@@ -211,7 +211,7 @@ namespace GUI_Quanlykhachsan.ChucNang.dangphattrien
                 totalTable.AddCell(CreateCell("Tiền phòng:", boldFont, TextAlignment.LEFT));
                 totalTable.AddCell(CreateCell(roomCost.ToString("N0") + " VNĐ", font, TextAlignment.RIGHT));
                 totalTable.AddCell(CreateCell("Ngày ở:", boldFont, TextAlignment.LEFT));
-                totalTable.AddCell(CreateCell((Nra - Nvao).Days.ToString("N0") + " VNĐ", font, TextAlignment.RIGHT));
+                totalTable.AddCell(CreateCell((Nra - Nvao).Days.ToString("N0") + " Ngày", font, TextAlignment.RIGHT));
                 totalTable.AddCell(CreateCell("Tổng tiền dịch vụ:", boldFont, TextAlignment.LEFT));
                 totalTable.AddCell(CreateCell(totalServiceCost.ToString("N0") + " VNĐ", font, TextAlignment.RIGHT));
                 totalTable.AddCell(CreateCell("Tổng cộng:", boldFont, TextAlignment.LEFT));
