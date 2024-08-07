@@ -31,7 +31,8 @@ namespace DAL_Quanly.Repository.NhanVien
                                        Diachi = a.diachi,
                                        Ngaysinh = a.ngaysinh,
                                        Taikhoan = a.taikhoan,
-                                       Vaitro = c.vaitro1
+                                       Vaitro = c.vaitro1,
+                                       TrangThai = a.tt==false ? "Đang làm việc" : "Đã nghỉ"
                                    };
                 return listnhanvien.ToList();
 
@@ -43,7 +44,7 @@ namespace DAL_Quanly.Repository.NhanVien
                                on a.taikhoan equals b.taikhoan1
                                    join c in DTODB.db.vaitroes.ToList()
                                    on b.loaitk equals c.id
-                                   where b.loaitk == 3
+                                   where b.loaitk == 3 && a.tt == false
                                    select new
                                    {
                                        Ten = a.ten,
@@ -90,6 +91,7 @@ namespace DAL_Quanly.Repository.NhanVien
                     nvmoi.sdt = nv.sdt;
                     nvmoi.taikhoan = nv.taikhoan;
                     nvmoi.ngaysinh = nv.ngaysinh;
+                    nvmoi.tt = false;
 
                     DTODB.db.nhanviens.Add(nvmoi);
                     DTODB.db.SaveChanges();
@@ -156,9 +158,21 @@ namespace DAL_Quanly.Repository.NhanVien
             {
                 try
                 {
+                    if(DTODB.db.nhanviens.Find(id).tt == true)
+                    {
+                        DTODB.db.nhanviens.Find(id).tt = false;
                     DTODB.db.SaveChanges();
                     transaction.Commit();
                     return true;
+                    }
+                    else
+                    {
+                        DTODB.db.nhanviens.Find(id).tt = true;
+
+                        DTODB.db.SaveChanges();
+                        transaction.Commit();
+                        return true;
+                    }
                 }
                 catch
                 {

@@ -47,7 +47,9 @@ namespace GUI_Quanlykhachsan.ChucNang
             reload();
         }
 
-        private void Qly_NhanVien_Load(object sender, EventArgs e) { }
+        private void Qly_NhanVien_Load(object sender, EventArgs e) {
+            reload();
+        }
 
         // validate nhân viên
         public bool checktrong()
@@ -169,12 +171,12 @@ namespace GUI_Quanlykhachsan.ChucNang
             {
                 MessageBox.Show("Vui lòng chọn dữ liệu cần xoá!");
             }
-            else if (MessageBox.Show("Có chắc chắn muốn xoá?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            else if (MessageBox.Show("Có chắc chắn muốn đổi trạng thái?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 int idnvcantim = DTODB.db.nhanviens.First(p => p.taikhoan == txttk.Text).idnv;
                 if (bus_nhanvien.Xoa(idnvcantim))
                 {
-                    MessageBox.Show("Xoá thành công!");
+                    MessageBox.Show("thành công!");
                     reload();
                 }
             }

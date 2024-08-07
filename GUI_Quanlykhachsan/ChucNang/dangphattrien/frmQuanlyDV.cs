@@ -136,7 +136,25 @@ namespace GUI_Quanlykhachsan.ChucNang.dangphattrien
         // Nút sửa
         private void btnSua_Click(object sender, EventArgs e)
         {
+            if (check())
+            {
+                if (MessageBox.Show("Bạn chắc chắn có muốn sửa không?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    decimal.TryParse(txtgiadv.Text, out decimal giadv);
 
+
+                    var dvcansua = DTODB.db.dichvus.Find(madvDYNAMIC);
+                    dvcansua.tendv = txttendv.Text;
+                    dvcansua.gia = (decimal)giadv;
+                    dvcansua.soluongton = (int)slgdv.Value;
+                    dvcansua.mota = txtmota.Text;
+
+                    DTODB.db.SaveChanges();
+
+                    reload();
+                    MessageBox.Show("Thành công!");
+                }
+            }
         }
     }
 }

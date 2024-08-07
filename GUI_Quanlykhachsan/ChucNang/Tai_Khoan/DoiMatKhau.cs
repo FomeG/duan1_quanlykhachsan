@@ -73,7 +73,7 @@ namespace GUI_Quanlykhachsan.ChucNang.Tai_Khoan
 
         private void guna2GradientButton2_Click(object sender, EventArgs e)
         {
-            Close();
+            this.Hide();
         }
 
         private void DoiMatKhau_Load(object sender, EventArgs e)
