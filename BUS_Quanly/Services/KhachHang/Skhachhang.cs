@@ -1,5 +1,6 @@
 ﻿using DAL_Quanly.Repository.KhachHang;
 using DTO_Quanly.Model.DB;
+using DTO_Quanly.Model.NoiBang;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -20,7 +21,7 @@ namespace BUS_Quanly.Services.KhachHang
             TruyVanKH = truyVanKH;
         }
 
-        public List<khachhang> hienthi()
+        public List<NoiKH> hienthi()
         {
             return TruyVanKH.getlist();
         }

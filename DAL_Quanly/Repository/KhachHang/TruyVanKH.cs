@@ -4,14 +4,28 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using DTO_Quanly.Model.NoiBang;
 
 namespace DAL_Quanly.Repository.KhachHang
 {
     public class TruyVanKH
     {
-        public List<khachhang> getlist()
+        public List<NoiKH> getlist()
         {
-            return DTODB.db.khachhangs.Where(a => a.tt == false).ToList();
+            var listkh = from a in DTODB.db.khachhangs.ToList()
+                         where a.tt == false
+                         select new NoiKH
+                         {
+                             id = a.id,
+                             ten = a.ten,
+                             email = a.email,
+                             sdt = a.sdt,
+                             gioitinh = a.gioitinh,
+                             diachi = a.diachi,
+                             anh = a.anh,
+                             ngaysinh = (DateTime)a.ngaysinh
+                         };
+            return listkh.ToList();
         }
 
         public List<khachhang> getlistbyid(int id)
