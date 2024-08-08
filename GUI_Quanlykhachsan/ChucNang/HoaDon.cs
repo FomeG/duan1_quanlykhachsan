@@ -46,6 +46,7 @@ namespace GUI_Quanlykhachsan.ChucNang
         // Nút kiểm tra
         private void guna2GradientButton1_Click(object sender, EventArgs e)
         {
+
             if (checkkiemtra())
             {
                 if (txttenkh.Text == "" && txtsophong.Text != "")
@@ -110,6 +111,7 @@ namespace GUI_Quanlykhachsan.ChucNang
         {
             txttenkh.Text = txtsophong.Text = "";
             loaddl();
+            cbsapxep.SelectedIndex = -1;
         }
 
 
@@ -130,6 +132,45 @@ namespace GUI_Quanlykhachsan.ChucNang
             }
         }
 
+        private void cbsapxep_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbsapxep.SelectedItem == "Ngày tạo")
+            {
+                if (txttenkh.Text != "" || txtsophong.Text != null)
+                {
+                    if (checkkiemtra())
+                    {
+                        if (txttenkh.Text == "" && txtsophong.Text != "")
+                        {
+                            var listhd = DTODB.db.viewhoadons.Where(x => x.ngaytao > NgayDen.Value && x.ngaytao < NgayDi.Value && x.tenphong.ToLower().Contains(txtsophong.Text.ToLower())).OrderByDescending(x => x.ngaytao).ToList();
+                            gview1.DataSource = listhd;
+
+                        }
+                        else if (txttenkh.Text != "" && txtsophong.Text == "")
+                        {
+                            var listhd = DTODB.db.viewhoadons.Where(x => x.ngaytao > NgayDen.Value && x.ngaytao < NgayDi.Value && x.ten.ToLower().Contains(txttenkh.Text.ToLower())).OrderByDescending(x => x.ngaytao).ToList();
+                            gview1.DataSource = listhd;
+                        }
+                        else if (txttenkh.Text != "" && txtsophong.Text != "")
+                        {
+                            var listhd = DTODB.db.viewhoadons.Where(x => x.ngaytao > NgayDen.Value && x.ngaytao < NgayDi.Value && x.ten.ToLower().Contains(txttenkh.Text.ToLower()) && x.tenphong.ToLower().Contains(txtsophong.Text.ToLower())).OrderByDescending(x => x.ngaytao).ToList();
+                            gview1.DataSource = listhd;
+                        }
+                        else
+                        {
+                            var listhd = DTODB.db.viewhoadons.Where(x => x.ngaytao > NgayDen.Value && x.ngaytao < NgayDi.Value).OrderByDescending(x => x.ngaytao).ToList();
+                            gview1.DataSource = listhd;
+                        }
+                    }
+                }
+                else if (txttenkh.Text != "" && txtsophong.Text != "")
+                {
+                    var listhd = DTODB.db.viewhoadons.Where(x => x.ngaytao > NgayDen.Value && x.ngaytao < NgayDi.Value).OrderByDescending(x => x.ngaytao).ToList();
+                    gview1.DataSource = listhd;
+                }
+
+            }
+        }
 
 
 
