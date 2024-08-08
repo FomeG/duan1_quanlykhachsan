@@ -119,26 +119,25 @@ namespace GUI_Quanlykhachsan.ChucNang
                             MessageBox.Show("Không thể lưu ảnh. Vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
-                    }
-                    else
-                    {
-                       
-                    DateTime.TryParse(date1.Value.ToString("yyyy/MM/dd"), out DateTime ngaySinh);
-                    var kh = new khachhang()
-                    {
-                        ten = txtten.Text,
-                        diachi = txtdiachi.Text,
-                        sdt = txtsdt.Text,
-                        ngaysinh = ngaySinh,
-                        gioitinh = rdnam.Checked ? "Nam" : "Nữ",
-                        email = txtemail.Text,
-                        anh = savedImagePath
-                    };
+                        else
+                        {
+                            DateTime.TryParse(date1.Value.ToString("yyyy/MM/dd"), out DateTime ngaySinh);
+                            var kh = new khachhang()
+                            {
+                                ten = txtten.Text,
+                                diachi = txtdiachi.Text,
+                                sdt = txtsdt.Text,
+                                ngaysinh = ngaySinh,
+                                gioitinh = rdnam.Checked ? "Nam" : "Nữ",
+                                email = txtemail.Text,
+                                anh = savedImagePath
+                            };
 
-                    if (BUS_khachhang.ThemKhachHang(kh))
-                    {
-                        reload();
-                    }
+                            if (BUS_khachhang.ThemKhachHang(kh))
+                            {
+                                reload();
+                            }
+                        }
                     }
 
                 }
