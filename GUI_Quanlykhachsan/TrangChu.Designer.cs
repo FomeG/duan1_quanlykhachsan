@@ -341,7 +341,7 @@
             this.guna2GradientButton1.Image = ((System.Drawing.Image)(resources.GetObject("guna2GradientButton1.Image")));
             this.guna2GradientButton1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2GradientButton1.ImageSize = new System.Drawing.Size(25, 25);
-            this.guna2GradientButton1.Location = new System.Drawing.Point(2, 445);
+            this.guna2GradientButton1.Location = new System.Drawing.Point(2, 343);
             this.guna2GradientButton1.Name = "guna2GradientButton1";
             this.guna2GradientButton1.Size = new System.Drawing.Size(192, 45);
             this.guna2GradientButton1.TabIndex = 7;
@@ -399,7 +399,7 @@
             this.btnTC.Image = ((System.Drawing.Image)(resources.GetObject("btnTC.Image")));
             this.btnTC.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnTC.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnTC.Location = new System.Drawing.Point(3, 343);
+            this.btnTC.Location = new System.Drawing.Point(3, 445);
             this.btnTC.Name = "btnTC";
             this.btnTC.Size = new System.Drawing.Size(192, 45);
             this.btnTC.TabIndex = 8;

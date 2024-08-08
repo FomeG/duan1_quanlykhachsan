@@ -136,7 +136,7 @@ namespace GUI_Quanlykhachsan.ChucNang
         {
             if (cbsapxep.SelectedItem == "Ngày tạo")
             {
-                if (txttenkh.Text != "" || txtsophong.Text != null)
+                if (txttenkh.Text != "" || txtsophong.Text != "")
                 {
                     if (checkkiemtra())
                     {
