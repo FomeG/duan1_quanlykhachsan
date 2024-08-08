@@ -32,7 +32,7 @@ namespace DAL_Quanly.Repository.NhanVien
                                        Ngaysinh = a.ngaysinh,
                                        Taikhoan = a.taikhoan,
                                        Vaitro = c.vaitro1,
-                                       TrangThai = a.tt==false ? "Đang làm việc" : "Đã nghỉ"
+                                       TrangThai = a.tt == false ? "Đang làm việc" : "Đã nghỉ"
                                    };
                 return listnhanvien.ToList();
 
@@ -158,12 +158,12 @@ namespace DAL_Quanly.Repository.NhanVien
             {
                 try
                 {
-                    if(DTODB.db.nhanviens.Find(id).tt == true)
+                    if (DTODB.db.nhanviens.Find(id).tt == true)
                     {
                         DTODB.db.nhanviens.Find(id).tt = false;
-                    DTODB.db.SaveChanges();
-                    transaction.Commit();
-                    return true;
+                        DTODB.db.SaveChanges();
+                        transaction.Commit();
+                        return true;
                     }
                     else
                     {

@@ -1,6 +1,5 @@
 ﻿using BUS_Quanly.Services.QuanLyDatPhong.ThanhToan_DV;
 using DTO_Quanly;
-using DTO_Quanly.Transfer;
 using iText.IO.Font;
 using iText.Kernel.Colors;
 using iText.Kernel.Font;
@@ -77,8 +76,7 @@ namespace GUI_Quanlykhachsan.ChucNang.dangphattrien
             var list = _dv.GetCheckinDichVuList(IdCin);
             gview1.DataSource = list;
 
-
-            tennv.Text = DTODB.db.nhanviens.Find(TDatPhong.IDNV).ten;
+            tennv.Text = DTODB.db.viewhoadons.SingleOrDefault(x => x.idhoadon == Idhd).tennhanvien;
         }
 
         private void guna2GradientButton1_Click(object sender, System.EventArgs e)

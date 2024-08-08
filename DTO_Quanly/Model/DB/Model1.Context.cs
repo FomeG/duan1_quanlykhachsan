@@ -15,10 +15,10 @@ namespace DTO_Quanly.Model.DB
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class DA1_entities : DbContext
+    public partial class Duan1_Final : DbContext
     {
-        public DA1_entities()
-            : base("name=DA1_entities")
+        public Duan1_Final()
+            : base("name=Duan1_Final")
         {
         }
     
@@ -49,6 +49,7 @@ namespace DTO_Quanly.Model.DB
         public virtual DbSet<hoadon_phong> hoadon_phong { get; set; }
         public virtual DbSet<view_dsdattruoc_chitiet> view_dsdattruoc_chitiet { get; set; }
         public virtual DbSet<view_trangthai_phong_hientai> view_trangthai_phong_hientai { get; set; }
+        public virtual DbSet<viewhoadon> viewhoadons { get; set; }
     
         public virtual int insert_dsdattruoc(Nullable<int> idnv, Nullable<int> idkh, Nullable<int> idphong, Nullable<System.DateTime> ngayden, Nullable<System.DateTime> ngaydi, string ghichu)
         {

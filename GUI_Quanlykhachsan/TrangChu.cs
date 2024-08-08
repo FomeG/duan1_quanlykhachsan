@@ -1,5 +1,4 @@
 ﻿using BUS_Quanly.Services.QuanLyDatPhong.ThanhToan_DV;
-using DTO_Quanly.Model.DB;
 using DTO_Quanly.Transfer;
 using GUI_Quanlykhachsan.ChucNang;
 using GUI_Quanlykhachsan.ChucNang.ADMIN;

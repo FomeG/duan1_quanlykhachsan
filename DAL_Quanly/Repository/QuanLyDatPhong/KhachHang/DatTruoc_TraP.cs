@@ -167,9 +167,5 @@ namespace DAL_Quanly.Repository.QuanLyDatPhong.KhachHang
 
 
 
-
-
-
-
     }
 }

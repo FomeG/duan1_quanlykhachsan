@@ -30,12 +30,12 @@ namespace DTO_Quanly.Model.DB
         public string trangthai { get; set; }
         public Nullable<int> idcheckout { get; set; }
     
+        public virtual checkout checkout { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<dv_trunggian> dv_trunggian { get; set; }
         public virtual khachhang khachhang { get; set; }
         public virtual nhanvien nhanvien { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<phong_trunggian> phong_trunggian { get; set; }
-        public virtual checkout checkout { get; set; }
     }
 }

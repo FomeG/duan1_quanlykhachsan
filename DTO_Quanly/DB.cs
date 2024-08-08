@@ -4,6 +4,6 @@ namespace DTO_Quanly
 {
     public static class DTODB
     {
-        public static DA1_entities db = new DA1_entities();
+        public static Duan1_Final db = new Duan1_Final();
     }
 }

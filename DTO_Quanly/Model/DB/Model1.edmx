@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="duan1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="duan1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="checkin">
           <Key>
             <PropertyRef Name="id" />
@@ -275,6 +275,31 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
           <Property Name="tenkhuvuc" Type="nvarchar(max)" Nullable="false" />
           <Property Name="trangthai" Type="int" Nullable="false" />
           <Property Name="trangthai_text" Type="nvarchar" MaxLength="6" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'duan1.dbo.viewhoadon' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="viewhoadon">
+          <Key>
+            <PropertyRef Name="idhoadon" />
+            <PropertyRef Name="tenphong" />
+            <PropertyRef Name="ngaytao" />
+            <PropertyRef Name="ten" />
+            <PropertyRef Name="ngaycheckin" />
+            <PropertyRef Name="ngaycheckout" />
+            <PropertyRef Name="idcheckin" />
+            <PropertyRef Name="idphong" />
+            <PropertyRef Name="tennhanvien" />
+          </Key>
+          <Property Name="idhoadon" Type="int" Nullable="false" />
+          <Property Name="tenphong" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ngaytao" Type="datetime" Nullable="false" />
+          <Property Name="ten" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ngaycheckin" Type="datetime" Nullable="false" />
+          <Property Name="ngaycheckout" Type="datetime" Nullable="false" />
+          <Property Name="tienkhachtra" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="idcheckin" Type="int" Nullable="false" />
+          <Property Name="idphong" Type="int" Nullable="false" />
+          <Property Name="tennhanvien" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <Association Name="FK__checkin__idkh__534D60F1">
           <End Role="khachhang" Type="Self.khachhang" Multiplicity="1" />
@@ -662,6 +687,20 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
     [view_trangthai_phong_hientai].[trangthai_text] AS [trangthai_text]
     FROM [dbo].[view_trangthai_phong_hientai] AS [view_trangthai_phong_hientai]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="viewhoadon" EntityType="Self.viewhoadon" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [viewhoadon].[idhoadon] AS [idhoadon], 
+    [viewhoadon].[tenphong] AS [tenphong], 
+    [viewhoadon].[ngaytao] AS [ngaytao], 
+    [viewhoadon].[ten] AS [ten], 
+    [viewhoadon].[ngaycheckin] AS [ngaycheckin], 
+    [viewhoadon].[ngaycheckout] AS [ngaycheckout], 
+    [viewhoadon].[tienkhachtra] AS [tienkhachtra], 
+    [viewhoadon].[idcheckin] AS [idcheckin], 
+    [viewhoadon].[idphong] AS [idphong], 
+    [viewhoadon].[tennhanvien] AS [tennhanvien]
+    FROM [dbo].[viewhoadon] AS [viewhoadon]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK__checkin__idkh__534D60F1" Association="Self.FK__checkin__idkh__534D60F1">
             <End Role="khachhang" EntitySet="khachhang" />
             <End Role="checkin" EntitySet="checkin" />
@@ -763,7 +802,8 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             <End Role="voucher" EntitySet="voucher" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="duan1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -776,12 +816,12 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
           <Property Name="idnv" Type="Int32" />
           <Property Name="ngaycheckin" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="trangthai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="khachhang" Relationship="Self.FK__checkin__idkh__52593CB8" FromRole="checkin" ToRole="khachhang" />
-          <NavigationProperty Name="nhanvien" Relationship="Self.FK__checkin__idnv__534D60F1" FromRole="checkin" ToRole="nhanvien" />
-          <NavigationProperty Name="checkin_dichvu" Relationship="Self.FK__checkin_d__idche__60A75C0F" FromRole="checkin" ToRole="checkin_dichvu" />
-          <NavigationProperty Name="checkin_phong" Relationship="Self.FK__checkin_p__idche__6477ECF3" FromRole="checkin" ToRole="checkin_phong" />
-          <NavigationProperty Name="tempkhachhangs" Relationship="Self.FK__tempkhach__idche__70DDC3D8" FromRole="checkin" ToRole="tempkhachhang" />
           <Property Name="tienkhachtra" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="khachhang" Relationship="Self.FK__checkin__idkh__534D60F1" FromRole="checkin" ToRole="khachhang" />
+          <NavigationProperty Name="nhanvien" Relationship="Self.FK__checkin__idnv__5441852A" FromRole="checkin" ToRole="nhanvien" />
+          <NavigationProperty Name="checkin_dichvu" Relationship="Self.FK__checkin_d__idche__619B8048" FromRole="checkin" ToRole="checkin_dichvu" />
+          <NavigationProperty Name="checkin_phong" Relationship="Self.FK__checkin_p__idche__656C112C" FromRole="checkin" ToRole="checkin_phong" />
+          <NavigationProperty Name="tempkhachhangs" Relationship="Self.FK__tempkhach__idche__71D1E811" FromRole="checkin" ToRole="tempkhachhang" />
         </EntityType>
         <EntityType Name="checkin_dichvu">
           <Key>
@@ -791,9 +831,9 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
           <Property Name="idcheckin" Type="Int32" Nullable="false" />
           <Property Name="iddv" Type="Int32" Nullable="false" />
           <Property Name="soluong" Type="Int32" />
-          <NavigationProperty Name="checkin" Relationship="Self.FK__checkin_d__idche__60A75C0F" FromRole="checkin_dichvu" ToRole="checkin" />
-          <NavigationProperty Name="dichvu" Relationship="Self.FK__checkin_di__iddv__619B8048" FromRole="checkin_dichvu" ToRole="dichvu" />
-          <NavigationProperty Name="dv_trunggian" Relationship="Self.FK__dv_trunggi__iddv__6C190EBB" FromRole="checkin_dichvu" ToRole="dv_trunggian" />
+          <NavigationProperty Name="checkin" Relationship="Self.FK__checkin_d__idche__619B8048" FromRole="checkin_dichvu" ToRole="checkin" />
+          <NavigationProperty Name="dichvu" Relationship="Self.FK__checkin_di__iddv__628FA481" FromRole="checkin_dichvu" ToRole="dichvu" />
+          <NavigationProperty Name="dv_trunggian" Relationship="Self.FK__dv_trunggi__iddv__6D0D32F4" FromRole="checkin_dichvu" ToRole="dv_trunggian" />
         </EntityType>
         <EntityType Name="checkin_phong">
           <Key>
@@ -802,9 +842,9 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="idcheckin" Type="Int32" Nullable="false" />
           <Property Name="idphong" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="checkin" Relationship="Self.FK__checkin_p__idche__6477ECF3" FromRole="checkin_phong" ToRole="checkin" />
-          <NavigationProperty Name="phong" Relationship="Self.FK__checkin_p__idpho__656C112C" FromRole="checkin_phong" ToRole="phong" />
-          <NavigationProperty Name="phong_trunggian" Relationship="Self.FK__phong_trung__idp__68487DD7" FromRole="checkin_phong" ToRole="phong_trunggian" />
+          <NavigationProperty Name="checkin" Relationship="Self.FK__checkin_p__idche__656C112C" FromRole="checkin_phong" ToRole="checkin" />
+          <NavigationProperty Name="phong" Relationship="Self.FK__checkin_p__idpho__66603565" FromRole="checkin_phong" ToRole="phong" />
+          <NavigationProperty Name="phong_trunggian" Relationship="Self.FK__phong_trung__idp__693CA210" FromRole="checkin_phong" ToRole="phong_trunggian" />
         </EntityType>
         <EntityType Name="checkout">
           <Key>
@@ -815,9 +855,9 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
           <Property Name="idnv" Type="Int32" />
           <Property Name="ngaycheckout" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="trangthai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="khachhang" Relationship="Self.FK__checkout__idkh__5629CD9C" FromRole="checkout" ToRole="khachhang" />
-          <NavigationProperty Name="nhanvien" Relationship="Self.FK__checkout__idnv__571DF1D5" FromRole="checkout" ToRole="nhanvien" />
-          <NavigationProperty Name="hoadons" Relationship="duan1Model.FK__hoadon__idchecko__5CD6CB2B" FromRole="checkout" ToRole="hoadon" />
+          <NavigationProperty Name="khachhang" Relationship="Self.FK__checkout__idkh__571DF1D5" FromRole="checkout" ToRole="khachhang" />
+          <NavigationProperty Name="nhanvien" Relationship="Self.FK__checkout__idnv__5812160E" FromRole="checkout" ToRole="nhanvien" />
+          <NavigationProperty Name="hoadons" Relationship="Self.FK__hoadon__idchecko__5CD6CB2B" FromRole="checkout" ToRole="hoadon" />
         </EntityType>
         <EntityType Name="dichvu">
           <Key>
@@ -829,7 +869,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
           <Property Name="gia" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="tt" Type="Boolean" />
-          <NavigationProperty Name="checkin_dichvu" Relationship="Self.FK__checkin_di__iddv__619B8048" FromRole="dichvu" ToRole="checkin_dichvu" />
+          <NavigationProperty Name="checkin_dichvu" Relationship="Self.FK__checkin_di__iddv__628FA481" FromRole="dichvu" ToRole="checkin_dichvu" />
         </EntityType>
         <EntityType Name="dsdattruoc">
           <Key>
@@ -844,9 +884,9 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
           <Property Name="ttphong" Type="Boolean" />
           <Property Name="ghichu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ngaydat" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="phong" Relationship="Self.FK__dsdattruo__idpho__4E88ABD4" FromRole="dsdattruoc" ToRole="phong" />
-          <NavigationProperty Name="khachhang" Relationship="Self.FK__dsdattruoc__idkh__4D94879B" FromRole="dsdattruoc" ToRole="khachhang" />
-          <NavigationProperty Name="nhanvien" Relationship="Self.FK__dsdattruoc__idnv__4CA06362" FromRole="dsdattruoc" ToRole="nhanvien" />
+          <NavigationProperty Name="phong" Relationship="Self.FK__dsdattruo__idpho__4F7CD00D" FromRole="dsdattruoc" ToRole="phong" />
+          <NavigationProperty Name="khachhang" Relationship="Self.FK__dsdattruoc__idkh__4E88ABD4" FromRole="dsdattruoc" ToRole="khachhang" />
+          <NavigationProperty Name="nhanvien" Relationship="Self.FK__dsdattruoc__idnv__4D94879B" FromRole="dsdattruoc" ToRole="nhanvien" />
         </EntityType>
         <EntityType Name="dv_trunggian">
           <Key>
@@ -856,8 +896,8 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
           <Property Name="iddv" Type="Int32" Nullable="false" />
           <Property Name="idhd" Type="Int32" Nullable="false" />
           <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="checkin_dichvu" Relationship="Self.FK__dv_trunggi__iddv__6C190EBB" FromRole="dv_trunggian" ToRole="checkin_dichvu" />
-          <NavigationProperty Name="hoadon" Relationship="Self.FK__dv_trunggi__idhd__6D0D32F4" FromRole="dv_trunggian" ToRole="hoadon" />
+          <NavigationProperty Name="checkin_dichvu" Relationship="Self.FK__dv_trunggi__iddv__6D0D32F4" FromRole="dv_trunggian" ToRole="checkin_dichvu" />
+          <NavigationProperty Name="hoadon" Relationship="Self.FK__dv_trunggi__idhd__6E01572D" FromRole="dv_trunggian" ToRole="hoadon" />
         </EntityType>
         <EntityType Name="hoadon">
           <Key>
@@ -870,12 +910,12 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
           <Property Name="tongtien" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="songuoi" Type="Int32" />
           <Property Name="trangthai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="dv_trunggian" Relationship="Self.FK__dv_trunggi__idhd__6D0D32F4" FromRole="hoadon" ToRole="dv_trunggian" />
+          <Property Name="idcheckout" Type="Int32" />
+          <NavigationProperty Name="checkout" Relationship="Self.FK__hoadon__idchecko__5CD6CB2B" FromRole="hoadon" ToRole="checkout" />
+          <NavigationProperty Name="dv_trunggian" Relationship="Self.FK__dv_trunggi__idhd__6E01572D" FromRole="hoadon" ToRole="dv_trunggian" />
           <NavigationProperty Name="khachhang" Relationship="Self.FK__hoadon__idkh__5AEE82B9" FromRole="hoadon" ToRole="khachhang" />
           <NavigationProperty Name="nhanvien" Relationship="Self.FK__hoadon__idnv__5BE2A6F2" FromRole="hoadon" ToRole="nhanvien" />
-          <NavigationProperty Name="phong_trunggian" Relationship="Self.FK__phong_trun__idhd__693CA210" FromRole="hoadon" ToRole="phong_trunggian" />
-          <Property Name="idcheckout" Type="Int32" />
-          <NavigationProperty Name="checkout" Relationship="duan1Model.FK__hoadon__idchecko__5CD6CB2B" FromRole="hoadon" ToRole="checkout" />
+          <NavigationProperty Name="phong_trunggian" Relationship="Self.FK__phong_trun__idhd__6A30C649" FromRole="hoadon" ToRole="phong_trunggian" />
         </EntityType>
         <EntityType Name="khachhang">
           <Key>
@@ -890,11 +930,11 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
           <Property Name="anh" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="ngaysinh" Type="DateTime" Precision="0" />
           <Property Name="tt" Type="Boolean" />
-          <NavigationProperty Name="checkins" Relationship="Self.FK__checkin__idkh__52593CB8" FromRole="khachhang" ToRole="checkin" />
-          <NavigationProperty Name="checkouts" Relationship="Self.FK__checkout__idkh__5629CD9C" FromRole="khachhang" ToRole="checkout" />
-          <NavigationProperty Name="dsdattruocs" Relationship="Self.FK__dsdattruoc__idkh__4D94879B" FromRole="khachhang" ToRole="dsdattruoc" />
+          <NavigationProperty Name="checkins" Relationship="Self.FK__checkin__idkh__534D60F1" FromRole="khachhang" ToRole="checkin" />
+          <NavigationProperty Name="checkouts" Relationship="Self.FK__checkout__idkh__571DF1D5" FromRole="khachhang" ToRole="checkout" />
+          <NavigationProperty Name="dsdattruocs" Relationship="Self.FK__dsdattruoc__idkh__4E88ABD4" FromRole="khachhang" ToRole="dsdattruoc" />
           <NavigationProperty Name="hoadons" Relationship="Self.FK__hoadon__idkh__5AEE82B9" FromRole="khachhang" ToRole="hoadon" />
-          <NavigationProperty Name="tempkhachhangs" Relationship="Self.FK__tempkhachh__idkh__6FE99F9F" FromRole="khachhang" ToRole="tempkhachhang" />
+          <NavigationProperty Name="tempkhachhangs" Relationship="Self.FK__tempkhachh__idkh__70DDC3D8" FromRole="khachhang" ToRole="tempkhachhang" />
         </EntityType>
         <EntityType Name="khuvuc">
           <Key>
@@ -902,7 +942,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="tenkhuvuc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="phongs" Relationship="Self.FK__phong__khuvuc__3C69FB99" FromRole="khuvuc" ToRole="phong" />
+          <NavigationProperty Name="phongs" Relationship="Self.FK__phong__khuvuc__3D5E1FD2" FromRole="khuvuc" ToRole="phong" />
         </EntityType>
         <EntityType Name="loaiphong">
           <Key>
@@ -913,7 +953,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
           <Property Name="giaphong" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="songuoi" Type="Int32" />
           <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="phongs" Relationship="Self.FK__phong__loaiphong__3B75D760" FromRole="loaiphong" ToRole="phong" />
+          <NavigationProperty Name="phongs" Relationship="Self.FK__phong__loaiphong__3C69FB99" FromRole="loaiphong" ToRole="phong" />
         </EntityType>
         <EntityType Name="nhanvien">
           <Key>
@@ -928,12 +968,12 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
           <Property Name="ngaysinh" Type="DateTime" Precision="0" />
           <Property Name="taikhoan" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="tt" Type="Boolean" />
-          <NavigationProperty Name="checkins" Relationship="Self.FK__checkin__idnv__534D60F1" FromRole="nhanvien" ToRole="checkin" />
-          <NavigationProperty Name="checkouts" Relationship="Self.FK__checkout__idnv__571DF1D5" FromRole="nhanvien" ToRole="checkout" />
-          <NavigationProperty Name="dsdattruocs" Relationship="Self.FK__dsdattruoc__idnv__4CA06362" FromRole="nhanvien" ToRole="dsdattruoc" />
+          <NavigationProperty Name="checkins" Relationship="Self.FK__checkin__idnv__5441852A" FromRole="nhanvien" ToRole="checkin" />
+          <NavigationProperty Name="checkouts" Relationship="Self.FK__checkout__idnv__5812160E" FromRole="nhanvien" ToRole="checkout" />
+          <NavigationProperty Name="dsdattruocs" Relationship="Self.FK__dsdattruoc__idnv__4D94879B" FromRole="nhanvien" ToRole="dsdattruoc" />
           <NavigationProperty Name="hoadons" Relationship="Self.FK__hoadon__idnv__5BE2A6F2" FromRole="nhanvien" ToRole="hoadon" />
-          <NavigationProperty Name="taikhoan1" Relationship="Self.FK__nhanvien__taikho__46E78A0C" FromRole="nhanvien" ToRole="taikhoan" />
-          <NavigationProperty Name="vouchers" Relationship="Self.FK__voucher__idnv__73BA3083" FromRole="nhanvien" ToRole="voucher" />
+          <NavigationProperty Name="taikhoan1" Relationship="Self.FK__nhanvien__taikho__47DBAE45" FromRole="nhanvien" ToRole="taikhoan" />
+          <NavigationProperty Name="vouchers" Relationship="Self.FK__voucher__idnv__74AE54BC" FromRole="nhanvien" ToRole="voucher" />
         </EntityType>
         <EntityType Name="phong">
           <Key>
@@ -945,10 +985,10 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
           <Property Name="tenphong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ghichu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="tt" Type="Boolean" />
-          <NavigationProperty Name="checkin_phong" Relationship="Self.FK__checkin_p__idpho__656C112C" FromRole="phong" ToRole="checkin_phong" />
-          <NavigationProperty Name="dsdattruocs" Relationship="Self.FK__dsdattruo__idpho__4E88ABD4" FromRole="phong" ToRole="dsdattruoc" />
-          <NavigationProperty Name="khuvuc1" Relationship="Self.FK__phong__khuvuc__3C69FB99" FromRole="phong" ToRole="khuvuc" />
-          <NavigationProperty Name="loaiphong1" Relationship="Self.FK__phong__loaiphong__3B75D760" FromRole="phong" ToRole="loaiphong" />
+          <NavigationProperty Name="checkin_phong" Relationship="Self.FK__checkin_p__idpho__66603565" FromRole="phong" ToRole="checkin_phong" />
+          <NavigationProperty Name="dsdattruocs" Relationship="Self.FK__dsdattruo__idpho__4F7CD00D" FromRole="phong" ToRole="dsdattruoc" />
+          <NavigationProperty Name="khuvuc1" Relationship="Self.FK__phong__khuvuc__3D5E1FD2" FromRole="phong" ToRole="khuvuc" />
+          <NavigationProperty Name="loaiphong1" Relationship="Self.FK__phong__loaiphong__3C69FB99" FromRole="phong" ToRole="loaiphong" />
         </EntityType>
         <EntityType Name="phong_trunggian">
           <Key>
@@ -958,8 +998,8 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
           <Property Name="idp" Type="Int32" Nullable="false" />
           <Property Name="idhd" Type="Int32" Nullable="false" />
           <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="checkin_phong" Relationship="Self.FK__phong_trung__idp__68487DD7" FromRole="phong_trunggian" ToRole="checkin_phong" />
-          <NavigationProperty Name="hoadon" Relationship="Self.FK__phong_trun__idhd__693CA210" FromRole="phong_trunggian" ToRole="hoadon" />
+          <NavigationProperty Name="checkin_phong" Relationship="Self.FK__phong_trung__idp__693CA210" FromRole="phong_trunggian" ToRole="checkin_phong" />
+          <NavigationProperty Name="hoadon" Relationship="Self.FK__phong_trun__idhd__6A30C649" FromRole="phong_trunggian" ToRole="hoadon" />
         </EntityType>
         <EntityType Name="taikhoan">
           <Key>
@@ -968,8 +1008,8 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
           <Property Name="taikhoan1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="matkhau" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="loaitk" Type="Int32" />
-          <NavigationProperty Name="nhanviens" Relationship="Self.FK__nhanvien__taikho__46E78A0C" FromRole="taikhoan" ToRole="nhanvien" />
-          <NavigationProperty Name="vaitro" Relationship="Self.FK__taikhoan__loaitk__4222D4EF" FromRole="taikhoan" ToRole="vaitro" />
+          <NavigationProperty Name="nhanviens" Relationship="Self.FK__nhanvien__taikho__47DBAE45" FromRole="taikhoan" ToRole="nhanvien" />
+          <NavigationProperty Name="vaitro" Relationship="Self.FK__taikhoan__loaitk__4316F928" FromRole="taikhoan" ToRole="vaitro" />
         </EntityType>
         <EntityType Name="tempkhachhang">
           <Key>
@@ -981,8 +1021,8 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
           <Property Name="tienkhachtra" Type="Decimal" Precision="10" Scale="2" />
           <Property Name="ngayvao" Type="DateTime" Precision="3" />
           <Property Name="ngayra" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="checkin" Relationship="Self.FK__tempkhach__idche__70DDC3D8" FromRole="tempkhachhang" ToRole="checkin" />
-          <NavigationProperty Name="khachhang" Relationship="Self.FK__tempkhachh__idkh__6FE99F9F" FromRole="tempkhachhang" ToRole="khachhang" />
+          <NavigationProperty Name="checkin" Relationship="Self.FK__tempkhach__idche__71D1E811" FromRole="tempkhachhang" ToRole="checkin" />
+          <NavigationProperty Name="khachhang" Relationship="Self.FK__tempkhachh__idkh__70DDC3D8" FromRole="tempkhachhang" ToRole="khachhang" />
         </EntityType>
         <EntityType Name="vaitro">
           <Key>
@@ -990,7 +1030,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="vaitro1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="taikhoans" Relationship="Self.FK__taikhoan__loaitk__4222D4EF" FromRole="vaitro" ToRole="taikhoan" />
+          <NavigationProperty Name="taikhoans" Relationship="Self.FK__taikhoan__loaitk__4316F928" FromRole="vaitro" ToRole="taikhoan" />
         </EntityType>
         <EntityType Name="voucher">
           <Key>
@@ -1003,7 +1043,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
           <Property Name="ngayhethan" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="giamgia" Type="Int32" Nullable="false" />
           <Property Name="trangthai" Type="Boolean" />
-          <NavigationProperty Name="nhanvien" Relationship="Self.FK__voucher__idnv__73BA3083" FromRole="voucher" ToRole="nhanvien" />
+          <NavigationProperty Name="nhanvien" Relationship="Self.FK__voucher__idnv__74AE54BC" FromRole="voucher" ToRole="nhanvien" />
         </EntityType>
         <EntityType Name="hoadon_dichvu">
           <Key>
@@ -1080,7 +1120,30 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
           <Property Name="trangthai" Type="Int32" Nullable="false" />
           <Property Name="trangthai_text" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
-        <Association Name="FK__checkin__idkh__52593CB8">
+        <EntityType Name="viewhoadon">
+          <Key>
+            <PropertyRef Name="idhoadon" />
+            <PropertyRef Name="tenphong" />
+            <PropertyRef Name="ngaytao" />
+            <PropertyRef Name="ten" />
+            <PropertyRef Name="ngaycheckin" />
+            <PropertyRef Name="ngaycheckout" />
+            <PropertyRef Name="idcheckin" />
+            <PropertyRef Name="idphong" />
+            <PropertyRef Name="tennhanvien" />
+          </Key>
+          <Property Name="idhoadon" Type="Int32" Nullable="false" />
+          <Property Name="tenphong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ngaytao" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ngaycheckin" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ngaycheckout" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="tienkhachtra" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="idcheckin" Type="Int32" Nullable="false" />
+          <Property Name="idphong" Type="Int32" Nullable="false" />
+          <Property Name="tennhanvien" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__checkin__idkh__534D60F1">
           <End Role="khachhang" Type="Self.khachhang" Multiplicity="1" />
           <End Role="checkin" Type="Self.checkin" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1092,7 +1155,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__checkin__idnv__534D60F1">
+        <Association Name="FK__checkin__idnv__5441852A">
           <End Role="nhanvien" Type="Self.nhanvien" Multiplicity="0..1" />
           <End Role="checkin" Type="Self.checkin" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1104,7 +1167,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__checkin_d__idche__60A75C0F">
+        <Association Name="FK__checkin_d__idche__619B8048">
           <End Role="checkin" Type="Self.checkin" Multiplicity="1" />
           <End Role="checkin_dichvu" Type="Self.checkin_dichvu" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1116,7 +1179,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__checkin_p__idche__6477ECF3">
+        <Association Name="FK__checkin_p__idche__656C112C">
           <End Role="checkin" Type="Self.checkin" Multiplicity="1" />
           <End Role="checkin_phong" Type="Self.checkin_phong" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1128,7 +1191,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tempkhach__idche__70DDC3D8">
+        <Association Name="FK__tempkhach__idche__71D1E811">
           <End Role="checkin" Type="Self.checkin" Multiplicity="1" />
           <End Role="tempkhachhang" Type="Self.tempkhachhang" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1140,7 +1203,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__checkin_di__iddv__619B8048">
+        <Association Name="FK__checkin_di__iddv__628FA481">
           <End Role="dichvu" Type="Self.dichvu" Multiplicity="1" />
           <End Role="checkin_dichvu" Type="Self.checkin_dichvu" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1152,7 +1215,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dv_trunggi__iddv__6C190EBB">
+        <Association Name="FK__dv_trunggi__iddv__6D0D32F4">
           <End Role="checkin_dichvu" Type="Self.checkin_dichvu" Multiplicity="1" />
           <End Role="dv_trunggian" Type="Self.dv_trunggian" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1164,7 +1227,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__checkin_p__idpho__656C112C">
+        <Association Name="FK__checkin_p__idpho__66603565">
           <End Role="phong" Type="Self.phong" Multiplicity="1" />
           <End Role="checkin_phong" Type="Self.checkin_phong" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1176,7 +1239,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__phong_trung__idp__68487DD7">
+        <Association Name="FK__phong_trung__idp__693CA210">
           <End Role="checkin_phong" Type="Self.checkin_phong" Multiplicity="1" />
           <End Role="phong_trunggian" Type="Self.phong_trunggian" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1188,7 +1251,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__checkout__idkh__5629CD9C">
+        <Association Name="FK__checkout__idkh__571DF1D5">
           <End Role="khachhang" Type="Self.khachhang" Multiplicity="0..1" />
           <End Role="checkout" Type="Self.checkout" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1200,7 +1263,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__checkout__idnv__571DF1D5">
+        <Association Name="FK__checkout__idnv__5812160E">
           <End Role="nhanvien" Type="Self.nhanvien" Multiplicity="0..1" />
           <End Role="checkout" Type="Self.checkout" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1212,7 +1275,19 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dsdattruo__idpho__4E88ABD4">
+        <Association Name="FK__hoadon__idchecko__5CD6CB2B">
+          <End Role="checkout" Type="Self.checkout" Multiplicity="0..1" />
+          <End Role="hoadon" Type="Self.hoadon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="checkout">
+              <PropertyRef Name="idcheckout" />
+            </Principal>
+            <Dependent Role="hoadon">
+              <PropertyRef Name="idcheckout" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__dsdattruo__idpho__4F7CD00D">
           <End Role="phong" Type="Self.phong" Multiplicity="0..1" />
           <End Role="dsdattruoc" Type="Self.dsdattruoc" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1224,7 +1299,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dsdattruoc__idkh__4D94879B">
+        <Association Name="FK__dsdattruoc__idkh__4E88ABD4">
           <End Role="khachhang" Type="Self.khachhang" Multiplicity="0..1" />
           <End Role="dsdattruoc" Type="Self.dsdattruoc" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1236,7 +1311,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dsdattruoc__idnv__4CA06362">
+        <Association Name="FK__dsdattruoc__idnv__4D94879B">
           <End Role="nhanvien" Type="Self.nhanvien" Multiplicity="0..1" />
           <End Role="dsdattruoc" Type="Self.dsdattruoc" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1248,7 +1323,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__dv_trunggi__idhd__6D0D32F4">
+        <Association Name="FK__dv_trunggi__idhd__6E01572D">
           <End Role="hoadon" Type="Self.hoadon" Multiplicity="1" />
           <End Role="dv_trunggian" Type="Self.dv_trunggian" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1284,7 +1359,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__phong_trun__idhd__693CA210">
+        <Association Name="FK__phong_trun__idhd__6A30C649">
           <End Role="hoadon" Type="Self.hoadon" Multiplicity="1" />
           <End Role="phong_trunggian" Type="Self.phong_trunggian" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1296,7 +1371,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tempkhachh__idkh__6FE99F9F">
+        <Association Name="FK__tempkhachh__idkh__70DDC3D8">
           <End Role="khachhang" Type="Self.khachhang" Multiplicity="1" />
           <End Role="tempkhachhang" Type="Self.tempkhachhang" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1308,7 +1383,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__phong__khuvuc__3C69FB99">
+        <Association Name="FK__phong__khuvuc__3D5E1FD2">
           <End Role="khuvuc" Type="Self.khuvuc" Multiplicity="1" />
           <End Role="phong" Type="Self.phong" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1320,7 +1395,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__phong__loaiphong__3B75D760">
+        <Association Name="FK__phong__loaiphong__3C69FB99">
           <End Role="loaiphong" Type="Self.loaiphong" Multiplicity="1" />
           <End Role="phong" Type="Self.phong" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1332,7 +1407,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__nhanvien__taikho__46E78A0C">
+        <Association Name="FK__nhanvien__taikho__47DBAE45">
           <End Role="taikhoan" Type="Self.taikhoan" Multiplicity="0..1" />
           <End Role="nhanvien" Type="Self.nhanvien" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1344,7 +1419,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__voucher__idnv__73BA3083">
+        <Association Name="FK__voucher__idnv__74AE54BC">
           <End Role="nhanvien" Type="Self.nhanvien" Multiplicity="0..1" />
           <End Role="voucher" Type="Self.voucher" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1356,7 +1431,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__taikhoan__loaitk__4222D4EF">
+        <Association Name="FK__taikhoan__loaitk__4316F928">
           <End Role="vaitro" Type="Self.vaitro" Multiplicity="0..1" />
           <End Role="taikhoan" Type="Self.taikhoan" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1368,7 +1443,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DA1_entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Duan1_Final" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="checkins" EntityType="Self.checkin" />
           <EntitySet Name="checkin_dichvu" EntityType="Self.checkin_dichvu" />
           <EntitySet Name="checkin_phong" EntityType="Self.checkin_phong" />
@@ -1391,63 +1466,68 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
           <EntitySet Name="hoadon_phong" EntityType="Self.hoadon_phong" />
           <EntitySet Name="view_dsdattruoc_chitiet" EntityType="Self.view_dsdattruoc_chitiet" />
           <EntitySet Name="view_trangthai_phong_hientai" EntityType="Self.view_trangthai_phong_hientai" />
-          <AssociationSet Name="FK__checkin__idkh__52593CB8" Association="Self.FK__checkin__idkh__52593CB8">
+          <EntitySet Name="viewhoadons" EntityType="Self.viewhoadon" />
+          <AssociationSet Name="FK__checkin__idkh__534D60F1" Association="Self.FK__checkin__idkh__534D60F1">
             <End Role="khachhang" EntitySet="khachhangs" />
             <End Role="checkin" EntitySet="checkins" />
           </AssociationSet>
-          <AssociationSet Name="FK__checkin__idnv__534D60F1" Association="Self.FK__checkin__idnv__534D60F1">
+          <AssociationSet Name="FK__checkin__idnv__5441852A" Association="Self.FK__checkin__idnv__5441852A">
             <End Role="nhanvien" EntitySet="nhanviens" />
             <End Role="checkin" EntitySet="checkins" />
           </AssociationSet>
-          <AssociationSet Name="FK__checkin_d__idche__60A75C0F" Association="Self.FK__checkin_d__idche__60A75C0F">
+          <AssociationSet Name="FK__checkin_d__idche__619B8048" Association="Self.FK__checkin_d__idche__619B8048">
             <End Role="checkin" EntitySet="checkins" />
             <End Role="checkin_dichvu" EntitySet="checkin_dichvu" />
           </AssociationSet>
-          <AssociationSet Name="FK__checkin_p__idche__6477ECF3" Association="Self.FK__checkin_p__idche__6477ECF3">
+          <AssociationSet Name="FK__checkin_p__idche__656C112C" Association="Self.FK__checkin_p__idche__656C112C">
             <End Role="checkin" EntitySet="checkins" />
             <End Role="checkin_phong" EntitySet="checkin_phong" />
           </AssociationSet>
-          <AssociationSet Name="FK__tempkhach__idche__70DDC3D8" Association="Self.FK__tempkhach__idche__70DDC3D8">
+          <AssociationSet Name="FK__tempkhach__idche__71D1E811" Association="Self.FK__tempkhach__idche__71D1E811">
             <End Role="checkin" EntitySet="checkins" />
             <End Role="tempkhachhang" EntitySet="tempkhachhangs" />
           </AssociationSet>
-          <AssociationSet Name="FK__checkin_di__iddv__619B8048" Association="Self.FK__checkin_di__iddv__619B8048">
+          <AssociationSet Name="FK__checkin_di__iddv__628FA481" Association="Self.FK__checkin_di__iddv__628FA481">
             <End Role="dichvu" EntitySet="dichvus" />
             <End Role="checkin_dichvu" EntitySet="checkin_dichvu" />
           </AssociationSet>
-          <AssociationSet Name="FK__dv_trunggi__iddv__6C190EBB" Association="Self.FK__dv_trunggi__iddv__6C190EBB">
+          <AssociationSet Name="FK__dv_trunggi__iddv__6D0D32F4" Association="Self.FK__dv_trunggi__iddv__6D0D32F4">
             <End Role="checkin_dichvu" EntitySet="checkin_dichvu" />
             <End Role="dv_trunggian" EntitySet="dv_trunggian" />
           </AssociationSet>
-          <AssociationSet Name="FK__checkin_p__idpho__656C112C" Association="Self.FK__checkin_p__idpho__656C112C">
+          <AssociationSet Name="FK__checkin_p__idpho__66603565" Association="Self.FK__checkin_p__idpho__66603565">
             <End Role="phong" EntitySet="phongs" />
             <End Role="checkin_phong" EntitySet="checkin_phong" />
           </AssociationSet>
-          <AssociationSet Name="FK__phong_trung__idp__68487DD7" Association="Self.FK__phong_trung__idp__68487DD7">
+          <AssociationSet Name="FK__phong_trung__idp__693CA210" Association="Self.FK__phong_trung__idp__693CA210">
             <End Role="checkin_phong" EntitySet="checkin_phong" />
             <End Role="phong_trunggian" EntitySet="phong_trunggian" />
           </AssociationSet>
-          <AssociationSet Name="FK__checkout__idkh__5629CD9C" Association="Self.FK__checkout__idkh__5629CD9C">
+          <AssociationSet Name="FK__checkout__idkh__571DF1D5" Association="Self.FK__checkout__idkh__571DF1D5">
             <End Role="khachhang" EntitySet="khachhangs" />
             <End Role="checkout" EntitySet="checkouts" />
           </AssociationSet>
-          <AssociationSet Name="FK__checkout__idnv__571DF1D5" Association="Self.FK__checkout__idnv__571DF1D5">
+          <AssociationSet Name="FK__checkout__idnv__5812160E" Association="Self.FK__checkout__idnv__5812160E">
             <End Role="nhanvien" EntitySet="nhanviens" />
             <End Role="checkout" EntitySet="checkouts" />
           </AssociationSet>
-          <AssociationSet Name="FK__dsdattruo__idpho__4E88ABD4" Association="Self.FK__dsdattruo__idpho__4E88ABD4">
+          <AssociationSet Name="FK__hoadon__idchecko__5CD6CB2B" Association="Self.FK__hoadon__idchecko__5CD6CB2B">
+            <End Role="checkout" EntitySet="checkouts" />
+            <End Role="hoadon" EntitySet="hoadons" />
+          </AssociationSet>
+          <AssociationSet Name="FK__dsdattruo__idpho__4F7CD00D" Association="Self.FK__dsdattruo__idpho__4F7CD00D">
             <End Role="phong" EntitySet="phongs" />
             <End Role="dsdattruoc" EntitySet="dsdattruocs" />
           </AssociationSet>
-          <AssociationSet Name="FK__dsdattruoc__idkh__4D94879B" Association="Self.FK__dsdattruoc__idkh__4D94879B">
+          <AssociationSet Name="FK__dsdattruoc__idkh__4E88ABD4" Association="Self.FK__dsdattruoc__idkh__4E88ABD4">
             <End Role="khachhang" EntitySet="khachhangs" />
             <End Role="dsdattruoc" EntitySet="dsdattruocs" />
           </AssociationSet>
-          <AssociationSet Name="FK__dsdattruoc__idnv__4CA06362" Association="Self.FK__dsdattruoc__idnv__4CA06362">
+          <AssociationSet Name="FK__dsdattruoc__idnv__4D94879B" Association="Self.FK__dsdattruoc__idnv__4D94879B">
             <End Role="nhanvien" EntitySet="nhanviens" />
             <End Role="dsdattruoc" EntitySet="dsdattruocs" />
           </AssociationSet>
-          <AssociationSet Name="FK__dv_trunggi__idhd__6D0D32F4" Association="Self.FK__dv_trunggi__idhd__6D0D32F4">
+          <AssociationSet Name="FK__dv_trunggi__idhd__6E01572D" Association="Self.FK__dv_trunggi__idhd__6E01572D">
             <End Role="hoadon" EntitySet="hoadons" />
             <End Role="dv_trunggian" EntitySet="dv_trunggian" />
           </AssociationSet>
@@ -1459,31 +1539,31 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             <End Role="nhanvien" EntitySet="nhanviens" />
             <End Role="hoadon" EntitySet="hoadons" />
           </AssociationSet>
-          <AssociationSet Name="FK__phong_trun__idhd__693CA210" Association="Self.FK__phong_trun__idhd__693CA210">
+          <AssociationSet Name="FK__phong_trun__idhd__6A30C649" Association="Self.FK__phong_trun__idhd__6A30C649">
             <End Role="hoadon" EntitySet="hoadons" />
             <End Role="phong_trunggian" EntitySet="phong_trunggian" />
           </AssociationSet>
-          <AssociationSet Name="FK__tempkhachh__idkh__6FE99F9F" Association="Self.FK__tempkhachh__idkh__6FE99F9F">
+          <AssociationSet Name="FK__tempkhachh__idkh__70DDC3D8" Association="Self.FK__tempkhachh__idkh__70DDC3D8">
             <End Role="khachhang" EntitySet="khachhangs" />
             <End Role="tempkhachhang" EntitySet="tempkhachhangs" />
           </AssociationSet>
-          <AssociationSet Name="FK__phong__khuvuc__3C69FB99" Association="Self.FK__phong__khuvuc__3C69FB99">
+          <AssociationSet Name="FK__phong__khuvuc__3D5E1FD2" Association="Self.FK__phong__khuvuc__3D5E1FD2">
             <End Role="khuvuc" EntitySet="khuvucs" />
             <End Role="phong" EntitySet="phongs" />
           </AssociationSet>
-          <AssociationSet Name="FK__phong__loaiphong__3B75D760" Association="Self.FK__phong__loaiphong__3B75D760">
+          <AssociationSet Name="FK__phong__loaiphong__3C69FB99" Association="Self.FK__phong__loaiphong__3C69FB99">
             <End Role="loaiphong" EntitySet="loaiphongs" />
             <End Role="phong" EntitySet="phongs" />
           </AssociationSet>
-          <AssociationSet Name="FK__nhanvien__taikho__46E78A0C" Association="Self.FK__nhanvien__taikho__46E78A0C">
+          <AssociationSet Name="FK__nhanvien__taikho__47DBAE45" Association="Self.FK__nhanvien__taikho__47DBAE45">
             <End Role="taikhoan" EntitySet="taikhoans" />
             <End Role="nhanvien" EntitySet="nhanviens" />
           </AssociationSet>
-          <AssociationSet Name="FK__voucher__idnv__73BA3083" Association="Self.FK__voucher__idnv__73BA3083">
+          <AssociationSet Name="FK__voucher__idnv__74AE54BC" Association="Self.FK__voucher__idnv__74AE54BC">
             <End Role="nhanvien" EntitySet="nhanviens" />
             <End Role="voucher" EntitySet="vouchers" />
           </AssociationSet>
-          <AssociationSet Name="FK__taikhoan__loaitk__4222D4EF" Association="Self.FK__taikhoan__loaitk__4222D4EF">
+          <AssociationSet Name="FK__taikhoan__loaitk__4316F928" Association="Self.FK__taikhoan__loaitk__4316F928">
             <End Role="vaitro" EntitySet="vaitroes" />
             <End Role="taikhoan" EntitySet="taikhoans" />
           </AssociationSet>
@@ -1504,10 +1584,6 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
             <Parameter Name="ngayden" Mode="In" Type="String" />
             <Parameter Name="ngaydi" Mode="In" Type="String" />
           </FunctionImport>
-          <AssociationSet Name="FK__hoadon__idchecko__5CD6CB2B" Association="duan1Model.FK__hoadon__idchecko__5CD6CB2B">
-            <End Role="checkout" EntitySet="checkouts" />
-            <End Role="hoadon" EntitySet="hoadons" />
-          </AssociationSet>
         </EntityContainer>
         <ComplexType Name="kiemtra_dsdattruoc_chitiet_Result">
           <Property Type="Int32" Name="idphong" Nullable="false" />
@@ -1534,33 +1610,21 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
           <Property Type="Int32" Name="trangthai" Nullable="false" />
           <Property Type="String" Name="trangthai_text" Nullable="false" MaxLength="6" />
         </ComplexType>
-        <Association Name="FK__hoadon__idchecko__5CD6CB2B">
-          <End Type="duan1Model.checkout" Role="checkout" Multiplicity="0..1" />
-          <End Type="duan1Model.hoadon" Role="hoadon" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="checkout">
-              <PropertyRef Name="idcheckout" />
-            </Principal>
-            <Dependent Role="hoadon">
-              <PropertyRef Name="idcheckout" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="duan1ModelStoreContainer" CdmEntityContainer="DA1_entities">
+        <EntityContainerMapping StorageEntityContainer="duan1ModelStoreContainer" CdmEntityContainer="Duan1_Final">
           <EntitySetMapping Name="checkins">
             <EntityTypeMapping TypeName="duan1Model.checkin">
               <MappingFragment StoreEntitySet="checkin">
-                <ScalarProperty Name="tienkhachtra" ColumnName="tienkhachtra" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="idkh" ColumnName="idkh" />
                 <ScalarProperty Name="idnv" ColumnName="idnv" />
                 <ScalarProperty Name="ngaycheckin" ColumnName="ngaycheckin" />
                 <ScalarProperty Name="trangthai" ColumnName="trangthai" />
+                <ScalarProperty Name="tienkhachtra" ColumnName="tienkhachtra" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1633,7 +1697,6 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
           <EntitySetMapping Name="hoadons">
             <EntityTypeMapping TypeName="duan1Model.hoadon">
               <MappingFragment StoreEntitySet="hoadon">
-                <ScalarProperty Name="idcheckout" ColumnName="idcheckout" />
                 <ScalarProperty Name="idhoadon" ColumnName="idhoadon" />
                 <ScalarProperty Name="idkh" ColumnName="idkh" />
                 <ScalarProperty Name="idnv" ColumnName="idnv" />
@@ -1641,6 +1704,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
                 <ScalarProperty Name="tongtien" ColumnName="tongtien" />
                 <ScalarProperty Name="songuoi" ColumnName="songuoi" />
                 <ScalarProperty Name="trangthai" ColumnName="trangthai" />
+                <ScalarProperty Name="idcheckout" ColumnName="idcheckout" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1810,6 +1874,22 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
                 <ScalarProperty Name="tenkhuvuc" ColumnName="tenkhuvuc" />
                 <ScalarProperty Name="trangthai" ColumnName="trangthai" />
                 <ScalarProperty Name="trangthai_text" ColumnName="trangthai_text" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="viewhoadons">
+            <EntityTypeMapping TypeName="duan1Model.viewhoadon">
+              <MappingFragment StoreEntitySet="viewhoadon">
+                <ScalarProperty Name="idhoadon" ColumnName="idhoadon" />
+                <ScalarProperty Name="tenphong" ColumnName="tenphong" />
+                <ScalarProperty Name="ngaytao" ColumnName="ngaytao" />
+                <ScalarProperty Name="ten" ColumnName="ten" />
+                <ScalarProperty Name="ngaycheckin" ColumnName="ngaycheckin" />
+                <ScalarProperty Name="ngaycheckout" ColumnName="ngaycheckout" />
+                <ScalarProperty Name="tienkhachtra" ColumnName="tienkhachtra" />
+                <ScalarProperty Name="idcheckin" ColumnName="idcheckin" />
+                <ScalarProperty Name="idphong" ColumnName="idphong" />
+                <ScalarProperty Name="tennhanvien" ColumnName="tennhanvien" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

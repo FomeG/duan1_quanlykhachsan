@@ -47,7 +47,8 @@ namespace GUI_Quanlykhachsan.ChucNang
             reload();
         }
 
-        private void Qly_NhanVien_Load(object sender, EventArgs e) {
+        private void Qly_NhanVien_Load(object sender, EventArgs e)
+        {
             reload();
         }
 
