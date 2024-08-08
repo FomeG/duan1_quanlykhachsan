@@ -27,6 +27,7 @@ namespace DTO_Quanly.Model.DB
         public Nullable<int> idnv { get; set; }
         public System.DateTime ngaycheckin { get; set; }
         public string trangthai { get; set; }
+        public Nullable<decimal> tienkhachtra { get; set; }
     
         public virtual khachhang khachhang { get; set; }
         public virtual nhanvien nhanvien { get; set; }

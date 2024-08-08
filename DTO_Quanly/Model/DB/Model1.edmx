@@ -14,6 +14,7 @@
           <Property Name="idnv" Type="int" />
           <Property Name="ngaycheckin" Type="datetime" Nullable="false" />
           <Property Name="trangthai" Type="nvarchar" MaxLength="20" />
+          <Property Name="tienkhachtra" Type="decimal" Precision="10" Scale="2" />
         </EntityType>
         <EntityType Name="checkin_dichvu">
           <Key>
@@ -763,6 +764,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
           <NavigationProperty Name="checkin_dichvu" Relationship="Self.FK__checkin_d__idche__60A75C0F" FromRole="checkin" ToRole="checkin_dichvu" />
           <NavigationProperty Name="checkin_phong" Relationship="Self.FK__checkin_p__idche__6477ECF3" FromRole="checkin" ToRole="checkin_phong" />
           <NavigationProperty Name="tempkhachhangs" Relationship="Self.FK__tempkhach__idche__70DDC3D8" FromRole="checkin" ToRole="tempkhachhang" />
+          <Property Name="tienkhachtra" Type="Decimal" Precision="10" Scale="2" />
         </EntityType>
         <EntityType Name="checkin_dichvu">
           <Key>
@@ -1517,6 +1519,7 @@ warning 6002: The table/view 'duan1.dbo.view_trangthai_phong_hientai' does not h
           <EntitySetMapping Name="checkins">
             <EntityTypeMapping TypeName="duan1Model.checkin">
               <MappingFragment StoreEntitySet="checkin">
+                <ScalarProperty Name="tienkhachtra" ColumnName="tienkhachtra" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="idkh" ColumnName="idkh" />
                 <ScalarProperty Name="idnv" ColumnName="idnv" />

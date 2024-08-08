@@ -31,15 +31,15 @@
             this.gview1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.guna2DateTimePicker2 = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.guna2DateTimePicker1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.txtsophong = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txttenphong = new Guna.UI2.WinForms.Guna2TextBox();
+            this.NgayDi = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.NgayDen = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.txttenphong = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtsophong = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.label2 = new System.Windows.Forms.Label();
             this.cb1 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2GradientButton2 = new Guna.UI2.WinForms.Guna2GradientButton();
@@ -71,8 +71,8 @@
             this.guna2GroupBox1.Controls.Add(this.guna2GradientButton1);
             this.guna2GroupBox1.Controls.Add(this.txtsophong);
             this.guna2GroupBox1.Controls.Add(this.txttenphong);
-            this.guna2GroupBox1.Controls.Add(this.guna2DateTimePicker2);
-            this.guna2GroupBox1.Controls.Add(this.guna2DateTimePicker1);
+            this.guna2GroupBox1.Controls.Add(this.NgayDi);
+            this.guna2GroupBox1.Controls.Add(this.NgayDen);
             this.guna2GroupBox1.Controls.Add(this.label5);
             this.guna2GroupBox1.Controls.Add(this.label11);
             this.guna2GroupBox1.Controls.Add(this.label7);
@@ -86,31 +86,102 @@
             this.guna2GroupBox1.TabIndex = 6;
             this.guna2GroupBox1.Text = "Tìm kiếm thông tin";
             // 
-            // guna2DateTimePicker2
+            // guna2GradientButton1
             // 
-            this.guna2DateTimePicker2.Checked = true;
-            this.guna2DateTimePicker2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.guna2DateTimePicker2.Location = new System.Drawing.Point(135, 111);
-            this.guna2DateTimePicker2.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.guna2DateTimePicker2.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.guna2DateTimePicker2.Name = "guna2DateTimePicker2";
-            this.guna2DateTimePicker2.Size = new System.Drawing.Size(200, 36);
-            this.guna2DateTimePicker2.TabIndex = 18;
-            this.guna2DateTimePicker2.Value = new System.DateTime(2024, 8, 7, 10, 34, 41, 208);
+            this.guna2GradientButton1.Animated = true;
+            this.guna2GradientButton1.BorderRadius = 10;
+            this.guna2GradientButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.guna2GradientButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2GradientButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2GradientButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2GradientButton1.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2GradientButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2GradientButton1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.guna2GradientButton1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.guna2GradientButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2GradientButton1.ForeColor = System.Drawing.Color.Black;
+            this.guna2GradientButton1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.guna2GradientButton1.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.guna2GradientButton1.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.guna2GradientButton1.HoverState.ForeColor = System.Drawing.Color.White;
+            this.guna2GradientButton1.Location = new System.Drawing.Point(638, 91);
+            this.guna2GradientButton1.Name = "guna2GradientButton1";
+            this.guna2GradientButton1.Size = new System.Drawing.Size(180, 45);
+            this.guna2GradientButton1.TabIndex = 21;
+            this.guna2GradientButton1.Text = "Kiểm tra";
+            this.guna2GradientButton1.Click += new System.EventHandler(this.guna2GradientButton1_Click);
             // 
-            // guna2DateTimePicker1
+            // txtsophong
             // 
-            this.guna2DateTimePicker1.Checked = true;
-            this.guna2DateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.guna2DateTimePicker1.Location = new System.Drawing.Point(135, 70);
-            this.guna2DateTimePicker1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.guna2DateTimePicker1.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.guna2DateTimePicker1.Name = "guna2DateTimePicker1";
-            this.guna2DateTimePicker1.Size = new System.Drawing.Size(200, 36);
-            this.guna2DateTimePicker1.TabIndex = 17;
-            this.guna2DateTimePicker1.Value = new System.DateTime(2024, 8, 7, 10, 34, 29, 649);
+            this.txtsophong.Animated = true;
+            this.txtsophong.BorderRadius = 10;
+            this.txtsophong.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtsophong.DefaultText = "";
+            this.txtsophong.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtsophong.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtsophong.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtsophong.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtsophong.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtsophong.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtsophong.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtsophong.Location = new System.Drawing.Point(642, 28);
+            this.txtsophong.Name = "txtsophong";
+            this.txtsophong.PasswordChar = '\0';
+            this.txtsophong.PlaceholderText = "Tên số phòng";
+            this.txtsophong.SelectedText = "";
+            this.txtsophong.Size = new System.Drawing.Size(200, 36);
+            this.txtsophong.TabIndex = 20;
+            // 
+            // txttenphong
+            // 
+            this.txttenphong.Animated = true;
+            this.txttenphong.BorderRadius = 10;
+            this.txttenphong.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txttenphong.DefaultText = "";
+            this.txttenphong.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txttenphong.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txttenphong.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txttenphong.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txttenphong.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txttenphong.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txttenphong.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txttenphong.Location = new System.Drawing.Point(135, 28);
+            this.txttenphong.Name = "txttenphong";
+            this.txttenphong.PasswordChar = '\0';
+            this.txttenphong.PlaceholderText = "Tên khách hàng:";
+            this.txttenphong.SelectedText = "";
+            this.txttenphong.Size = new System.Drawing.Size(200, 36);
+            this.txttenphong.TabIndex = 19;
+            // 
+            // NgayDi
+            // 
+            this.NgayDi.Animated = true;
+            this.NgayDi.BorderRadius = 10;
+            this.NgayDi.Checked = true;
+            this.NgayDi.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.NgayDi.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.NgayDi.Location = new System.Drawing.Point(135, 111);
+            this.NgayDi.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.NgayDi.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.NgayDi.Name = "NgayDi";
+            this.NgayDi.Size = new System.Drawing.Size(200, 36);
+            this.NgayDi.TabIndex = 18;
+            this.NgayDi.Value = new System.DateTime(2024, 8, 7, 10, 34, 41, 208);
+            // 
+            // NgayDen
+            // 
+            this.NgayDen.Animated = true;
+            this.NgayDen.BorderRadius = 10;
+            this.NgayDen.Checked = true;
+            this.NgayDen.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.NgayDen.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.NgayDen.Location = new System.Drawing.Point(135, 70);
+            this.NgayDen.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.NgayDen.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.NgayDen.Name = "NgayDen";
+            this.NgayDen.Size = new System.Drawing.Size(200, 36);
+            this.NgayDen.TabIndex = 17;
+            this.NgayDen.Value = new System.DateTime(2024, 8, 7, 10, 34, 29, 649);
             // 
             // label5
             // 
@@ -155,72 +226,6 @@
             this.label6.Size = new System.Drawing.Size(35, 15);
             this.label6.TabIndex = 0;
             this.label6.Text = "Tên:";
-            // 
-            // txttenphong
-            // 
-            this.txttenphong.Animated = true;
-            this.txttenphong.BorderRadius = 10;
-            this.txttenphong.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txttenphong.DefaultText = "";
-            this.txttenphong.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txttenphong.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txttenphong.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txttenphong.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txttenphong.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txttenphong.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txttenphong.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txttenphong.Location = new System.Drawing.Point(135, 28);
-            this.txttenphong.Name = "txttenphong";
-            this.txttenphong.PasswordChar = '\0';
-            this.txttenphong.PlaceholderText = "Tên khách hàng:";
-            this.txttenphong.SelectedText = "";
-            this.txttenphong.Size = new System.Drawing.Size(200, 36);
-            this.txttenphong.TabIndex = 19;
-            // 
-            // txtsophong
-            // 
-            this.txtsophong.Animated = true;
-            this.txtsophong.BorderRadius = 10;
-            this.txtsophong.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtsophong.DefaultText = "";
-            this.txtsophong.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtsophong.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtsophong.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtsophong.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtsophong.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtsophong.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtsophong.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtsophong.Location = new System.Drawing.Point(642, 28);
-            this.txtsophong.Name = "txtsophong";
-            this.txtsophong.PasswordChar = '\0';
-            this.txtsophong.PlaceholderText = "Tên số phòng";
-            this.txtsophong.SelectedText = "";
-            this.txtsophong.Size = new System.Drawing.Size(200, 36);
-            this.txtsophong.TabIndex = 20;
-            // 
-            // guna2GradientButton1
-            // 
-            this.guna2GradientButton1.Animated = true;
-            this.guna2GradientButton1.BorderRadius = 10;
-            this.guna2GradientButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2GradientButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2GradientButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2GradientButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2GradientButton1.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2GradientButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2GradientButton1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.guna2GradientButton1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.guna2GradientButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2GradientButton1.ForeColor = System.Drawing.Color.Black;
-            this.guna2GradientButton1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.guna2GradientButton1.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.guna2GradientButton1.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.guna2GradientButton1.HoverState.ForeColor = System.Drawing.Color.White;
-            this.guna2GradientButton1.Location = new System.Drawing.Point(638, 91);
-            this.guna2GradientButton1.Name = "guna2GradientButton1";
-            this.guna2GradientButton1.Size = new System.Drawing.Size(180, 45);
-            this.guna2GradientButton1.TabIndex = 21;
-            this.guna2GradientButton1.Text = "Kiểm tra";
             // 
             // label2
             // 
@@ -271,7 +276,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(982, 498);
+            this.ClientSize = new System.Drawing.Size(990, 550);
             this.Controls.Add(this.guna2GradientButton2);
             this.Controls.Add(this.cb1);
             this.Controls.Add(this.label2);
@@ -300,8 +305,8 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker2;
-        private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker1;
+        private Guna.UI2.WinForms.Guna2DateTimePicker NgayDi;
+        private Guna.UI2.WinForms.Guna2DateTimePicker NgayDen;
         private Guna.UI2.WinForms.Guna2TextBox txtsophong;
         private Guna.UI2.WinForms.Guna2TextBox txttenphong;
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton1;

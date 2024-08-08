@@ -103,13 +103,15 @@ namespace DAL_Quanly.Repository.QuanLyDatPhong.KhachHang
                         DTODB.db.SaveChanges();
                     }
 
+                    decimal.TryParse(khachtt, out decimal tientra);
                     // Thêm checkin mới vào DB
                     checkin checkinmoi = new checkin()
                     {
                         idkh = DTODB.db.khachhangs.FirstOrDefault(p => p.email == email).id,
                         idnv = TDatPhong.IDNV,
                         ngaycheckin = DateTime.Now.Date,
-                        trangthai = "Đặt"
+                        trangthai = "Đặt",
+                        tienkhachtra = tientra
                     };
                     DTODB.db.checkins.Add(checkinmoi);
                     DTODB.db.SaveChanges();
@@ -118,7 +120,6 @@ namespace DAL_Quanly.Repository.QuanLyDatPhong.KhachHang
                     int idcheckin = checkinmoi.id;
 
                     // Thêm tempkhachhang mới vào DB
-                    decimal.TryParse(khachtt, out decimal tientra);
                     tempkhachhang tempkh = new tempkhachhang()
                     {
                         idkh = DTODB.db.khachhangs.FirstOrDefault(p => p.email == email).id,

@@ -155,6 +155,7 @@ namespace GUI_Quanlykhachsan.ChucNang
         public void reload()
         {
             var listkh = from a in DTODB.db.khachhangs.ToList()
+                         where a.tt == false
                          select new
                          {
                              a.ten,
