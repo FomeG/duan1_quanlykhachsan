@@ -233,7 +233,7 @@
             // guna2GradientButton4
             // 
             this.guna2GradientButton4.AutoRoundedCorners = true;
-            this.guna2GradientButton4.BorderRadius = 21;
+            this.guna2GradientButton4.BorderRadius = 10;
             this.guna2GradientButton4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2GradientButton4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2GradientButton4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -253,7 +253,7 @@
             // btnXoa
             // 
             this.btnXoa.AutoRoundedCorners = true;
-            this.btnXoa.BorderRadius = 21;
+            this.btnXoa.BorderRadius = 10;
             this.btnXoa.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnXoa.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnXoa.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -274,7 +274,7 @@
             // btnSua
             // 
             this.btnSua.AutoRoundedCorners = true;
-            this.btnSua.BorderRadius = 21;
+            this.btnSua.BorderRadius = 10;
             this.btnSua.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnSua.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnSua.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -295,7 +295,7 @@
             // guna2GradientButton1
             // 
             this.guna2GradientButton1.AutoRoundedCorners = true;
-            this.guna2GradientButton1.BorderRadius = 21;
+            this.guna2GradientButton1.BorderRadius = 10;
             this.guna2GradientButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2GradientButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2GradientButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
