@@ -31,11 +31,6 @@ namespace GUI_Quanlykhachsan.ChucNang
         }
         public bool checkkiemtra()
         {
-            if (NgayDen.Value.Date < DateTime.Now.Date)
-            {
-                MessageBox.Show("Ngày đến không được nhỏ hơn ngày hiện tại!", "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
             if (NgayDi.Value.Date <= NgayDen.Value.Date)
             {
                 MessageBox.Show("Ngày đi không được nhỏ hơn ngày đến!", "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -49,6 +44,24 @@ namespace GUI_Quanlykhachsan.ChucNang
             {
 
             }
+        }
+
+        private void guna2GradientButton2_Click(object sender, EventArgs e)
+        {
+            if (gview1.SelectedRows.Count <= 0)
+            {
+                MessageBox.Show("Vui lòng chọn hoá đơn");
+            }
+        }
+
+        private void NgayDen_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NgayDi_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -141,8 +141,10 @@ namespace DAL_Quanly.Repository.QuanLyDatPhong.KhachHang
                     DTODB.db.SaveChanges();
 
 
+
                     DTODB.db.insert_dsdattruoc(TDatPhong.IDNV, DTODB.db.khachhangs.FirstOrDefault(p => p.email == email).id, TDatPhong.IdPhong, nDen, nDi, "Khong");
                     DTODB.db.SaveChanges();
+
 
 
                     transaction.Commit(); // Ổn thì commit 
@@ -157,5 +159,17 @@ namespace DAL_Quanly.Repository.QuanLyDatPhong.KhachHang
                 }
             }
         }
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

@@ -14,6 +14,12 @@ namespace DTO_Quanly.Model.DB
     
     public partial class checkout
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public checkout()
+        {
+            this.hoadons = new HashSet<hoadon>();
+        }
+    
         public int idcheckout { get; set; }
         public Nullable<int> idkh { get; set; }
         public Nullable<int> idnv { get; set; }
@@ -22,5 +28,7 @@ namespace DTO_Quanly.Model.DB
     
         public virtual khachhang khachhang { get; set; }
         public virtual nhanvien nhanvien { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<hoadon> hoadons { get; set; }
     }
 }

@@ -144,7 +144,6 @@ namespace GUI_Quanlykhachsan.ChucNang
                 {
                     try
                     {
-
                         // Cập nhật thông tin vào trong checkout
                         checkout checkoutmoi = new checkout()
                         {
@@ -176,7 +175,8 @@ namespace GUI_Quanlykhachsan.ChucNang
                             ngaytao = DateTime.Now.Date,
                             tongtien = tongtien,
                             songuoi = 1,
-                            trangthai = "Đã thanh toán"
+                            trangthai = "Đã thanh toán",
+                            idcheckout = checkoutmoi.idcheckout
 
                         };
                         DTODB.db.hoadons.Add(hoadonmoi);
@@ -269,6 +269,12 @@ namespace GUI_Quanlykhachsan.ChucNang
                 decimal.TryParse(tongTT.Text, out decimal tongtien);
                 tongtien = tongtien - (tongtien * (voucher.giamgia / 100));
                 tongTT.Text = tongtien.ToString();
+
+                txtVoucher.Enabled = false;
+                guna2GradientButton1.Enabled = false;
+
+                voucher.soluong -= 1;
+                DTODB.db.SaveChanges();
 
                 MessageBox.Show("Thành công!");
             }

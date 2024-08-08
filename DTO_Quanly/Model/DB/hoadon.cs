@@ -28,6 +28,7 @@ namespace DTO_Quanly.Model.DB
         public decimal tongtien { get; set; }
         public Nullable<int> songuoi { get; set; }
         public string trangthai { get; set; }
+        public Nullable<int> idcheckout { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<dv_trunggian> dv_trunggian { get; set; }
@@ -35,5 +36,6 @@ namespace DTO_Quanly.Model.DB
         public virtual nhanvien nhanvien { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<phong_trunggian> phong_trunggian { get; set; }
+        public virtual checkout checkout { get; set; }
     }
 }

@@ -51,6 +51,7 @@
         <AssociationConnector Association="duan1Model.FK__nhanvien__taikho__46E78A0C" ManuallyRouted="false" />
         <AssociationConnector Association="duan1Model.FK__voucher__idnv__73BA3083" ManuallyRouted="false" />
         <AssociationConnector Association="duan1Model.FK__taikhoan__loaitk__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="duan1Model.FK__hoadon__idchecko__5CD6CB2B" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
