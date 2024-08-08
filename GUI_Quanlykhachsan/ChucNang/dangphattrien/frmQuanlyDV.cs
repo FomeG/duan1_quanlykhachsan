@@ -33,7 +33,7 @@ namespace GUI_Quanlykhachsan.ChucNang.dangphattrien
         }
 
         // Nút reload
-        private void guna2GradientButton4_Click(object sender, EventArgs e)
+        public void guna2GradientButton4_Click(object sender, EventArgs e)
         {
             reload();
         }
@@ -154,6 +154,15 @@ namespace GUI_Quanlykhachsan.ChucNang.dangphattrien
                     reload();
                     MessageBox.Show("Thành công!");
                 }
+            }
+        }
+
+        private void txttimkiem_TextChanged(object sender, EventArgs e)
+        {
+            var listtimkiem = _dv.hienthidv().Where(x => x.tendv.ToLower().Contains(txttimkiem.Text.ToLower()) || x.mota.ToLower().Contains(txttimkiem.Text.ToLower())).ToList();
+            if (listtimkiem != null)
+            {
+                gview1.DataSource = listtimkiem;
             }
         }
     }

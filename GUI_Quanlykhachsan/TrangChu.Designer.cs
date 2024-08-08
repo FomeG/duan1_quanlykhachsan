@@ -374,7 +374,7 @@
             this.guna2GradientButton5.Name = "guna2GradientButton5";
             this.guna2GradientButton5.Size = new System.Drawing.Size(192, 45);
             this.guna2GradientButton5.TabIndex = 7;
-            this.guna2GradientButton5.Text = "Hoá đơn";
+            this.guna2GradientButton5.Text = "Lịch sử phòng";
             this.guna2GradientButton5.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2GradientButton5.Click += new System.EventHandler(this.guna2GradientButton5_Click);
             // 
@@ -542,13 +542,16 @@
             this.Ttimp.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.Ttimp.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.Ttimp.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.Ttimp.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.Ttimp.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.Ttimp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Ttimp.ForeColor = System.Drawing.Color.White;
-            this.Ttimp.Location = new System.Drawing.Point(698, 20);
+            this.Ttimp.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.Ttimp.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.Ttimp.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Ttimp.ForeColor = System.Drawing.Color.Black;
+            this.Ttimp.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.Ttimp.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.Ttimp.HoverState.ForeColor = System.Drawing.Color.White;
+            this.Ttimp.Location = new System.Drawing.Point(841, 16);
             this.Ttimp.Name = "Ttimp";
-            this.Ttimp.Size = new System.Drawing.Size(111, 36);
+            this.Ttimp.Size = new System.Drawing.Size(154, 45);
             this.Ttimp.TabIndex = 17;
             this.Ttimp.Text = "Tìm kiếm phòng";
             this.Ttimp.Click += new System.EventHandler(this.Ttimp_Click);
@@ -557,13 +560,14 @@
             // 
             this.tngaydi.BorderRadius = 10;
             this.tngaydi.Checked = true;
+            this.tngaydi.FillColor = System.Drawing.Color.White;
             this.tngaydi.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tngaydi.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.tngaydi.Location = new System.Drawing.Point(492, 20);
+            this.tngaydi.Location = new System.Drawing.Point(635, 16);
             this.tngaydi.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.tngaydi.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.tngaydi.Name = "tngaydi";
-            this.tngaydi.Size = new System.Drawing.Size(200, 36);
+            this.tngaydi.Size = new System.Drawing.Size(200, 45);
             this.tngaydi.TabIndex = 16;
             this.tngaydi.Value = new System.DateTime(2024, 7, 30, 23, 14, 20, 519);
             // 
@@ -571,13 +575,14 @@
             // 
             this.tngayden.BorderRadius = 10;
             this.tngayden.Checked = true;
+            this.tngayden.FillColor = System.Drawing.Color.White;
             this.tngayden.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tngayden.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.tngayden.Location = new System.Drawing.Point(286, 20);
+            this.tngayden.Location = new System.Drawing.Point(429, 16);
             this.tngayden.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.tngayden.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.tngayden.Name = "tngayden";
-            this.tngayden.Size = new System.Drawing.Size(200, 36);
+            this.tngayden.Size = new System.Drawing.Size(200, 45);
             this.tngayden.TabIndex = 16;
             this.tngayden.Value = new System.DateTime(2024, 7, 30, 23, 14, 20, 519);
             // 

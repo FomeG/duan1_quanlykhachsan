@@ -49,10 +49,10 @@ namespace GUI_Quanlykhachsan.ChucNang
                 MessageBox.Show("Định dạng email không hợp lệ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            DateTime ngaySinh;
-            if (!DateTime.TryParse(date1.Value.ToString("yyyy/MM/dd"), out ngaySinh) || ngaySinh > DateTime.Now)
+            if ((DateTime.Now.Year - date1.Value.Year) < 18 ||
+     (DateTime.Now.Year - date1.Value.Year == 18 && DateTime.Now < date1.Value.AddYears(18)))
             {
-                MessageBox.Show("Ngày sinh không hợp lệ hoặc lớn hơn ngày hiện tại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Khách hàng phải trên 18 tuôi!");
                 return false;
             }
 
@@ -61,12 +61,7 @@ namespace GUI_Quanlykhachsan.ChucNang
 
         private void btnanh_Click(object sender, EventArgs e)
         {
-            openFileDialog1.Filter = "Image Files|*.jpg;*.jpeg;*.png;";
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                ImagePath = openFileDialog1.FileName;
-                guna2PictureBox1.Image = System.Drawing.Image.FromFile(ImagePath);
-            }
+
         }
 
         private string GetProjectRootPath()
@@ -127,10 +122,7 @@ namespace GUI_Quanlykhachsan.ChucNang
                     }
                     else
                     {
-                        MessageBox.Show("Chưa chọn ảnh. Vui lòng chọn ảnh trước khi thêm khách hàng.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
-
+                       
                     DateTime.TryParse(date1.Value.ToString("yyyy/MM/dd"), out DateTime ngaySinh);
                     var kh = new khachhang()
                     {
@@ -147,6 +139,8 @@ namespace GUI_Quanlykhachsan.ChucNang
                     {
                         reload();
                     }
+                    }
+
                 }
             }
             catch (Exception ex)
@@ -224,6 +218,7 @@ namespace GUI_Quanlykhachsan.ChucNang
             rdnu.Checked = false;
             guna2PictureBox1.Image = null;
             ImagePath = null;
+            reload();
         }
 
         private void guna2DataGridView1_CellClick_1(object sender, DataGridViewCellEventArgs e)
@@ -244,9 +239,15 @@ namespace GUI_Quanlykhachsan.ChucNang
                 rdnam.Checked = gioiTinh == "Nam";
                 rdnu.Checked = gioiTinh == "Nữ";
 
+                if (dongDL.Cells["anh"].Value == null)
+                {
+                    MessageBox.Show("Không tồn tại ảnh khách hàng!");
+                    return;
+                }
+
                 string imagePath = dongDL.Cells["anh"].Value.ToString();
 
-                if (!string.IsNullOrEmpty(imagePath))
+                if (!string.IsNullOrEmpty(dongDL.Cells["anh"].Value.ToString()))
                 {
                     try
                     {
@@ -275,9 +276,30 @@ namespace GUI_Quanlykhachsan.ChucNang
                     guna2PictureBox1.Image = null;
                     ImagePath = null;
                 }
+
+                kiemtra = false;
             }
         }
 
+        private void guna2GradientButton5_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.Filter = "Image Files|*.jpg;*.jpeg;*.png;";
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                ImagePath = openFileDialog1.FileName;
+                guna2PictureBox1.Image = System.Drawing.Image.FromFile(ImagePath);
+            }
+        }
 
+        private bool kiemtra = true;
+        private bool suaemail = false;
+
+        private void txtemail_TextChanged(object sender, EventArgs e)
+        {
+            if (kiemtra == false)
+            {
+                suaemail = true;
+            }
+        }
     }
 }

@@ -10,6 +10,7 @@ namespace GUI_Quanlykhachsan.ChucNang
     public partial class Qly_NhanVien : Form
     {
         Snhanvien bus_nhanvien = new Snhanvien();
+        private bool kiemtra = true;
         public Qly_NhanVien()
         {
             InitializeComponent();
@@ -80,6 +81,12 @@ namespace GUI_Quanlykhachsan.ChucNang
                 MessageBox.Show("Mật khẩu nhập lại không trùng!");
                 return false;
             }
+            if ((DateTime.Now.Year - NgaySinhPicker.Value.Year) < 18 ||
+    (DateTime.Now.Year - NgaySinhPicker.Value.Year == 18 && DateTime.Now < NgaySinhPicker.Value.AddYears(18)))
+            {
+                MessageBox.Show("Nhân viên phải trên 18 tuôi!");
+                return false;
+            }
             return true;
         }
 
@@ -103,6 +110,12 @@ namespace GUI_Quanlykhachsan.ChucNang
             if (!string.IsNullOrEmpty(txtmk.Text) && txtmk.Text != txtmk2.Text)
             {
                 MessageBox.Show("Mật khẩu nhập lại không trùng!");
+                return false;
+            }
+            if ((DateTime.Now.Year - NgaySinhPicker.Value.Year) < 18 ||
+    (DateTime.Now.Year - NgaySinhPicker.Value.Year == 18 && DateTime.Now < NgaySinhPicker.Value.AddYears(18)))
+            {
+                MessageBox.Show("Nhân viên phải trên 18 tuôi!");
                 return false;
             }
             return true;
@@ -145,7 +158,15 @@ namespace GUI_Quanlykhachsan.ChucNang
             {
                 CbVaitro.SelectedItem = dong.Cells[7].Value.ToString();
             }
+
+            kiemtra = false;
         }
+
+
+
+
+
+        private bool suaemail = false;
 
         private void guna2GradientButton2_Click(object sender, EventArgs e)
         {
@@ -158,13 +179,14 @@ namespace GUI_Quanlykhachsan.ChucNang
                 int idnvcantim = DTODB.db.nhanviens.First(p => p.taikhoan == txttk.Text).idnv;
                 string gender = rdnam.Checked ? "Nam" : "Nữ";
                 int vaitro = TDatPhong.VaiTro != 1 ? 3 : (CbVaitro.SelectedIndex + 1) == 0 ? 3 : CbVaitro.SelectedIndex + 1;
-                if (bus_nhanvien.suanv(idnvcantim, txtten.Text, txtemail.Text, txtsdt.Text, gender, txtdiachi.Text, NgaySinhPicker.Value.Date, txttk.Text, txtmk.Text, vaitro))
+                if (bus_nhanvien.suanv(idnvcantim, txtten.Text, txtemail.Text, txtsdt.Text, gender, txtdiachi.Text, NgaySinhPicker.Value.Date, txttk.Text, txtmk.Text, vaitro, suaemail))
                 {
                     MessageBox.Show("Sửa thành công!");
                     reload();
                 }
             }
         }
+
 
         private void guna2GradientButton3_Click(object sender, EventArgs e)
         {
@@ -182,5 +204,27 @@ namespace GUI_Quanlykhachsan.ChucNang
                 }
             }
         }
+
+
+        private void txttimkiem_TextChanged(object sender, EventArgs e)
+        {
+            var listtk = bus_nhanvien.hienthi().Where(x => x.ten.ToLower().Contains(txttimkiem.Text) || x.diachi.ToLower().Contains(txttimkiem.Text) || x.sdt.ToLower().Contains(txttimkiem.Text)).ToList();
+            if (listtk != null)
+            {
+                gview1.DataSource = listtk.ToList();
+            }
+        }
+
+
+        private void txtemail_TextChanged(object sender, EventArgs e)
+        {
+            if (kiemtra == false)
+            {
+                suaemail = true;
+            }
+        }
+
+
+
     }
 }

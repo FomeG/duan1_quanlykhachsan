@@ -5,13 +5,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using DTO_Quanly.Model.NoiBang;
 
 namespace DAL_Quanly.Repository.NhanVien
 {
     public class TruyVanNV
     {
 
-        public IEnumerable<dynamic> getlist()
+        public List<NoiNhanVien> getlist()
         {
             // Nếu là quản lý thì sẽ xem được nhân viên nhưng không thể xem được admin
             if (TDatPhong.VaiTro == 2)
@@ -22,17 +23,17 @@ namespace DAL_Quanly.Repository.NhanVien
                                    join c in DTODB.db.vaitroes.ToList()
                                    on b.loaitk equals c.id
                                    where b.loaitk == 3
-                                   select new
+                                   select new NoiNhanVien
                                    {
-                                       Ten = a.ten,
-                                       Email = a.email,
-                                       SDT = a.sdt,
-                                       Gioitinh = a.gioitinh,
-                                       Diachi = a.diachi,
-                                       Ngaysinh = a.ngaysinh,
-                                       Taikhoan = a.taikhoan,
-                                       Vaitro = c.vaitro1,
-                                       TrangThai = a.tt == false ? "Đang làm việc" : "Đã nghỉ"
+                                       ten = a.ten,
+                                       email = a.email,
+                                       sdt = a.sdt,
+                                       gioitinh = a.gioitinh,
+                                       diachi = a.diachi,
+                                       ngaysinh = (DateTime)a.ngaysinh,
+                                       taikhoan = a.taikhoan,
+                                       vaitro = c.vaitro1,
+                                       trangthai = a.tt == false ? "Đang làm việc" : "Đã nghỉ"
                                    };
                 return listnhanvien.ToList();
 
@@ -45,16 +46,17 @@ namespace DAL_Quanly.Repository.NhanVien
                                    join c in DTODB.db.vaitroes.ToList()
                                    on b.loaitk equals c.id
                                    where b.loaitk == 3 && a.tt == false
-                                   select new
+                                   select new NoiNhanVien
                                    {
-                                       Ten = a.ten,
-                                       Email = a.email,
-                                       SDT = a.sdt,
-                                       Gioitinh = a.gioitinh,
-                                       Diachi = a.diachi,
-                                       Ngaysinh = a.ngaysinh,
-                                       Taikhoan = a.taikhoan,
-                                       Vaitro = c.vaitro1,
+                                       ten = a.ten,
+                                       email = a.email,
+                                       sdt = a.sdt,
+                                       gioitinh = a.gioitinh,
+                                       diachi = a.diachi,
+                                       ngaysinh = (DateTime)a.ngaysinh,
+                                       taikhoan = a.taikhoan,
+                                       vaitro = c.vaitro1,
+                                       trangthai = a.tt == false ? "Đang làm việc" : "Đã nghỉ"
                                    };
                 return listnhanvien.ToList();
             }

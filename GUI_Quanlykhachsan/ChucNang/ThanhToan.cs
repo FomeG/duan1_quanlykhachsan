@@ -267,16 +267,17 @@ namespace GUI_Quanlykhachsan.ChucNang
             if (MessageBox.Show("Xác nhận dùng voucher? sẽ không được hoàn tác", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 decimal.TryParse(tongTT.Text, out decimal tongtien);
-                tongtien = tongtien - (tongtien * (voucher.giamgia / 100));
+                tongtien = tongtien - (tongtien * ((decimal)voucher.giamgia / 100));
+
                 tongTT.Text = tongtien.ToString();
 
-                txtVoucher.Enabled = false;
-                guna2GradientButton1.Enabled = false;
+                txtVoucher.Enabled = guna2GradientButton1.Enabled = BtnThanhToanSau.Enabled = false;
 
                 voucher.soluong -= 1;
                 DTODB.db.SaveChanges();
 
                 MessageBox.Show("Thành công!");
+
             }
 
         }

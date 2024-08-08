@@ -33,13 +33,15 @@ namespace GUI_Quanlykhachsan.ChucNang.Tai_Khoan
 
         public bool check()
         {
-            if (txtmk1.Text.Trim() == "" && txtmk2.Text.Trim() == "" && txtmk3.Text.Trim() == "")
+            string taikhoannv = DTODB.db.nhanviens.Find(TDatPhong.IDNV).taikhoan;
+            if (txtmk1.Text.Trim() == "" || txtmk2.Text.Trim() == "" || txtmk3.Text.Trim() == "")
             {
                 MessageBox.Show("Vui lòng điền thông tin!");
                 return false;
             }
 
-            if (txtmk1.Text.Trim() != DTODB.db.nhanviens.Find(TDatPhong.IDNV).taikhoan)
+
+            if (txtmk1.Text.Trim() != DTODB.db.taikhoans.Find(taikhoannv).matkhau)
             {
                 MessageBox.Show("Mật khẩu hiện tại không đúng!");
                 return false;
@@ -62,7 +64,7 @@ namespace GUI_Quanlykhachsan.ChucNang.Tai_Khoan
             {
                 if (MessageBox.Show("Bạn có chắc chắn muốn đổi mật khẩu?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    DTODB.db.taikhoans.SingleOrDefault(x => x.taikhoan1 == txtmk1.Text).matkhau = txtmk2.Text;
+                    DTODB.db.taikhoans.SingleOrDefault(x => x.taikhoan1 == txttaikhoannv.Text).matkhau = txtmk2.Text;
                     DTODB.db.SaveChanges();
 
                     Tailai();

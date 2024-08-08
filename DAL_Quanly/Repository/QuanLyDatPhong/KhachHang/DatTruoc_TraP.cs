@@ -78,15 +78,15 @@ namespace DAL_Quanly.Repository.QuanLyDatPhong.KhachHang
         }
 
 
-        public bool DatPhong(string tenkh, string email, string sdt, bool gender, string diachi, DateTime Nsinh, string duongdan, string khachtt, DateTime nDen, DateTime nDi, bool kiemtra)
+        public bool DatPhong(string tenkh, string email, string sdt, bool gender, string diachi, DateTime Nsinh, string khachtt, DateTime nDen, DateTime nDi, bool kiemtra)
         {
             using (var transaction = DTODB.db.Database.BeginTransaction())
             {
                 try
                 {
+
                     if (kiemtra == false)
                     {
-
                         // Thêm khách hàng mới vào DB
                         khachhang khmoi = new khachhang()
                         {
@@ -96,12 +96,15 @@ namespace DAL_Quanly.Repository.QuanLyDatPhong.KhachHang
                             gioitinh = gender ? "Nam" : "Nữ",
                             diachi = diachi,
                             ngaysinh = Nsinh,
-                            anh = duongdan
+                            anh = @"\LuuAnh\Avatar.jpg", // ảnh mặc định
+                            tt = false
                         };
 
                         DTODB.db.khachhangs.Add(khmoi);
                         DTODB.db.SaveChanges();
+
                     }
+
 
                     decimal.TryParse(khachtt, out decimal tientra);
                     // Thêm checkin mới vào DB

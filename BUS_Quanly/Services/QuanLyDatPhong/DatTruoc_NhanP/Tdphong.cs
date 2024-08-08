@@ -47,7 +47,7 @@ namespace BUS_Quanly.Services.QuanLyDatPhong.DatTruoc_NhanP
 
         }
 
-        public bool DatPhong(int Idphong, string tenkh, string email, string sdt, bool gender, string diachi, DateTime Nsinh, string duongdan, string khachtt, DateTime nDen, DateTime nDi, bool kiemtra)
+        public bool DatPhong(int Idphong, string tenkh, string email, string sdt, bool gender, string diachi, DateTime Nsinh, string khachtt, DateTime nDen, DateTime nDi, bool kiemtra)
         {
             try
             {
@@ -55,21 +55,16 @@ namespace BUS_Quanly.Services.QuanLyDatPhong.DatTruoc_NhanP
                 {
                     if (DTODB.db.khachhangs.FirstOrDefault(x => x.email == email) != null && kiemtra == true) // ko kiểm tra!
                     {
-                        return truyvan.DatPhong(tenkh, email, sdt, gender, diachi, Nsinh, duongdan, khachtt, nDen, nDi, true);
+                        return truyvan.DatPhong(tenkh, email, sdt, gender, diachi, Nsinh, khachtt, nDen, nDi, true);
                     }
                     else
                     {
-                        if (DTODB.db.khachhangs.FirstOrDefault(x => x.email == email) != null && kiemtra == false)// có kiểm tra
+                        if (kiemtra == false) // có kiểm tra
                         {
-                            MessageBox.Show("Email khách hàng đã tồn tại!");
-                            return false;
-                        }
-                        else
-                        {
-                            return truyvan.DatPhong(tenkh, email, sdt, gender, diachi, Nsinh, duongdan, khachtt, nDen, nDi, false);
+                            return truyvan.DatPhong(tenkh, email, sdt, gender, diachi, Nsinh, khachtt, nDen, nDi, false);
                         }
                     }
-                }
+                } 
                 MessageBox.Show($"Phòng này đã có người ở từ: {nDen.ToString()} đến {nDi.ToString()} rồi!");
                 return false;
 

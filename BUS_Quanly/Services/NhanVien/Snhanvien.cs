@@ -1,6 +1,7 @@
 ﻿using DAL_Quanly.Repository.NhanVien;
 using DTO_Quanly;
 using DTO_Quanly.Model.DB;
+using DTO_Quanly.Model.NoiBang;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,7 @@ namespace BUS_Quanly
             _truyvan = truyVanNV;
         }
 
-        public IEnumerable<dynamic> hienthi()
+        public List<NoiNhanVien> hienthi()
         {
             return _truyvan.getlist();
         }
@@ -75,11 +76,33 @@ namespace BUS_Quanly
         }
 
 
-        public bool suanv(int idnvcansua, string ten, string email, string sdt, string gioitinh, string diachi, DateTime nSinh, string tk, string mkmoi, int? loaitk)
+        public bool suanv(int idnvcansua, string ten, string email, string sdt, string gioitinh, string diachi, DateTime nSinh, string tk, string mkmoi, int? loaitk,bool kiemtra)
         {
-            if (DTODB.db.nhanviens.Where(a => a.email == email) != null)
+            if (kiemtra)
             {
+                if (DTODB.db.nhanviens.Where(a => a.email == email).ToList().Count() == 0)
+                {
 
+                    nhanvien nv = new nhanvien();
+                    nv.ten = ten;
+                    nv.email = email;
+                    nv.sdt = sdt;
+                    nv.gioitinh = gioitinh;
+                    nv.diachi = diachi;
+                    nv.ngaysinh = nSinh;
+                    nv.taikhoan = tk;
+
+                    return _truyvan.sua(idnvcansua, nv, mkmoi, loaitk ?? 3);
+
+                }
+                else
+                {
+                    MessageBox.Show("Email bị trùng");
+                    return false;
+                }
+            }
+            else
+            {
                 nhanvien nv = new nhanvien();
                 nv.ten = ten;
                 nv.email = email;
@@ -91,11 +114,7 @@ namespace BUS_Quanly
 
                 return _truyvan.sua(idnvcansua, nv, mkmoi, loaitk ?? 3);
             }
-            else
-            {
-                MessageBox.Show("Email bị trùng");
-                return false;
-            }
+           
         }
 
         public bool Xoa(int idnvcanxoa)

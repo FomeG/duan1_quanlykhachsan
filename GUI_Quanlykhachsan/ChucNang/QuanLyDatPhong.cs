@@ -26,12 +26,11 @@ namespace GUI_Quanlykhachsan.ChucNang
             var listp = DTODB.db.view_trangthai_phong_hientai.ToList();
             foreach (var item in listp)
             {
-
                 SoDoPhong.Controls.Add(new trangthaiphong(item.tenphong, item.mota, item.trangthai, item.idphong, 2, false, null, null));
             }
 
-            //var phongddddd = DTODB.db.view_trangthai_phong_hientai.Where(x => x.idphong == 9).First();
-            //SoDoPhong.Controls.Add(new trangthaiphong(phongddddd.tenphong, phongddddd.mota, phongddddd.trangthai, phongddddd.idphong, 2));
+            slgptrong.Text = DTODB.db.view_trangthai_phong_hientai.Where(x => x.trangthai_text == "Trống").ToList().Count().ToString();
+            slgpsudung.Text = DTODB.db.view_trangthai_phong_hientai.Where(x => x.trangthai_text == "Đã đặt").ToList().Count().ToString();
 
         }
         // Nút tải lại
@@ -39,6 +38,8 @@ namespace GUI_Quanlykhachsan.ChucNang
         {
             hienthiphong();
         }
+
+
 
         private string ngaydenStr;
         private string ngaydiStr;
@@ -54,6 +55,9 @@ namespace GUI_Quanlykhachsan.ChucNang
                 trangthaiphong phong = new trangthaiphong(item.tenphong, item.mota, item.trangthai, item.idphong, item.trangthai != 0 ? 1 : 2, IsSeached, ngayden.Date, ngaydi.Date);
                 SoDoPhong.Controls.Add(phong);
             }
+
+            slgptrong.Text = DTODB.db.kiemtra_trangthai_phong(ngaydenStr, ngaydiStr).Where(x => x.trangthai_text == "Trống").ToList().Count.ToString();
+            slgpsudung.Text = DTODB.db.kiemtra_trangthai_phong(ngaydenStr, ngaydiStr).Where(x => x.trangthai_text == "Đã đặt").ToList().Count.ToString();
             IsSeached = true;
         }
     }

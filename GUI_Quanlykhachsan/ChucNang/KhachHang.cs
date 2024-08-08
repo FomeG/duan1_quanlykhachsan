@@ -1,8 +1,12 @@
 ﻿using BUS_Quanly.Services.QuanLyDatPhong.DatTruoc_NhanP;
 using DTO_Quanly;
 using DTO_Quanly.Transfer;
+using Guna.UI2.WinForms;
+using iText.IO.Image;
+using Org.BouncyCastle.Asn1.X500;
 using System;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
@@ -17,9 +21,10 @@ namespace GUI_Quanlykhachsan.ChucNang
         private bool _dragging;
         private Point _dragCursorPoint;
         private Point _dragFormPoint;
-        private string _duongdananh;
         private bool checkclick;
 
+        private string ImagePath;
+        private const string IMAGE_FOLDER = @"\LuuAnh";
 
         private readonly int IDP;
         public KhachHang(int iDPphong, DateTime? Nden, DateTime? Ndi)
@@ -125,6 +130,12 @@ namespace GUI_Quanlykhachsan.ChucNang
                 MessageBox.Show("Ngày đi không được nhỏ hơn ngày đến!", "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
+            if ((DateTime.Now.Year - NgaySinh.Value.Year) < 18 ||
+     (DateTime.Now.Year - NgaySinh.Value.Year == 18 && DateTime.Now < NgaySinh.Value.AddYears(18)))
+            {
+                MessageBox.Show("Khách hàng phải trên 18 tuôi!");
+                return false;
+            }
             return true;
         }
         // Hàm kiểm tra email bằng regex
@@ -170,6 +181,31 @@ namespace GUI_Quanlykhachsan.ChucNang
             checkclick = false;
         }
 
+        // Hàm lưu ảnh
+        private string SaveImage(string sourcePath)
+        {
+            try
+            {
+                string fileName = Path.GetFileName(sourcePath);
+                string projectRoot = GetProjectRootPath();
+                string destinationFolder = Path.Combine(projectRoot, "GUI_Quanlykhachsan", IMAGE_FOLDER.TrimStart('\\'));
+
+                if (!Directory.Exists(destinationFolder))
+                {
+                    Directory.CreateDirectory(destinationFolder);
+                }
+
+                string destinationPath = Path.Combine(destinationFolder, fileName);
+                File.Copy(sourcePath, destinationPath, true);
+
+                return Path.Combine(IMAGE_FOLDER, fileName);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi lưu ảnh: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
 
         // Nút nhận phòng
         private void guna2Button3_Click(object sender, EventArgs e)
@@ -189,11 +225,14 @@ namespace GUI_Quanlykhachsan.ChucNang
                     }
                     else
                     {
-                        if (_tdp.DatPhong(IDP, txtTen.Text, txtEmail.Text, txtSDT.Text, rdNam.Checked, txtDiaChi.Text, NgaySinh.Value.Date, _duongdananh, txtKhachThanhToan.Text, NgayDen.Value.Date, NgayDi.Value.Date, checkclick))
-                        {
-                            MessageBox.Show("Đặt phòng thành công!");
-                            Close();
-                        }
+                        
+                      
+                            if (_tdp.DatPhong(IDP, txtTen.Text, txtEmail.Text, txtSDT.Text, rdNam.Checked, txtDiaChi.Text, NgaySinh.Value.Date, txtKhachThanhToan.Text, NgayDen.Value.Date, NgayDi.Value.Date, checkclick))
+                            {
+                                MessageBox.Show("Đặt phòng thành công!");
+                                Close();
+                            }
+                       
                     }
                 }
             }
@@ -202,15 +241,18 @@ namespace GUI_Quanlykhachsan.ChucNang
         {
         }
 
-
-        private void guna2Button1_Click(object sender, EventArgs e)
+        private string GetProjectRootPath()
         {
-            OpenFileDialog lam = new OpenFileDialog();
-            if (lam.ShowDialog() == DialogResult.OK)
+            string currentPath = Application.StartupPath;
+            while (!Directory.Exists(Path.Combine(currentPath, "GUI_Quanlykhachsan")))
             {
-                anhkh.Image = Image.FromFile(lam.FileName);
-                _duongdananh = lam.FileName;
+                currentPath = Directory.GetParent(currentPath).FullName;
+                if (string.IsNullOrEmpty(currentPath)) // Đề phòng trường hợp không tìm thấy
+                {
+                    return Application.StartupPath;
+                }
             }
+            return currentPath;
         }
 
         private void txtKhachThanhToan_TextChanged(object sender, EventArgs e)
@@ -241,7 +283,7 @@ namespace GUI_Quanlykhachsan.ChucNang
             if (DTODB.db.khachhangs.FirstOrDefault(a => a.sdt == txtSDT.Text) == null)
             {
                 var listtk = from a in DTODB.db.khachhangs.ToList()
-                             where a.sdt.Contains(txtSDT.Text)
+                             where a.sdt.Contains(txtSDT.Text) && a.tt == false
                              select new
                              {
                                  a.ten,
@@ -261,12 +303,17 @@ namespace GUI_Quanlykhachsan.ChucNang
         {
             txtTen.Enabled = txtEmail.Enabled = rdNam.Enabled = rdNu.Enabled = txtSDT.Enabled = NgaySinh.Enabled = txtDiaChi.Enabled = false;
         }
+
+
         public void invalidate()
         {
             txtTen.Enabled = txtEmail.Enabled = rdNam.Enabled = rdNu.Enabled = txtSDT.Enabled = NgaySinh.Enabled = txtDiaChi.Enabled = true;
         }
+
+
         private void gview1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            checkclick = true;
             validate();
             var dong = gview1.Rows[e.RowIndex];
 
@@ -284,7 +331,31 @@ namespace GUI_Quanlykhachsan.ChucNang
             txtDiaChi.Text = dong.Cells[4].Value.ToString();
             NgaySinh.Value = (DateTime)dong.Cells[5].Value;
 
-            checkclick = true; // Ko kiểm tra email
+
+
+            if (e.RowIndex >= 0)
+            {
+                var dongDL = gview1.Rows[e.RowIndex];
+
+                txtTen.Text = dong.Cells[0].Value.ToString();
+                txtEmail.Text = dong.Cells[1].Value.ToString();
+                txtSDT.Text = dong.Cells[2].Value.ToString();
+                txtDiaChi.Text = dong.Cells[4].Value.ToString();
+                NgaySinh.Value = (DateTime)dong.Cells[5].Value;
+
+                if (dong.Cells["gioitinh"].Value.ToString() == "Nam")
+                {
+                    rdNam.Checked = true;
+                }
+                else
+                {
+                    rdNu.Checked = true;
+                }
+
+
+               
+            }
+
 
         }
 

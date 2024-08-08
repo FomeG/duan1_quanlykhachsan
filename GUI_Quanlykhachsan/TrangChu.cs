@@ -176,6 +176,7 @@ namespace GUI_Quanlykhachsan
         private void guna2GradientButton7_Click(object sender, EventArgs e)
         {
             tngayden.Enabled = tngayden.Visible = tngaydi.Enabled = tngaydi.Visible = Ttimp.Visible = Ttimp.Enabled = false;
+            _frmQuanlyDV.guna2GradientButton4_Click(sender, e);
             LoadForm(_frmQuanlyDV, (Guna2GradientButton)sender);
         }
 
