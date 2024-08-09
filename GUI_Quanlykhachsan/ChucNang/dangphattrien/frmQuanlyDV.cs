@@ -61,7 +61,7 @@ namespace GUI_Quanlykhachsan.ChucNang.dangphattrien
                 return false;
             }
 
-            if (!txtgiadv.Text.All(char.IsDigit))
+            if (!decimal.TryParse(txtgiadv.Text, out decimal giadv))
             {
                 MessageBox.Show("Giá phải là 1 số!");
                 return false;

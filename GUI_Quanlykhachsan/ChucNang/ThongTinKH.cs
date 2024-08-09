@@ -44,7 +44,7 @@ namespace GUI_Quanlykhachsan.ChucNang
                 MessageBox.Show("Số điện thoại phải có 10 chữ số", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            if (!txtemail.Text.Contains('@') || !txtemail.Text.Contains('.'))
+            if (!txtemail.Text.EndsWith("@gmail.com"))
             {
                 MessageBox.Show("Định dạng email không hợp lệ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;

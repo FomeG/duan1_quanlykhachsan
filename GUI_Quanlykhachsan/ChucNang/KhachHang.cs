@@ -141,17 +141,23 @@ namespace GUI_Quanlykhachsan.ChucNang
         // Hàm kiểm tra email bằng regex
         public static bool IsValidEmail(string email)
         {
-            try
+            if (email.EndsWith("@gmail.com"))
             {
-                // Biểu thức chính quy để kiểm tra email
-                string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
-                Regex regex = new Regex(pattern, RegexOptions.IgnoreCase);
-                return regex.IsMatch(email);
+                try
+                {
+                    return true;
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
             }
-            catch (Exception)
+            else
             {
+                MessageBox.Show("Email không hợp lệ");
                 return false;
             }
+
         }
 
         //Nút tải lại
